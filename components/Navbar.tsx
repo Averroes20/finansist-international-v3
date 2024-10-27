@@ -3,7 +3,7 @@ import { icons } from '@/constants/icons';
 import { images } from '@/constants/images';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Whatsapp } from './icons/social-media';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import {
@@ -45,14 +45,27 @@ const dropdownVariants: Variants = {
 
 const Navbar = () => {
   const [language, setLanguage] = useState('EN');
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
-  const toggleDropdown = () => setOpenDropdown(!openDropdown);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const handleOutsideClick = useCallback((event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setOpenMenu(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [handleOutsideClick]);
+
+  const toggleMobileMenu = useCallback(() => setOpenMenu((prev) => !prev), []);
+  const toggleDropdown = useCallback(() => setOpenDropdown((prev) => !prev), []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-gray-100 p-4">
+    <nav className="sticky top-0 z-50 bg-gray-100 p-4 backdrop-blur-lg">
       <div className="container mx-auto flex items-center justify-between ">
         <Image src={images.LogoLarge} alt="logo" width={150} className="aspect-auto" />
         <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
@@ -115,20 +128,21 @@ const Navbar = () => {
           </DropdownMenu>
 
           {/* Mobile menu */}
-          <motion.div initial={false} animate={isMobileMenuOpen ? 'open' : 'closed'} className="md:hidden ml-4">
+          <motion.div initial={false} animate={openMenu ? 'open' : 'closed'} className="md:hidden ml-4">
             <motion.button
               className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-200"
               onClick={toggleMobileMenu}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle navigation"
             >
-              {isMobileMenuOpen ? <Close className="w-6 h-6" /> : <BurgerMenu className="w-6 h-6" />}
+              {openMenu ? <Close className="w-6 h-6" /> : <BurgerMenu className="w-6 h-6" />}
             </motion.button>
             <motion.div
               className="md:hidden absolute top-20 w-[90vw] rounded-lg left-1/2 -translate-x-1/2 bg-white shadow-md overflow-hidden"
               initial="closed"
-              animate={isMobileMenuOpen ? 'open' : 'closed'}
+              animate={openMenu ? 'open' : 'closed'}
               variants={dropdownVariants}
+              ref={menuRef}
             >
               <motion.ul className="flex flex-col space-y-2 p-4">
                 {menuItems.map((item, index) => (

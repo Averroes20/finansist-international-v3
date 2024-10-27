@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
-const CYCLES_PER_DIGIT = 15;
+const CYCLES_PER_DIGIT = 20;
 const SHUFFLE_TIME = 75;
 const DIGITS = '0123456789';
 
@@ -15,14 +15,12 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
 
   const [text, setText] = useState(TARGET_NUMBER);
 
-  useEffect(() => {
-    scramble();
-    return () => {
-      stopScramble();
-    };
-  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+  const stopScramble = useCallback(() => {
+    clearInterval(intervalRef.current as NodeJS.Timeout);
+    setText(TARGET_NUMBER);
+  }, [TARGET_NUMBER]);
 
-  const scramble = () => {
+  const scramble = useCallback(() => {
     let pos = 0;
 
     intervalRef.current = setInterval(() => {
@@ -46,12 +44,14 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
         stopScramble();
       }
     }, SHUFFLE_TIME);
-  };
+  }, [TARGET_NUMBER, stopScramble]);
 
-  const stopScramble = () => {
-    clearInterval(intervalRef.current as NodeJS.Timeout);
-    setText(TARGET_NUMBER);
-  };
+  useEffect(() => {
+    scramble();
+    return () => {
+      stopScramble();
+    };
+  }, [scramble, stopScramble]); // Empty dependency array ensures useEffect runs only once on component mount
 
   return (
     <motion.h1
@@ -63,7 +63,7 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
       }}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="cursor-default text-3xl font-bold dark:text-white sm:text-4xl md:text-5xl"
+      className="cursor-pointer text-3xl font-bold dark:text-white md:text-6xl"
     >
       {text}
     </motion.h1>

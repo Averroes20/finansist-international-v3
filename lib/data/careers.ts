@@ -20,7 +20,7 @@ export const careers: Career[] = [
     form: [
       { id: 'name', label: 'Name', type: 'text' },
       { id: 'currentCollege', label: 'Current College', type: 'text' },
-      { id: 'phone', label: 'Telephone No', type: 'text' },
+      { id: 'phone', label: 'Telephone No', type: 'number' },
       { id: 'email', label: 'Email', type: 'email' },
       { id: 'desirablePosition', label: 'Desirable Position', type: 'text' },
       { id: 'message', label: 'Message', type: 'textarea' },
@@ -33,7 +33,7 @@ export const careers: Career[] = [
     form: [
       { id: 'name', label: 'Name', type: 'text' },
       { id: 'lastEduction', label: 'Last Eduction', type: 'text' },
-      { id: 'phone', label: 'Telephone No', type: 'text' },
+      { id: 'phone', label: 'Telephone No', type: 'number' },
       { id: 'email', label: 'Email', type: 'email' },
       { id: 'desirablePosition', label: 'Desirable Position', type: 'text' },
       { id: 'experienceCertificate', label: 'Expertise Certificate', type: 'textarea' },
@@ -48,7 +48,7 @@ export const careers: Career[] = [
     form: [
       { id: 'name', label: 'Name', type: 'text' },
       { id: 'companyName', label: 'Company Name', type: 'text' },
-      { id: 'phone', label: 'Telephone No', type: 'text' },
+      { id: 'phone', label: 'Telephone No', type: 'number' },
       { id: 'email', label: 'Email', type: 'email' },
       { id: 'formOfCooperation', label: 'Form of Cooperation', type: 'text' },
       { id: 'consultationDate', label: 'Consultation Date', type: 'date' },

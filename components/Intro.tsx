@@ -10,7 +10,7 @@ import { Button } from './ui/button';
 
 const Intro = () => {
   return (
-    <section className="pt-3 container max-w-screen-xl mx-auto">
+    <section id="home" className="pt-3 container max-w-screen-xl mx-auto">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-4">
           <Image src={images.ImageIntro} alt="intro" width={600} loading="lazy" className="aspect-auto rounded-lg" />

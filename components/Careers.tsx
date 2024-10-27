@@ -55,19 +55,15 @@ const CareerForm: React.FC<CareerFormProps> = ({ form }) => {
           ) : (
             <>
               <Label htmlFor={formField.id}>{formField.label}</Label>
-              <Input
-                id={formField.id}
-                name={formField.id}
-                type={formField.type}
-                inputMode={formField.id === 'phone' ? 'numeric' : formField.id === 'email' ? 'email' : 'text'}
-                required
-              />
+              <Input id={formField.id} name={formField.id} type={formField.type} required />
             </>
           )}
         </div>
       ))}
       <DialogFooter>
-        <Button type="submit">Send</Button>
+        <Button type="submit" className="mx-auto">
+          Send
+        </Button>
       </DialogFooter>
     </form>
   );
@@ -75,7 +71,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ form }) => {
 
 const Careers = () => {
   return (
-    <section className="max-w-screen-lg mx-auto py-10 md:py-20">
+    <section id="careers" className="max-w-screen-lg mx-auto py-10 md:py-20">
       <TypographyH2 className="text-center font-bold mb-5 md:mb-10 uppercase">Join our program!</TypographyH2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {careers.map((item, index) => (
@@ -106,91 +102,6 @@ const Careers = () => {
                   <DialogDescription>Complete your details below, then click submit.</DialogDescription>
                 </DialogHeader>
                 <CareerForm form={item.form} />
-                {/* {item.title === 'Internship' ? (
-                  <form className="grid gap-4 py-4">
-                    {item.title === 'Internship' &&
-                      item.form?.map((form, idx) => (
-                        <div key={idx} className="grid grid-rows-1 gap-2">
-                          {form.type === 'textarea' ? (
-                            <>
-                              <Label htmlFor={form.id}>{form.label}</Label>
-                              <Textarea id={form.id} className="col-span-3" required />
-                            </>
-                          ) : (
-                            <>
-                              <Label htmlFor={form.id}>{form.label}</Label>
-                              <Input id={form.id} type={form.type} className="col-span-3" required />
-                            </>
-                          )}
-                        </div>
-                      ))}
-                    <DialogFooter>
-                      <Button type="submit">Send</Button>
-                    </DialogFooter>
-                  </form>
-                ) : item.title === 'Jobs' ? (
-                  <form className="grid gap-4 py-4">
-                    {item.title === 'Jobs' &&
-                      item.form?.map((form, idx) => (
-                        <div key={idx} className="grid grid-rows-1 gap-2">
-                          {form.type === 'textarea' ? (
-                            <>
-                              <Label htmlFor={form.id}>{form.label}</Label>
-                              <Textarea id={form.id} className="col-span-3" required />
-                            </>
-                          ) : (
-                            <>
-                              <Label htmlFor={form.id}>{form.label}</Label>
-                              <Input id={form.id} type={form.type} className="col-span-3" required />
-                            </>
-                          )}
-                        </div>
-                      ))}
-                    <DialogFooter>
-                      <Button type="submit">Send</Button>
-                    </DialogFooter>
-                  </form>
-                ) : (
-                  <form className="grid gap-4 py-4">
-                    {item.title === 'Partner' &&
-                      item.form?.map((form, idx) => (
-                        <div key={idx} className="grid grid-rows-1 gap-2">
-                          {form.type === 'textarea' ? (
-                            <>
-                              <Label htmlFor={form.id}>{form.label}</Label>
-                              <Textarea id={form.id} className="col-span-3" required />
-                            </>
-                          ) : form.type === 'date' ? (
-                            <>
-                              <Label htmlFor={form.id}>{form.label}</Label>
-                              <Popover>
-                                <PopoverTrigger asChild>
-                                  <Button
-                                    variant={'outline'}
-                                    className={cn('w-full justify-start text-left font-normal', !date && 'text-muted-foreground')}
-                                  >
-                                    <CalendarIcon />
-                                    {date ? format(date, 'PPP') : <span>{form.label}</span>}
-                                  </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-auto p-0">
-                                  <Calendar mode="single" selected={date} onSelect={setDate} initialFocus required />
-                                </PopoverContent>
-                              </Popover>
-                            </>
-                          ) : (
-                            <>
-                              <Label htmlFor={form.id}>{form.label}</Label>
-                              <Input id={form.id} type={form.type} className="col-span-3" required />
-                            </>
-                          )}
-                        </div>
-                      ))}
-                    <DialogFooter>
-                      <Button type="reset">Send</Button>
-                    </DialogFooter>
-                  </form>
-                )} */}
               </DialogContent>
             </Dialog>
           </div>

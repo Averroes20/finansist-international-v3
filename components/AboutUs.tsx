@@ -5,7 +5,7 @@ import { TypographyH2, TypographyH3, TypographyP } from './ui/typography';
 
 const AboutUs = () => {
   return (
-    <section className="container max-w-screen-xl mx-auto">
+    <section id="about-us" className="container max-w-screen-xl mx-auto">
       <div className="flex flex-col gap-4">
         <TypographyH2 className="font-bold text-center">We handle clients from many countries</TypographyH2>
         <Image src={images.OurJourney} alt="Our Journey" className="mx-auto aspect-auto" loading="lazy" />

@@ -16,25 +16,25 @@ interface MenuLanguage {
 }
 
 export const menuItems: MenuItem[] = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '#home' },
   {
     label: 'Service',
     subItems: {
       company: [
-        { label: 'Accounting and Bookkeeping', href: '/services/accounting' },
-        { label: 'Tax Report', href: '/services/tax-report' },
-        { label: 'Payroll', href: '/services/payroll' },
+        { label: 'Accounting and Bookkeeping', href: '#' },
+        { label: 'Tax Report', href: '#' },
+        { label: 'Payroll', href: '#' },
       ],
       special: [
-        { label: 'Tax Planning', href: '/services/tax-planning' },
-        { label: 'LKPM/PMA Report', href: '/services/lkpm-pma-report' },
-        { label: 'Internal Audit', href: '/services/internal-audit' },
-        { label: 'External Audit', href: '/services/external-audit' },
+        { label: 'Tax Planning', href: '#' },
+        { label: 'LKPM/PMA Report', href: '#' },
+        { label: 'Internal Audit', href: '#' },
+        { label: 'External Audit', href: '#' },
       ],
     },
   },
-  { label: 'About Us', href: '/about' },
-  { label: 'Careers', href: '/careers' },
+  { label: 'About Us', href: '#about-us' },
+  { label: 'Careers', href: '#careers' },
   { label: 'Blogs', href: '/blogs' },
 ];
 
