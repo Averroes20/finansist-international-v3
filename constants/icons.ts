@@ -29,7 +29,7 @@ import Beanburds from '@/public/icons/portfolio/beanburds.png';
 import Brandworks from '@/public/icons/portfolio/brandworks.png';
 import BreakfreeTrading from '@/public/icons/portfolio/breakfree-trading.png';
 import Clockster from '@/public/icons/portfolio/clockster.png';
-import CNTRDConsulting from '@/public/icons/portfolio/cntrd-consulting.png';
+import CNTRDConsulting from '@/public/icons/portfolio/CNTRD-consulting.png';
 import Counto from '@/public/icons/portfolio/counto.png';
 import Davis from '@/public/icons/portfolio/davis-st-property-holdings.png';
 import Front from '@/public/icons/portfolio/front.png';
