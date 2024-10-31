@@ -27,7 +27,7 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
       const scrambled = TARGET_NUMBER.split('')
         .map((digit, index) => {
           if (pos / CYCLES_PER_DIGIT > index) {
-            return digit; // Gunakan digit asli jika pos telah melewati indeks ini
+            return digit;
           }
 
           const randomDigitIndex = Math.floor(Math.random() * DIGITS.length);
@@ -51,7 +51,7 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
     return () => {
       stopScramble();
     };
-  }, [scramble, stopScramble]); // Empty dependency array ensures useEffect runs only once on component mount
+  }, [scramble, stopScramble]);
 
   return (
     <motion.h1

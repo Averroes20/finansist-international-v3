@@ -8,13 +8,15 @@ const Achievements = memo(() => (
     {achievements.map((achievement, index) => (
       <div key={index}>
         <div className="text-3xl md:text-4xl font-bold flex items-end md:gap-2">
-          <ScrambleNumber>{achievement.count}</ScrambleNumber>+
+          <MemoizedScrambleNumber>{achievement.count}</MemoizedScrambleNumber>+
         </div>
         <TypographyP className="text-sm md:text-base leading-4">{achievement.description}</TypographyP>
       </div>
     ))}
   </div>
 ));
+
+const MemoizedScrambleNumber = memo(ScrambleNumber);
 
 Achievements.displayName = 'Achievements';
 export default Achievements;

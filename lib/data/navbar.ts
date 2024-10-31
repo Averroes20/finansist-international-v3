@@ -16,25 +16,25 @@ interface MenuLanguage {
 }
 
 export const menuItems: MenuItem[] = [
-  { label: 'Home', href: '#home' },
+  { label: 'Home', href: '/#home' },
   {
     label: 'Service',
     subItems: {
       company: [
-        { label: 'Accounting and Bookkeeping', href: '#' },
-        { label: 'Tax Report', href: '#' },
-        { label: 'Payroll', href: '#' },
+        { label: 'Accounting and Bookkeeping', href: '/#' },
+        { label: 'Tax Report', href: '/#' },
+        { label: 'Payroll', href: '/#' },
       ],
       special: [
-        { label: 'Tax Planning', href: '#' },
+        { label: 'Tax Planning', href: '/#' },
         { label: 'LKPM/PMA Report', href: '#' },
         { label: 'Internal Audit', href: '#' },
         { label: 'External Audit', href: '#' },
       ],
     },
   },
-  { label: 'About Us', href: '#about-us' },
-  { label: 'Careers', href: '#careers' },
+  { label: 'About Us', href: '/#about-us' },
+  { label: 'Careers', href: '/#careers' },
   { label: 'Blogs', href: '/blogs' },
 ];
 

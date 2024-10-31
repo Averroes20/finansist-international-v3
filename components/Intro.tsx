@@ -1,12 +1,10 @@
 'use client';
 import { images } from '@/constants/images';
 import Image from 'next/image';
-import { memo } from 'react';
 import Achievements from './common/AchievementCard';
+import ButtonContact from './common/ButtonContact';
 import ClientSlider from './common/ClientSlide';
-import { Whatsapp } from './icons/social-media';
 import { TypographyH2, TypographyP } from './ui/typography';
-import { Button } from './ui/button';
 
 const Intro = () => {
   return (
@@ -34,10 +32,7 @@ const Intro = () => {
             </TypographyP>
           </div>
           <Achievements />
-          <Button className="mt-4 px-4 py-2 flex items-center gap-2 text-sm self-start bg-green-500 text-white hover:bg-green-600 rounded-full">
-            <Whatsapp />
-            Consult With Us
-          </Button>
+          <ButtonContact className="mt-4" />
         </div>
       </div>
       <div className="p-6">
@@ -53,4 +48,4 @@ const Intro = () => {
   );
 };
 
-export default memo(Intro);
+export default Intro;

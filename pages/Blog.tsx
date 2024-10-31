@@ -1,11 +1,11 @@
 'use client';
 import BlogCard from '@/components/common/BlogCard';
-import { Search } from '@/components/icons/asset-svg';
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { TypographyH2, TypographyP } from '@/components/ui/typography';
 import { blogs } from '@/lib/data/blogs';
+import { Search } from 'lucide-react';
 import { Fragment, useState } from 'react';
 
 const menuCategories = [

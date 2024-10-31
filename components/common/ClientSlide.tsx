@@ -2,7 +2,8 @@ import { clients } from '@/lib/data/intro';
 import { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-const ClientSlider = memo(() => {
+
+const ClientSlider = () => {
   const clientList = useMemo(() => clients.concat(clients), []);
 
   return (
@@ -25,6 +26,6 @@ const ClientSlider = memo(() => {
       ))}
     </motion.div>
   );
-});
-ClientSlider.displayName = 'ClientSlider';
-export default ClientSlider;
+};
+
+export default memo(ClientSlider);

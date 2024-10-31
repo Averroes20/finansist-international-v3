@@ -2,15 +2,15 @@
 import { images } from '@/constants/images';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import { CopyPaste } from './icons/asset-svg';
+import React, { useCallback, useState } from 'react';
 import { Email, Facebook, Instagram, Linkedin, TikTok, Whatsapp, Youtube } from './icons/social-media';
 import { TypographyH4, TypographyP } from './ui/typography';
+import { Clipboard, ClipboardCheck } from 'lucide-react';
 
 const Footer = () => {
-  const [copied, setCopied] = React.useState<{ email: boolean; phone: boolean }>({ email: false, phone: false });
+  const [copied, setCopied] = useState<{ email: boolean; phone: boolean }>({ email: false, phone: false });
 
-  const handleCopy = React.useCallback(async (text: string, type: 'email' | 'phone') => {
+  const handleCopy = useCallback(async (text: string, type: 'email' | 'phone') => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied((prev) => ({ ...prev, [type]: true }));
@@ -37,22 +37,22 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-4 items-center ">
           <TypographyH4>Get In Touch</TypographyH4>
-          <TypographyP className="md:text-sm">
+          <TypographyP className="flex items-center md:text-sm">
             <span className="mr-1">
               <Email className="text-red-500 inline" />
             </span>
             support@finansistinternational.com
             <span className="ml-1 cursor-pointer" onClick={() => handleCopy('support@finansistinternational.com', 'email')}>
-              {copied.email ? <span className="mr-2 text-green-600 font-bold">✔</span> : <CopyPaste className="inline" fill="none" />}
+              {copied.email ? <ClipboardCheck size={18} /> : <Clipboard size={18} />}
             </span>
           </TypographyP>
-          <TypographyP className="items-center md:text-sm">
+          <TypographyP className="flex items-center md:text-sm">
             <span className="mr-1">
               <Whatsapp className="text-green-500 inline" />
             </span>
-            +6281222000842
-            <span className="ml-1 cursor-pointer" onClick={() => handleCopy('+6281222000842', 'phone')}>
-              {copied.phone ? <span className="mr-2 text-green-600 font-bold">✔</span> : <CopyPaste className="inline" fill="none" />}
+            +6281211114994
+            <span className="ml-1 cursor-pointer" onClick={() => handleCopy('+6281211114994', 'phone')}>
+              {copied.phone ? <ClipboardCheck size={18} /> : <Clipboard size={18} />}
             </span>
           </TypographyP>
           <div className="flex gap-2 items-center justify-center">

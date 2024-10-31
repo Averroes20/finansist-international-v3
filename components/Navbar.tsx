@@ -1,10 +1,12 @@
 'use client';
 import { icons } from '@/constants/icons';
 import { images } from '@/constants/images';
+import { menuItems, menuLanguages } from '@/lib/data/navbar';
+import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Whatsapp } from './icons/social-media';
+import ButtonContact from './common/ButtonContact';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import {
   NavigationMenu,
@@ -16,10 +18,9 @@ import {
   navigationMenuTriggerStyle,
 } from './ui/navigation-menu';
 import { TypographyH5 } from './ui/typography';
+import { ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
-import { BurgerMenu, ChevronDown, ChevronUp, Close } from './icons/asset-svg';
-import { motion, Variants } from 'framer-motion';
-import { menuItems, menuLanguages } from '@/lib/data/navbar';
+import { useRouter } from 'next/navigation';
 
 const dropdownVariants: Variants = {
   open: {
@@ -47,6 +48,7 @@ const Navbar = () => {
   const [language, setLanguage] = useState('EN');
   const [openMenu, setOpenMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const router = useRouter();
 
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -63,6 +65,8 @@ const Navbar = () => {
 
   const toggleMobileMenu = useCallback(() => setOpenMenu((prev) => !prev), []);
   const toggleDropdown = useCallback(() => setOpenDropdown((prev) => !prev), []);
+
+  const toLogin = () => router.push('/auth/login');
 
   return (
     <nav className="sticky top-0 z-50 bg-gray-100 p-4 backdrop-blur-lg">
@@ -103,11 +107,9 @@ const Navbar = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center">
-          <Button className="px-4 py-2 hidden md:flex items-center gap-2 text-sm self-start bg-green-500 text-white hover:bg-green-600 rounded-full">
-            <Whatsapp />
-            Consult With Us
-          </Button>
+        <div className="flex items-center gap-5">
+          <Button onClick={toLogin}>Login</Button>
+          <ButtonContact className="hidden md:flex" />
           <DropdownMenu>
             <DropdownMenuTrigger className="ml-4 focus:outline-none">
               <div className="flex items-center gap-2">
@@ -135,7 +137,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle navigation"
             >
-              {openMenu ? <Close className="w-6 h-6" /> : <BurgerMenu className="w-6 h-6" />}
+              {openMenu ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </motion.button>
             <motion.div
               className="md:hidden absolute top-20 w-[90vw] rounded-lg left-1/2 -translate-x-1/2 bg-white shadow-md overflow-hidden"
