@@ -59,16 +59,17 @@ const Services = () => {
                   ))}
                 </div>
                 <div className="col-span-2 p-5">
-                  <DialogDescription className="w-72 mx-auto  p-4">
-                    <DotLottieReact src={service.icon} loop autoplay speed={0.9} />
-                  </DialogDescription>
                   <DialogHeader>
+                    <div className="w-72 mx-auto  p-4">
+                      <DotLottieReact src={service.icon} loop autoplay speed={0.9} />
+                    </div>
                     <DialogTitle className="font-bold text-center text-black">
                       <span className="border-b-4 border-[#3A9DA1] inline-block pb-2">{service.title}</span>
                     </DialogTitle>
                   </DialogHeader>
                   <div className="mt-4">
-                    <p className="leading-6">{service.details.overview}</p>
+                    <DialogDescription className="leading-7 text-black dark:text-white text-base">{service.details.overview}</DialogDescription>
+
                     {service.details.extendedServices.map((extendedService, index) => (
                       <p key={index} className="my-1">
                         <span className="mr-2 text-green-600 font-bold">✔</span>

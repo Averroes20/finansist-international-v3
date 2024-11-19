@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Modal from './common/Modal';
 import { useTheme } from '@/context/ThemeProvider';
-import { DialogHeader, DialogTitle } from './ui/dialog';
+import { DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
 
 const ValueCompany = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
@@ -33,6 +33,7 @@ const ValueCompany = () => {
     } else {
       setIsDarkMode(false);
     }
+    console.log('dark mode', isInView);
   }, [isInView, setIsDarkMode]);
 
   useEffect(() => {
@@ -122,7 +123,7 @@ const ValueCompany = () => {
                     trigger={<ChevronRight className="w-6 h-6 text-white" />}
                     contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[80vw] md:max-h-[80vh] p-0 border-0 overflow-y-auto"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0 md:space-x-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 ">
                       <div className="col-span-1 p-5 bg-[#3A9DA1]">
                         <h1 className="text-center font-dosis text-lg text-white">What you will get</h1>
                         <p>
@@ -138,14 +139,14 @@ const ValueCompany = () => {
                           provident. Minus, alias dolorem.
                         </p>
                       </div>
-                      <div className="col-span-2 p-5 text-black dark:text-white">
+                      <div className="col-span-2 p-5 bg-slate-900">
                         <DialogHeader>
-                          <DialogTitle className="font-bold text-center text-black dark:text-white">
-                            <span className="border-b-4 border-[#3A9DA1] inline-block pb-2">C02 AI raises 12m USD in seed funding</span>
+                          <DialogTitle className="font-bold text-center">
+                            <span className="border-b-4 border-[#3A9DA1] inline-block pb-2 text-white">C02 AI raises 12m USD in seed funding</span>
                           </DialogTitle>
                         </DialogHeader>
                         <div className="mt-4">
-                          <p className="leading-6 text-black dark:text-white">
+                          <DialogDescription className="leading-7 text-white text-base">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam
                             porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta
                             veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore
@@ -153,7 +154,7 @@ const ValueCompany = () => {
                             expedita itaque doloribus fugit consequatur quisquam quos, deserunt, earum recusandae veritatis perferendis alias iste
                             accusantium rem temporibus. Iste ratione corrupti ad minus quidem totam amet voluptatibus, eveniet incidunt laborum sed,
                             illum deserunt?
-                          </p>
+                          </DialogDescription>
                         </div>
                       </div>
                     </div>
