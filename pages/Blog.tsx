@@ -10,7 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 const limit = 6;
 const Blog = () => {
-  const [data, setData] = useState<Blog[]>([]);
+  const [, setData] = useState<Blog[]>([]);
   const [meta, setMeta] = useState({
     page: 1,
     totalPages: 1,
@@ -59,7 +59,7 @@ const Blog = () => {
       <div className="col-span-4 order-2 md:order-1">
         <TypographyH2 className="text-center font-bold mb-5 md:mb-10 uppercase">Latest Blogs</TypographyH2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <BlogCard data={data} />
+          <BlogCard />
         </div>
         <div className="flex justify-between items-center my-4">
           <Button disabled={meta.page <= 1} onClick={() => handlePageChange(meta.page - 1)}>

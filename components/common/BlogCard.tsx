@@ -1,16 +1,12 @@
-import { Blog } from '@/lib/type/blog';
+import { blogs } from '@/lib/data/blogs';
 import { formatDate } from '@/utils/format-date';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TypographyH5 } from '../ui/typography';
 
-interface Props {
-  data: Blog[];
-}
-
-const BlogCard = ({ data }: Props) => {
-  return data.map((item) => (
+const BlogCard: React.FC = () => {
+  return blogs.map((item) => (
     <div className="flex flex-col md:flex-row md:space-x-10" key={item.id}>
       <div className="w-full md:w-1/3">
         <Image
@@ -29,7 +25,8 @@ const BlogCard = ({ data }: Props) => {
           <article className="text-sm md:text-base ">{item.resume}</article>
         </div>
         <Link
-          href={`/blogs/${item.slug}`}
+          // href={`/blogs/${item.slug}`}
+          href={`/blogs/#`}
           aria-label="Read More"
           prefetch={true}
           className="flex items-center justify-start text-blue-600 font-bold hover:text-blue-800 mt-2"
