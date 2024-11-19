@@ -1,53 +1,63 @@
 interface Feedback {
+  id: number;
   name: string;
-  agency: string;
-  message: string;
+  company: string;
+  review: string;
 }
 
 export const feedbacks: Feedback[] = [
   {
+    id: 1,
     name: 'Paul Auguste',
-    agency: 'AugusteGlobal',
-    message: 'Great person, fluent in english, very communicative',
+    company: 'AugusteGlobal',
+    review: 'Great person, fluent in english, very communicative',
   },
   {
+    id: 2,
     name: 'Khudoyor Ortikov',
-    agency: 'Binyod LCC',
-    message: 'It was very smooth and professional level',
+    company: 'Binyod LCC',
+    review: 'It was very smooth and professional level',
   },
   {
+    id: 3,
     name: 'Brent Lowings',
-    agency: 'PMA Bali',
-    message: 'Very knowledgeable and helpful. Great Advice!',
+    company: 'PMA Bali',
+    review: 'Very knowledgeable and helpful. Great Advice!',
   },
   {
+    id: 4,
     name: 'James Greaves',
-    agency: 'Overlay LCC',
-    message: 'Did a great job, accurately and with minimal direction.',
+    company: 'Overlay LCC',
+    review: 'Did a great job, accurately and with minimal direction.',
   },
   {
+    id: 5,
     name: 'Lily',
-    agency: 'Themes Star Events Asia Limited inc',
-    message: 'Skilled Accountant and a great professional. She is a good person and a great comminicator. Highly recommended!',
+    company: 'Themes Star Events Asia Limited inc',
+    review: 'Skilled Accountant and a great professional. She is a good person and a great comminicator. Highly recommended!',
   },
   {
+    id: 6,
     name: 'Xin Chen',
-    agency: 'IGaming8',
-    message: `It's a pleasure working with you!`,
+    company: 'IGaming8',
+    review: `It's a pleasure working with you!`,
   },
   {
+    id: 7,
     name: 'Zaheer Khatri',
-    agency: 'Learning Roots',
-    message: `Very competent book keeper with an excellent professional. attitude to her work and a great eye for detail. I highly recommend her work.`,
+    company: 'Learning Roots',
+    review: `Very competent book keeper with an excellent professional. attitude to her work and a great eye for detail. I highly recommend her work.`,
   },
   {
+    id: 8,
     name: 'Ahmed Dahem',
-    agency: 'Statistic Project',
-    message: 'Very good.',
+    company: 'Statistic Project',
+    review: 'Very good.',
   },
   {
+    id: 9,
     name: 'Scott',
-    agency: 'KKBC Japan',
-    message: 'Sharp as a tack!',
+    company: 'KKBC Japan',
+    review: 'Sharp as a tack!',
   },
 ];
