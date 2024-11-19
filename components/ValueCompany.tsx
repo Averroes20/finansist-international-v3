@@ -138,14 +138,14 @@ const ValueCompany = () => {
                           provident. Minus, alias dolorem.
                         </p>
                       </div>
-                      <div className="col-span-2 p-5">
+                      <div className="col-span-2 p-5 text-black dark:text-white">
                         <DialogHeader>
                           <DialogTitle className="font-bold text-center text-black dark:text-white">
                             <span className="border-b-4 border-[#3A9DA1] inline-block pb-2">C02 AI raises 12m USD in seed funding</span>
                           </DialogTitle>
                         </DialogHeader>
                         <div className="mt-4">
-                          <p className="leading-6">
+                          <p className="leading-6 text-black dark:text-white">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam
                             porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta
                             veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore
