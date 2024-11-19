@@ -1,8 +1,9 @@
 import Navbar from '@/components/Navbar';
+import { ThemeProviders } from '@/context/ThemeProvider';
 import dynamic from 'next/dynamic';
 import { Fragment } from 'react';
 
-const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
+const Footer = dynamic(() => import('@/components/Footer'));
 
 export default function HomeLayout({
   children,
@@ -11,9 +12,11 @@ export default function HomeLayout({
 }>) {
   return (
     <Fragment>
-      <Navbar />
-      {children}
-      <Footer />
+      <ThemeProviders>
+        <Navbar />
+        {children}
+        <Footer />
+      </ThemeProviders>
     </Fragment>
   );
 }

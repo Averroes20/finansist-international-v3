@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const validationFormBlog = z.object({
+const BlogSchema = z.object({
   title: z
     .string()
     .min(5, {
@@ -12,23 +12,21 @@ const validationFormBlog = z.object({
   author: z.string().min(5, {
     message: 'Author must be at least 5 characters.',
   }),
-  resume: z
-    .string()
-    .min(5, {
-      message: 'Resume must be at least 5 characters.',
-    })
-    .max(255, {
-      message: 'Resume must be less than 255 characters.',
-    }),
+  resume: z.string().min(5, {
+    message: 'Resume must be at least 5 characters.',
+  }),
   article: z.string().min(100, {
     message: 'Article must be at least 100 characters.',
   }),
-  category: z.string().min(5, {
-    message: 'Category must be at least 5 characters.',
-  }),
-  cover: z.string().optional(),
+  category: z.string({ required_error: 'Please select an category for your blog' }),
+  cover: z
+    .union([z.instanceof(File), z.string()])
+    .optional()
+    .refine((file) => typeof file === 'string' || file instanceof File, {
+      message: 'Input must be a File or URL',
+    }),
 });
 
-export type TypeBlog = z.infer<typeof validationFormBlog>;
+export type BlogType = z.infer<typeof BlogSchema>;
 
-export default validationFormBlog;
+export default BlogSchema;

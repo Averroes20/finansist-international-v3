@@ -1,6 +1,3 @@
-import { icons } from '@/constants/icons';
-import { StaticImageData } from 'next/image';
-
 interface MenuItem {
   label: string;
   href?: string;
@@ -12,13 +9,14 @@ interface MenuItem {
 
 interface MenuLanguage {
   value: string;
-  icon: StaticImageData;
+  icon: string;
 }
 
 export const menuItems: MenuItem[] = [
   { label: 'Home', href: '/#home' },
+  { label: 'About Us', href: '/#about-us' },
   {
-    label: 'Service',
+    label: 'Services',
     subItems: {
       company: [
         { label: 'Accounting and Bookkeeping', href: '/#' },
@@ -33,12 +31,11 @@ export const menuItems: MenuItem[] = [
       ],
     },
   },
-  { label: 'About Us', href: '/#about-us' },
-  { label: 'Careers', href: '/#careers' },
-  { label: 'Blogs', href: '/blogs' },
+  { label: 'Career', href: '/#career' },
+  { label: 'Blog', href: '/#blog' },
 ];
 
 export const menuLanguages: MenuLanguage[] = [
-  { value: 'EN', icon: icons.FlagUK },
-  { value: 'ID', icon: icons.FlagID },
+  { value: 'EN', icon: '/icons/flag-united-kingdom.png' },
+  { value: 'ID', icon: '/icons/flag-indonesia.png' },
 ];

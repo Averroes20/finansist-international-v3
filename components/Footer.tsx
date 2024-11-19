@@ -16,7 +16,7 @@ const Footer = () => {
       setCopied((prev) => ({ ...prev, [type]: true }));
       setTimeout(() => setCopied((prev) => ({ ...prev, [type]: false })), 2000);
     } catch (error) {
-      console.log('Error while copying: ', error);
+      console.error('Error while copying: ', error);
     }
   }, []);
 
@@ -24,8 +24,8 @@ const Footer = () => {
     <footer className="bg-slate-100 py-10">
       <div className="container grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto px-0 md:px-36 ">
         <div className="flex flex-col gap-4 items-center justify-center">
-          <Image src={images.LogoLarge} alt="Logo" className="w-60" loading="lazy" />
-          <Image src={images.Certifications} alt="Certifications" className="w-60" loading="lazy" />
+          <Image src={images.LogoLarge} alt="Logo" width={300} height={300} loading="lazy" />
+          <Image src={images.Certifications} alt="Certifications" width={300} height={300} loading="lazy" />
         </div>
         <div className="flex flex-col gap-4 items-center ">
           <TypographyH4>Our Service</TypographyH4>

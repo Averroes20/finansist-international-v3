@@ -112,3 +112,86 @@ body {
     margin: 0;
   }
 }
+
+@layer components {
+  .prose {
+    @apply text-gray-950 leading-relaxed; /* Warna teks dasar dan spasi antar baris */
+  }
+
+  .prose h1 {
+    @apply text-3xl font-bold; /* Ukuran dan warna untuk h1 */
+  }
+
+  .prose h2 {
+    @apply text-2xl font-semibold; /* Ukuran dan warna untuk h2 */
+  }
+
+  .prose p {
+    @apply mb-4; /* Menambahkan margin bawah pada paragraf */
+  }
+
+  .prose ul {
+    @apply list-disc pl-6; /* Bullet list dengan indentasi */
+  }
+
+  .prose ol {
+    @apply list-decimal pl-6; /* Numbered list dengan indentasi */
+  }
+
+  .prose li {
+    @apply ml-4; /* Margin bawah untuk list item */
+  }
+
+  .prose a {
+    @apply text-blue-600 underline hover:text-blue-800; /* Warna link dan efek hover */
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-700; /* Styling untuk blockquote */
+  }
+
+  .prose .ql-align-center {
+    @apply text-center; /* Align center */
+  }
+
+  .prose .ql-align-right {
+    @apply text-right; /* Align right */
+  }
+
+  .prose .ql-align-justify {
+    @apply text-justify; /* Align justify */
+  }
+
+  .prose code {
+    @apply bg-gray-200 text-gray-800 px-1 py-0.5 rounded-md; /* Styling untuk code */
+  }
+
+  .prose pre {
+    @apply bg-gray-200 rounded-md p-4; /* Styling untuk code block */
+  }
+
+  .prose .ql-indent-1 {
+    @apply indent-9; /* Margin bawah untuk list item */
+  }
+}
+
+@font-face {
+  font-family: 'SantaCatalina';
+  src: url('./fonts/Santa-Catalina.otf') format('opentype'); /* Path absolut */
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url('./fonts/LibreBaskerville-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dosis';
+  src: url('./fonts/Dosis-Bold.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}

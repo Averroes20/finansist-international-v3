@@ -1,66 +1,89 @@
-import validationFormBlog, { TypeBlog } from '@/lib/validation/schema-form-blog';
+import BlogSchema, { BlogType } from '@/lib/validation/schema-form-blog';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '../ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Form } from '../ui/form';
+import DropdownInput from './DropdownInput';
 import FileInput from './FileInput';
+import Modal from './Modal';
 import TextEditorInput from './TextEditorInput';
 import TextInput from './TextInput';
 
 type Props = {
-  data?: TypeBlog;
-  onSubmit: (data: TypeBlog) => void;
+  data?: BlogType;
+  onSubmit: (data: BlogType) => void;
   title: string;
   description: string;
   trigger: React.ReactNode;
 };
 
+const categories = [
+  { label: 'Category 1', value: 'category-1' },
+  { label: 'Category 2', value: 'category-2' },
+  { label: 'Category 3', value: 'category-3' },
+  { label: 'Category 4', value: 'category-4' },
+  { label: 'Category 5', value: 'category-5' },
+];
+
 const BlogForm: React.FC<Props> = ({ data, onSubmit, title, description, trigger }) => {
-  const form = useForm<TypeBlog>({
-    resolver: zodResolver(validationFormBlog),
+  const [open, setOpen] = useState<boolean>(false);
+  const form = useForm<BlogType>({
+    resolver: zodResolver(BlogSchema),
     defaultValues: data || {
       title: '',
       author: '',
       resume: '',
       article: '',
       category: '',
-      cover: '',
+      cover: undefined as unknown as File,
     },
   });
 
+  const handleSubmit = (data: BlogType) => {
+    onSubmit(data);
+    setOpen(false);
+    form.reset();
+  };
+
   useEffect(() => {
     if (data) {
-      form.reset(data);
+      form.reset({ ...data });
     }
   }, [data, form]);
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-[90vw] max-h-[95vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
-        </DialogHeader>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <TextInput<TypeBlog> label="Title" name="title" placeholder="Title" className="col-span-2" />
-            <FileInput<TypeBlog> label="Cover" name="cover" className="col-span-2" />
-            <TextInput<TypeBlog> label="Author" name="author" placeholder="Author" className="col-span-1" />
-            <TextInput<TypeBlog> label="Category" name="category" placeholder="Category" className="col-span-1" />
-            <TextInput<TypeBlog> label="Resume" name="resume" placeholder="Resume" type="textarea" className="col-span-2" />
-            <TextEditorInput<TypeBlog> label="Article" name="article" placeholder="Write your article here..." />
-            <div className="col-span-2 flex justify-center">
-              <Button type="submit" className="px-28">
-                Submit
-              </Button>
-            </div>
-          </form>
-        </Form>
-      </DialogContent>
-    </Dialog>
+    <Modal
+      trigger={trigger}
+      title={title}
+      description={description}
+      open={open}
+      onOpenChange={setOpen}
+      contentStyle='className="max-w-[90vw] max-h-[95vh] md:max-w-[80vw] md:max-h-[90vh] overflow-y-auto'
+    >
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <TextInput<BlogType> label="Title" name="title" placeholder="Title" className="col-span-2" isRequired />
+          <FileInput<BlogType> label="Cover" name="cover" className="col-span-2" defaultImageUrl={data?.cover as string} isRequired />
+          <TextInput<BlogType> label="Author" name="author" placeholder="Author" className="col-span-1" isRequired />
+          <DropdownInput<BlogType>
+            label="Category"
+            name="category"
+            className="col-span-1"
+            data={categories}
+            placeholder="Select a category"
+            isRequired
+          />
+          <TextInput<BlogType> label="Resume" name="resume" placeholder="Resume" type="textarea" className="col-span-2" isRequired />
+          <TextEditorInput<BlogType> label="Article" name="article" placeholder="Write your article here..." isRequired />
+          <div className="col-span-2 flex justify-center">
+            <Button type="submit" className="px-28">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </Form>
+    </Modal>
   );
 };
 

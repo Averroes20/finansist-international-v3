@@ -1,29 +1,51 @@
-import AboutUs from '@/components/AboutUs';
-import Careers from '@/components/Careers';
-import Feedback from '@/components/Feedback';
-import Intro from '@/components/Intro';
-import LatestNews from '@/components/LatestNews';
-import Portfolio from '@/components/Portfolio';
-import Profile from '@/components/Profile';
-import Services from '@/components/Services';
+import Home from '@/components/Home';
 import dynamic from 'next/dynamic';
+
+const Portfolio = dynamic(() => import('@/components/Portfolio'), {
+  ssr: true,
+  loading: () => <p>Loading Portfolio...</p>,
+});
+const Reviews = dynamic(() => import('@/components/Review'), {
+  ssr: true,
+  loading: () => <p>Loading Review...</p>,
+});
+
+const Blogs = dynamic(() => import('@/components/Blogs'), {
+  ssr: true,
+  loading: () => <p>Loading Blogs...</p>,
+});
+
+const Careers = dynamic(() => import('@/components/Careers'), {
+  ssr: true,
+  loading: () => <p>Loading Careers...</p>,
+});
+
+const ValueCompany = dynamic(() => import('@/components/ValueCompany'), {
+  ssr: true,
+  loading: () => <p>Loading...</p>,
+});
+
+const ServicePromotion = dynamic(() => import('@/components/ServicePromotion'), {
+  ssr: true,
+  loading: () => <p>Loading ...</p>,
+});
 
 const ButtonContact = dynamic(() => import('@/components/common/ButtonContact'));
 
-const Home = () => {
+const RootPage = () => {
   return (
-    <div className="px-5 md:px-0">
-      <Intro />
-      <Profile />
-      <AboutUs />
-      <Services />
-      <Portfolio />
-      <Feedback />
-      <LatestNews />
-      <Careers />
+    <div className="">
+      <Home
+        blogs={<Blogs />}
+        careers={<Careers />}
+        portfolio={<Portfolio />}
+        review={<Reviews />}
+        valueCompany={<ValueCompany />}
+        servicePromotion={<ServicePromotion />}
+      />
       <ButtonContact className="fixed bottom-5 right-5 md:hidden" />
     </div>
   );
 };
 
-export default Home;
+export default RootPage;

@@ -1,43 +1,47 @@
-import { images } from '@/constants/images';
-import Image from 'next/image';
-import { memo } from 'react';
-import { TypographyH5, TypographyP } from '../ui/typography';
-import { Button } from '../ui/button';
-import { blogs } from '@/lib/data/blogs';
+import { Blog } from '@/lib/type/blog';
 import { formatDate } from '@/utils/format-date';
 import { ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { TypographyH5 } from '../ui/typography';
 
-const BlogCard = memo(({ item }: { item: (typeof blogs)[0] }) => (
-  <div className="flex flex-col gap-1 border border-gray-200 rounded-lg shadow max-w-sm mx-auto relative">
-    <div className="relative">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-gray-900 to-transparent opacity-70" />
-      <Image src={item.cover} alt={`Cover image of ${item.title}`} loading="lazy" className="w-full object-cover h-72 rounded-lg" />
-      <Image
-        src={images.DefaultAvatar}
-        alt={`Avatar for ${item.title}`}
-        loading="lazy"
-        className="w-12 h-12 object-cover rounded-full absolute bottom-[-20px] left-5 shadow-lg"
-      />
-      <p className="text-white text-sm absolute top-4 right-5 px-3 py-1 bg-gray-500 rounded-full uppercase" aria-label={`Category: ${item.category}`}>
-        {item.category}
-      </p>
-    </div>
-    <div className="p-4 space-y-3 flex-grow">
-      <TypographyH5 className="font-bold">{item.title}</TypographyH5>
-      <article className="text-sm md:text-base text-gray-700">{item.resume}</article>
-      <Button className="bg-transparent text-blue-600 font-bold p-0 hover:bg-transparent hover:text-blue-800 focus:bg-transparent focus:text-gray-500 mt-2">
-        Read More{' '}
-        <span aria-hidden="true">
-          <ChevronRight />
-        </span>
-      </Button>
-    </div>
-    <div className="px-8 py-2 border-t">
-      <TypographyP className="text-gray-600 text-sm mb-2">{formatDate(item.createdAt)}</TypographyP>
-    </div>
-  </div>
-));
+interface Props {
+  data: Blog[];
+}
 
-BlogCard.displayName = 'BlogCard';
+const BlogCard = ({ data }: Props) => {
+  return data.map((item) => (
+    <div className="flex flex-col md:flex-row md:space-x-10" key={item.id}>
+      <div className="w-full md:w-1/3">
+        <Image
+          src={item.cover as string}
+          alt={`Cover image of ${item.title}`}
+          loading="lazy"
+          width={260}
+          height={260}
+          className="object-cover bg-center rounded-lg"
+        />
+      </div>
+      <div className="flex flex-col md:w-9/12 ">
+        <div className="space-y-1 mt-4 md:mt-0 md:space-y-2 flex-1">
+          <span className="text-black text-sm">{formatDate(item.createdAt.toLocaleString())}</span>
+          <TypographyH5 className="font-bold">{item.title}</TypographyH5>
+          <article className="text-sm md:text-base ">{item.resume}</article>
+        </div>
+        <Link
+          href={`/blogs/${item.slug}`}
+          aria-label="Read More"
+          prefetch={true}
+          className="flex items-center justify-start text-blue-600 font-bold hover:text-blue-800 mt-2"
+        >
+          <span aria-label="Read More">Read More</span>
+          <span aria-hidden="true">
+            <ChevronRight size={18} />
+          </span>
+        </Link>
+      </div>
+    </div>
+  ));
+};
 
 export default BlogCard;

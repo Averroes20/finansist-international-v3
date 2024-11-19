@@ -1,6 +1,7 @@
-import PortfolioAdmin from '@/pages/admin/Portfolio';
 import { Metadata } from 'next';
-import React from 'react';
+import dynamic from 'next/dynamic';
+
+const PortfolioAdmin = dynamic(() => import('./Portfolio'));
 
 export const metadata: Metadata = {
   title: 'Portfolio | Finansist International',

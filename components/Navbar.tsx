@@ -1,13 +1,13 @@
 'use client';
-import { icons } from '@/constants/icons';
 import { images } from '@/constants/images';
 import { menuItems, menuLanguages } from '@/lib/data/navbar';
 import { motion, Variants } from 'framer-motion';
+import { ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import ButtonContact from './common/ButtonContact';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,10 +17,11 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from './ui/navigation-menu';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { TypographyH5 } from './ui/typography';
-import { ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
+
+const AnimateComponent = dynamic(() => import('./animation/beach-animated'), { ssr: false });
 
 const dropdownVariants: Variants = {
   open: {
@@ -63,76 +64,90 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleOutsideClick);
   }, [handleOutsideClick]);
 
+  const onChangeLanguage = useCallback((value: string) => setLanguage(value), []);
   const toggleMobileMenu = useCallback(() => setOpenMenu((prev) => !prev), []);
   const toggleDropdown = useCallback(() => setOpenDropdown((prev) => !prev), []);
 
-  const toLogin = () => router.push('/auth/login');
-
   return (
-    <nav className="sticky top-0 z-50 bg-gray-100 p-4 backdrop-blur-lg">
-      <div className="container mx-auto flex items-center justify-between ">
-        <Image src={images.LogoLarge} alt="logo" width={150} className="aspect-auto" />
-        <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
-          <NavigationMenuList>
-            {menuItems.map((item, index) => (
-              <NavigationMenuItem key={index}>
-                {item.subItems ? (
-                  <>
-                    <NavigationMenuTrigger className="uppercase bg-transparent hover:bg-transparent hover:text-gray-500 focus:bg-transparent focus:text-gray-500">
-                      {item.label}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="min-w-96">
-                        <div className="grid gap-3 p-4">
-                          <TypographyH5>Company Services</TypographyH5>
-                          {item.subItems.company.map((subItem, subIndex) => (
-                            <Link key={subIndex} href={subItem.href} legacyBehavior passHref>
-                              <NavigationMenuLink className="text-sm">{subItem.label}</NavigationMenuLink>
-                            </Link>
-                          ))}
+    <header className="sticky top-0 z-50 bg-white shadow-sm py-5 backdrop-blur-lg dark:bg-transparent">
+      <nav className="container px-5 md:max-w-screen-lg mx-auto flex items-center justify-between backdrop-blur-lg">
+        <Image src={images.LogoLarge} alt="logo" width={150} priority className="cursor-pointer" onClick={() => router.push('/')} />
+        {/* Manu */}
+        <div className="hidden w-full md:flex md:flex-row md:w-auto md:space-x-7" id="navbar-multi-level">
+          <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
+            <NavigationMenuList>
+              {menuItems.map((item, index) => (
+                <NavigationMenuItem key={index}>
+                  {item.subItems ? (
+                    <>
+                      <NavigationMenuTrigger className="uppercase bg-transparent hover:bg-transparent hover:text-gray-500 focus:bg-transparent focus:text-gray-500">
+                        {item.label}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent className="relative min-w-[900px]">
+                        <div className="grid grid-cols-2 ">
+                          <div className="flex flex-col col-span-1 space-y-3 p-5">
+                            <TypographyH5>Company Services</TypographyH5>
+                            {item.subItems.company.map((subItem, subIndex) => (
+                              <Link key={subIndex} href={subItem.href} legacyBehavior passHref>
+                                <NavigationMenuLink className="text-sm">{subItem.label}</NavigationMenuLink>
+                              </Link>
+                            ))}
+                          </div>
+                          <div className="col-span-1 justify-items-end">
+                            <AnimateComponent />
+                          </div>
                         </div>
-                      </div>
-                    </NavigationMenuContent>
-                  </>
-                ) : (
-                  <Link href={item.href ? item.href : '/'} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={`uppercase bg-transparent hover:bg-transparent hover:text-gray-500 focus:bg-transparent focus:text-gray-500 ${navigationMenuTriggerStyle()}`}
-                    >
-                      {item.label}
-                    </NavigationMenuLink>
-                  </Link>
-                )}
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+                      </NavigationMenuContent>
+                    </>
+                  ) : (
+                    <Link href={item.href ? item.href : '/'} legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={`uppercase bg-transparent hover:bg-transparent hover:text-gray-500 focus:bg-transparent focus:text-gray-500 ${navigationMenuTriggerStyle()}`}
+                      >
+                        {item.label}
+                      </NavigationMenuLink>
+                    </Link>
+                  )}
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+
         <div className="flex items-center gap-5">
-          <Button onClick={toLogin}>Login</Button>
-          <ButtonContact className="hidden md:flex" />
-          <DropdownMenu>
-            <DropdownMenuTrigger className="ml-4 focus:outline-none">
-              <div className="flex items-center gap-2">
-                <Image src={language === 'EN' ? icons.FlagUK : icons.FlagID} alt="flag" width={24} height={24} />
-                {language}
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-full">
-              <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
-                {menuLanguages.map((item, index) => (
-                  <DropdownMenuRadioItem key={index} value={item.value} className="flex items-center gap-2">
-                    <Image src={item.icon} alt="flag" width={24} height={24} />
-                    {item.value}
-                  </DropdownMenuRadioItem>
+          <ButtonContact className="hidden md:flex py-0 " />
+          <Select onValueChange={onChangeLanguage} defaultValue={language}>
+            <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
+              <SelectValue>
+                <div className="flex items-center gap-1">
+                  <Image
+                    src={menuLanguages.find((item) => item.value === language)?.icon || '/default-icon.png'}
+                    alt={language}
+                    width={24}
+                    height={24}
+                  />
+                  {language}
+                </div>
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              {menuLanguages
+                .filter((item) => item.value !== language)
+                .map((item, index) => (
+                  <SelectItem key={index} value={item.value} className="px-2">
+                    <div className="flex items-center gap-1">
+                      <Image src={item.icon} alt={item.value} width={24} height={24} />
+                      {item.value}
+                    </div>
+                  </SelectItem>
                 ))}
-              </DropdownMenuRadioGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </SelectContent>
+          </Select>
 
           {/* Mobile menu */}
-          <motion.div initial={false} animate={openMenu ? 'open' : 'closed'} className="md:hidden ml-4">
+          <motion.nav initial={false} animate={openMenu ? 'open' : 'closed'} className="md:hidden md:ml-4 -ml-4">
             <motion.button
-              className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-200"
+              className="lg:hidden rounded-md text-gray-700 hover:bg-gray-200"
               onClick={toggleMobileMenu}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle navigation"
@@ -179,10 +194,10 @@ const Navbar = () => {
                 ))}
               </motion.ul>
             </motion.div>
-          </motion.div>
+          </motion.nav>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 

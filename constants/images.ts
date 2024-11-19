@@ -1,4 +1,5 @@
 import LogoLarge from '@/public/images/logo-large.png';
+import LogoLargeLight from '@/public/images/loho-large-light.png';
 import ImageIntro from '@/public/images/image-intro.png';
 import Certifications from '@/public/images/certifications.png';
 import OurJourney from '@/public/images/our-journey.png';
@@ -11,6 +12,7 @@ import SmartMove from '@/public/images/image-smart-move.png';
 
 import coverBlog from '@/public/images/cover-blog.png';
 import DefaultAvatar from '@/public/images/default-avatar.png';
+import Promotion from '@/public/images/promotion-section.jpg';
 
 export const images = {
   LogoLarge,
@@ -24,4 +26,6 @@ export const images = {
   SmartMove,
   coverBlog,
   DefaultAvatar,
+  Promotion,
+  LogoLargeLight,
 };

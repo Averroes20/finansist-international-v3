@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useState, useEffect, useCallback, memo } from 'react';
 import { motion } from 'framer-motion';
 
 const CYCLES_PER_DIGIT = 20;
@@ -55,19 +55,15 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
 
   return (
     <motion.h1
-      whileHover={{
-        scale: 1.025,
-      }}
       whileTap={{
         scale: 0.975,
       }}
-      onMouseEnter={scramble}
       onMouseLeave={stopScramble}
-      className="cursor-pointer text-3xl font-bold dark:text-white md:text-6xl"
+      className="cursor-default text-3xl font-bold dark:text-white md:text-5xl "
     >
       {text}
     </motion.h1>
   );
 };
 
-export default ScrambleNumber;
+export default memo(ScrambleNumber);

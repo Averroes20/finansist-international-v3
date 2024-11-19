@@ -1,111 +1,70 @@
 'use client';
 
-import { careers, Form } from '@/lib/data/careers';
-import { cn } from '@/lib/utils';
-import { format } from 'date-fns';
-import { CalendarIcon } from 'lucide-react';
-import React from 'react';
-import { Button } from './ui/button';
-import { Calendar } from './ui/calendar';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { Textarea } from './ui/textarea';
-import { TypographyH2, TypographyH3, TypographyP } from './ui/typography';
+import { careers } from '@/lib/data/careers';
+import { FormInternType, FormJobType, FormPatnerType } from '@/lib/validation/schema-form-career';
+import { FormIntern, FormJob, FormPatner } from './common/CareerForms';
+import { TitleSection, TypographyH3, TypographyP } from './ui/typography';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
-interface CareerFormProps {
-  form: Form[];
-}
+const Careers = () => {
+  const ref = useRef<HTMLDivElement>(null);
 
-const CareerForm: React.FC<CareerFormProps> = ({ form }) => {
-  const [date, setDate] = React.useState<Date>();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log('Submitted data:', data);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+
+  const submitPatner = (data: FormPatnerType) => {
+    console.log('Form submitted patner:', data);
+  };
+  const submitJob = (data: FormJobType) => {
+    console.log('Form submitted job:', data);
+  };
+  const submitIntern = (data: FormInternType) => {
+    console.log('Form submitted intern:', data);
   };
 
   return (
-    <form className="grid gap-4 py-4" onSubmit={handleSubmit}>
-      {form.map((formField) => (
-        <div key={formField.id} className="grid grid-rows-1 gap-2">
-          {formField.type === 'textarea' ? (
-            <>
-              <Label htmlFor={formField.id}>{formField.label}</Label>
-              <Textarea id={formField.id} name={formField.id} required />
-            </>
-          ) : formField.type === 'date' ? (
-            <>
-              <Label htmlFor={formField.id}>{formField.label}</Label>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button variant={'outline'} className={cn('w-full justify-start text-left font-normal', !date && 'text-muted-foreground')}>
-                    <CalendarIcon />
-                    {date ? format(date, 'PPP') : <span>{formField.label}</span>}
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                  <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
-                </PopoverContent>
-              </Popover>
-            </>
-          ) : (
-            <>
-              <Label htmlFor={formField.id}>{formField.label}</Label>
-              <Input id={formField.id} name={formField.id} type={formField.type} required />
-            </>
-          )}
-        </div>
-      ))}
-      <DialogFooter>
-        <Button type="submit" className="mx-auto">
-          Send
-        </Button>
-      </DialogFooter>
-    </form>
-  );
-};
-
-const Careers = () => {
-  return (
-    <section id="careers" className="max-w-screen-lg mx-auto py-10 md:py-20">
-      <TypographyH2 className="text-center font-bold mb-5 md:mb-10 uppercase">Join our program!</TypographyH2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {careers.map((item, index) => (
-          <div key={index} className="p-4 border flex flex-col h-full">
-            <div className="flex-grow">
-              <TypographyH3 className="font-bold mb-4 uppercase text-center p-2 border-b-4 border-yellow-500 w-fit mx-auto">
-                {item.title}
-              </TypographyH3>
-              <TypographyP className="mb-4">{item.description}</TypographyP>
-              {item.facilities?.length && item.facilities.length > 0 && (
-                <>
-                  <TypographyP className="mb-2">What facilities will you get?</TypographyP>
-                  <ul className="list-disc list-outside pl-5 mb-4">
-                    {item.facilities.map((facility, idx) => (
-                      <li key={idx}>{facility}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
+    <section id="career" ref={ref} className="relative h-screen overflow-hidden mt-10">
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(/images/bg-cover-career.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          y: y,
+        }}
+      />
+      <div className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-30">
+        <TitleSection className="mb-5 text-white">Join our program!</TitleSection>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg mx-auto">
+          {careers.map((item, index) => (
+            <div key={index} className="p-4 bg-white rounded-xl flex flex-col h-full shadow-xl">
+              <div className="flex-grow">
+                <TypographyH3 className="font-bold mb-4 uppercase text-center p-2 border-b-4 border-yellow-500 w-fit mx-auto">
+                  {item.title}
+                </TypographyH3>
+                <TypographyP className="mb-4">{item.description}</TypographyP>
+                {item.facilities?.length && item.facilities.length > 0 && (
+                  <>
+                    <TypographyP className="mb-2">What facilities will you get?</TypographyP>
+                    <ul className="list-disc list-outside space-y-2 pl-5 mb-4">
+                      {item.facilities.map((facility, idx) => (
+                        <li key={idx}>{facility}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+              {item.title === 'Partner' && <FormPatner onSubmit={submitPatner} />}
+              {item.title === 'Jobs' && <FormJob onSubmit={submitJob} />}
+              {item.title === 'Internship' && <FormIntern onSubmit={submitIntern} />}
             </div>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className="mt-auto self-center">{item.typeButton}</Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] max-h-[90%] overflow-y-auto no-scrollbar">
-                <DialogHeader>
-                  <DialogTitle>{item.title}</DialogTitle>
-                  <DialogDescription>Complete your details below, then click submit.</DialogDescription>
-                </DialogHeader>
-                <CareerForm form={item.form} />
-              </DialogContent>
-            </Dialog>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

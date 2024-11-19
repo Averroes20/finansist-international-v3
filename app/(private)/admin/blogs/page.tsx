@@ -1,6 +1,7 @@
-import BlogsAdmin from '@/pages/admin/Blog';
 import { Metadata } from 'next';
-import React from 'react';
+import dynamic from 'next/dynamic';
+
+const BlogsAdmin = dynamic(() => import('./Blog'));
 
 export const metadata: Metadata = {
   title: 'Blogs | Finansist International',

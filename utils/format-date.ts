@@ -1,13 +1,26 @@
-function formatDate(createdAt: string): string {
-  const date = new Date(parseInt(createdAt));
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: '2-digit' };
+function formatDate(DateTime: string): string {
+  const date = new Date(DateTime);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: '2-digit' };
   return new Intl.DateTimeFormat('en-US', options).format(date);
 }
 
-function formatTime(createdAt: string): string {
-  const date = new Date(parseInt(createdAt));
+function formatTime(DateTime: string): string {
+  const date = new Date(DateTime);
   const options: Intl.DateTimeFormatOptions = { hour: '2-digit', minute: '2-digit' };
   return new Intl.DateTimeFormat('en-US', options).format(date);
 }
 
-export { formatDate, formatTime };
+function formatDateTime(DateTime: string): string {
+  const date = new Date(DateTime);
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  };
+  return new Intl.DateTimeFormat('en-US', options).format(date);
+}
+
+export { formatDate, formatTime, formatDateTime };

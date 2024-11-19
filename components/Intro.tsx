@@ -1,49 +1,33 @@
-'use client';
 import { images } from '@/constants/images';
 import Image from 'next/image';
+import ProfitAnimated from './animation/profit-animated';
 import Achievements from './common/AchievementCard';
-import ButtonContact from './common/ButtonContact';
-import ClientSlider from './common/ClientSlide';
-import { TypographyH2, TypographyP } from './ui/typography';
+import SoftwareSlider from './common/SoftwareSlider';
 
 const Intro = () => {
   return (
-    <section id="home" className="pt-3 container max-w-screen-xl mx-auto">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <section id="home" className="pt-10 max-w-screen-lg mx-auto my-auto min-h-screen scroll-mt-20">
+      <div className="grid grid-cols-1 gap-4 md:gap-0 md:grid-cols-2">
         <div className="flex flex-col gap-4">
-          <Image src={images.ImageIntro} alt="intro" width={600} loading="lazy" className="aspect-auto rounded-lg" />
-          <div>
-            <TypographyP className="font-bold">Certified of :</TypographyP>
-            <Image src={images.Certifications} alt="certifications" width={300} loading="lazy" className="aspect-auto" />
+          <h1 className="text-4xl font-libreBaskerville leading-snug">
+            Your <b> Financial Assistant </b> Empowered with
+          </h1>
+          <span className="font-santaCatalina font-normal text-5xl pt-3 pb-2">Certified Professionals </span>
+          <Achievements />
+          <div className="mt-3">
+            <p className="font-bold">Certified of :</p>
+            <Image src={images.Certifications} alt="certifications" width={300} height={300} loading="lazy" />
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col">
-            <div>
-              <TypographyH2 className="text-4xl font-bold">Don{`'`}t waste your money on extra staff </TypographyH2>
-              <TypographyH2 className="text-4xl font-bold bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent">
-                Invest in professional and experts
-              </TypographyH2>
-            </div>
-            <TypographyP className="mt-7">
-              <b className="font-bold text-lg">FINANSIST INTERNATIONAL</b> <br /> We save you from hiring extra staff by offering expert financial
-              services. Our international certified professionals will handle your bookkeeping, tax compliance, and reporting with precision, ensuring
-              cost-effective and seamless results. Invest in expertise, not overhead.
-            </TypographyP>
-          </div>
-          <Achievements />
-          <ButtonContact className="mt-4" />
+        <div className="flex flex-col">
+          <ProfitAnimated />
+          <p className="font-libreBaskerville font-bold text-2xl text-center tracking-wide">Effective and efficient at the same time</p>
         </div>
       </div>
       <div className="p-6">
-        <TypographyP className="text-sm text-gray-500 text-center leading-5">
-          What software that you use? <br />
-          We can operate them all!
-        </TypographyP>
+        <p className="text-sm text-gray-500 text-center">Experts in many software</p>
       </div>
-      <div className="overflow-hidden relative">
-        <ClientSlider />
-      </div>
+      <SoftwareSlider />
     </section>
   );
 };

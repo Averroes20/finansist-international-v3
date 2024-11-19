@@ -31,3 +31,7 @@ interface TypographyPProps extends React.HTMLAttributes<HTMLParagraphElement> {
 export function TypographyP({ children, ...props }: TypographyPProps) {
   return <p className={`leading-7 ${props.className}`}>{children}</p>;
 }
+
+export const TitleSection = ({ children, ...props }: TypographyProps) => {
+  return <h1 className={`text-center font-dosis text-5xl uppercase tracking-normal py-3 ${props.className}`}>{children}</h1>;
+};

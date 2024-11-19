@@ -1,10 +1,14 @@
 const Video = () => {
   return (
-    <video controls preload="metadata" className="aspect-video w-screen md:max-w-4xl">
-      <source src="/videos/video-finansist-international.mp4" type="video/mp4" />
-      <source src="/videos/video-finansist-international.webm" type="video/webm" />
-      Your browser does not support the video tag.
-    </video>
+    <iframe
+      className="w-full aspect-video"
+      src="https://www.youtube.com/embed/Fo93nnxN8EA?si=jAb9GEe7ziWzw6Z5"
+      title="YouTube video player"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+    />
   );
 };
 

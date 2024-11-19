@@ -1,115 +1,94 @@
 import { services } from '@/lib/data/service';
-import Image from 'next/image';
-import { Button } from './ui/button';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
-import { TypographyH2, TypographyH3, TypographyH5, TypographyP } from './ui/typography';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import Modal from './common/Modal';
 import { Whatsapp } from './icons/social-media';
+import { Button } from './ui/button';
+import { DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
+import { TitleSection } from './ui/typography';
 
 const Services = () => {
   return (
     <section className="max-w-screen-lg mx-auto pt-10 md:pt-20">
-      <TypographyH2 className="text-center font-bold mb-5 md:mb-10">Our Services</TypographyH2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <TitleSection>Our Services</TitleSection>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {services.map((service, index) => (
-          <div key={index} className="flex flex-col border border-gray-200 rounded-lg shadow p-5">
-            <div className="h-40">
-              <TypographyH3 className="font-bold text-center">{service.title}</TypographyH3>
-              <Image src={service.icon} alt={service.title} className="mx-auto py-5 w-32 h-32 mix-blend-multiply object-contain" />
+          <article key={index} className="flex flex-col">
+            <div className="flex flex-col flex-grow">
+              <header className="text-center pt-4 px-4">
+                <h3 className="text-xl font-bold pb-2 relative">
+                  {service.title}
+                  <span className=" absolute bottom-0 left-1/2 transform -translate-x-1/2 border-b-4 border-[#3A9DA1] w-1/2 mx-auto z-10 h-10"></span>
+                </h3>
+              </header>
+              <div className="w-72 mx-auto  p-4">
+                <DotLottieReact src={service.icon} loop autoplay speed={0.9} />
+              </div>
+              <section>
+                <ul className="px-4 space-y-1">
+                  {service.shortDescription.map((short, shortIndex) => (
+                    <li key={shortIndex} className="flex items-start border-b">
+                      <span className="mr-2 text-green-600 font-bold">✔</span>
+                      <span>{short}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             </div>
-            <div>
-              {service.description.map((description, descIndex) => {
-                if (typeof description === 'string') {
-                  return (
-                    <div key={descIndex} className="flex items-start">
-                      <ChecklistIcon />
-                      <TypographyP>{description}</TypographyP>
-                    </div>
-                  );
-                } else if (description.subTitle) {
-                  return (
-                    <div key={descIndex} className="pt-5">
-                      <TypographyH5>{description.subTitle}</TypographyH5>
-                      <ul>
-                        {description.subDesc?.map((subDesc, subDescIndex) => {
-                          if (typeof subDesc === 'string') {
-                            return (
-                              <div key={subDescIndex} className="flex items-start">
-                                <ChecklistIcon />
-                                <TypographyP>{subDesc}</TypographyP>
-                              </div>
-                            );
-                          } else if (subDesc.subSubTitle) {
-                            return (
-                              <div key={subDescIndex} className="pt-5">
-                                <TypographyH5>{subDesc.subSubTitle}</TypographyH5>
-                                <ul>
-                                  {subDesc.subSubDesc?.map((subSubDesc, subSubDescIndex) => {
-                                    if (typeof subSubDesc === 'string') {
-                                      return (
-                                        <div key={subSubDescIndex} className="flex items-start">
-                                          <ChecklistIcon />
-                                          <TypographyP>{subSubDesc}</TypographyP>
-                                        </div>
-                                      );
-                                    }
-                                  })}
-                                </ul>
-                              </div>
-                            );
-                          }
-                        })}
-                      </ul>
-                    </div>
-                  );
-                }
-              })}
-            </div>
-            <Dialog>
-              <DialogTrigger asChild>
+            <Modal
+              trigger={
                 <Button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg mt-5 shadow-md self-center">
                   More Details <span className="ml-2">&#8594;</span>
                 </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-[90vw] md:max-w-[640px] max-h-[90vh] overflow-y-auto ">
-                <DialogHeader>
-                  <DialogTitle className="font-bold text-center text-black">{service.title}</DialogTitle>
-                  <DialogDescription>
-                    <Image src={service.icon} alt={service.title} className="mx-auto pt-5 w-24 h-w-24 object-contain" />
+              }
+              contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[80vw] md:max-h-[80vh] p-0 border-0 overflow-y-auto"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0 md:space-x-4">
+                <div className="col-span-1 p-5 bg-[#3A9DA1]">
+                  <h1 className="text-center font-dosis text-lg text-white">What you will get</h1>
+                  {service.details.benefits.map((benefit, index) => (
+                    <div key={index} className={`${benefit.title === '-' ? 'mt-5' : 'mt-0'}`}>
+                      {benefit.title !== '-' && <h2 className="font-bold text-white mt-5">{benefit.title}</h2>}
+                      <ul className="list-disc pl-6 text-white">
+                        {benefit.items.map((item, itemIndex) => (
+                          <li key={itemIndex} className="my-1">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <div className="col-span-2 p-5">
+                  <DialogDescription className="w-72 mx-auto  p-4">
+                    <DotLottieReact src={service.icon} loop autoplay speed={0.9} />
                   </DialogDescription>
-                </DialogHeader>
-                <div className="grid grid-cols-1 gap-4 py-4">
-                  <div className="space-y-3">
-                    <TypographyP>{service.moreDetails.moreDesc}</TypographyP>
-                    <ul>
-                      {service.moreDetails.moreServices?.map((subDesc, subDescIndex) => {
-                        if (typeof subDesc === 'string') {
-                          return (
-                            <div key={subDescIndex} className="flex items-start">
-                              <ChecklistIcon />
-                              <TypographyP>{subDesc}</TypographyP>
-                            </div>
-                          );
-                        }
-                      })}
-                    </ul>
+                  <DialogHeader>
+                    <DialogTitle className="font-bold text-center text-black">
+                      <span className="border-b-4 border-[#3A9DA1] inline-block pb-2">{service.title}</span>
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="mt-4">
+                    <p className="leading-6">{service.details.overview}</p>
+                    {service.details.extendedServices.map((extendedService, index) => (
+                      <p key={index} className="my-1">
+                        <span className="mr-2 text-green-600 font-bold">✔</span>
+                        <span>{extendedService}</span>
+                      </p>
+                    ))}
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <Button className="font-bold py-2 px-4 rounded-lg mt-5 shadow-md self-center">
+                      <Whatsapp /> Consult Now!
+                    </Button>
                   </div>
                 </div>
-                <DialogFooter>
-                  <Button className="font-bold py-2 px-4 rounded-lg mt-5 shadow-md md:self-center">
-                    <Whatsapp /> Consult Now!
-                  </Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          </div>
+              </div>
+            </Modal>
+          </article>
         ))}
       </div>
     </section>
   );
-};
-
-const ChecklistIcon = () => {
-  return <span className="mr-2 text-green-600 font-bold">✔</span>;
 };
 
 export default Services;

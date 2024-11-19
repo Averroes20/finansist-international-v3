@@ -1,33 +1,30 @@
-import { icons } from '@/constants/icons';
-import { StaticImageData } from 'next/image';
-
 interface Achievement {
   count: string;
   description: string;
 }
 
-interface Client {
-  icon: StaticImageData;
-  name: string;
+interface Software {
+  label: string;
+  value: string;
 }
 
 export const achievements: Achievement[] = [
   { count: '10', description: 'Years of experience' },
-  { count: '35', description: 'Project Success' },
-  { count: '27', description: 'Satisfied Clients' },
+  { count: '54', description: 'Project Success' },
+  { count: '112', description: 'Satisfied Clients' },
 ];
 
-export const clients: Client[] = [
-  { icon: icons.Quickbooks, name: 'Quickbooks' },
-  { icon: icons.Xero, name: 'Xero' },
-  { icon: icons.Myob, name: 'Myob' },
-  { icon: icons.Shopify, name: 'Shopify' },
-  { icon: icons.Sage, name: 'Sage' },
-  { icon: icons.Gusto, name: 'Gusto' },
-  { icon: icons.ZohoBooks, name: 'Zoho Books' },
-  { icon: icons.Wave, name: 'Wave' },
-  { icon: icons.Stessa, name: 'Stessa' },
-  { icon: icons.Accurate, name: 'Accurate' },
-  { icon: icons.MekariJurnal, name: 'Mekari Jurnal' },
-  { icon: icons.Zahir, name: 'Zahir' },
+export const software: Software[] = [
+  { label: 'Quickbooks', value: '/icons/software/quickbooks.png' },
+  { label: 'Xero', value: '/icons/software/xero.png' },
+  { label: 'Myob', value: '/icons/software/myob.png' },
+  { label: 'Shopify', value: '/icons/software/shopify.png' },
+  { label: 'Sage', value: '/icons/software/sage.png' },
+  { label: 'Gusto', value: '/icons/software/gusto.png' },
+  { label: 'Zoho Books', value: '/icons/software/zoho.png' },
+  { label: 'Wave', value: '/icons/software/wave.png' },
+  { label: 'Stessa', value: '/icons/software/stessa.png' },
+  { label: 'Accurate', value: '/icons/software/accurate.png' },
+  { label: 'Mekari Jurnal', value: '/icons/software/jurnal.png' },
+  { label: 'Zahir', value: '/icons/software/zahir.png' },
 ];

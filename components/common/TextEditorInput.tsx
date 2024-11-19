@@ -10,23 +10,26 @@ type Props<T extends FieldValues> = {
   label: string;
   placeholder?: string;
   className?: string;
+  isRequired?: boolean;
 };
 
 const modules = {
   toolbar: [
-    [{ header: '1' }, { header: '2' }],
-    [{ size: [] }],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    [{ list: 'ordered' }, { list: 'bullet' }, { indent: '-1' }, { indent: '+1' }],
-    ['link', 'image', 'video'],
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+    [{ align: [] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
+    [{ list: 'ordered' }, { list: 'bullet' }, { list: '' }, { indent: '+1' }],
+    [{ color: [] }, { background: [] }],
+    ['link'],
     ['clean'],
   ],
+
   clipboard: {
     matchVisual: false,
   },
 };
 
-const TextEditorInput = <T extends FieldValues>({ name, label, placeholder, className }: Props<T>) => {
+const TextEditorInput = <T extends FieldValues>({ name, label, placeholder, className, isRequired }: Props<T>) => {
   const { control } = useFormContext<T>();
   return (
     <FormField
@@ -34,7 +37,9 @@ const TextEditorInput = <T extends FieldValues>({ name, label, placeholder, clas
       name={name}
       render={({ field }) => (
         <FormItem className="col-span-2">
-          <FormLabel>{label}</FormLabel>
+          <FormLabel>
+            {label} {isRequired && <span className="text-destructive">*</span>}
+          </FormLabel>
           <FormControl>
             <ReactQuill
               theme="snow"

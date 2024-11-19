@@ -10,9 +10,10 @@ type Props<T extends FieldValues> = {
   placeholder?: string;
   className?: string;
   type?: string;
+  isRequired?: boolean;
 };
 
-const TextInputComponent = <T extends FieldValues>({ name, label, placeholder, className, type }: Props<T>) => {
+const TextInputComponent = <T extends FieldValues>({ name, label, placeholder, className, type, isRequired }: Props<T>) => {
   const { control } = useFormContext<T>();
   return (
     <FormField
@@ -20,7 +21,9 @@ const TextInputComponent = <T extends FieldValues>({ name, label, placeholder, c
       name={name}
       render={({ field }) => (
         <FormItem className={className}>
-          <FormLabel>{label}</FormLabel>
+          <FormLabel>
+            {label} {isRequired && <span className="text-destructive">*</span>}
+          </FormLabel>
           <FormControl>
             {type === 'textarea' ? <Textarea placeholder={placeholder} {...field} /> : <Input placeholder={placeholder} {...field} />}
           </FormControl>

@@ -1,5 +1,4 @@
 import Blog from '@/pages/Blog';
-import React from 'react';
 
 export const metadata = {
   title: 'Blogs | Finansist International',
