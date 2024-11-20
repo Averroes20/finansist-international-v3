@@ -1,14 +1,29 @@
-import withBundleAnalyzer from '@next/bundle-analyzer';
-
 /** @type {import('next').NextConfig} */
-const nextConfig = withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true', // Aktifkan jika ANALYZE=true
-})({
-  images: {
-    domains: [], // Isi dengan domain yang Anda izinkan untuk optimisasi gambar
+const nextConfig = {
+  async headers() {
+    return [
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://finansist-international-v3.vercel.app',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type',
+          },
+        ],
+      },
+    ];
   },
-  reactStrictMode: true,
-  swcMinify: true,
-});
+  images: {
+    domains: [],
+  },
+};
 
 export default nextConfig;
