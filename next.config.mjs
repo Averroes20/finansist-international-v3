@@ -7,7 +7,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
-            value: '*',
+            value: '*', // Ini hanya default, middleware akan override
           },
           {
             key: 'Access-Control-Allow-Methods',
