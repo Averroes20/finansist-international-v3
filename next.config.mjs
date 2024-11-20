@@ -7,7 +7,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
-            value: 'https://finansist-international-v3.vercel.app',
+            value: '*',
           },
           {
             key: 'Access-Control-Allow-Methods',

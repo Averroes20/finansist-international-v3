@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const allowedOrigins = ['https://localhost:3000', 'finansist-international-v3.vercel.app'];
+const allowedOrigins = ['https://localhost:3000', '*'];
 
 export function middleware(req: NextRequest) {
   const origin = req.headers.get('origin');
@@ -22,7 +22,3 @@ export function middleware(req: NextRequest) {
 
   return new Response('CORS policy does not allow this origin', { status: 403 });
 }
-
-export const config = {
-  matcher: '/api/:path*', // Hanya menjalankan middleware untuk API
-};
