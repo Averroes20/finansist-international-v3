@@ -4,3 +4,13 @@ export interface Review {
   company: string;
   review: string;
 }
+
+export interface ReviewListResponse {
+  data: Review[];
+  meta: {
+    page: number;
+    limit: number;
+    totalPages: number;
+    totalCount: number;
+  };
+}

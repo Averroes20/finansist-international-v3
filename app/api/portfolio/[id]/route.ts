@@ -4,14 +4,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'public', 'portfolio');
-type RouteContext = {
-  params: Promise<{
-    id: string; // Sesuaikan tipe params
-  }>;
+type Props = {
+  params: {
+    id: string;
+  };
 };
 
-export async function GET(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function GET(req: NextRequest, { params }: Props) {
   const portfolioId = parseInt(params.id, 10);
   try {
     const portfolio = await prismaClient.portfolio.findUnique({
@@ -27,8 +26,7 @@ export async function GET(req: NextRequest, context: RouteContext) {
   }
 }
 
-export async function DELETE(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function DELETE(req: NextRequest, { params }: Props) {
   const portfolioId = parseInt(params.id, 10);
   try {
     const existingPortfolio = await prismaClient.portfolio.findUnique({
@@ -53,8 +51,7 @@ export async function DELETE(req: NextRequest, context: RouteContext) {
   }
 }
 
-export async function PUT(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function PUT(req: NextRequest, { params }: Props) {
   const portfolioId = parseInt(params.id, 10);
   try {
     const formData = await req.formData();

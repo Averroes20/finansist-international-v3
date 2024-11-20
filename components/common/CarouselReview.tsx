@@ -1,15 +1,19 @@
 'use client';
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { TypographyH4, TypographyH5, TypographyP } from '@/components/ui/typography';
-import { Review } from '@/lib/type/review';
+import { ReviewListResponse } from '@/lib/type/review';
 import Autoplay from 'embla-carousel-autoplay';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const CarouselReviews = ({ reviews }: { reviews: Review[] }) => {
+type Props = {
+  data: ReviewListResponse;
+};
+
+const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
   const plugins = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
   const [api, setApi] = useState<CarouselApi | undefined>();
   const [current, setCurrent] = useState<number>(0);
-  const [count, setCount] = useState<number>(reviews.length);
+  const [count, setCount] = useState<number>(data.meta.totalCount);
 
   const handleMouseEnter = useCallback(() => {
     plugins.current?.stop();
@@ -49,7 +53,7 @@ const CarouselReviews = ({ reviews }: { reviews: Review[] }) => {
           onMouseLeave={handleMouseLeave}
         >
           <CarouselContent>
-            {reviews.map((item, index) => (
+            {data.data.map((item, index) => (
               <CarouselItem key={index}>
                 <div className="p-1">
                   <div className="items-center justify-center text-white ">

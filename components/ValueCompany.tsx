@@ -33,7 +33,6 @@ const ValueCompany = () => {
     } else {
       setIsDarkMode(false);
     }
-    console.log('dark mode', isInView);
   }, [isInView, setIsDarkMode]);
 
   useEffect(() => {

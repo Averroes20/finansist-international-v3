@@ -1,3 +1,4 @@
+'use client';
 import { software } from '@/lib/data/intro';
 import { motion } from 'framer-motion';
 import Image from 'next/image';

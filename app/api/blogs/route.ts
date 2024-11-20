@@ -129,7 +129,7 @@ export async function GET(req: NextRequest) {
       slug: blog.slug,
       createdAt: blog.created_at,
       updatedAt: blog.updated_at,
-      sum_comments: blog.comments.length || 0,
+      sumComments: blog.comments.length || 0,
     }));
 
     return NextResponse.json({

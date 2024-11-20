@@ -1,15 +1,15 @@
-import { fetchBlogById } from '@/action/action-blog';
+import { fetchBlogById } from '@/action/blog';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
-const DetailBlog = dynamic(() => import('@/pages/DetailBlog'));
+const DetailBlog = dynamic(() => import('./DetailBlog'));
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 };
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
-  const blog = await fetchBlogById((await params).slug);
+  const blog = await fetchBlogById(params.slug);
   const title = blog.title ? blog.title : 'Blogs | Finansist International';
   const desc = blog.resume ? blog.resume : 'Discover more about our blogs at Finansist International.';
   return {
@@ -19,7 +19,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 };
 
 const Detail = async ({ params }: Props) => {
-  const blog = await fetchBlogById((await params).slug);
+  const blog = await fetchBlogById(params.slug);
   return <DetailBlog data={blog} />;
 };
 

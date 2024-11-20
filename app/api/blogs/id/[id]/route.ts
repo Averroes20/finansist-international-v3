@@ -9,14 +9,13 @@ import { saveFile } from '@/utils/save-file';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'public', 'blogs');
 
-type RouteContext = {
-  params: Promise<{
-    id: string; // Sesuaikan tipe params
-  }>;
+type Props = {
+  params: {
+    id: string;
+  };
 };
 
-export async function PUT(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function PUT(req: NextRequest, { params }: Props) {
   const blogId = parseInt(params.id, 10);
   try {
     const formData = await req.formData();
@@ -75,8 +74,7 @@ export async function PUT(req: NextRequest, context: RouteContext) {
   }
 }
 
-export async function DELETE(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function DELETE(req: NextRequest, { params }: Props) {
   const blogId = parseInt(params.id, 10);
   try {
     const existingBlog = await prismaClient.blogs.findUnique({

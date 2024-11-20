@@ -1,14 +1,13 @@
 import { prismaClient } from '@/lib/database/connection';
 import { NextRequest, NextResponse } from 'next/server';
 
-type RouteContext = {
-  params: Promise<{
-    slug: string; // Sesuaikan tipe params
-  }>;
+type Props = {
+  params: {
+    slug: string;
+  };
 };
 
-export async function GET(req: NextRequest, context: RouteContext) {
-  const params = await context.params;
+export async function GET(req: NextRequest, { params }: Props) {
   const blogSlug = params.slug;
   try {
     const blog = await prismaClient.blogs.findUnique({
@@ -54,7 +53,7 @@ export async function GET(req: NextRequest, context: RouteContext) {
         slug: blog.slug,
         createdAt: blog.created_at.toISOString(),
         updatedAt: blog.updated_at.toISOString(),
-        sum_comments: blog.comments.length,
+        sumComments: blog.comments.length,
         comments: blog.comments.map((comment) => ({
           id: comment.id,
           name: comment.name,

@@ -2,9 +2,6 @@
 
 import useMultiIntersectionPrefetch from '@/hooks/use-multi-intersection-prefetch';
 import React, { useRef } from 'react';
-import AboutUs from './AboutUs';
-import Intro from './Intro';
-import Profile from './Profile';
 import Services from './Services';
 
 interface Props {
@@ -34,9 +31,6 @@ const Home: React.FC<Props> = ({ portfolio, review, blogs, careers, valueCompany
   ]);
   return (
     <>
-      <Intro />
-      <Profile />
-      <AboutUs />
       <div ref={reviewsRef}>{review}</div>
       <div ref={servicePromotionRef}>{servicePromotion}</div>
       <div ref={valueCompanyRef}>{valueCompany}</div>

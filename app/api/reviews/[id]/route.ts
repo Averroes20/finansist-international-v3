@@ -2,13 +2,12 @@ import { prismaClient } from '@/lib/database/connection';
 import { NextRequest, NextResponse } from 'next/server';
 
 type RouteContext = {
-  params: Promise<{
-    id: string; // Sesuaikan tipe params
-  }>;
+  params: {
+    id: string;
+  };
 };
 
-export async function GET(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function GET(req: NextRequest, { params }: RouteContext) {
   const reviewId = parseInt(params.id, 10);
   try {
     const review = await prismaClient.reviews.findUnique({
@@ -24,8 +23,7 @@ export async function GET(req: NextRequest, context: RouteContext) {
   }
 }
 
-export async function DELETE(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function DELETE(req: NextRequest, { params }: RouteContext) {
   const reviewId = parseInt(params.id, 10);
   try {
     const existingReview = await prismaClient.reviews.findUnique({
@@ -44,8 +42,7 @@ export async function DELETE(req: NextRequest, context: RouteContext) {
   }
 }
 
-export async function PUT(req: NextRequest, context: RouteContext) {
-  const params = await context.params; // Tunggu promise untuk params
+export async function PUT(req: NextRequest, { params }: RouteContext) {
   const reviewId = parseInt(params.id, 10);
   try {
     const body = await req.json();

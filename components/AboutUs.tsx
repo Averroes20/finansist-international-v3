@@ -28,37 +28,6 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 md:px-32 gap-5 md:gap-10">
-        {aboutUs.map((item, index) => (
-          <article className="p-4 border border-gray-200 rounded-lg shadow w-full mx-auto" key={index}>
-            <div className="flex flex-col items-center gap-4">
-              <TypographyH3 className="font-bold text-center h-14">{item.title}</TypographyH3>
-              <Image
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                width={300}
-                height={300}
-                className="mx-auto aspect-auto object-cover rounded-lg"
-              />
-            </div>
-            <div className="text-justify md:text-left mt-6">
-              {Array.isArray(item.description) ? (
-                <ul className="list-disc list-inside space-y-2">
-                  {item.description.map((desc, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-green-600 font-bold">✔</span>
-                      <TypographyP>{desc}</TypographyP>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <TypographyP className="text-lg indent-8">{item.description}</TypographyP>
-              )}
-            </div>
-          </article>
-        ))}
-      </div> */}
     </section>
   );
 };

@@ -9,7 +9,7 @@ export interface Blog {
   category: string;
   cover: string;
   slug: string;
-  sum_comments: number;
+  sumComments: number;
   createdAt: Date;
   updatedAt: Date;
 }

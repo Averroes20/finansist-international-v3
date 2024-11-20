@@ -1,5 +1,5 @@
 'use client';
-import { createReview, deleteReview, updateReview } from '@/action/action-review';
+import { createReview, deleteReview, updateReview } from '@/action/review';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -27,7 +27,7 @@ const PageReview = () => {
       limit: String(limit),
       ...(title && { title }),
     }).toString();
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/reviews?${query}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reviews?${query}`);
     const data = await response.json();
     setReview(data.data);
     setTotalPages(data.meta.totalPages);

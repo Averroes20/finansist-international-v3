@@ -1,9 +1,8 @@
 'use client';
 import { images } from '@/constants/images';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';
-import { motion } from 'framer-motion';
 
 const ServicePromotion: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
