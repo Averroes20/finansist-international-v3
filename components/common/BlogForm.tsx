@@ -19,11 +19,12 @@ type Props = {
 };
 
 const categories = [
-  { label: 'Category 1', value: 'category-1' },
-  { label: 'Category 2', value: 'category-2' },
-  { label: 'Category 3', value: 'category-3' },
-  { label: 'Category 4', value: 'category-4' },
-  { label: 'Category 5', value: 'category-5' },
+  { label: 'Akutansi & pembukuan', value: 'Akutansi & pembukuan' },
+  { label: 'Pajak', value: 'Pajak' },
+  { label: 'Bisnis', value: 'Bisnis' },
+  { label: 'Belajar keuangan', value: 'Belajar keuangan' },
+  { label: 'Investasi', value: 'Investasi' },
+  { label: 'Hiburan', value: 'Hiburan' },
 ];
 
 const BlogForm: React.FC<Props> = ({ data, onSubmit, title, description, trigger }) => {

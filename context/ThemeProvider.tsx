@@ -1,5 +1,5 @@
 'use client';
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, memo, ReactNode, useContext, useEffect, useState } from 'react';
 
 interface ThemeContextType {
   isDarkMode: boolean;
@@ -26,7 +26,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   return <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>{children}</ThemeContext.Provider>;
 };
 
-export const ThemeProviders = React.memo(ThemeProvider);
+export const ThemeProviders = memo(ThemeProvider);
 
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);

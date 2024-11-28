@@ -1,23 +1,16 @@
 import type { Config } from 'tailwindcss';
-import tailwindcssAnimate from 'tailwindcss-animate';
 
 const config: Config = {
   darkMode: 'class',
-  content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       fontFamily: {
         santaCatalina: ['SantaCatalina'],
-        libreBaskerville: ['LibreBaskerville'],
-        dosis: ['Dosis'],
       },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
@@ -63,6 +56,29 @@ const config: Config = {
           ring: 'hsl(var(--sidebar-ring))',
         },
       },
+      animation: {
+        randomHover: 'randomHover 10s infinite ease-in-out',
+        slider: 'slider 100s linear infinite',
+      },
+      keyframes: {
+        randomHover: {
+          '0%': { transform: 'translate(0, 0) ' },
+          '10%': { transform: 'translate(4px, -6px) ' },
+          '20%': { transform: 'translate(-8px, 5px)' },
+          '30%': { transform: 'translate(7px, -4px) ' },
+          '40%': { transform: 'translate(-5px, 7px)' },
+          '50%': { transform: 'translate(6px, -8px) ' },
+          '60%': { transform: 'translate(-7px, 6px)' },
+          '70%': { transform: 'translate(8px, -5px) ' },
+          '80%': { transform: 'translate(-4px, 4px)' },
+          '90%': { transform: 'translate(5px, -6px) ' },
+          '100%': { transform: 'translate(0, 0)' },
+        },
+        slider: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -70,6 +86,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  plugins: [require('tailwindcss-animate'), require('tailwindcss-motion')],
 };
 export default config;

@@ -1,4 +1,5 @@
 import { prismaClient } from '@/lib/database/connection';
+import { runCors } from '@/lib/middleware/cors';
 import { slugify } from '@/utils/slugify';
 import { Prisma } from '@prisma/client';
 import { randomUUID } from 'crypto';
@@ -10,6 +11,8 @@ const UPLOAD_DIR = path.join(process.cwd(), 'public', 'blogs');
 
 export async function POST(req: NextRequest) {
   try {
+    await runCors(req);
+
     const formData = await req.formData();
     const title = formData.get('title') as string;
     const resume = formData.get('resume') as string;
@@ -73,6 +76,8 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   try {
+    await runCors(req);
+
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get('page') || '1', 10);
     const limit = parseInt(searchParams.get('limit') || '10', 10);
@@ -113,12 +118,11 @@ export async function GET(req: NextRequest) {
         slug: true,
         created_at: true,
         updated_at: true,
-
         comments: true,
       },
     });
 
-    const response = blogs.map((blog) => ({
+    const data = blogs.map((blog) => ({
       id: blog.id,
       title: blog.title,
       resume: blog.resume,
@@ -132,15 +136,24 @@ export async function GET(req: NextRequest) {
       sumComments: blog.comments.length || 0,
     }));
 
-    return NextResponse.json({
-      data: response,
-      meta: {
-        page,
-        limit,
-        totalPages: Math.ceil(totalCount / limit),
-        totalCount,
-      },
-    });
+    return new Response(
+      JSON.stringify({
+        data: data,
+        meta: {
+          page,
+          limit,
+          totalPages: Math.ceil(totalCount / limit),
+          totalCount,
+        },
+      }),
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 's-maxage=300, stale-while-revalidate=600',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
   } catch (error) {
     console.error(error);
     return NextResponse.json({ message: 'Failed to fetch blogs', error }, { status: 500 });

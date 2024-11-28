@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { FieldValues, Path, useFormContext, Controller } from 'react-hook-form';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
@@ -68,6 +68,6 @@ const FileInputComponent = <T extends FieldValues>({ name, label, className, def
   );
 };
 
-const FileInput = React.memo(FileInputComponent) as typeof FileInputComponent;
+const FileInput = memo(FileInputComponent) as typeof FileInputComponent;
 
 export default FileInput;

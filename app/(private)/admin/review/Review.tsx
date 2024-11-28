@@ -1,9 +1,8 @@
 'use client';
-import { createReview, deleteReview, updateReview } from '@/action/review';
+import { createReview, deleteReview, fetchReviews, updateReview } from '@/action/review';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { TypographyH2, TypographyP } from '@/components/ui/typography';
 import { Review } from '@/lib/type/review';
 import { ReviewType } from '@/lib/validation/schema-form-review';
 import { PenBox } from 'lucide-react';
@@ -27,10 +26,9 @@ const PageReview = () => {
       limit: String(limit),
       ...(title && { title }),
     }).toString();
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reviews?${query}`);
-    const data = await response.json();
-    setReview(data.data);
-    setTotalPages(data.meta.totalPages);
+    const response = await fetchReviews(query);
+    setReview(response.data);
+    setTotalPages(response.meta.totalPages);
   }, [page, limit, title]);
 
   useEffect(() => {
@@ -80,8 +78,8 @@ const PageReview = () => {
   return (
     <>
       <div className="space-y-4">
-        <TypographyH2 className="text-3xl font-bold">Portfolio</TypographyH2>
-        <TypographyP className="text-gray-500">Welcome to your portfolio</TypographyP>
+        <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Portfolio</h2>
+        <p className="text-gray-500">Welcome to your portfolio</p>
       </div>
       <div className="flex flex-col md:flex-row gap-4">
         <Input placeholder="Search..." value={title} onChange={(e) => setTitle(e.target.value)} />

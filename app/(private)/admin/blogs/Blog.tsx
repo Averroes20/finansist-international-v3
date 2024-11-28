@@ -4,7 +4,6 @@ import { createBlog, deleteBlog, fetchBlogs, updateBlog } from '@/action/blog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { TypographyH2, TypographyP } from '@/components/ui/typography';
 import { Blog } from '@/lib/type/blog';
 import { BlogType } from '@/lib/validation/schema-form-blog';
 import { PenBox } from 'lucide-react';
@@ -92,8 +91,8 @@ const BlogsAdmin: React.FC = () => {
     <>
       <div className="space-y-4">
         <div>
-          <TypographyH2 className="text-3xl font-bold">Blogs</TypographyH2>
-          <TypographyP className="text-gray-500">Welcome to your blogs</TypographyP>
+          <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Blogs</h2>
+          <p className="text-gray-500">Welcome to your blogs</p>
         </div>
         <div className="flex flex-col md:flex-row gap-4">
           <Input placeholder="Search by title..." value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -121,7 +120,7 @@ const BlogsAdmin: React.FC = () => {
                     <Image src={item.cover as string} alt={item.title} width={100} height={100} className="object-cover" />
                   </TableCell>
                   <TableCell className="cursor-pointer">
-                    <Link href={`/blogs/${item.slug}`} prefetch={true}>
+                    <Link rel="preload" href={`/blogs/${item.slug}`} prefetch={true}>
                       {item.title}
                     </Link>
                   </TableCell>

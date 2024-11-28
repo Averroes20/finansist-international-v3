@@ -34,20 +34,32 @@ export async function GET(req: NextRequest) {
     });
 
     const data = reviews.map((review) => ({
-      ...review,
-      createdAt: review.created_at.toISOString(),
-      updatedAt: review.updated_at.toISOString(),
+      company: review.company,
+      id: review.id,
+      name: review.name,
+      review: review.review,
+      createdAt: review.created_at,
+      updatedAt: review.updated_at,
     }));
 
-    return NextResponse.json({
-      data: data,
-      meta: {
-        page: page || null,
-        limit: limit || null,
-        totalPages: limit ? Math.ceil(total / limit) : null,
-        totalCount: total,
-      },
-    });
+    return new Response(
+      JSON.stringify({
+        data: data,
+        meta: {
+          page: page || null,
+          limit: limit || null,
+          totalPages: limit ? Math.ceil(total / limit) : null,
+          totalCount: total,
+        },
+      }),
+      {
+        status: 200,
+        headers: {
+          'Cache-Control': 's-maxage=300, stale-while-revalidate=600',
+          'Content-Type': 'application/json',
+        },
+      }
+    );
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Failed to fetch reviews' }, { status: 500 });

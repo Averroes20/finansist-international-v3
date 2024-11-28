@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   onOpenChange?: (open: boolean) => void;
 };
 
-const Modal: React.FC<Props> = React.memo(({ title, description, trigger, children, contentStyle, open, onOpenChange }) => (
+const Modal: React.FC<Props> = ({ title, description, trigger, children, contentStyle, open, onOpenChange }) => (
   <Dialog open={open} onOpenChange={onOpenChange}>
     <DialogTrigger asChild>{trigger}</DialogTrigger>
     <DialogContent className={contentStyle}>
@@ -24,7 +24,6 @@ const Modal: React.FC<Props> = React.memo(({ title, description, trigger, childr
       {children}
     </DialogContent>
   </Dialog>
-));
+);
 
-Modal.displayName = 'Modal';
-export default Modal;
+export default memo(Modal);

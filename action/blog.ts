@@ -1,12 +1,7 @@
 'server only';
+import API_BASE_URL from '@/constants/env';
 import { BlogListResponse, BlogWithComments } from '@/lib/type/blog';
 import { BlogType } from '@/lib/validation/schema-form-blog';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-if (!API_BASE_URL) {
-  throw new Error('Environment variable NEXT_PUBLIC_API_BASE_URL is missing');
-}
 
 const createFormData = (data: BlogType): FormData => {
   const formData = new FormData();
@@ -66,9 +61,14 @@ export const deleteBlog = async (id: number) => {
 export const fetchBlogs = async (query: string): Promise<BlogListResponse> => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/blogs?${query}`, {
-      cache: 'no-cache',
+      next: { revalidate: 0 },
     });
-    return await handleResponse(response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blogs: ${response.statusText}`);
+    }
+
+    return await response.json();
   } catch (error) {
     console.error(`Error fetching blogs: ${error}`);
     return {
@@ -81,7 +81,6 @@ export const fetchBlogs = async (query: string): Promise<BlogListResponse> => {
 export const fetchBlogById = async (slug: string): Promise<BlogWithComments> => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/blogs/slug/${slug}`, {
-      cache: 'no-cache',
       next: { revalidate: 0 },
     });
     const data = await handleResponse(response);

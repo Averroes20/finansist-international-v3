@@ -1,12 +1,7 @@
 'server only';
+import API_BASE_URL from '@/constants/env';
 import { PortfolioListResponse } from '@/lib/type/portfolio';
 import { PortfolioType } from '@/lib/validation/schema-form-portfolio';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-if (!API_BASE_URL) {
-  throw new Error('Environment variable NEXT_PUBLIC_API_BASE_URL is missing');
-}
 
 const apiRequest = async <T>(url: string, options?: RequestInit): Promise<T> => {
   try {
@@ -62,7 +57,5 @@ export const deletePortfolio = async (id: number) => {
 };
 
 export const fetchPortfolios = async (query: string): Promise<PortfolioListResponse> => {
-  return await apiRequest(`${API_BASE_URL}/api/portfolio?${query}`, {
-    cache: 'no-cache',
-  });
+  return await apiRequest(`${API_BASE_URL}/api/portfolio?${query}`);
 };

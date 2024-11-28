@@ -6,6 +6,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.font-libreBaskerville {
+  font-family: var(--font-libre-baskerville);
+}
+
+@font-face {
+  font-family: 'SantaCatalina';
+  src: local('SantaCatalina'), url('./fonts/Santa-Catalina.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -94,104 +106,73 @@ body {
 }
 
 @layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-}
-
-@layer base {
-  input[type='number']::-webkit-inner-spin-button,
-  input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 @layer components {
   .prose {
-    @apply text-gray-950 leading-relaxed; /* Warna teks dasar dan spasi antar baris */
+    @apply text-gray-950 leading-relaxed;
   }
 
   .prose h1 {
-    @apply text-3xl font-bold; /* Ukuran dan warna untuk h1 */
+    @apply text-3xl font-bold;
   }
 
   .prose h2 {
-    @apply text-2xl font-semibold; /* Ukuran dan warna untuk h2 */
+    @apply text-2xl font-semibold;
   }
 
   .prose p {
-    @apply mb-4; /* Menambahkan margin bawah pada paragraf */
+    @apply mb-4;
   }
 
   .prose ul {
-    @apply list-disc pl-6; /* Bullet list dengan indentasi */
+    @apply list-disc pl-6;
   }
 
   .prose ol {
-    @apply list-decimal pl-6; /* Numbered list dengan indentasi */
+    @apply list-decimal pl-6;
   }
 
   .prose li {
-    @apply ml-4; /* Margin bawah untuk list item */
+    @apply ml-4;
   }
 
   .prose a {
-    @apply text-blue-600 underline hover:text-blue-800; /* Warna link dan efek hover */
+    @apply text-blue-600 underline hover:text-blue-800;
   }
 
   .prose blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic text-gray-700; /* Styling untuk blockquote */
+    @apply border-l-4 border-gray-300 pl-4 italic text-gray-700;
   }
 
   .prose .ql-align-center {
-    @apply text-center; /* Align center */
+    @apply text-center;
   }
 
   .prose .ql-align-right {
-    @apply text-right; /* Align right */
+    @apply text-right;
   }
 
   .prose .ql-align-justify {
-    @apply text-justify; /* Align justify */
+    @apply text-justify;
   }
 
   .prose code {
-    @apply bg-gray-200 text-gray-800 px-1 py-0.5 rounded-md; /* Styling untuk code */
+    @apply bg-gray-200 text-gray-800 px-1 py-0.5 rounded-md;
   }
 
   .prose pre {
-    @apply bg-gray-200 rounded-md p-4; /* Styling untuk code block */
+    @apply bg-gray-200 rounded-md p-4;
   }
 
   .prose .ql-indent-1 {
-    @apply indent-9; /* Margin bawah untuk list item */
+    @apply indent-9;
   }
-}
-
-@font-face {
-  font-family: 'SantaCatalina';
-  src: url('./fonts/Santa-Catalina.otf') format('opentype'); /* Path absolut */
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'LibreBaskerville';
-  src: url('./fonts/LibreBaskerville-Regular.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Dosis';
-  src: url('./fonts/Dosis-Bold.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
 }

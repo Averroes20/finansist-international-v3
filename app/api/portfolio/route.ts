@@ -1,4 +1,5 @@
 import { prismaClient } from '@/lib/database/connection';
+import { runCors } from '@/lib/middleware/cors';
 import { Prisma } from '@prisma/client';
 import fs from 'fs';
 import { NextRequest, NextResponse } from 'next/server';
@@ -8,6 +9,7 @@ const UPLOAD_DIR = path.join(process.cwd(), 'public', 'portfolio');
 
 export async function POST(req: NextRequest) {
   try {
+    await runCors(req);
     const formData = await req.formData();
     const companyName = formData.get('companyName') as string;
     const software = formData.get('software') as string;

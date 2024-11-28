@@ -1,76 +1,58 @@
 'use client';
 import { images } from '@/constants/images';
-import { motion, useInView } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageProvider';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useCallback, useState } from 'react';
 
 const ServicePromotion: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false, margin: '-60% 0px -60% 0px' });
+  const [isHovered, setIsHovered] = useState(false);
+  const { dictionary } = useLanguage();
+  const { title, points, description, tagsLine } = dictionary.financialSupport;
 
-  const planeAnimation = {
-    x: isInView ? 1000 : 0,
-    y: isInView ? -400 : 0,
-    rotate: isInView ? 180 : 0,
-  };
-
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
   return (
-    <section ref={ref} id="servicePromotion" className="min-h-screen max-w-screen-lg mx-auto flex items-center relative">
-      <div className="grid grid-cols-1 md:grid-cols-3 ">
-        <div className="md:col-span-2">
-          <p className="leading-7">
-            Save your precious time and hiring costs, and just focus on growing your sales strategy. We will handle your bookkeeping, tax compliance,
-            and reporting with precision for seamless and cost-effective results.
-          </p>
+    <section id="servicePromotion" className="min-h-screen max-w-screen-lg mx-auto px-5 md:px-0 flex items-center relative">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="md:col-span-2 pr-6">
+          <h1 className="font-santaCatalina text-slate-900 dark:text-white text-center leading-[5rem] text-[2.25rem] md:text-[3rem] ">{title}</h1>
+          <ul className="flex flex-col space-y-3 py-4">
+            {points.map((item, index) => (
+              <li key={index} className="flex text-sm md:text-base">
+                <span className="mr-2 text-slate-900 font-bold">✔</span>
+                <p className="font-libreBaskerville">
+                  <b>{item.title}: </b>
+                  {item.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="text-base font-libreBaskerville">{description}</p>
+          <h2 className="font-santaCatalina text-slate-900 dark:text-white text-right text-[2rem] md:text-[2.25rem]">{tagsLine}</h2>
         </div>
-        <div className="flex justify-center items-center md:col-span-1 ">
-          <div className="bg-[linear-gradient(#e9e9e9,#e9e9e9_50%,#fff)] group w-[300px] h-[400px] inline-flex transition-all duration-300 overflow-visible p-1 rounded-[30px]">
-            <div className="w-full h-full bg-[linear-gradient(to_top,#ececec,#fff)] overflow-hidden shadow-[0_0_1px_rgba(0,0,0,0.07),0_0_1px_rgba(0,0,0,0.05),0_3px_3px_rgba(0,0,0,0.25),0_1px_3px_rgba(0,0,0,0.12)] p-1 rounded-[30px] duration-300">
-              <div className="w-full h-full bg-[linear-gradient(#f4f4f4,#fefefe)] rounded-[30px] overflow-hidden">
-                <Image src={images.Promotion} alt="Styled Image" className="w-full h-full object-cover rounded-[30px]" />
-              </div>
-            </div>
+        <div className="flex justify-center items-center md:col-span-1">
+          <div className="hidden md:block md:relative md:w-full md:h-full" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <Image
+              src={images.Promotion}
+              alt="Styled Image"
+              className={`w-full h-full absolute object-cover rounded-[30px] transition duration-500 ease-out ${
+                isHovered ? 'opacity-0' : 'opacity-1'
+              }`}
+            />
+            <Image
+              src={images.PromotionSecond}
+              alt="Styled Image"
+              className={`w-full h-full absolute object-cover rounded-[30px] transition duration-500 ease-in ${
+                isHovered ? 'opacity-1' : 'opacity-0'
+              }`}
+            />
           </div>
         </div>
       </div>
-      <motion.div
-        animate={planeAnimation}
-        transition={{
-          duration: 3,
-          ease: 'easeInOut',
-        }}
-        className="absolute"
-        style={{ top: '60%', left: '0%' }}
-      >
-        <Image src={'/images/air-plane.png'} alt="airplane" width={150} height={150} />
-      </motion.div>
-      {[...Array(10)].map((_, index) => (
-        <motion.div
-          key={index}
-          initial={{
-            x: 0,
-            y: 0,
-            opacity: 1,
-            scale: 1,
-          }}
-          animate={{
-            x: -50 - index * 10,
-            y: index * 10,
-            opacity: 0,
-            scale: 0,
-          }}
-          transition={{
-            delay: index * 0.2,
-            duration: 2,
-            ease: 'easeOut',
-          }}
-          className="absolute w-4 h-4 bg-gray-400 rounded-full opacity-50"
-          style={{
-            top: '60%',
-            left: `${5 + index}%`,
-          }}
-        />
-      ))}
     </section>
   );
 };

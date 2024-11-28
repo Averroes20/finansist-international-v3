@@ -1,7 +1,7 @@
-import React from 'react';
 import { FieldValues, Path, useFormContext } from 'react-hook-form';
 import { FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
+import { memo } from 'react';
 
 type Props<T extends FieldValues> = {
   name: Path<T>;
@@ -48,6 +48,6 @@ const DropdownInputComponent = <T extends FieldValues>({ name, label, className,
   );
 };
 
-const DropdownInput = React.memo(DropdownInputComponent) as typeof DropdownInputComponent;
+const DropdownInput = memo(DropdownInputComponent) as typeof DropdownInputComponent;
 
 export default DropdownInput;

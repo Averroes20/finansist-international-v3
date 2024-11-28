@@ -1,4 +1,5 @@
 import { prismaClient } from '@/lib/database/connection';
+import { runCors } from '@/lib/middleware/cors';
 import fs from 'fs';
 import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
@@ -13,6 +14,7 @@ type Props = {
 export async function GET(req: NextRequest, { params }: Props) {
   const portfolioId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const portfolio = await prismaClient.portfolio.findUnique({
       where: { id: portfolioId },
     });
@@ -29,6 +31,7 @@ export async function GET(req: NextRequest, { params }: Props) {
 export async function DELETE(req: NextRequest, { params }: Props) {
   const portfolioId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const existingPortfolio = await prismaClient.portfolio.findUnique({
       where: { id: portfolioId },
     });
@@ -54,6 +57,7 @@ export async function DELETE(req: NextRequest, { params }: Props) {
 export async function PUT(req: NextRequest, { params }: Props) {
   const portfolioId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const formData = await req.formData();
     const companyName = formData.get('companyName') as string | null;
     const software = formData.get('software') as string | null;

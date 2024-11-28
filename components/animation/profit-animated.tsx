@@ -1,11 +1,17 @@
 'use client';
-import { DotLottie, DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { useEffect, useState } from 'react';
-import AnimatedTag from './tag-animation';
-
-const getRandomDelay = (min = 0, max = 1) => Math.random() * (max - min) + min;
+import { DotLottie } from '@lottiefiles/dotlottie-react';
+import { useEffect, useMemo, useState } from 'react';
+import Dotlottie from './dotlottie';
+import AnimatedTag from './tag-animated';
 
 const ProfitAnimated: React.FC = () => {
+  const getRandomDelay = useMemo(
+    () =>
+      (min = 0, max = 1) =>
+        Math.random() * (max - min) + min,
+    []
+  );
+
   const [dotLottie, setDotLottie] = useState<DotLottie | null>(null);
 
   const dotLottieRefCallback = (instance: DotLottie | null) => {
@@ -32,20 +38,20 @@ const ProfitAnimated: React.FC = () => {
 
   return (
     <div className="relative pt-10">
-      <DotLottieReact src="/animate/profit.lottie" autoplay speed={0.9} segment={[0, 98]} dotLottieRefCallback={dotLottieRefCallback} />
-      <AnimatedTag className="absolute top-[4rem] left-[5.5rem]" delay={getRandomDelay()}>
+      <Dotlottie src="/animate/profit.lottie" autoplay speed={0.9} segment={[0, 98]} dotLottieRefCallback={dotLottieRefCallback} />
+      <AnimatedTag className="absolute top-[9rem] left-[2rem] md:left-[2.5rem]" delay={getRandomDelay()}>
         Audit
       </AnimatedTag>
-      <AnimatedTag className="absolute top-[1.5rem] left-[9rem]" delay={getRandomDelay()}>
+      <AnimatedTag className="absolute top-[4rem] md:top-[3rem] left-[3.5rem] md:left-[7rem]" delay={getRandomDelay()}>
         Accounting
       </AnimatedTag>
-      <AnimatedTag className="absolute top-[20%] left-[49%] -translate-x-1/4 -translate-y-1/3" delay={getRandomDelay()}>
+      <AnimatedTag className="absolute top-[2.5rem] left-[20rem] -translate-y-1/3" delay={getRandomDelay()}>
         Payroll
       </AnimatedTag>
-      <AnimatedTag className="absolute top-[1.5rem] right-[6rem]" delay={getRandomDelay()}>
+      <AnimatedTag className="absolute top-[1.5rem] right-[7rem] md:right-[4rem]" delay={getRandomDelay()}>
         Bookkeeping
       </AnimatedTag>
-      <AnimatedTag className="absolute top-[4rem] right-[4rem]" delay={getRandomDelay()}>
+      <AnimatedTag className="absolute top-[10rem] right-[1.5rem] md:right-[2.5rem]" delay={getRandomDelay()}>
         Tax
       </AnimatedTag>
     </div>

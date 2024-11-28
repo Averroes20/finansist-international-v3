@@ -10,7 +10,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '../ui/alert-dialog';
-import React from 'react';
+import { memo } from 'react';
 
 interface Props {
   title: string;
@@ -40,4 +40,4 @@ const ActionDelete: React.FC<Props> = ({ title, description, onClick }) => {
   );
 };
 
-export default React.memo(ActionDelete);
+export default memo(ActionDelete);

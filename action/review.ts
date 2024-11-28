@@ -1,12 +1,7 @@
 'server only';
+import API_BASE_URL from '@/constants/env';
 import { ReviewListResponse } from '@/lib/type/review';
 import { ReviewType } from '@/lib/validation/schema-form-review';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-if (!API_BASE_URL) {
-  throw new Error('Environment variable NEXT_PUBLIC_API_BASE_URL is missing');
-}
 
 export async function createReview(data: ReviewType) {
   const response = await fetch(`${API_BASE_URL}/api/reviews`, {
@@ -36,10 +31,12 @@ export async function deleteReview(id: number) {
 export const fetchReviews = async (query: string): Promise<ReviewListResponse> => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/reviews?${query}`, {
-      cache: 'force-cache',
+      next: { revalidate: 0 },
     });
-    const data = await response.json();
-    return data;
+    if (!response.ok) {
+      throw new Error(`Failed to fetch reviews: ${response.statusText}`);
+    }
+    return await response.json();
   } catch (error) {
     console.error(error);
     return { data: [], meta: { page: 0, limit: 0, totalPages: 0, totalCount: 0 } };

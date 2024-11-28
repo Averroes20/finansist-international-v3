@@ -1,7 +1,7 @@
 import { software } from '@/lib/data/intro';
 import PortfolioSchema, { PortfolioType } from '@/lib/validation/schema-form-portfolio';
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '../ui/button';
 import { Form } from '../ui/form';

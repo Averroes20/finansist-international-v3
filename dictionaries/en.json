@@ -1,0 +1,418 @@
+{
+  "navbar": {
+    "items": [
+      {
+        "label": "Home",
+        "url": "/#home"
+      },
+      {
+        "label": "About Us",
+        "url": "/#about-us"
+      },
+      {
+        "label": "Services",
+        "subItems": true,
+        "url": "/#"
+      },
+      {
+        "label": "Career",
+        "url": "/#career"
+      },
+      {
+        "label": "Blog",
+        "url": "/blog"
+      }
+    ]
+  },
+  "intro": {
+    "title": {
+      "part1": "Your",
+      "part2": "Financial Assistant",
+      "part3": "Empowered with"
+    },
+    "subtitle": "Certified Professionals",
+    "certifiedOf": "Certified of",
+    "description": "There is no need to hire an inhouse financial team, as Finansist is ready to serve as your trusted business partner.",
+    "softwareTitle": "Expert in many Accounting Software",
+    "achievements": [
+      {
+        "count": "10",
+        "description": "Years of experience"
+      },
+      {
+        "count": "54",
+        "description": "Project Success"
+      },
+      {
+        "count": "112",
+        "description": "Satisfied Clients"
+      }
+    ]
+  },
+  "about": {
+    "title": "We handle clients from many countries",
+    "aboutCEO": "For over 10 years, Finansist has grown from a local to an international service company with worldwide clients. We are experts at international regulations and utilize technology to offer smooth bookkeeping and tax preparation from anywhere. Our Indonesia-based service makes the cost more affordable than other countries with more satisfying results."
+  },
+  "financialSupport": {
+    "title": "Unlock Expert Financial Support with Zero Worries!",
+    "points": [
+      {
+        "title": "Prioritize Data Security",
+        "description": "Your financial data is safe with us—protected by cutting-edge security measures."
+      },
+      {
+        "title": "Precision in Reporting",
+        "description": "Rely on accurate, timely financial schedules and reports that keep you informed and in control."
+      },
+      {
+        "title": "Seamless System Integration",
+        "description": "We expertly navigate many accounting applications and systems, ensuring smooth operations."
+      },
+      {
+        "title": "24/7 Global Communication",
+        "description": "Get round-the-clock support, no matter where you are in the world."
+      },
+      {
+        "title": "Uncompromising Compliance",
+        "description": "Rest easy knowing your business is fully compliant with both local and international regulations (GAAP, IFRS, and more)."
+      }
+    ],
+    "description": "Let our expert team handle the complexities of finance while you focus on what matters most:",
+    "tagsLine": "Growing your business!"
+  },
+  "valueCompany": {
+    "title": {
+      "part1": "Visual excellence is only our starting point",
+      "part2": "delivering measurable results is our promise."
+    },
+    "items": [
+      {
+        "title": "C02 AI raises 12m USD in seed funding",
+        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "What you will get",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
+      {
+        "title": "C02 AI raises 12m USD in seed funding",
+        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "What you will get",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
+      {
+        "title": "C02 AI raises 12m USD in seed funding",
+        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "What you will get",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      }
+    ]
+  },
+  "services": {
+    "title": "Our Services",
+    "items": [
+      {
+        "title": "Accounting and Bookkeeping",
+        "link": "accounting-and-bookkeeping",
+        "icon": "/animate/bookkeeping.lottie",
+        "shortDescription": [
+          "Set Up Chart of Accounts",
+          "Entry Journal",
+          "AP and AR Aging",
+          "Inventory Recording",
+          "Bank Reconciliation",
+          "Financial Statements",
+          "Create Invoices and Send Bills",
+          "Transaction and Cost Recap"
+        ],
+        "details": {
+          "overview": "We provide professional accounting and bookkeeping services to ensure your financial records are accurate and up-to-date. Our services include bookkeeping, financial statement preparation, and business analysis, helping you make informed financial decisions:",
+          "extendedServices": [
+            "Accurate financial statements to guide business strategy.",
+            "Bookkeeping reviews to ensure accurate records.",
+            "Business analysis for profitability and efficiency.",
+            "Assistance with tax preparation."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Set up chart of accounts",
+                "Entry journal",
+                "Accounts payable and receivable aging",
+                "Inventory recording",
+                "Transaction archives",
+                "Bank reconciliation",
+                "Bookkeeping review",
+                "Balance sheet",
+                "Profit and loss statement",
+                "Cash flow management",
+                "End-of-year bookkeeping"
+              ]
+            },
+            {
+              "title": "Additional Services",
+              "items": [
+                "Create invoices",
+                "Send bills",
+                "Transaction and cost recap",
+                "COGS calculation",
+                "Break-even analysis",
+                "ROI calculation",
+                "Investment/LKPM Report preparation"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Tax Reporting",
+        "link": "tax-reporting",
+        "icon": "/animate/tax-reporting.lottie",
+        "shortDescription": [
+          "Corporate and Personal Tax Reporting",
+          "Income Tax Calculation",
+          "E-SPT Form Submission",
+          "Tax Planning",
+          "Fiscal Correction",
+          "International Tax Compliance",
+          "VAT Management",
+          "SP2DK - Tax Audit Assistance"
+        ],
+        "details": {
+          "overview": "Our professional tax services ensure efficient and accurate tax compliance, including corporate and personal tax reporting, income tax calculations, and comprehensive tax planning. Additional support includes fiscal correction, international tax compliance, and more:",
+          "extendedServices": [
+            "Accurate income tax calculations (e.g., Income Tax 21, 22).",
+            "Document preparation and compliance for deadlines.",
+            "Support with tax audits and SP2DK compliance.",
+            "Assistance with VAT, international tax, and fiscal adjustments."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Corporate and personal tax reporting",
+                "Income tax calculation",
+                "Tax bill printing",
+                "E-SPT form submission",
+                "Withholding tax certificates",
+                "Tax planning"
+              ]
+            },
+            {
+              "title": "Additional Services",
+              "items": [
+                "Fiscal correction",
+                "International tax compliance",
+                "VAT (input and output)",
+                "SP2DK - Tax audit assistance",
+                "DGT-1 form submission",
+                "Electronic form handling"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Payroll",
+        "link": "payroll",
+        "icon": "/animate/payroll.lottie",
+        "shortDescription": [
+          "Employee Attendance Tracking",
+          "Payroll and Income Tax 21 Calculations",
+          "E-SPT Form Submission",
+          "Withholding Tax Certificates",
+          "Employee Benefits Administration",
+          "Bulk Salary Transfers",
+          "Monthly Payroll and Tax Recap",
+          "Employee Loan and Reimbursement Tracking"
+        ],
+        "details": {
+          "overview": "Our payroll management services include accurate payroll processing, tax compliance, and benefits management to ensure timely employee payments and regulatory compliance:",
+          "extendedServices": [
+            "Attendance and payroll tracking.",
+            "Income Tax 21 processing and E-SPT submission.",
+            "Benefits management (BPJS, insurance, etc.).",
+            "Support for salary transfers and payroll documentation."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Employee attendance tracking",
+                "Payroll calculations",
+                "Income Tax 21 calculation",
+                "Tax bill printing",
+                "E-SPT form submission",
+                "Withholding tax certificates",
+                "BPJS, insurance, and benefits management"
+              ]
+            },
+            {
+              "title": "Additional Services",
+              "items": [
+                "Bulk salary transfers",
+                "Monthly payroll and tax recaps",
+                "Employee loan and reimbursement tracking"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "CFO Services",
+        "link": "cfo-services",
+        "icon": "/animate/cfo.lottie",
+        "shortDescription": [
+          "Comprehensive Bookkeeping Package",
+          "Full Tax Reporting Package",
+          "Complete Payroll Package",
+          "Financial Strategy and Analysis",
+          "Tax Strategy and Planning"
+        ],
+        "details": {
+          "overview": "Our CFO Services cover all aspects of your financial management, including:",
+          "extendedServices": [
+            "Everything in bookkeeping, such as journal entries, AP/AR aging, financial statements, and bank reconciliation.",
+            "Everything in tax reporting, such as corporate and personal tax filings, income tax calculations, and tax planning.",
+            "Everything in payroll, including employee attendance tracking, payroll calculations, and benefits management.",
+            "Plus, we provide advanced financial strategy and planning, including long-term financial strategies, budgeting, cash flow control, and tax-efficient strategies for corporate compliance."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "All Bookkeeping Basic Pack",
+                "All Tax Report Basic Pack",
+                "All Payroll Basic Pack"
+              ]
+            },
+            {
+              "title": "Financial Strategy, Planning & Analysis",
+              "items": [
+                "Developing Long-Term Financial Strategies.",
+                "Creating Budgets and Financial Forecasts.",
+                "Cash Flow Management and Control.",
+                "Preparing and Presenting Financial Statements.",
+                "Providing and Monitoring Business and Financial Performance."
+              ]
+            },
+            {
+              "title": "Tax Strategy & Planning",
+              "items": [
+                "Development of tax-efficient strategies",
+                "Corporate tax compliance oversight"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Audit Services",
+        "link": "audit-services",
+        "icon": "/animate/audit.lottie",
+        "shortDescription": [
+          "Internal Audit (Company condition report, Financial audit adjustments, Improvement recommendations)",
+          "External Audit (Certified Public Accountant report)"
+        ],
+        "details": {
+          "overview": "We provide both internal and external audit services to ensure your business operates efficiently and is in compliance with industry standards:",
+          "extendedServices": [
+            "Internal Audit, which provides an internal auditor's report on the company's current condition, potential risks, and adjusting entries for financial audits, along with actionable recommendations for improvement.",
+            "External Audit, delivering an independent auditor's report signed by a certified Public Accountant to ensure compliance and credibility."
+          ],
+          "benefits": [
+            {
+              "title": "Internal Audit",
+              "items": [
+                "Internal Auditor's report regarding the current condition of the company, accompanied by an explanation of the potential risks that will be faced by the company.",
+                "Adjusting entries (for financial audit engagements)",
+                "Recommendations for improvement on audit findings"
+              ]
+            },
+            {
+              "title": "External Audit",
+              "items": [
+                "Independent Auditor's Report signed by a certified Public Accountant"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Accounting Software",
+        "link": "accounting-software",
+        "icon": "/animate/accounting-software.lottie",
+        "shortDescription": [
+          "Software Installation and Setup",
+          "File Migration",
+          "Chart of Accounts Transition",
+          "Products and Services List Setup",
+          "Catch-Up Bookkeeping"
+        ],
+        "details": {
+          "overview": "Our services provides installing and setting up the right accounting software for your business, and additionally catch-up bookkeeping for prior periods. We have various of Software that we can run such as QuickBooks, Xero, Accurate, and other leading platforms. We also assist in migrating from your current system to ensure a smooth transition:",
+          "extendedServices": [
+            "Software installation & setup tailored to your business needs.",
+            "Migrate of accounting data without disrupting business operations."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Software installation and setup",
+                "File migration",
+                "Chart of accounts setup",
+                "Product and service list configuration"
+              ]
+            },
+            {
+              "title": "Additional Services",
+              "items": [
+                "Catch-up bookkeeping for prior periods"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Our Portfolio"
+  },
+  "career": {
+    "title": "Join our program!",
+    "items": [
+      {
+        "title": "Internship",
+        "description": "Finansist International gives opportunities for students or fresh-graduates to build experience with us in our internship program.",
+        "facilities": [
+          "Work experience",
+          "Communicating with clients",
+          "Establish business relations"
+        ],
+        "color": "EC5078"
+      },
+      {
+        "title": "Jobs",
+        "description": "Finansist International gives opportunities to join with our company. Look forward to opportunities and developments with us!",
+        "color": "F7B70D"
+      },
+      {
+        "title": "Partner",
+        "description": "Finansist International opens opportunities to cooperation in order to develop better services. For those of you who interested to grow with us, feel free to contact us!",
+        "color": "81BDE3"
+      }
+    ]
+  }
+}

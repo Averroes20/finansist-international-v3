@@ -1,21 +1,21 @@
-import { achievements } from '@/lib/data/intro';
+import dynamic from 'next/dynamic';
 import { memo } from 'react';
-import ScrambleNumber from './ScrambleNumber';
-import { TypographyP } from '../ui/typography';
 
-const Achievements = () => {
-  return (
-    <div className="flex flex-row gap-1 sm:gap-4 md:gap-7">
-      {achievements.map((achievement, index) => (
-        <div key={index}>
-          <div className="text-3xl md:text-4xl font-bold flex items-end md:gap-2">
-            <ScrambleNumber>{achievement.count}</ScrambleNumber>+
-          </div>
-          <TypographyP className="text-sm md:text-base leading-4">{achievement.description}</TypographyP>
-        </div>
-      ))}
+const ScrambleNumber = dynamic(() => import('./ScrambleNumber'), { ssr: false });
+
+type Props = {
+  data: Array<{ count: string; description: string }>;
+};
+
+const Achievements: React.FC<Props> = ({ data }) => {
+  return data.map((achievement, index) => (
+    <div key={index}>
+      <div className="text-3xl md:text-4xl font-bold flex justify-center items-end md:gap-1">
+        <ScrambleNumber>{achievement.count}</ScrambleNumber>+
+      </div>
+      <p className="text-sm leading-4">{achievement.description}</p>
     </div>
-  );
+  ));
 };
 
 export default memo(Achievements);

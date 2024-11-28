@@ -1,29 +1,10 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-  async headers() {
-    return [
-      {
-        source: '/api/:path*',
-        headers: [
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*', // Ini hanya default, middleware akan override
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET, POST, OPTIONS',
-          },
-          {
-            key: 'Access-Control-Allow-Headers',
-            value: 'Content-Type',
-          },
-        ],
-      },
-    ];
-  },
   images: {
     domains: [],
   },
+  reactStrictMode: true,
 };
 
 export default nextConfig;

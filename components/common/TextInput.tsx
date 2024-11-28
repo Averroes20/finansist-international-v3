@@ -1,8 +1,8 @@
-import React from 'react';
 import { FieldValues, Path, useFormContext } from 'react-hook-form';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
+import { memo } from 'react';
 
 type Props<T extends FieldValues> = {
   name: Path<T>;
@@ -25,7 +25,7 @@ const TextInputComponent = <T extends FieldValues>({ name, label, placeholder, c
             {label} {isRequired && <span className="text-destructive">*</span>}
           </FormLabel>
           <FormControl>
-            {type === 'textarea' ? <Textarea placeholder={placeholder} {...field} /> : <Input placeholder={placeholder} {...field} />}
+            {type === 'textarea' ? <Textarea placeholder={placeholder} rows={4} {...field} /> : <Input placeholder={placeholder} {...field} />}
           </FormControl>
           <FormMessage />
         </FormItem>
@@ -34,6 +34,6 @@ const TextInputComponent = <T extends FieldValues>({ name, label, placeholder, c
   );
 };
 
-const TextInput = React.memo(TextInputComponent) as typeof TextInputComponent;
+const TextInput = memo(TextInputComponent) as typeof TextInputComponent;
 
 export default TextInput;

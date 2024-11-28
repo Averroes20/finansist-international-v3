@@ -1,0 +1,418 @@
+{
+  "navbar": {
+    "items": [
+      {
+        "label": "Beranda",
+        "url": "/#home"
+      },
+      {
+        "label": "Tentang Kami",
+        "url": "/#about-us"
+      },
+      {
+        "label": "Layanan",
+        "subItems": true,
+        "url": "/#"
+      },
+      {
+        "label": "Karir",
+        "url": "/#career"
+      },
+      {
+        "label": "Blog",
+        "url": "/blog"
+      }
+    ]
+  },
+  "intro": {
+    "title": {
+      "part1": "Asisten",
+      "part2": "Keuangan Anda",
+      "part3": "Diperkuat dengan"
+    },
+    "subtitle": "Profesional Bersertifikat",
+    "certifiedOf": "Bersertifikat",
+    "description": "Tidak perlu lagi mempekerjakan tim keuangan, karena Finansist siap menjadi mitra bisnis Anda yang terpercaya",
+    "softwareTitle": "Ahli dalam banyak Perangkat Lunak Akuntansi",
+    "achievements": [
+      {
+        "count": "10",
+        "description": "Tahun pengalaman"
+      },
+      {
+        "count": "54",
+        "description": "Keberhasilan Proyek"
+      },
+      {
+        "count": "112",
+        "description": "Klien Puas"
+      }
+    ]
+  },
+  "about": {
+    "title": "Kami menangani klien dari banyak negara",
+    "aboutCEO": "Selama lebih dari 10 tahun, Finansist telah berkembang dari perusahaan lokal menjadi perusahaan layanan internasional dengan klien di seluruh dunia. Kami ahli dalam peraturan internasional dan memanfaatkan teknologi untuk menawarkan pembukuan dan persiapan pajak yang lancar dari mana saja. Layanan kami yang berbasis di Indonesia membuat biaya lebih terjangkau daripada negara lain dengan hasil yang lebih memuaskan."
+  },
+  "financialSupport": {
+    "title": "Dapatkan Dukungan Keuangan Ahli Tanpa Khawatir!",
+    "points": [
+      {
+        "title": "Prioritaskan Keamanan Data",
+        "description": "Data keuangan Anda aman bersama kami—dilindungi oleh langkah-langkah keamanan mutakhir."
+      },
+      {
+        "title": "Ketepatan dalam Pelaporan",
+        "description": "Andalkan jadwal dan laporan keuangan yang akurat dan tepat waktu untuk menjaga Anda tetap terinformasi dan mengendalikan."
+      },
+      {
+        "title": "Integrasi Sistem yang Mulus",
+        "description": "Kami dengan ahli menavigasi banyak aplikasi dan sistem akuntansi, memastikan operasi berjalan lancar."
+      },
+      {
+        "title": "Komunikasi Global 24/7",
+        "description": "Dapatkan dukungan sepanjang waktu, di mana pun Anda berada di dunia."
+      },
+      {
+        "title": "Kepatuhan Tanpa Kompromi",
+        "description": "Tenanglah mengetahui bisnis Anda sepenuhnya mematuhi peraturan lokal dan internasional (GAAP, IFRS, dan lainnya)."
+      }
+    ],
+    "description": "Biarkan tim ahli kami menangani kompleksitas keuangan sementara Anda fokus pada hal yang paling penting:",
+    "tagsLine": "Mengembangkan bisnis Anda!"
+  },
+  "valueCompany": {
+    "title": {
+      "part1": "Keunggulan visual hanyalah titik awal kami",
+      "part2": "memberikan hasil yang terukur adalah janji kami."
+    },
+    "items": [
+      {
+        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "Apa yang akan Anda dapatkan",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
+      {
+        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "Apa yang akan Anda dapatkan",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
+      {
+        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "Apa yang akan Anda dapatkan",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      }
+    ]
+  },
+  "services": {
+    "title": "Layanan Kami",
+    "items": [
+      {
+        "title": "Akuntansi dan Pembukuan",
+        "link": "accounting-and-bookkeeping",
+        "icon": "/animate/bookkeeping.lottie",
+        "shortDescription": [
+          "Menyusun Bagian Akun",
+          "Entry Jurnal",
+          "Usia Hutang dan Piutang",
+          "Pencatatan Inventaris",
+          "Rekonsiliasi Bank",
+          "Laporan Keuangan",
+          "Membuat Faktur dan Mengirim Tagihan",
+          "Rekap Transaksi dan Biaya"
+        ],
+        "details": {
+          "overview": "Kami menyediakan layanan akuntansi dan pembukuan profesional untuk memastikan catatan keuangan Anda akurat dan terbaru. Layanan kami mencakup pembukuan, penyusunan laporan keuangan, dan analisis bisnis, membantu Anda membuat keputusan keuangan yang tepat:",
+          "extendedServices": [
+            "Laporan keuangan yang akurat untuk panduan strategi bisnis.",
+            "Review pembukuan untuk memastikan catatan yang akurat.",
+            "Analisis bisnis untuk profitabilitas dan efisiensi.",
+            "Bantuan dalam persiapan pajak."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Menyusun bagian akun",
+                "Entry jurnal",
+                "Usia hutang dan piutang",
+                "Pencatatan inventaris",
+                "Arsip transaksi",
+                "Rekonsiliasi bank",
+                "Review pembukuan",
+                "Neraca keuangan",
+                "Laporan laba rugi",
+                "Manajemen arus kas",
+                "Pembukuan akhir tahun"
+              ]
+            },
+            {
+              "title": "Layanan Tambahan",
+              "items": [
+                "Membuat faktur",
+                "Mengirim tagihan",
+                "Rekap transaksi dan biaya",
+                "Perhitungan HPP",
+                "Analisis break-even",
+                "Perhitungan ROI",
+                "Persiapan laporan investasi/LKPM"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Pelaporan Pajak",
+        "link": "tax-reporting",
+        "icon": "/animate/tax-reporting.lottie",
+        "shortDescription": [
+          "Pelaporan Pajak Perusahaan dan Pribadi",
+          "Perhitungan Pajak Penghasilan",
+          "Pengisian Formulir E-SPT",
+          "Perencanaan Pajak",
+          "Koreksi Fiskal",
+          "Kepatuhan Pajak Internasional",
+          "Manajemen PPN",
+          "SP2DK - Bantuan Audit Pajak"
+        ],
+        "details": {
+          "overview": "Layanan pajak profesional kami memastikan kepatuhan pajak yang efisien dan akurat, termasuk pelaporan pajak perusahaan dan pribadi, perhitungan pajak penghasilan, dan perencanaan pajak yang komprehensif. Dukungan tambahan mencakup koreksi fiskal, kepatuhan pajak internasional, dan lainnya:",
+          "extendedServices": [
+            "Perhitungan pajak penghasilan yang akurat (misalnya Pajak Penghasilan 21, 22).",
+            "Persiapan dokumen dan kepatuhan terhadap tenggat waktu.",
+            "Dukungan untuk audit pajak dan kepatuhan SP2DK.",
+            "Bantuan dengan PPN, pajak internasional, dan penyesuaian fiskal."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Pelaporan pajak perusahaan dan pribadi",
+                "Perhitungan pajak penghasilan",
+                "Pencetakan tagihan pajak",
+                "Pengisian formulir E-SPT",
+                "Sertifikat pajak potong",
+                "Perencanaan pajak"
+              ]
+            },
+            {
+              "title": "Layanan Tambahan",
+              "items": [
+                "Koreksi fiskal",
+                "Kepatuhan pajak internasional",
+                "PPN (masukan dan keluaran)",
+                "SP2DK - Bantuan audit pajak",
+                "Pengisian formulir DGT-1",
+                "Penanganan formulir elektronik"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Penggajian",
+        "link": "payroll",
+        "icon": "/animate/payroll.lottie",
+        "shortDescription": [
+          "Pelacakan Kehadiran Karyawan",
+          "Perhitungan Gaji dan Pajak Penghasilan 21",
+          "Pengisian Formulir E-SPT",
+          "Sertifikat Pajak Potong",
+          "Administrasi Manfaat Karyawan",
+          "Transfer Gaji Massal",
+          "Rekap Gaji dan Pajak Bulanan",
+          "Pelacakan Pinjaman dan Penggantian Karyawan"
+        ],
+        "details": {
+          "overview": "Layanan penggajian kami mencakup penggajian yang akurat, kepatuhan pajak, dan manajemen manfaat untuk memastikan pembayaran karyawan tepat waktu dan kepatuhan terhadap peraturan:",
+          "extendedServices": [
+            "Pelacakan kehadiran dan gaji.",
+            "Pengolahan Pajak Penghasilan 21 dan pengisian E-SPT.",
+            "Manajemen manfaat (BPJS, asuransi, dll.).",
+            "Dukungan untuk transfer gaji dan dokumentasi penggajian."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Pelacakan kehadiran karyawan",
+                "Perhitungan gaji",
+                "Perhitungan Pajak Penghasilan 21",
+                "Pencetakan tagihan pajak",
+                "Pengisian formulir E-SPT",
+                "Sertifikat pajak potong",
+                "Manajemen manfaat BPJS, asuransi, dll."
+              ]
+            },
+            {
+              "title": "Layanan Tambahan",
+              "items": [
+                "Transfer gaji massal",
+                "Rekap gaji dan pajak bulanan",
+                "Pelacakan pinjaman dan penggantian karyawan"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Layanan CFO",
+        "link": "cfo-services",
+        "icon": "/animate/cfo.lottie",
+        "shortDescription": [
+          "Paket Pembukuan Lengkap",
+          "Paket Pelaporan Pajak Lengkap",
+          "Paket Penggajian Lengkap",
+          "Strategi dan Analisis Keuangan",
+          "Strategi dan Perencanaan Pajak"
+        ],
+        "details": {
+          "overview": "Layanan CFO kami mencakup semua aspek manajemen keuangan Anda, termasuk:",
+          "extendedServices": [
+            "Semua dalam pembukuan, seperti entry jurnal, usia hutang/piutang, laporan keuangan, dan rekonsiliasi bank.",
+            "Semua dalam pelaporan pajak, seperti pelaporan pajak perusahaan dan pribadi, perhitungan pajak penghasilan, dan perencanaan pajak.",
+            "Semua dalam penggajian, termasuk pelacakan kehadiran karyawan, perhitungan gaji, dan manajemen manfaat.",
+            "Ditambah strategi keuangan dan perencanaan tingkat lanjut, termasuk strategi keuangan jangka panjang, anggaran, pengendalian arus kas, dan strategi efisien pajak untuk kepatuhan perusahaan."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Semua Paket Dasar Pembukuan",
+                "Semua Paket Dasar Pelaporan Pajak",
+                "Semua Paket Dasar Penggajian"
+              ]
+            },
+            {
+              "title": "Strategi Keuangan, Perencanaan & Analisis",
+              "items": [
+                "Mengembangkan Strategi Keuangan Jangka Panjang.",
+                "Membuat Anggaran dan Perkiraan Keuangan.",
+                "Manajemen dan Pengendalian Arus Kas.",
+                "Menyusun dan Menyajikan Laporan Keuangan.",
+                "Memantau Kinerja Bisnis dan Keuangan."
+              ]
+            },
+            {
+              "title": "Strategi & Perencanaan Pajak",
+              "items": [
+                "Pengembangan strategi efisien pajak",
+                "Pengawasan kepatuhan pajak perusahaan"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Layanan Audit",
+        "link": "audit-services",
+        "icon": "/animate/audit.lottie",
+        "shortDescription": [
+          "Audit Internal (Laporan kondisi perusahaan, Penyesuaian audit keuangan, Rekomendasi perbaikan)",
+          "Audit Eksternal (Laporan Akuntan Publik Bersertifikat)"
+        ],
+        "details": {
+          "overview": "Kami menyediakan layanan audit internal dan eksternal untuk memastikan bisnis Anda beroperasi secara efisien dan sesuai dengan standar industri:",
+          "extendedServices": [
+            "Audit Internal, memberikan laporan auditor internal tentang kondisi perusahaan saat ini, potensi risiko, dan penyesuaian untuk audit keuangan, serta rekomendasi perbaikan yang dapat diterapkan.",
+            "Audit Eksternal, menyampaikan laporan auditor independen yang ditandatangani oleh Akuntan Publik Bersertifikat untuk memastikan kepatuhan dan kredibilitas."
+          ],
+          "benefits": [
+            {
+              "title": "Audit Internal",
+              "items": [
+                "Laporan Auditor Internal tentang kondisi perusahaan saat ini, disertai penjelasan risiko potensial yang dihadapi perusahaan.",
+                "Penyesuaian jurnal (untuk kebutuhan audit keuangan)",
+                "Rekomendasi perbaikan berdasarkan temuan audit"
+              ]
+            },
+            {
+              "title": "Audit Eksternal",
+              "items": [
+                "Laporan Auditor Independen yang ditandatangani oleh Akuntan Publik Bersertifikat"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Perangkat Lunak Akuntansi",
+        "link": "accounting-software",
+        "icon": "/animate/accounting-software.lottie",
+        "shortDescription": [
+          "Instalasi dan Pengaturan Perangkat Lunak",
+          "Migrasi File",
+          "Transisi Bagian Akun",
+          "Pengaturan Daftar Produk dan Layanan",
+          "Pembukuan Catch-Up"
+        ],
+        "details": {
+          "overview": "Layanan kami menyediakan instalasi dan pengaturan perangkat lunak akuntansi yang tepat untuk bisnis Anda, serta pembukuan catch-up untuk periode sebelumnya. Kami menjalankan berbagai perangkat lunak seperti QuickBooks, Xero, Accurate, dan platform terkemuka lainnya. Kami juga membantu migrasi dari sistem Anda saat ini untuk memastikan transisi yang lancar:",
+          "extendedServices": [
+            "Instalasi & pengaturan perangkat lunak yang disesuaikan dengan kebutuhan bisnis Anda.",
+            "Migrasi data akuntansi tanpa mengganggu operasi bisnis."
+          ],
+          "benefits": [
+            {
+              "title": "-",
+              "items": [
+                "Instalasi dan pengaturan perangkat lunak",
+                "Migrasi file",
+                "Pengaturan bagan akun",
+                "Konfigurasi daftar produk dan layanan"
+              ]
+            },
+            {
+              "title": "Layanan Tambahan",
+              "items": [
+                "Pembukuan catch-up untuk periode sebelumnya"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Portofolio Kami"
+  },
+  "career": {
+    "title": "Bergabunglah Dengan Program Kami!",
+    "items": [
+      {
+        "title": "Magang",
+        "description": "Finansist International memberikan kesempatan bagi mahasiswa atau lulusan baru untuk membangun pengalaman bersama kami dalam program magang.",
+        "facilities": [
+          "Pengalaman kerja",
+          "Berkomunikasi dengan klien",
+          "Membangun hubungan bisnis"
+        ],
+        "color": "EC5078"
+      },
+      {
+        "title": "Pekerjaan",
+        "description": "Finansist International memberikan kesempatan untuk bergabung dengan perusahaan kami. Nantikan peluang dan pengembangan bersama kami!",
+        "color": "F7B70D"
+      },
+      {
+        "title": "Mitra",
+        "description": "Finansist International membuka peluang untuk bekerja sama dalam rangka mengembangkan layanan yang lebih baik. Bagi Anda yang berminat untuk tumbuh bersama kami, jangan ragu untuk menghubungi kami!",
+        "color": "81BDE3"
+      }
+    ]
+  }
+}

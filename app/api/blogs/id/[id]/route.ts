@@ -6,6 +6,7 @@ import fs from 'fs';
 import { randomUUID } from 'crypto';
 import { deleteFile } from '@/utils/delete-file';
 import { saveFile } from '@/utils/save-file';
+import { runCors } from '@/lib/middleware/cors';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'public', 'blogs');
 
@@ -18,6 +19,7 @@ type Props = {
 export async function PUT(req: NextRequest, { params }: Props) {
   const blogId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const formData = await req.formData();
     const title = formData.get('title') as string | null;
     const resume = formData.get('resume') as string | null;
@@ -77,6 +79,7 @@ export async function PUT(req: NextRequest, { params }: Props) {
 export async function DELETE(req: NextRequest, { params }: Props) {
   const blogId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const existingBlog = await prismaClient.blogs.findUnique({
       where: { id: blogId },
     });

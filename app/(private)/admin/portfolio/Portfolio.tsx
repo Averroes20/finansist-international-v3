@@ -4,7 +4,6 @@ import { createPortfolio, deletePortfolio, fetchPortfolios, updatePortfolio } fr
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { TypographyH2, TypographyP } from '@/components/ui/typography';
 import { useDebounce } from '@/hooks/use-debounce';
 import { Portfolio } from '@/lib/type/portfolio';
 import { PortfolioType } from '@/lib/validation/schema-form-portfolio';
@@ -88,8 +87,8 @@ const PortfolioAdmin = () => {
   return (
     <>
       <div className="space-y-4">
-        <TypographyH2 className="text-3xl font-bold">Portfolio</TypographyH2>
-        <TypographyP className="text-gray-500">Welcome to your portfolio</TypographyP>
+        <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Portfolio</h2>
+        <p className="text-gray-500">Welcome to your portfolio</p>
       </div>
       <div className="flex flex-col md:flex-row gap-4">
         <Input placeholder="Search company..." value={title} onChange={(e) => setTitle(e.target.value)} />

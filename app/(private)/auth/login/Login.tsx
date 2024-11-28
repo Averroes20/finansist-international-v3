@@ -5,7 +5,6 @@ import { Form } from '@/components/ui/form';
 import formSchema, { TypeLogin } from '@/lib/validation/schema-login';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const PageLogin = () => {

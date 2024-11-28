@@ -1,4 +1,5 @@
 import { prismaClient } from '@/lib/database/connection';
+import { runCors } from '@/lib/middleware/cors';
 import { NextRequest, NextResponse } from 'next/server';
 
 type RouteContext = {
@@ -10,6 +11,7 @@ type RouteContext = {
 export async function GET(req: NextRequest, { params }: RouteContext) {
   const reviewId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const review = await prismaClient.reviews.findUnique({
       where: { id: reviewId },
     });
@@ -26,6 +28,7 @@ export async function GET(req: NextRequest, { params }: RouteContext) {
 export async function DELETE(req: NextRequest, { params }: RouteContext) {
   const reviewId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const existingReview = await prismaClient.reviews.findUnique({
       where: { id: reviewId },
     });
@@ -45,6 +48,7 @@ export async function DELETE(req: NextRequest, { params }: RouteContext) {
 export async function PUT(req: NextRequest, { params }: RouteContext) {
   const reviewId = parseInt(params.id, 10);
   try {
+    await runCors(req);
     const body = await req.json();
     const updateReview = await prismaClient.reviews.update({
       where: { id: reviewId },

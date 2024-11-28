@@ -1,8 +1,10 @@
 import { prismaClient } from '@/lib/database/connection';
+import { runCors } from '@/lib/middleware/cors';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
   try {
+    await runCors(req);
     const { searchParams } = new URL(req.url);
     const page = parseInt(searchParams.get('page') || '1', 10);
     const limit = parseInt(searchParams.get('limit') || '10', 10);

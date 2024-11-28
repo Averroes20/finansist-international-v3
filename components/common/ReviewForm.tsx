@@ -1,6 +1,6 @@
 import ReviewSchema, { ReviewType } from '@/lib/validation/schema-form-review';
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '../ui/button';
 import { Form } from '../ui/form';

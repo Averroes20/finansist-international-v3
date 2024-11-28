@@ -1,6 +1,6 @@
 'use client';
-import React, { useRef, useState, useEffect, useCallback, memo } from 'react';
 import { motion } from 'framer-motion';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 const CYCLES_PER_DIGIT = 20;
 const SHUFFLE_TIME = 75;
@@ -60,7 +60,7 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
         scale: 0.975,
       }}
       onMouseLeave={stopScramble}
-      className="cursor-default text-3xl font-bold dark:text-white md:text-5xl "
+      className="cursor-default text-3xl font-bold dark:text-white md:text-[2.5rem] md:leading-[2.5rem]"
     >
       {text}
     </motion.h1>
