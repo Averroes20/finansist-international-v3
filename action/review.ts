@@ -1,10 +1,10 @@
 'server only';
-import API_BASE_URL from '@/constants/env';
+import { API_BASE_URL, API_BASE_URL_PRIVATE } from '@/constants/env';
 import { ReviewListResponse } from '@/lib/type/review';
 import { ReviewType } from '@/lib/validation/schema-form-review';
 
 export async function createReview(data: ReviewType) {
-  const response = await fetch(`${API_BASE_URL}/api/reviews`, {
+  const response = await fetch(`${API_BASE_URL_PRIVATE}/reviews`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -13,7 +13,7 @@ export async function createReview(data: ReviewType) {
 }
 
 export async function updateReview(id: number, data: ReviewType) {
-  const response = await fetch(`${API_BASE_URL}/api/reviews/${id}`, {
+  const response = await fetch(`${API_BASE_URL_PRIVATE}/reviews/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -22,7 +22,7 @@ export async function updateReview(id: number, data: ReviewType) {
 }
 
 export async function deleteReview(id: number) {
-  const response = await fetch(`${API_BASE_URL}/api/reviews/${id}`, {
+  const response = await fetch(`${API_BASE_URL_PRIVATE}/reviews/${id}`, {
     method: 'DELETE',
   });
   return response.json();
@@ -30,7 +30,7 @@ export async function deleteReview(id: number) {
 
 export const fetchReviews = async (query: string): Promise<ReviewListResponse> => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/reviews?${query}`, {
+    const response = await fetch(`${API_BASE_URL}/reviews?${query}`, {
       next: { revalidate: 0 },
     });
     if (!response.ok) {

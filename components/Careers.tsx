@@ -10,6 +10,7 @@ const Careers = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (url: string, data: any) => {
+    'server only';
     try {
       const formData = new FormData();
       Object.keys(data).forEach((key) => formData.append(key, data[key]));
@@ -35,11 +36,12 @@ const Careers = () => {
   return (
     <section
       id="career"
-      className="relative md:h-[80vh] min-h-screen overflow-hidden mt-10 bg-cover bg-center bg-fixed"
+      className="relative min-h-screen overflow-hidden mt-10 bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(/images/bg-cover-career.webp)` }}
       aria-labelledby="career-title"
     >
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-5 md:p-0 md:h-[80vh] bg-black bg-opacity-30">
+      <link rel="preload" href="/images/bg-cover-career.webp" as="image" type="image/webp" media="(min-width: 1px)" />
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-5 md:p-0 md:h-[70vh] bg-black bg-opacity-30">
         <TitleSection id="career-title" className="mb-5 text-white">
           {title}
         </TitleSection>

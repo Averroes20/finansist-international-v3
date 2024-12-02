@@ -31,16 +31,16 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
             loading="lazy"
             className="w-12 h-12 object-cover rounded-full absolute bottom-[-20px] left-5 shadow-lg"
           />
-          <p
+          <h1
             className="text-white text-sm absolute top-4 right-5 px-3 py-1 bg-gray-500 rounded-full uppercase"
             aria-label={`Category: ${item.category}`}
           >
             {item.category}
-          </p>
+          </h1>
         </div>
         <div className="p-4 space-y-3 flex-grow">
-          <h5 className="font-bold text-2xl">{item.title}</h5>
-          <article className="text-sm md:text-base text-gray-700">{item.resume}</article>
+          <h1 className="font-bold text-2xl line-clamp-2 overflow-hidden">{item.title}</h1>
+          <article className="text-sm md:text-base text-gray-700 line-clamp-5 overflow-hidden">{item.resume}</article>
           <Link
             href={`/blog/${item.slug}`}
             aria-label={`Read more about ${item.title}`}

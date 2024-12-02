@@ -1,10 +1,8 @@
-import { runCors } from '@/lib/middleware/cors';
 import transporter from '@/lib/nodemailer';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    await runCors(request);
     const formData = await request.formData();
 
     const cv = formData.get('cv') as File;

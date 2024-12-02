@@ -1,5 +1,4 @@
 import { prismaClient } from '@/lib/database/connection';
-import { runCors } from '@/lib/middleware/cors';
 import { NextRequest, NextResponse } from 'next/server';
 
 type Props = {
@@ -11,7 +10,6 @@ type Props = {
 export async function GET(req: NextRequest, { params }: Props) {
   const blogSlug = params.slug;
   try {
-    await runCors(req);
     const blog = await prismaClient.blogs.findUnique({
       where: { slug: blogSlug },
       select: {

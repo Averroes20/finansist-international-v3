@@ -1,5 +1,5 @@
 'server only';
-import API_BASE_URL from '@/constants/env';
+import { API_BASE_URL, API_BASE_URL_PRIVATE } from '@/constants/env';
 import { PortfolioListResponse } from '@/lib/type/portfolio';
 import { PortfolioType } from '@/lib/validation/schema-form-portfolio';
 
@@ -36,7 +36,7 @@ const createFormData = (data: PortfolioType): FormData => {
 
 export const createPortfolio = async (data: PortfolioType) => {
   const formData = createFormData(data);
-  return await apiRequest(`${API_BASE_URL}/api/portfolio`, {
+  return await apiRequest(`${API_BASE_URL_PRIVATE}/portfolio`, {
     method: 'POST',
     body: formData,
   });
@@ -44,18 +44,18 @@ export const createPortfolio = async (data: PortfolioType) => {
 
 export const updatePortfolio = async (id: number, data: PortfolioType) => {
   const formData = createFormData(data);
-  return await apiRequest(`${API_BASE_URL}/api/portfolio/${id}`, {
+  return await apiRequest(`${API_BASE_URL_PRIVATE}/portfolio/${id}`, {
     method: 'PUT',
     body: formData,
   });
 };
 
 export const deletePortfolio = async (id: number) => {
-  await apiRequest(`${API_BASE_URL}/api/portfolio/${id}`, {
+  await apiRequest(`${API_BASE_URL_PRIVATE}/portfolio/${id}`, {
     method: 'DELETE',
   });
 };
 
 export const fetchPortfolios = async (query: string): Promise<PortfolioListResponse> => {
-  return await apiRequest(`${API_BASE_URL}/api/portfolio?${query}`);
+  return await apiRequest(`${API_BASE_URL}/portfolio?${query}`);
 };

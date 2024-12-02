@@ -65,17 +65,3 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to fetch reviews' }, { status: 500 });
   }
 }
-
-export async function POST(req: NextRequest) {
-  try {
-    const body = await req.json();
-    const review = await prismaClient.reviews.create({
-      data: body,
-    });
-
-    return NextResponse.json(review, { status: 201 });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: 'Failed to post reviews' }, { status: 500 });
-  }
-}

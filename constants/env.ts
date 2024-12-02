@@ -1,7 +1,4 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_BASE_URL_PRIVATE = process.env.NEXT_PRIVATE_API_BASE_URL;
 
-if (!API_BASE_URL) {
-  throw new Error('Environment variable NEXT_PUBLIC_API_BASE_URL is missing');
-}
-
-export default API_BASE_URL;
+export { API_BASE_URL, API_BASE_URL_PRIVATE };

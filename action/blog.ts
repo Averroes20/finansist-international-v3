@@ -1,5 +1,5 @@
 'server only';
-import API_BASE_URL from '@/constants/env';
+import { API_BASE_URL, API_BASE_URL_PRIVATE } from '@/constants/env';
 import { BlogListResponse, BlogWithComments } from '@/lib/type/blog';
 import { BlogType } from '@/lib/validation/schema-form-blog';
 
@@ -29,7 +29,7 @@ const handleResponse = async (response: Response) => {
 export const createBlog = async (data: BlogType) => {
   const formData = createFormData(data);
 
-  const response = await fetch(`${API_BASE_URL}/api/blogs`, {
+  const response = await fetch(`${API_BASE_URL_PRIVATE}/blogs`, {
     method: 'POST',
     body: formData,
   });
@@ -39,7 +39,7 @@ export const createBlog = async (data: BlogType) => {
 export const updateBlog = async (id: number, data: BlogType) => {
   const formData = createFormData(data);
 
-  const response = await fetch(`${API_BASE_URL}/api/blogs/id/${id}`, {
+  const response = await fetch(`${API_BASE_URL_PRIVATE}/blogs/${id}`, {
     method: 'PUT',
     body: formData,
   });
@@ -48,7 +48,7 @@ export const updateBlog = async (id: number, data: BlogType) => {
 };
 
 export const deleteBlog = async (id: number) => {
-  const response = await fetch(`${API_BASE_URL}/api/blogs/id/${id}`, {
+  const response = await fetch(`${API_BASE_URL_PRIVATE}/blogs/${id}`, {
     method: 'DELETE',
   });
 
@@ -59,8 +59,26 @@ export const deleteBlog = async (id: number) => {
 };
 
 export const fetchBlogs = async (query: string): Promise<BlogListResponse> => {
+  const data: BlogListResponse = {
+    data: [
+      {
+        id: 1,
+        title: 'Blog 1',
+        author: 'John Doe',
+        resume: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        article: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        category: 'Category 1',
+        cover: '/images/cover-blog.png',
+        slug: 'blog-1',
+        sumComments: 0,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ],
+    meta: { page: 0, limit: 0, totalPages: 0, totalCount: 0 },
+  };
   try {
-    const response = await fetch(`${API_BASE_URL}/api/blogs?${query}`, {
+    const response = await fetch(`${API_BASE_URL}/blogs?${query}`, {
       next: { revalidate: 0 },
     });
 
@@ -71,16 +89,16 @@ export const fetchBlogs = async (query: string): Promise<BlogListResponse> => {
     return await response.json();
   } catch (error) {
     console.error(`Error fetching blogs: ${error}`);
-    return {
-      data: [],
-      meta: { page: 0, limit: 0, totalPages: 0, totalCount: 0 },
-    };
+    if (error instanceof Error && error.message.includes('Failed to fetch')) {
+      return data;
+    }
+    return data;
   }
 };
 
 export const fetchBlogById = async (slug: string): Promise<BlogWithComments> => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/blogs/slug/${slug}`, {
+    const response = await fetch(`${API_BASE_URL}/blogs/${slug}`, {
       next: { revalidate: 0 },
     });
     const data = await handleResponse(response);

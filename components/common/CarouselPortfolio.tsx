@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { TitleSection } from '../ui/typography';
 import { useLanguage } from '@/context/LanguageProvider';
+import { motion } from 'framer-motion';
 
 const CarouselPortfolio = ({ portfolioChunks }: { portfolioChunks: Array<Portfolio[]> }) => {
   const plugins = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
@@ -30,7 +31,14 @@ const CarouselPortfolio = ({ portfolioChunks }: { portfolioChunks: Array<Portfol
   }, [api]);
 
   return (
-    <div className="flex flex-col">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+      viewport={{ once: false, amount: 0.2 }}
+      className="flex flex-col"
+    >
       <TitleSection className="mb-4">{title}</TitleSection>
       <Carousel
         className="w-full max-w-5xl mx-auto"
@@ -55,7 +63,7 @@ const CarouselPortfolio = ({ portfolioChunks }: { portfolioChunks: Array<Portfol
         <CarouselPrevious aria-label="Previous Slide" className="hidden md:flex" />
         <CarouselNext aria-label="Next Slide" className="hidden md:flex" />
       </Carousel>
-      <nav className="w-full flex justify-center space-x-2 mt-4">
+      <div className="w-full flex justify-center space-x-2 mt-4">
         {Array.from({ length: portfolioChunks.length }).map((_, idx) => (
           <button
             key={idx}
@@ -64,8 +72,8 @@ const CarouselPortfolio = ({ portfolioChunks }: { portfolioChunks: Array<Portfol
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}
-      </nav>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 

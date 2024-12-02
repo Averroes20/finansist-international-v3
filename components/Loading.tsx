@@ -1,3 +1,4 @@
+'use client';
 import Dotlottie from '@/components/animation/dotlottie';
 import Image from 'next/image';
 

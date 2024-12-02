@@ -1,12 +1,14 @@
 'use client';
 
 import { createBlog, deleteBlog, fetchBlogs, updateBlog } from '@/action/blog';
+import LogoutButton from '@/components/common/ButtonSignout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Blog } from '@/lib/type/blog';
 import { BlogType } from '@/lib/validation/schema-form-blog';
 import { PenBox } from 'lucide-react';
+import { useSession } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,13 +19,19 @@ const ActionDelete = dynamic(() => import('@/components/common/ActionDelete'));
 
 const limit = 10;
 
-const BlogsAdmin: React.FC = () => {
+interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  session: any;
+}
+
+const BlogsAdmin: React.FC<Props> = ({ session }) => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [blogId, setBlogId] = useState<number | null>(null);
+  const { data } = useSession();
 
   const fetchDataBlogs = useCallback(async () => {
     const query = new URLSearchParams({
@@ -87,12 +95,17 @@ const BlogsAdmin: React.FC = () => {
     [fetchDataBlogs]
   );
 
+  if (!session) {
+    return (window.location.href = '/auth/signin');
+  }
+
   return (
     <>
       <div className="space-y-4">
         <div>
           <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Blogs</h2>
-          <p className="text-gray-500">Welcome to your blogs</p>
+          <p className="text-gray-500">Welcome to your blogs {data?.user?.name + ' ' + data?.expires}</p>
+          <LogoutButton />
         </div>
         <div className="flex flex-col md:flex-row gap-4">
           <Input placeholder="Search by title..." value={title} onChange={(e) => setTitle(e.target.value)} />

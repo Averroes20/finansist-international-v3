@@ -10,7 +10,7 @@ const Blogs = async () => {
 
   const [blogs] = await Promise.all([blogPromise]);
   return (
-    <section id="blog" className="max-w-screen-xl mx-auto min-h-screen mt-10 md:mt-20">
+    <section id="blog" className="max-w-screen-xl mx-auto min-h-screen mt-10">
       <TitleSection>News Blog</TitleSection>
       <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:space-x-10 mt-5">
         <CardBlogs data={blogs?.data || []} />

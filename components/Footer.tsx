@@ -24,6 +24,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-slate-100 py-10">
+      <link rel="preload" href="/images/logo-large.svg" as="image" type="image/webp" media="(min-width: 1px)" />
+      <link rel="preload" href="/images/certifications.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <div className="container grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto px-0 md:px-36 ">
         <div className="flex flex-col gap-5 px-10 items-center justify-center">
           <Image src={images.LogoLarge} alt="Logo" width={200} height={200} loading="lazy" className="w-full h-full object-contain" />

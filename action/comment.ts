@@ -1,9 +1,9 @@
 'server only';
-import API_BASE_URL from '@/constants/env';
+import { API_BASE_URL } from '@/constants/env';
 import { CommentType } from '@/lib/validation/schema-form-comment';
 
 export async function createComment(data: CommentType) {
-  const response = await fetch(`${API_BASE_URL}/api/comments`, {
+  const response = await fetch(`${API_BASE_URL}/comments`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),

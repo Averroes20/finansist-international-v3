@@ -1,12 +1,15 @@
-'use client';
-import ServicePromotion from '@/components/ServicePromotion';
+import dynamic from 'next/dynamic';
+const LottieAnimation = dynamic(() => import('../components/LottieAnimation'), {
+  ssr: false,
+});
 
-const Test = () => {
+const App: React.FC = () => {
   return (
     <div>
-      <ServicePromotion />
+      <h1>Welcome to Next.js with Lottie Web</h1>
+      <LottieAnimation animationPath="/animate/profit.json" />
     </div>
   );
 };
 
-export default Test;
+export default App;

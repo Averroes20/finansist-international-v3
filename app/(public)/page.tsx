@@ -1,11 +1,7 @@
 import AboutUs from '@/components/AboutUs';
+import Intro from '@/components/Intro';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
-
-const Intro = dynamic(() => import('@/components/Intro'), {
-  ssr: true,
-  loading: () => <p>Loading Portfolio...</p>,
-});
 
 const Profile = dynamic(() => import('@/components/Profile'), {
   ssr: true,

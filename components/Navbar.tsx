@@ -87,6 +87,9 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm py-5 backdrop-blur-lg dark:bg-transparent">
+      <link rel="preload" href="/images/logo-large.svg" as="image" type="image/webp" media="(min-width: 1px)" />
+      <link rel="preload" href="/icons/flag-united-kingdom.png" as="image" type="image/webp" media="(min-width: 1px)" />
+      <link rel="preload" href="/icons/flag-indonesia.png" as="image" type="image/webp" media="(min-width: 1px)" />
       <nav className="container px-5 md:max-w-screen-xl mx-auto flex items-center justify-between backdrop-blur-lg">
         <div className="w-[150px]">
           <Image
@@ -111,7 +114,7 @@ const Navbar = () => {
                       <PopoverTrigger
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
-                        className="uppercase bg-transparent hover:bg-transparent hover:text-gray-500 text-[14px] font-medium flex items-center justify-between"
+                        className="uppercase bg-transparent hover:bg-transparent hover:text-gray-500 text-[14px] font-medium flex items-center justify-between ring-0 focus:outline-none focus:ring-0"
                         aria-expanded={openDropdown}
                         aria-haspopup="true"
                       >
@@ -173,7 +176,7 @@ const Navbar = () => {
                 </div>
               </SelectValue>
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent aria-label="Language" aria-labelledby="language">
               {menuLanguages
                 .filter((item) => item.value !== lang)
                 .map((item, index) => (
@@ -188,7 +191,7 @@ const Navbar = () => {
           </Select>
 
           {/* Mobile menu */}
-          <motion.nav initial={false} animate={openMenuMobile ? 'open' : 'closed'} className="md:hidden md:ml-4 ">
+          <motion.nav aria-hidden="true" initial={false} animate={openMenuMobile ? 'open' : 'closed'} className="md:hidden md:ml-4 ">
             <motion.button
               className="lg:hidden rounded-md text-gray-700 hover:bg-gray-200"
               onClick={toggleMobileMenu}

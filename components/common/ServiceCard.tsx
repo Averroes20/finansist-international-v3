@@ -11,7 +11,7 @@ const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
 
 const ServiceCard = ({ service }: { service: Service }) => {
   return (
-    <article id={service.link} className="flex flex-col scroll-mt-20">
+    <>
       <div className="flex flex-col flex-grow">
         <header className="text-center pt-4 px-4">
           <h3 className="text-xl font-bold pb-2 border-b-4 border-[#3A9DA1] inline">{service.title}</h3>
@@ -31,7 +31,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
         </section>
       </div>
       <ServiceModal service={service} />
-    </article>
+    </>
   );
 };
 

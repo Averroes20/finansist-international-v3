@@ -7,6 +7,8 @@ import { DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
 import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 import { useLanguage } from '@/context/LanguageProvider';
+import { splitString } from '@/utils/split-string';
+import { motion, Variants } from 'framer-motion';
 
 const Modal = dynamic(() => import('./common/Modal'), { ssr: false });
 
@@ -48,12 +50,34 @@ const ValueCompany = () => {
     };
   }, [activeCard, handleClickOutside]);
 
+  const part1 = splitString(title.part1);
+  const part2 = splitString(title.part2);
+
+  const charVariants: Variants = {
+    hidden: { opacity: 0 },
+    reveal: { opacity: 1 },
+  };
+
   return (
     <section id="valueCompany" className="min-h-screen bg-[#071620]" ref={sectionRef}>
       <header className="px-5 py-6 md:px-16 md:py-14">
-        <h2 className="text-3xl md:text-6xl md:leading-tight font-bold text-white">
-          <span className="text-[#84A2B7]">{title.part1}</span>, {title.part2}
-        </h2>
+        <motion.h2
+          initial="hidden"
+          whileInView={'reveal'}
+          transition={{ staggerChildren: 0.02 }}
+          className="text-3xl md:text-6xl md:leading-tight font-bold text-white"
+        >
+          {part1.map((word, index) => (
+            <motion.span key={index} transition={{ duration: 0.5 }} variants={charVariants} className="text-[#84A2B7]">
+              {word}
+            </motion.span>
+          ))}{' '}
+          {part2.map((word, index) => (
+            <motion.span key={index} transition={{ duration: 0.5 }} variants={charVariants}>
+              {word}
+            </motion.span>
+          ))}
+        </motion.h2>
       </header>
 
       <div className="flex flex-col justify-center items-center md:flex-row md:justify-end gap-2 pb-12">

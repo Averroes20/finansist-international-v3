@@ -2,8 +2,10 @@
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ReviewListResponse } from '@/lib/type/review';
 import Autoplay from 'embla-carousel-autoplay';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Quote } from '../icons/social-media';
+import Image from 'next/image';
+import clsx from 'clsx';
 
 type Props = {
   data: ReviewListResponse;
@@ -41,7 +43,15 @@ const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
   }, [api]);
 
   return (
-    <div className="flex flex-col justify-end h-[50vh] md:h-[50vh] bg-cover bg-center bg-[url('/images/cover-review.webp')] relative">
+    <div className="flex flex-col justify-end h-[50vh] bg-cover bg-center relative">
+      <link rel="preload" href="/images/cover-review.webp" as="image" type="image/webp" media="(min-width: 1px)" />
+      <Image
+        src="/images/cover-review.webp"
+        alt="Cover Review"
+        width={1920}
+        height={1080}
+        className="absolute top-0 left-0 w-full h-full object-cover "
+      />
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60" />
       <Carousel
         className="w-full max-w-5xl mx-auto"
@@ -55,13 +65,13 @@ const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
           {data.data.map((item, index) => (
             <CarouselItem key={index}>
               <div className="p-1">
-                <div className="items-center justify-center text-white ">
+                <div className="items-center justify-center text-white">
                   <span className="flex justify-center">
                     <Quote className="text-blue-900" />
                   </span>
-                  <h4 className="text-base tracking-tight text-center font-normal mb-3 md:text-xl">{item.review}</h4>
-                  <h5 className="text-sm font-semibold tracking-tight text-center md:text-lg">{item.name}</h5>
-                  <p className="text-center">{item.company}</p>
+                  <p className="text-base tracking-tight text-center font-normal mb-3 md:text-xl">{item.review}</p>
+                  <h1 className="text-sm font-semibold tracking-tight text-center md:text-lg">{item.name}</h1>
+                  <h5 className="text-center">{item.company}</h5>
                 </div>
               </div>
             </CarouselItem>
@@ -75,9 +85,11 @@ const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
           <div
             key={idx}
             onClick={() => api?.scrollTo(idx)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${
-              current === idx + 1 ? 'bg-white' : 'bg-gray-400'
-            } transition-colors duration-300 hover:bg-gray-200`}
+            className={clsx(
+              `h-2 w-2 rounded-full cursor-pointer `,
+              current === idx + 1 ? 'bg-white' : 'bg-gray-400',
+              ` transition-colors duration-300 hover:bg-gray-200`
+            )}
           />
         ))}
       </div>
@@ -85,4 +97,4 @@ const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
   );
 };
 
-export default CarouselReviews;
+export default memo(CarouselReviews);

@@ -1,5 +1,4 @@
 import { prismaClient } from '@/lib/database/connection';
-import { runCors } from '@/lib/middleware/cors';
 import { NextRequest, NextResponse } from 'next/server';
 
 type Props = {
@@ -11,7 +10,6 @@ type Props = {
 export async function GET(req: NextRequest, { params }: Props) {
   const blogId = parseInt(params.blogid, 10);
   try {
-    await runCors(req);
     const comments = await prismaClient.comments.findMany({
       where: { blog_id: blogId },
     });
