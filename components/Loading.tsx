@@ -5,6 +5,7 @@ import Image from 'next/image';
 const Loading = () => {
   return (
     <main className="h-screen flex items-center justify-center">
+      <link rel="preload" href="/animate/loading.lottie" as="image" type="image/webp" media="(min-width: 1px)" />
       <section className="flex flex-col items-center justify-center space-y-5">
         <div className="flex flex-col space-y-5 items-center justify-center">
           <Image src={'/images/logo-loading.webp'} width={200} height={200} alt="logo" priority />

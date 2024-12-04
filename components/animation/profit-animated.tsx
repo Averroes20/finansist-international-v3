@@ -1,8 +1,8 @@
 'use client';
 import { DotLottie } from '@lottiefiles/dotlottie-react';
 import { useEffect, useState } from 'react';
-import Dotlottie from './dotlottie';
-import AnimatedTag from './tag-animated';
+import Dotlottie from '@/components/animation/dotlottie';
+import AnimatedTag from '@/components/animation/tag-animated';
 
 const ProfitAnimated: React.FC = () => {
   const [dotLottie, setDotLottie] = useState<DotLottie | null>(null);

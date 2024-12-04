@@ -1,63 +1,63 @@
 'use client';
 
-import { createBlog, deleteBlog, fetchBlogs, updateBlog } from '@/action/blog';
-import LogoutButton from '@/components/common/ButtonSignout';
+import BlogCategory from '@/components/blog/BlogCategory';
+import PaginationComponent from '@/components/common/Pagination';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { useDebounce } from '@/hooks/use-debounce';
+import { createBlog, deleteBlog, getBlogs, updateBlog } from '@/lib/action/blog';
 import { Blog } from '@/lib/type/blog';
 import { BlogType } from '@/lib/validation/schema-form-blog';
 import { PenBox } from 'lucide-react';
-import { useSession } from 'next-auth/react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 
-const BlogForm = dynamic(() => import('@/components/common/BlogForm'));
+const BlogForm = dynamic(() => import('@/components/blog/BlogForm'));
 const ActionDelete = dynamic(() => import('@/components/common/ActionDelete'));
 
 const limit = 10;
-
-interface Props {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  session: any;
-}
-
-const BlogsAdmin: React.FC<Props> = ({ session }) => {
+const BlogsAdmin: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('');
+  const [meta, setMeta] = useState({
+    page: 1,
+    totalPages: 1,
+  });
+  const [search, setSearch] = useState({
+    title: '',
+    category: '',
+  });
   const [blogId, setBlogId] = useState<number | null>(null);
-  const { data } = useSession();
+  const queryTitle = useDebounce(search.title, 500);
 
   const fetchDataBlogs = useCallback(async () => {
-    const query = new URLSearchParams({
-      page: String(page),
-      limit: String(limit),
-      ...(title && { title }),
-      ...(category && { category }),
-    }).toString();
-
-    const data = await fetchBlogs(query);
+    const select = search.category === 'null' ? '' : search.category;
+    const data = await getBlogs({ page: meta.page, limit, title: queryTitle, category: select });
     setBlogs(data.data);
-    setTotalPages(data.meta.totalPages);
-  }, [page, title, category]);
+    setMeta({ page: data.meta.page, totalPages: data.meta.totalPages });
+  }, [meta.page, queryTitle, search.category]);
 
   useEffect(() => {
     fetchDataBlogs();
   }, [fetchDataBlogs]);
 
   useEffect(() => {
-    setPage(1);
-  }, [title, category]);
+    setMeta((prev) => ({ ...prev, page: 1 }));
+  }, []);
 
   const handleAdd = useCallback(
     async (data: BlogType) => {
       try {
-        await createBlog(data);
+        const formData = new FormData();
+        formData.append('title', data.title);
+        formData.append('resume', data.resume);
+        formData.append('article', data.article);
+        formData.append('author', data.author);
+        formData.append('category', data.category);
+        formData.append('cover', data.cover);
+        await createBlog(formData);
         fetchDataBlogs();
       } catch (error) {
         console.error(error);
@@ -71,7 +71,15 @@ const BlogsAdmin: React.FC<Props> = ({ session }) => {
     async (data: BlogType) => {
       if (blogId === null) return;
       try {
-        await updateBlog(blogId, data);
+        const formData = new FormData();
+        formData.append('title', data.title);
+        formData.append('resume', data.resume);
+        formData.append('article', data.article);
+        formData.append('author', data.author);
+        formData.append('category', data.category);
+        formData.append('cover', data.cover);
+
+        await updateBlog(formData, blogId);
         setBlogId(null);
         fetchDataBlogs();
       } catch (error) {
@@ -95,21 +103,20 @@ const BlogsAdmin: React.FC<Props> = ({ session }) => {
     [fetchDataBlogs]
   );
 
-  if (!session) {
-    return (window.location.href = '/auth/signin');
-  }
+  const handlePageChange = (newPage: number) => {
+    setMeta((prev) => ({ ...prev, page: newPage }));
+  };
 
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 mb-7">
         <div>
           <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Blogs</h2>
-          <p className="text-gray-500">Welcome to your blogs {data?.user?.name + ' ' + data?.expires}</p>
-          <LogoutButton />
+          <p className="text-muted-foreground">Manage your blogs</p>
         </div>
         <div className="flex flex-col md:flex-row gap-4">
-          <Input placeholder="Search by title..." value={title} onChange={(e) => setTitle(e.target.value)} />
-          <Input placeholder="Search by category..." value={category} onChange={(e) => setCategory(e.target.value)} />
+          <Input placeholder="Search by title..." value={search.title} onChange={(e) => setSearch({ ...search, title: e.target.value })} />
+          <BlogCategory setSearch={setSearch} />
           <BlogForm onSubmit={handleAdd} title="Add" description="Add a new blog" trigger={<Button className="">Add Blog</Button>} />
         </div>
       </div>
@@ -133,7 +140,7 @@ const BlogsAdmin: React.FC<Props> = ({ session }) => {
                     <Image src={item.cover as string} alt={item.title} width={100} height={100} className="object-cover" />
                   </TableCell>
                   <TableCell className="cursor-pointer">
-                    <Link rel="preload" href={`/blogs/${item.slug}`} prefetch={true}>
+                    <Link rel="preload" href={`/blog/${item.slug}`} prefetch={true}>
                       {item.title}
                     </Link>
                   </TableCell>
@@ -172,17 +179,7 @@ const BlogsAdmin: React.FC<Props> = ({ session }) => {
           )}
         </Table>
       </div>
-      <div className="flex justify-between items-center my-4">
-        <Button disabled={page <= 1} onClick={() => setPage((prev) => Math.max(prev - 1, 1))}>
-          Previous
-        </Button>
-        <span>
-          Page {page} of {totalPages}
-        </span>
-        <Button disabled={page >= totalPages} onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}>
-          Next
-        </Button>
-      </div>
+      <PaginationComponent meta={meta} handlePageChange={handlePageChange} />
     </>
   );
 };

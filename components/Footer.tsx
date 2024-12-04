@@ -4,7 +4,7 @@ import { Clipboard, ClipboardCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useState } from 'react';
-import { Email, Facebook, Instagram, Linkedin, TikTok, Whatsapp, Youtube } from './icons/social-media';
+import { Email, Facebook, Instagram, Linkedin, TikTok, Whatsapp, Youtube } from '@/components/icons/social-media';
 import { useLanguage } from '@/context/LanguageProvider';
 
 const Footer = () => {

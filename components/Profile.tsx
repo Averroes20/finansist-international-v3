@@ -1,13 +1,13 @@
 'use client';
 import { lazy, Suspense } from 'react';
-import { TitleSection } from './ui/typography';
+import { TitleSection } from '@/components/ui/typography';
 
-const VideoComponent = lazy(() => import('./ui/video'));
+const VideoComponent = lazy(() => import('@/components/ui/video'));
 const Profile = () => {
   return (
-    <section className="flex flex-col gap-y-3 md:gap-y-4 container max-w-screen-xl min-h-screen mx-auto">
+    <section className="flex flex-col space-y-3 md:space-y-4 max-w-screen-xl mx-auto">
       <TitleSection>Profile Company</TitleSection>
-      <div className="flex justify-center w-full min-h-[75vh] ">
+      <div className="flex justify-center  ">
         <Suspense fallback={<div>Loading video...</div>}>
           <VideoComponent />
         </Suspense>

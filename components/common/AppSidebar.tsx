@@ -8,8 +8,10 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from '../ui/sidebar';
 import ToggleSidebar from './ToggleSidebar';
+import Image from 'next/image';
 
 const items = [
   {
@@ -30,20 +32,24 @@ const items = [
 ];
 
 const AppSidebar = () => {
+  const { open } = useSidebar();
   return (
-    <Sidebar variant="floating" className="md:h-[calc(100vh-80px)] h-full mt-[75px]" collapsible="icon">
+    <Sidebar variant="floating" className="h-screen" collapsible="icon">
       <ToggleSidebar className="absolute bottom-1/2  left-1/2 -translate-x-1/2 hidden md:block" />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
+            <div className={`p-5 ${open ? 'block' : 'hidden'}`}>
+              <Image width={50} height={50} src="/images/logo-large.svg" alt="logo" className="w-full" />
+            </div>
+            <SidebarGroupLabel>Menu</SidebarGroupLabel>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild className={`${item.url === window.location.pathname ? 'bg-slate-800 hover:bg-slate-950' : ''}`}>
                     <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
+                      <item.icon className={`w-5 h-5 ${item.url === window.location.pathname ? 'text-white' : ''}`} />
+                      <span className={`ml-4 ${item.url === window.location.pathname ? 'text-white' : ''}`}>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 
 interface AnimatedTagProps {
   children: React.ReactNode;
@@ -9,15 +10,29 @@ interface AnimatedTagProps {
 }
 
 const AnimatedTag: React.FC<AnimatedTagProps> = ({ children, className, delay = 0 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  // Generate random animation duration and delay
+  const randomDuration = 10 + Math.random() * 20; // Random duration between 10-20s
+  const randomDelay = Math.random() * 5; // Random delay between 0-5s
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, delay * 3000); // Delay in milliseconds
+
+    return () => clearTimeout(timeout); // Cleanup timeout
+  }, [delay]);
+
   return (
     <span
       className={clsx(
         className,
-        `px-2 py-1 rounded-lg font-semibold text-sm text-white bg-[#3A9DA1]
-        motion-safe:animate-randomHover`
+        `px-2 py-1 rounded-lg font-semibold text-sm md:text-base text-white bg-[#3A9DA1] motion-safe:animate-randomHover`,
+        isVisible ? 'opacity-100 translate-y-0 transition-opacity duration-1000 ease-out' : 'opacity-0 translate-y-4'
       )}
       style={{
-        animationDelay: `${delay}s`,
+        animationDuration: `${randomDuration}s`,
+        animationDelay: `${randomDelay}s`,
       }}
       aria-label="tag"
     >

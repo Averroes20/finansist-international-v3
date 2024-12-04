@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
-const PortfolioAdmin = dynamic(() => import('./Portfolio'));
+const PortfolioAdmin = dynamic(() => import('@/app/(private)/admin/portfolio/Portfolio'));
 
 export const metadata: Metadata = {
   title: 'Portfolio | Finansist International',
@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 };
 
 const Portfolio = () => {
-  return <PortfolioAdmin />;
+  return (
+    <main>
+      <PortfolioAdmin />
+    </main>
+  );
 };
 
 export default Portfolio;

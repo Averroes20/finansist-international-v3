@@ -1,10 +1,11 @@
 'use client';
 
-import { createPortfolio, deletePortfolio, fetchPortfolios, updatePortfolio } from '@/action/portfolio';
+import PaginationComponent from '@/components/common/Pagination';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useDebounce } from '@/hooks/use-debounce';
+import { createPortfolio, deletePortfolio, getPortfolio, updatePortfolio } from '@/lib/action/portfolio';
 import { Portfolio } from '@/lib/type/portfolio';
 import { PortfolioType } from '@/lib/validation/schema-form-portfolio';
 import { PenBox } from 'lucide-react';
@@ -13,82 +14,88 @@ import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
 const ActionDelete = dynamic(() => import('@/components/common/ActionDelete'));
-const PortfolioForm = dynamic(() => import('@/components/common/PortfolioForm'));
+const PortfolioForm = dynamic(() => import('@/components/portfolio/PortfolioForm'));
 
 const limit = 5;
 
 const PortfolioAdmin = () => {
   const [portfolio, setPortfolio] = useState<Portfolio[]>([]);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [meta, setMeta] = useState({
+    page: 1,
+    totalPages: 1,
+  });
   const [title, setTitle] = useState('');
   const [portfolioId, setPortfolioId] = useState<number | null>(null);
   const querySearch = useDebounce(title, 500);
 
   const fetchPortfolio = useCallback(async () => {
-    const query = new URLSearchParams({
-      page: String(page),
-      limit: String(limit),
-      ...(querySearch && { companyName: querySearch }),
-    }).toString();
-    const data = await fetchPortfolios(query);
-    setPortfolio(data.data);
-    setTotalPages(data.meta.totalPages);
-  }, [page, querySearch]);
+    const {
+      data,
+      meta: { totalPages },
+    } = await getPortfolio({ page: meta.page, limit, companyName: querySearch });
+    setPortfolio(data);
+    setMeta({ page: meta.page, totalPages: totalPages ?? 1 });
+  }, [meta.page, querySearch]);
 
   useEffect(() => {
     fetchPortfolio();
   }, [fetchPortfolio]);
 
-  const handleDelete = useCallback(
-    async (id: number) => {
-      try {
-        await deletePortfolio(id);
-        fetchPortfolio();
-      } catch (error) {
-        console.error(error instanceof Error && error.message);
-        alert(`Failed to delete portfolio: ${error instanceof Error && error.message}`);
-      }
-    },
-    [fetchPortfolio]
-  );
+  const handlePageChange = (newPage: number) => {
+    setMeta((prev) => ({ ...prev, page: newPage }));
+  };
 
-  const handleAdd = useCallback(
-    async (data: PortfolioType) => {
-      try {
-        await createPortfolio(data);
-        fetchPortfolio();
-      } catch (error) {
-        console.error(error instanceof Error && error.message);
-        alert(`Failed to add portfolio: ${error instanceof Error && error.message}`);
-      }
-    },
-    [fetchPortfolio]
-  );
+  const handleAdd = useCallback(async (data: PortfolioType) => {
+    try {
+      const formData = new FormData();
+      formData.append('companyName', data.companyName);
+      formData.append('country', data.country);
+      formData.append('description', data.description);
+      formData.append('software', data.software as unknown as string);
+      formData.append('companyLogo', data.companyLogo);
+
+      await createPortfolio(formData);
+    } catch (error) {
+      console.error(error instanceof Error && error.message);
+      alert(`Failed to add portfolio: ${error instanceof Error && error.message}`);
+    }
+  }, []);
+
+  const handleDelete = useCallback(async (id: number) => {
+    try {
+      await deletePortfolio(id);
+    } catch (error) {
+      console.error(error instanceof Error && error.message);
+      alert(`Failed to delete portfolio: ${error instanceof Error && error.message}`);
+    }
+  }, []);
 
   const handleEdit = useCallback(
     async (data: PortfolioType) => {
       if (!portfolioId) return;
       try {
-        await updatePortfolio(portfolioId, {
-          ...data,
-          software: data?.software ? data?.software : undefined,
-        });
+        const formData = new FormData();
+        formData.append('companyName', data.companyName);
+        formData.append('country', data.country);
+        formData.append('description', data.description);
+        formData.append('software', data.software as unknown as string);
+        formData.append('companyLogo', data.companyLogo ?? '');
+
+        await updatePortfolio(formData, portfolioId);
         setPortfolioId(null);
-        fetchPortfolio();
       } catch (error) {
         console.error(error instanceof Error && error.message);
         alert(`Failed to edit portfolio: ${error instanceof Error && error.message}`);
       }
     },
-    [fetchPortfolio, portfolioId]
+    [portfolioId]
   );
 
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 mb-7">
         <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Portfolio</h2>
-        <p className="text-gray-500">Welcome to your portfolio</p>
+        <p className="text-gray-500">You can manage your portfolio here</p>
       </div>
       <div className="flex flex-col md:flex-row gap-4">
         <Input placeholder="Search company..." value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -159,17 +166,7 @@ const PortfolioAdmin = () => {
           )}
         </Table>
       </div>
-      <div className="flex justify-between items-center my-4">
-        <Button disabled={page <= 1} onClick={() => setPage((prev) => Math.max(prev - 1, 1))}>
-          Previous
-        </Button>
-        <span>
-          Page {page} of {totalPages}
-        </span>
-        <Button disabled={page >= totalPages} onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}>
-          Next
-        </Button>
-      </div>
+      <PaginationComponent meta={meta} handlePageChange={handlePageChange} />
     </>
   );
 };

@@ -12,14 +12,16 @@ const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
 const ServiceCard = ({ service }: { service: Service }) => {
   return (
     <>
-      <div className="flex flex-col flex-grow">
-        <header className="text-center pt-4 px-4">
-          <h3 className="text-xl font-bold pb-2 border-b-4 border-[#3A9DA1] inline">{service.title}</h3>
+      <div className="flex flex-col items-center flex-grow">
+        <header className="px-8 flex flex-col justify-center w-auto min-h-[80px] border-b-4 border-[#3A9DA1]">
+          <h3 className="text-center text-lg md:text-xl font-bold">{service.title}</h3>
         </header>
-        <div className="w-72 mx-auto  p-4">
+
+        <div className="w-72 mx-auto p-4 flex justify-center">
           <Gif src={service.icon} />
         </div>
-        <section>
+
+        <section className="w-full">
           <ul className="px-4 space-y-1">
             {service.shortDescription.map((short, shortIndex) => (
               <li key={shortIndex} className="flex items-start border-b">
@@ -30,6 +32,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
           </ul>
         </section>
       </div>
+
       <ServiceModal service={service} />
     </>
   );

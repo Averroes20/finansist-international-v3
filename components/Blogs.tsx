@@ -1,12 +1,12 @@
-import { fetchBlogs } from '@/action/blog';
+import { getBlogs } from '@/lib/action/blog';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { TitleSection } from './ui/typography';
+import { TitleSection } from '@/components/ui/typography';
 
-const CardBlogs = dynamic(() => import('./common/BlogCard'), { ssr: true });
+const CardBlogs = dynamic(() => import('@/components/blog/BlogCard'), { ssr: true });
 
 const Blogs = async () => {
-  const blogPromise = fetchBlogs(`page=1&limit=3`);
+  const blogPromise = getBlogs({ page: 1, limit: 3 });
 
   const [blogs] = await Promise.all([blogPromise]);
   return (
@@ -16,7 +16,7 @@ const Blogs = async () => {
         <CardBlogs data={blogs?.data || []} />
       </div>
       <div className="flex justify-center">
-        <Link href={'/blogs'} prefetch={true} className="mt-10 py-2 px-4 bg-slate-800 hover:bg-slate-950 text-white  rounded-md">
+        <Link href={'/blog'} prefetch={true} className="mt-10 py-2 px-4 bg-slate-800 hover:bg-slate-950 text-white  rounded-md">
           More Blog
         </Link>
       </div>

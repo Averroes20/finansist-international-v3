@@ -10,7 +10,7 @@ import { useLanguage } from '@/context/LanguageProvider';
 import { splitString } from '@/utils/split-string';
 import { motion, Variants } from 'framer-motion';
 
-const Modal = dynamic(() => import('./common/Modal'), { ssr: false });
+const Modal = dynamic(() => import('@/components/common/Modal'), { ssr: false });
 
 const ValueCompany = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
@@ -59,8 +59,8 @@ const ValueCompany = () => {
   };
 
   return (
-    <section id="valueCompany" className="min-h-screen bg-[#071620]" ref={sectionRef}>
-      <header className="px-5 py-6 md:px-16 md:py-14">
+    <section id="valueCompany" className="min-h-screen flex flex-col bg-[#071620]" ref={sectionRef}>
+      <header className="px-5 py-6 md:px-16 md:py-14 flex-grow">
         <motion.h2
           initial="hidden"
           whileInView={'reveal'}
@@ -80,7 +80,7 @@ const ValueCompany = () => {
         </motion.h2>
       </header>
 
-      <div className="flex flex-col justify-center items-center md:flex-row md:justify-end gap-2 pb-12">
+      <div className="flex flex-col justify-center items-center md:flex-row md:justify-end md:self-end gap-4 pb-12">
         {items.map((item, index) => (
           <div
             ref={(el) => {
@@ -107,12 +107,18 @@ const ValueCompany = () => {
 
               {/* Description */}
               <div
-                className={`absolute w-full h-full bottom-0 p-4 transition-transform duration-500 
-                  group-hover:translate-y-0 group-hover:opacity-100 group-hover:z-10 ${
-                    activeCard === index ? 'translate-y-0 opacity-100 z-10' : 'translate-y-full opacity-0 z-0'
-                  }`}
+                className={clsx(
+                  `absolute bottom-0 left-0 w-full h-full transition-all duration-700 ease-out
+                  transform group-hover:translate-y-0 group-hover:opacity-100 group-hover:scale-100`,
+                  activeCard === index ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-[100%] opacity-0 scale-90'
+                )}
+                style={{
+                  transformOrigin: 'bottom',
+                }}
               >
-                <p className="text-base p-5 text-white">{item.description}</p>
+                <div className="p-4 text-white">
+                  <p className="text-lg font-medium">{item.description}</p>
+                </div>
 
                 {/* Chevron */}
                 <div

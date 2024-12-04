@@ -36,11 +36,11 @@ export const bounceFade = (
   return {
     hidden: {
       opacity: 0,
-      y: 50,
+      y: 1,
     },
     show: {
       opacity: 1,
-      y: [50, -20 * bounceIntensity, 0],
+      y: [1, -10 * bounceIntensity, 0],
       transition: {
         duration: duration,
         delay: delay,

@@ -86,7 +86,7 @@ const Navbar = () => {
   const navigate = useCallback((url: string) => router.push(url), [router]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm py-5 backdrop-blur-lg dark:bg-transparent">
+    <header className="fixed w-full top-0 z-50 bg-white shadow-sm py-5 dark:backdrop-blur-lg dark:bg-transparent">
       <link rel="preload" href="/images/logo-large.svg" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-united-kingdom.png" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-indonesia.png" as="image" type="image/webp" media="(min-width: 1px)" />
@@ -160,7 +160,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-5">
-          <ButtonContact className="hidden md:flex py-0 " title="Free Consultation" />
+          <ButtonContact className="hidden md:flex py-0" title="Free Consultation" />
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
             <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
               <SelectValue>

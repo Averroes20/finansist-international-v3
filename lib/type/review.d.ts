@@ -9,8 +9,8 @@ export interface ReviewListResponse {
   data: Review[];
   meta: {
     page: number;
-    limit: number;
-    totalPages: number;
+    limit: number | null;
+    totalPages: number | null;
     totalCount: number;
   };
 }

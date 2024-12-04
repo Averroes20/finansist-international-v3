@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
-const PageReview = dynamic(() => import('./Review'));
+const PageReview = dynamic(() => import('@/app/(private)/admin/review/Review'));
 
 export const metadata: Metadata = {
   title: 'Review | Finansist International',
@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 };
 
 const Review = () => {
-  return <PageReview />;
+  return (
+    <main>
+      <PageReview />
+    </main>
+  );
 };
 
 export default Review;

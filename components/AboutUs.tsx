@@ -1,34 +1,24 @@
 'use client';
+import { TitleSection } from '@/components/ui/typography';
 import { images } from '@/constants/images';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
-import { TitleSection } from './ui/typography';
 import { useLanguage } from '@/context/LanguageProvider';
 import { fadeId } from '@/utils/variants';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const AboutUs = () => {
-  const ref = useRef<HTMLDivElement>(null);
   const { dictionary } = useLanguage();
   const { title, aboutCEO } = dictionary.about;
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
-
-  const planeX = useTransform(scrollYProgress, [0, 1], [0, 1280]);
-
   return (
-    <section ref={ref} id="about-us" className="container min-h-screen mx-auto pt-8 scroll-mt-20 relative">
+    <section id="about-us" className="container min-h-screen mx-auto pt-8 scroll-mt-20">
       <link rel="preload" href="/images/our-journey.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/images/image-ceo.webp" as="image" type="image/webp" media="(min-width: 1px)" />
+
+      {/* About us */}
       <div className="flex flex-col space-y-4">
         <TitleSection>{title}</TitleSection>
-        <div
-          className="mx-auto w-full md:w-full h-[300px] lg:h-[500px] bg-cover bg-center bg-fixed bg-no-repeat"
-          style={{ backgroundImage: `url(/images/our-journey.webp)`, backgroundSize: '55%' }}
-        ></div>
+        <Image src={images.OurJourney} alt="Our Journey" className="mx-auto aspect-auto w-full md:w-[65%]" loading="lazy" />
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row place-items-center md:px-32">
           <motion.p
             variants={fadeId('right', 0.2)}
@@ -61,19 +51,6 @@ const AboutUs = () => {
           </motion.div>
         </div>
       </div>
-      <motion.div
-        style={{
-          x: planeX,
-          top: '95%',
-          left: '0%',
-        }}
-        className="absolute hidden md:block w-[200px]"
-        transition={{
-          ease: 'easeInOut',
-        }}
-      >
-        <Image src={'/images/air-plane.webp'} loading="lazy" alt="airplane" width={200} height={200} className="object-contain w-full h-full" />
-      </motion.div>
     </section>
   );
 };

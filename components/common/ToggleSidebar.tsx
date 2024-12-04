@@ -14,7 +14,9 @@ const ToggleSidebar: React.FC<Props> = ({ className }) => {
       onClick={toggleSidebar}
       aria-label="Toggle Sidebar"
       variant="ghost"
-      className={`${open ? 'h-9 w-9' : 'h-7 w-7'} p-0 rounded-full bg-slate-600 text-white text-lg data-[state=open]:hidden ${className}`}
+      className={`${
+        open ? 'h-9 w-9' : 'h-7 w-7'
+      } p-0 rounded-full bg-slate-800 hover:bg-slate-950 text-white hover:text-white text-lg data-[state=open]:hidden ${className}`}
     >
       <ChevronRight className={`mx-auto ${open ? 'md:rotate-180' : 'md:rotate-0'} transition duration-200 rotate-0`} />
     </Button>

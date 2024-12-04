@@ -43,7 +43,13 @@ const PageLogin = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <TextInput<TypeLogin> label="Email" name="email" placeholder="your email..." isRequired />
             <TextInput<TypeLogin> label="Password" name="password" placeholder="your password..." isRequired />
-            <Button type="submit">Login</Button>
+            <p>
+              Don&apos;t have an account?{' '}
+              <a href="/auth/signup" className="text-blue-500 hover:underline">
+                Sign Up
+              </a>
+            </p>
+            <Button type="submit">Sign In</Button>
           </form>
         </Form>
       </div>

@@ -1,14 +1,16 @@
 'use client';
-import { fetchBlogs } from '@/action/blog';
-import BlogCard from '@/components/common/BlogCard';
-import { Button } from '@/components/ui/button';
+import BlogCard from '@/components/blog/BlogCard';
+import BlogCategory from '@/components/blog/BlogCategory';
+import PaginationComponent from '@/components/common/Pagination';
 import { Input } from '@/components/ui/input';
 import { TitleSection } from '@/components/ui/typography';
+import { useDebounce } from '@/hooks/use-debounce';
+import { getBlogs } from '@/lib/action/blog';
 import type { Blog } from '@/lib/type/blog';
 import { Search } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 
-const limit = 6;
+const limit = 4;
 const Blog = () => {
   const [data, setData] = useState<Blog[]>([]);
   const [meta, setMeta] = useState({
@@ -19,19 +21,11 @@ const Blog = () => {
     title: '',
     category: '',
   });
-
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch({ ...search, title: event.target.value });
-  };
+  const queryTitle = useDebounce(search.title, 500);
 
   const fetchBlog = useCallback(async (page: number, title: string, category: string) => {
-    const query = new URLSearchParams({
-      page: String(page),
-      limit: String(limit),
-      ...(title && { title }),
-      ...(category && { category }),
-    }).toString();
-    const response = await fetchBlogs(query);
+    const select = category === 'null' ? '' : category;
+    const response = await getBlogs({ page, limit, title, category: select });
     setData(response.data);
     setMeta((prev) => ({
       ...prev,
@@ -39,13 +33,17 @@ const Blog = () => {
     }));
   }, []);
 
-  useEffect(() => {
-    fetchBlog(meta.page, search.title, search.category);
-  }, [fetchBlog, meta.page, search.title, search.category]);
-
   const handlePageChange = (newPage: number) => {
     setMeta((prev) => ({ ...prev, page: newPage }));
   };
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch({ ...search, title: event.target.value });
+  };
+
+  useEffect(() => {
+    fetchBlog(meta.page, queryTitle, search.category);
+  }, [fetchBlog, meta.page, queryTitle, search.category]);
 
   useEffect(() => {
     setMeta((prev) => ({
@@ -55,31 +53,24 @@ const Blog = () => {
   }, [search.title, search.category]);
 
   return (
-    <section className="md:max-w-screen-xl mx-auto py-10 md:py-20 grid grid-cols-1 md:grid-cols-5 gap-4">
-      <div className="col-span-4 order-2 md:order-1">
-        <TitleSection>Latest Blogs</TitleSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <section className="md:max-w-screen-xl mx-auto pt-24">
+      <div className="">
+        <div className="relative">
+          <TitleSection>New Blog</TitleSection>
+          <div className="flex flex-row mb-4 space-x-2 md:mb-0 md:space-x-4 md:space-y-0 md:absolute md:top-1/2 md:transform md:-translate-y-1/2 md:right-0">
+            <div className="relative">
+              <Input className="w-full" placeholder="Search..." type="text" aria-label="Search blogs" value={search.title} onChange={handleSearch} />
+              <span className="absolute right-3 top-2/4 -translate-y-2/4">
+                <Search fill="none" />
+              </span>
+            </div>
+            <BlogCategory setSearch={setSearch} />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <BlogCard data={data} />
         </div>
-        <div className="flex justify-between items-center my-4">
-          <Button disabled={meta.page <= 1} onClick={() => handlePageChange(meta.page - 1)}>
-            Previous
-          </Button>
-          <span>
-            Page {meta.page} of {meta.totalPages}
-          </span>
-          <Button disabled={meta.page >= meta.totalPages} onClick={() => handlePageChange(meta.page + 1)}>
-            Next
-          </Button>
-        </div>
-      </div>
-      <div className="md:col-span-1 order-1 md:order-2 space-y-5">
-        <div className="relative">
-          <Input className="w-full" placeholder="Search..." type="text" aria-label="Search blogs" value={search.title} onChange={handleSearch} />
-          <span className="absolute right-3 top-2/4 -translate-y-2/4">
-            <Search fill="none" />
-          </span>
-        </div>
+        <PaginationComponent meta={meta} handlePageChange={handlePageChange} />
       </div>
     </section>
   );

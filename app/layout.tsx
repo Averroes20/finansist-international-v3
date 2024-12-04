@@ -1,6 +1,6 @@
 import { LanguageProviders } from '@/context/LanguageProvider';
 import type { Metadata } from 'next';
-import { Inter, Libre_Baskerville } from 'next/font/google';
+import { Dosis, Inter, Libre_Baskerville } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -15,6 +15,14 @@ const libre_baskerville = Libre_Baskerville({
   display: 'swap',
   preload: true,
   weight: ['400', '700'],
+});
+
+const dosis = Dosis({
+  subsets: ['latin'],
+  variable: '--font-dosis',
+  display: 'swap',
+  preload: true,
+  weight: ['400', '700', '800', '500'],
 });
 
 export const metadata: Metadata = {
@@ -33,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${inter.className} ${libre_baskerville.variable} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}
+        className={`${inter.className} ${libre_baskerville.variable} ${dosis.variable} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}
       >
         <LanguageProviders>{children}</LanguageProviders>
       </body>

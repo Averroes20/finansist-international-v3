@@ -1,10 +1,10 @@
 export interface Portfolio {
   id: number;
-  software?: string;
+  software: string | null;
   country: string;
   description: string;
   companyName: string;
-  companyLogo?: string;
+  companyLogo: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -14,7 +14,7 @@ export interface PortfolioListResponse {
   meta: {
     page: number;
     limit: number;
-    totalPages: number;
+    totalPages: number | null;
     totalCount: number;
   };
 }

@@ -10,6 +10,10 @@ body {
   font-family: var(--font-libre-baskerville);
 }
 
+.font-dosis {
+  font-family: var(--font-dosis);
+}
+
 @font-face {
   font-family: 'SantaCatalina';
   src: local('SantaCatalina'), url('./fonts/Santa-Catalina.woff') format('woff');

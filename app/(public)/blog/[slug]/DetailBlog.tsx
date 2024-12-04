@@ -1,7 +1,7 @@
 'use client';
-import { createComment } from '@/action/comment';
 import ActionDelete from '@/components/common/ActionDelete';
-import CommentForm from '@/components/common/CommentForm';
+import CommentForm from '@/components/comment/CommentForm';
+import { createComment, deleteComment } from '@/lib/action/comment';
 import { BlogWithComments } from '@/lib/type/blog';
 import { CommentType } from '@/lib/validation/schema-form-comment';
 import { formatDate, formatDateTime, formatTime } from '@/utils/format-date';
@@ -24,14 +24,28 @@ const DetailBlog: React.FC<Props> = ({ data }) => {
 
   const handleSubmit = useCallback(
     async (formData: CommentType) => {
+      'server only';
       try {
-        await createComment({ ...formData, blogId: data?.id });
+        await createComment({ ...formData, blogId: data?.id }, data?.slug as string);
         alert('Comment created successfully');
       } catch (error) {
         alert(`Failed to create comment: ${error instanceof Error && error.message}`);
       }
     },
-    [data?.id]
+    [data?.id, data?.slug]
+  );
+
+  const handleDelete = useCallback(
+    async (id: number) => {
+      'server only';
+      try {
+        await deleteComment(id, data.slug as string);
+        alert('Comment deleted successfully');
+      } catch (error) {
+        alert(`Failed to delete comment: ${error instanceof Error && error.message}`);
+      }
+    },
+    [data.slug]
   );
 
   if (!data) {
@@ -85,9 +99,7 @@ const DetailBlog: React.FC<Props> = ({ data }) => {
                     <ActionDelete
                       title="Delete"
                       description="Are you sure you want to delete this comment?"
-                      onClick={() => {
-                        console.log(comment.id);
-                      }}
+                      onClick={() => handleDelete(comment.id)}
                     />
                   </span>
                 </div>
