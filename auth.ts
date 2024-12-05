@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import validationLogin from '@/lib/validation/schema-login';
 import { prismaClient } from '@/lib/database/connection';
+import { compareSync } from 'bcrypt-ts';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -29,9 +30,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
 
-          const isPasswordValid = credentials?.password === user.password;
-          if (!isPasswordValid) {
+          // Check password
+          const matchedPassword = compareSync(credentials?.password as string, user.password);
+
+          if (!matchedPassword) {
             console.log('Invalid password');
+
             return null;
           }
 

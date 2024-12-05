@@ -3,6 +3,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { memo } from 'react';
+import { Eye, EyeClosed } from 'lucide-react';
 
 type Props<T extends FieldValues> = {
   name: Path<T>;
@@ -11,9 +12,20 @@ type Props<T extends FieldValues> = {
   className?: string;
   type?: string;
   isRequired?: boolean;
+  showPassword?: boolean;
+  handleChangePassword?: () => void;
 };
 
-const TextInputComponent = <T extends FieldValues>({ name, label, placeholder, className, type = 'text', isRequired }: Props<T>) => {
+const TextInputComponent = <T extends FieldValues>({
+  name,
+  label,
+  placeholder,
+  showPassword,
+  handleChangePassword,
+  className,
+  type = 'text',
+  isRequired,
+}: Props<T>) => {
   const { control } = useFormContext<T>();
   return (
     <FormField
@@ -27,6 +39,13 @@ const TextInputComponent = <T extends FieldValues>({ name, label, placeholder, c
           <FormControl>
             {type === 'textarea' ? (
               <Textarea placeholder={placeholder} rows={4} className="text-sm md:text-base" {...field} />
+            ) : type === 'password' ? (
+              <div className="relative">
+                <Input placeholder={placeholder} type={showPassword ? 'text' : 'password'} className="text-sm md:text-base" {...field} />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 cursor-pointer">
+                  {showPassword ? <Eye onClick={handleChangePassword} /> : <EyeClosed onClick={handleChangePassword} />}
+                </span>
+              </div>
             ) : (
               <Input placeholder={placeholder} type={type} className="text-sm md:text-base" {...field} />
             )}

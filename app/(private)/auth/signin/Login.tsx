@@ -4,12 +4,17 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import formSchema, { TypeLogin } from '@/lib/validation/schema-login';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { AuthError } from 'next-auth';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const PageLogin = () => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [msgError, setMsgError] = useState('');
   const form = useForm<TypeLogin>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -19,18 +24,39 @@ const PageLogin = () => {
   });
 
   const onSubmit = async (data: TypeLogin) => {
-    const result = await signIn('credentials', {
-      email: data.email,
-      password: data.password,
-      redirect: false,
-    });
-
-    if (result?.error) {
-      console.log(result.error);
-    } else {
-      router.push('/admin/blogs');
+    try {
+      setLoading(true);
+      const result = await signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      });
+      if (result?.error) {
+        setMsgError(result.error);
+      } else {
+        router.push('/admin/blogs');
+      }
+    } catch (error) {
+      console.error('Error Login', error);
+      setMsgError('Error Login');
+      if (error instanceof AuthError) {
+        switch (error.type) {
+          case 'CredentialsSignin':
+            setMsgError('Invalid email or password');
+            break;
+          default:
+            setMsgError('something went wrong');
+            break;
+        }
+      }
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleShowPassword = useCallback(() => {
+    setShowPassword((prev) => !prev);
+  }, []);
 
   return (
     <main className="flex px-5 md:px-0 max-w-lg min-h-screen items-center mx-auto ">
@@ -38,18 +64,29 @@ const PageLogin = () => {
         <div className="mb-6">
           <h1 className="text-3xl font-bold">Login</h1>
           <p className="text-sm">Please sign in to your account.</p>
+          {msgError && <p className="text-base text-black border border-red-700 text-center py-5 bg-red-400 rounded-lg">{msgError}</p>}
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <TextInput<TypeLogin> label="Email" name="email" placeholder="your email..." isRequired />
-            <TextInput<TypeLogin> label="Password" name="password" placeholder="your password..." isRequired />
+            <div>
+              <TextInput<TypeLogin>
+                label="Password"
+                name="password"
+                type="password"
+                handleChangePassword={handleShowPassword}
+                showPassword={showPassword}
+                placeholder="your password..."
+                isRequired
+              />
+            </div>
             <p>
               Don&apos;t have an account?{' '}
               <a href="/auth/signup" className="text-blue-500 hover:underline">
                 Sign Up
               </a>
             </p>
-            <Button type="submit">Sign In</Button>
+            <Button type="submit" disabled={loading}>{`${loading ? 'Submit...' : 'Sign In'}`}</Button>
           </form>
         </Form>
       </div>

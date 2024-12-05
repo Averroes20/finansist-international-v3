@@ -1,34 +1,37 @@
 'use server';
 import { prismaClient } from '@/lib/database/connection';
+import validationRegister from '../validation/schema-register';
+import { hashSync } from 'bcrypt-ts';
 
-interface formData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-export async function register(form: formData) {
+export async function register(form: FormData) {
   try {
-    if (!(form instanceof FormData)) {
-      throw new Error('Invalid form data');
-    }
-    if (!form.name || !form.email || !form.password || !form.confirmPassword) {
-      throw new Error('All fields are required');
-    }
+    const validationFiled = validationRegister.safeParse(Object.fromEntries(form.entries()));
 
+    if (!validationFiled.success) {
+      return {
+        success: false,
+        error: validationFiled.error.errors[0].message,
+      };
+    }
+    const { name, email, password } = validationFiled.data;
     const existingUser = await prismaClient.user.findUnique({
-      where: { email: form.email },
+      where: { email: validationFiled.data.email },
     });
 
     if (existingUser) {
-      throw new Error('email already exists');
+      return {
+        success: false,
+        error: 'User already exists',
+      };
     }
+
+    const hashPassword = hashSync(password, 10);
 
     await prismaClient.user.create({
       data: {
-        name: form.name,
-        email: form.email,
-        password: form.password,
+        name: name,
+        email: email,
+        password: hashPassword,
       },
     });
 
@@ -36,14 +39,7 @@ export async function register(form: formData) {
       success: true,
       error: null,
     };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    if (error.message === 'email already exists') {
-      return {
-        success: false,
-        error: 'User already exists',
-      };
-    }
-    throw new Error('Failed to register');
+  } catch (error) {
+    throw new Error('Failed to register', error as Error);
   }
 }

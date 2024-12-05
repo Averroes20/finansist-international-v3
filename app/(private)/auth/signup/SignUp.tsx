@@ -7,12 +7,15 @@ import formSchema from '@/lib/validation/schema-register';
 import { TypeRegister } from '@/lib/validation/schema-register';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
   const router = useRouter();
   const [msgError, setMsgError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const form = useForm<TypeRegister>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -24,7 +27,13 @@ const SignUp = () => {
 
   const onSubmit = async (data: TypeRegister) => {
     try {
-      const result = await register(data);
+      setLoading(true);
+      const formData = new FormData();
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('password', data.password);
+      formData.append('confirmPassword', data.confirmPassword);
+      const result = await register(formData);
       if (result.success) {
         router.push('/auth/signin');
       } else {
@@ -32,8 +41,17 @@ const SignUp = () => {
       }
     } catch (error) {
       console.error('Error Register', error);
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleShowPassword = useCallback(() => {
+    setShowPassword((prev) => !prev);
+  }, []);
+  const handleShowConfirmPassword = useCallback(() => {
+    setShowConfirmPassword((prev) => !prev);
+  }, []);
 
   return (
     <main className="flex px-5 md:px-0 max-w-lg min-h-screen items-center mx-auto ">
@@ -47,15 +65,31 @@ const SignUp = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <TextInput<TypeRegister> label="Name" name="name" placeholder="your name..." isRequired />
             <TextInput<TypeRegister> label="Email" name="email" placeholder="your email..." isRequired />
-            <TextInput<TypeRegister> label="Password" name="password" placeholder="your password..." isRequired />
-            <TextInput<TypeRegister> label="Confirm Password" name="confirmPassword" placeholder="your password..." isRequired />
+            <TextInput<TypeRegister>
+              label="Password"
+              name="password"
+              type="password"
+              showPassword={showPassword}
+              handleChangePassword={handleShowPassword}
+              placeholder="your password..."
+              isRequired
+            />
+            <TextInput<TypeRegister>
+              label="Confirm Password"
+              name="confirmPassword"
+              type="password"
+              showPassword={showConfirmPassword}
+              handleChangePassword={handleShowConfirmPassword}
+              placeholder="your password..."
+              isRequired
+            />
             <p>
               Already have an account?{' '}
               <a href="/auth/signin" className="text-blue-600 hover:underline">
                 Sign In
               </a>
             </p>
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit" disabled={loading}>{`${loading ? 'Submit...' : 'Sign Up'}`}</Button>
           </form>
         </Form>
       </div>
