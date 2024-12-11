@@ -55,8 +55,10 @@ const RootPage = () => {
     <main>
       <Suspense fallback={<p>Loading ...</p>}>
         <Intro />
-        <Profile />
-        <AboutUs />
+        <div className="stacking">
+          <Profile />
+          <AboutUs />
+        </div>
         <AirPlane />
       </Suspense>
 

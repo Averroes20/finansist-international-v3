@@ -1,0 +1,10 @@
+.fade-in {
+  opacity: 0; /* Elemen awal tidak terlihat */
+  transform: translate(0, 0); /* Nilai awal transformasi */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transisi untuk opacity dan transformasi */
+}
+
+.fade-in.visible {
+  opacity: 1; /* Elemen terlihat */
+  transform: translate(0, 0); /* Posisi akhir animasi */
+}

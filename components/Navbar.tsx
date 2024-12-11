@@ -54,8 +54,8 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const { language: lang, changeLanguage } = useLanguage();
   const { dictionary } = useLanguage();
-  const { items } = dictionary.navbar;
-  const { items: service } = dictionary.services;
+  const { items } = dictionary?.navbar || {};
+  const { items: service } = dictionary?.services || {};
 
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -87,9 +87,10 @@ const Navbar = () => {
 
   return (
     <header className="fixed w-full top-0 z-50 bg-white shadow-sm py-5 dark:backdrop-blur-lg dark:bg-transparent">
-      <link rel="preload" href="/images/logo-large.svg" as="image" type="image/webp" media="(min-width: 1px)" />
+      <link rel="preload" href="/images/logo-large.webp" as="image" type="image/webp" fetchPriority="high" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-united-kingdom.png" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-indonesia.png" as="image" type="image/webp" media="(min-width: 1px)" />
+
       <nav className="container px-5 md:max-w-screen-xl mx-auto flex items-center justify-between backdrop-blur-lg">
         <div className="w-[150px]">
           <Image
@@ -107,10 +108,10 @@ const Navbar = () => {
         <div className="hidden w-full md:flex md:flex-row md:w-auto md:space-x-7" id="navbar-multi-level">
           <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
             <NavigationMenuList>
-              {items.map((item, index) => (
-                <NavigationMenuItem key={index}>
+              {items?.map((item, index) => (
+                <NavigationMenuItem key={index + 1}>
                   {item.subItems ? (
-                    <Popover key={index} open={openDropdown} onOpenChange={setOpenDropdown}>
+                    <Popover open={openDropdown} onOpenChange={setOpenDropdown}>
                       <PopoverTrigger
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
@@ -128,8 +129,8 @@ const Navbar = () => {
                         <div className="flex gap-4 justify-around">
                           <div className="flex flex-col col-span-1 space-y-2 py-5 px-3">
                             <b>Company Services</b>
-                            {service.map((item, index) => (
-                              <Link href={`#${item.link}`} key={index}>
+                            {service?.map((item, index) => (
+                              <Link href={`#${item.link}`} key={`${index + 1}-${item.link}`}>
                                 {item.title}
                               </Link>
                             ))}
@@ -166,7 +167,7 @@ const Navbar = () => {
               <SelectValue>
                 <div className="flex items-center gap-1 w-[24px] h-[24px]">
                   <Image
-                    src={menuLanguages.find((item) => item.value === lang)?.icon || '/default-icon.png'}
+                    src={menuLanguages.find((item) => item.value === lang)?.icon ?? '/default-icon.png'}
                     alt={lang}
                     width={24}
                     height={24}
@@ -180,7 +181,7 @@ const Navbar = () => {
               {menuLanguages
                 .filter((item) => item.value !== lang)
                 .map((item, index) => (
-                  <SelectItem key={index} value={item.value} className="px-2">
+                  <SelectItem key={`${index + 1}-${item.value}`} value={item.value} className="px-2">
                     <div className="flex items-center gap-1">
                       <Image src={item.icon} alt={item.value} width={24} height={24} />
                       {item.value === 'en' ? 'EN' : 'ID'}
@@ -208,22 +209,24 @@ const Navbar = () => {
               ref={menuRef}
             >
               <motion.ul className="flex flex-col space-y-2 px-4 py-2">
-                {items.map((item, index) => (
+                {items?.map((item, index) => (
                   <motion.li
-                    key={index}
+                    key={`${index + 1}-${item.label}`}
                     className={`border-b border-gray-200 ${index === items.length - 1 ? 'border-none' : ''}`}
                     variants={dropdownVariants}
                   >
                     {item.subItems ? (
                       <>
-                        <div
+                        <button
+                          type="button"
                           onClick={toggleMobileDropdown}
                           className="flex items-center justify-between w-full py-2"
                           aria-expanded={openDropdownMobile}
+                          aria-label="Toggle mobile dropdown"
                         >
                           <p>{item.label}</p>
                           <ChevronUp fill="none" className={`h-4 w-4 transition duration-300 ${openDropdownMobile ? '' : 'rotate-180'}`} />
-                        </div>
+                        </button>
                         <motion.ul
                           className="overflow-hidden"
                           initial="closed"
@@ -232,10 +235,10 @@ const Navbar = () => {
                         >
                           {item.subItems && (
                             <div className="flex flex-col col-span-1 py-3 px-3">
-                              {service.map((item, index) => (
+                              {service?.map((item, index) => (
                                 <Link
                                   href={`#${item.link}`}
-                                  key={index}
+                                  key={`${index + 1}-${item.link}`}
                                   className={`border-b border-gray-200 py-2 pl-4  ${index === service.length - 1 ? 'border-none' : ''}`}
                                 >
                                   {item.title}

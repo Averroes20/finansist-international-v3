@@ -5,6 +5,8 @@ import { prismaClient } from '@/lib/database/connection';
 import { compareSync } from 'bcrypt-ts';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  session: { strategy: 'jwt' },
+  secret: process.env.AUTH_SECRET,
   providers: [
     Credentials({
       credentials: {
@@ -54,11 +56,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     authorized({ request: { nextUrl }, auth }) {
       const isLoggedIn = !!auth?.user;
+      const privateRoutes = ['/admin/blogs', '/admin/portfolio', '/admin/review'];
       const { pathname } = nextUrl;
-      if (pathname.startsWith('/auth/signin') && isLoggedIn) {
+
+      if (!isLoggedIn && privateRoutes.includes(pathname)) {
         return Response.redirect(new URL('/', nextUrl));
       }
-      return !!auth;
+
+      if (isLoggedIn && pathname.startsWith('/auth/signin')) {
+        return Response.redirect(new URL('/', nextUrl));
+      }
+      return true;
     },
     jwt({ token, user, trigger, session }) {
       if (user) {

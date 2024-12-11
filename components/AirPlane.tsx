@@ -1,21 +1,54 @@
 'use client';
-import { useScroll, useTransform, motion } from 'framer-motion';
 import Image from 'next/image';
-import { useRef, useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const AirPlane = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
+  const planeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.body.classList.add('js-enabled');
+  }, []);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ref.current || !planeRef.current) return;
+
+      const sectionTop = ref.current.getBoundingClientRect().top;
+      const sectionHeight = ref.current.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      const progress = Math.min(Math.max((windowHeight - sectionTop) / (sectionHeight + windowHeight), 0), 1);
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (planeRef.current) {
+            planeRef.current.style.transform = `translateX(${progress * 1024}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const currentRef = ref.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          // Logika tambahan jika diperlukan saat elemen terlihat
+        }
       },
-      {
-        threshold: 0,
-      }
+      { threshold: 0 }
     );
 
     if (currentRef) {
@@ -29,24 +62,14 @@ const AirPlane = () => {
     };
   }, []);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-
-  const planeX = useTransform(scrollYProgress, [0, 1], [0, inView ? 1024 : 0]);
-
   return (
-    <section ref={ref} className="relative w-full h-[20vh]">
-      <motion.div
+    <section ref={ref} className="relative w-full h-[20vh] overflow-hidden">
+      <div
+        ref={planeRef}
+        className={`absolute hidden md:block w-[400px]`}
         style={{
-          x: planeX,
           top: '10%',
           left: '0%',
-        }}
-        className="absolute hidden md:block w-[400px]"
-        transition={{
-          ease: 'easeInOut',
         }}
       >
         <Image
@@ -54,11 +77,11 @@ const AirPlane = () => {
           quality={100}
           loading="lazy"
           alt="airplane"
-          width={200}
-          height={200}
-          className="object-contain w-full h-full"
+          width={1000}
+          height={1000}
+          className={`object-contain w-full h-full`}
         />
-      </motion.div>
+      </div>
     </section>
   );
 };

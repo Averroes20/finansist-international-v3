@@ -51,7 +51,7 @@ const FormInternSchema = z.object({
   gpa: z
     .string()
     .min(3, { message: 'GPA must be at least 3 characters. Example: 3.50' })
-    .regex(/^[0-4]\.[0-9]{2}$/),
+    .regex(/^[0-4]\.\d{2}$/),
   desirablePosition: z.string().min(5, { message: 'Desirable position must be at least 5 characters' }),
   cv: z
     .instanceof(File)

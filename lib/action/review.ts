@@ -5,7 +5,7 @@ import { prismaClient } from '../database/connection';
 import { Prisma } from '@prisma/client';
 import { ReviewListResponse } from '../type/review';
 
-interface formData {
+interface FormData {
   name: string;
   company: string;
   review: string;
@@ -17,7 +17,7 @@ interface FetchReviewsParams {
   companyName?: string;
 }
 
-export const getReviews = async ({ page = 1, limit, companyName }: FetchReviewsParams) => {
+export async function getReviews({ page = 1, limit, companyName }: FetchReviewsParams) {
   try {
     const skip = page && limit ? (page - 1) * limit : undefined;
 
@@ -53,7 +53,7 @@ export const getReviews = async ({ page = 1, limit, companyName }: FetchReviewsP
       data: data,
       meta: {
         page,
-        limit: limit || null,
+        limit: limit ?? null,
         totalPages: limit ? Math.ceil(totalCount / limit) : null,
         totalCount,
       },
@@ -63,9 +63,9 @@ export const getReviews = async ({ page = 1, limit, companyName }: FetchReviewsP
     console.error(error);
     throw new Error('Failed to fetch reviews');
   }
-};
+}
 
-export const createReview = async (form: formData) => {
+export async function createReview(form: FormData) {
   try {
     if (!form.name || !form.company || !form.review) {
       throw new Error('All fields are required');
@@ -84,9 +84,9 @@ export const createReview = async (form: formData) => {
     console.error(error);
     throw new Error('Failed to post review');
   }
-};
+}
 
-export const deleteReview = async (id: number) => {
+export async function deleteReview(id: number) {
   try {
     const existingReview = await prismaClient.reviews.findUnique({
       where: { id },
@@ -104,9 +104,9 @@ export const deleteReview = async (id: number) => {
     console.error(error);
     throw new Error('Failed to delete review');
   }
-};
+}
 
-export const updateReview = async (id: number, form: formData) => {
+export async function updateReview(id: number, form: FormData) {
   try {
     const existingReview = await prismaClient.reviews.findUnique({
       where: { id },
@@ -129,4 +129,4 @@ export const updateReview = async (id: number, form: formData) => {
     console.error(error);
     throw new Error('Failed to update review');
   }
-};
+}

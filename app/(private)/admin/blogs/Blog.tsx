@@ -1,6 +1,7 @@
 'use client';
 
 import BlogCategory from '@/components/blog/BlogCategory';
+import HeaderAdmin from '@/components/common/HeaderAdmin';
 import PaginationComponent from '@/components/common/Pagination';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -109,16 +110,11 @@ const BlogsAdmin: React.FC = () => {
 
   return (
     <>
-      <div className="space-y-4 mb-7">
-        <div>
-          <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Blogs</h2>
-          <p className="text-muted-foreground">Manage your blogs</p>
-        </div>
-        <div className="flex flex-col md:flex-row gap-4">
-          <Input placeholder="Search by title..." value={search.title} onChange={(e) => setSearch({ ...search, title: e.target.value })} />
-          <BlogCategory setSearch={setSearch} />
-          <BlogForm onSubmit={handleAdd} title="Add" description="Add a new blog" trigger={<Button className="">Add Blog</Button>} />
-        </div>
+      <HeaderAdmin title="Blogs" description="Manage your blogs" />
+      <div className="flex flex-col md:flex-row gap-4 my-7">
+        <Input placeholder="Search by title..." value={search.title} onChange={(e) => setSearch({ ...search, title: e.target.value })} />
+        <BlogCategory setSearch={setSearch} />
+        <BlogForm onSubmit={handleAdd} title="Add" description="Add a new blog" trigger={<Button className="">Add Blog</Button>} />
       </div>
       <div className="overflow-x-auto">
         <Table className="min-w-[700px]">
@@ -133,11 +129,11 @@ const BlogsAdmin: React.FC = () => {
           </TableHeader>
           {blogs.length > 0 ? (
             blogs.map((item, index) => (
-              <TableBody key={index} className="hover:bg-gray-100 h-[5px]">
+              <TableBody key={item.id} className="hover:bg-gray-100 h-[5px]">
                 <TableRow className="hover:bg-gray-100 h-[5px]">
                   <TableCell className="font-medium">{index + 1}</TableCell>
                   <TableCell>
-                    <Image src={item.cover as string} alt={item.title} width={100} height={100} className="object-cover" />
+                    <Image src={item.cover} alt={item.title} width={100} height={100} className="object-cover" />
                   </TableCell>
                   <TableCell className="cursor-pointer">
                     <Link rel="preload" href={`/blog/${item.slug}`} prefetch={true}>
@@ -156,7 +152,7 @@ const BlogsAdmin: React.FC = () => {
                           category: item.category,
                           resume: item.resume,
                           title: item.title,
-                          cover: item.cover as string,
+                          cover: item.cover,
                         }}
                         title="Edit"
                         description="Edit blog details"

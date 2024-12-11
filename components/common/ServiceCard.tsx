@@ -24,7 +24,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
         <section className="w-full">
           <ul className="px-4 space-y-1">
             {service.shortDescription.map((short, shortIndex) => (
-              <li key={shortIndex} className="flex items-start border-b">
+              <li key={`short-${shortIndex + 1}`} className="flex items-start border-b">
                 <span className="mr-2 text-green-600 font-bold">✔</span>
                 <span>{short}</span>
               </li>
@@ -52,11 +52,11 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
         <div className="col-span-1 p-5 bg-[#3A9DA1]">
           <h1 className="text-center text-lg text-white font-libreBaskerville">What you will get</h1>
           {service.details.benefits.map((benefit, index) => (
-            <div key={index} className={clsx(benefit.title === '-' ? 'mt-5' : 'mt-0')}>
+            <div key={`benefit-${index + 1}`} className={clsx(benefit.title === '-' ? 'mt-5' : 'mt-0')}>
               {benefit.title !== '-' && <h2 className="font-bold text-white mt-5">{benefit.title}</h2>}
               <ul className="list-disc pl-6 text-white">
                 {benefit.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="my-1">
+                  <li key={`item-${itemIndex + 1}`} className="my-1">
                     {item}
                   </li>
                 ))}
@@ -77,7 +77,7 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
             <DialogDescription className="leading-7 text-black text-base">{service.details.overview}</DialogDescription>
 
             {service.details.extendedServices.map((extendedService, index) => (
-              <p key={index} className="my-1 text-black">
+              <p key={`extendedService-${index + 1}`} className="my-1 text-black">
                 <span className="mr-2 text-green-600 font-bold">✔</span>
                 <span>{extendedService}</span>
               </p>

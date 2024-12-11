@@ -7,13 +7,12 @@ import { submitInternshipRequest, submitJobRequest, submitPartnershipRequest } f
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 
-interface Action {
-  (formData: FormData): Promise<{ success: boolean; error?: string; message?: string }>;
-}
+type Action = (formData: FormData) => Promise<{ success: boolean; error?: string; message?: string }>;
+
 const Careers = () => {
   const [loading, setLoading] = useState(false);
   const { dictionary } = useLanguage();
-  const { items, title } = dictionary.career;
+  const { items, title } = dictionary?.career || {};
   const { toast } = useToast();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -27,14 +26,14 @@ const Careers = () => {
       const result = await action(formData);
 
       if (result.success) {
-        alert(result.message || 'Your request has been successfully sent.');
+        alert(result.message ?? 'Your request has been successfully sent.');
         toast({
           title: 'Success',
           description: 'Your request has been successfully sent.',
           variant: 'default',
         });
       } else {
-        throw new Error(result.error || 'Failed to send request');
+        throw new Error(result.error ?? 'Failed to send request');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -57,8 +56,8 @@ const Careers = () => {
           {title}
         </TitleSection>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg lg:max-w-screen-xl lg:h-[55vh] mx-auto">
-          {items.map((item, index) => (
-            <article key={index} className="p-4 lg:p-7 bg-white rounded-xl flex flex-col h-full shadow-xl">
+          {items?.map((item, index) => (
+            <article key={`${index + 1}-${item.title}`} className="p-4 lg:p-7 bg-white rounded-xl flex flex-col h-full shadow-xl">
               <header className="flex-grow">
                 <h1
                   className="text-xl md:text-2xl tracking-tight font-bold mb-4 uppercase text-center p-2 border-b-4 w-fit mx-auto"
@@ -72,7 +71,7 @@ const Careers = () => {
                     <p className="mb-2 ">What facilities will you get?</p>
                     <ul className="list-disc list-outside space-y-2 pl-5 mb-4">
                       {item.facilities.map((facility, idx) => (
-                        <li key={idx}>{facility}</li>
+                        <li key={`${idx}-${facility}`}>{facility}</li>
                       ))}
                     </ul>
                   </>

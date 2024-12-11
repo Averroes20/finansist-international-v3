@@ -27,32 +27,39 @@ const TextInputComponent = <T extends FieldValues>({
   isRequired,
 }: Props<T>) => {
   const { control } = useFormContext<T>();
+
   return (
     <FormField
       control={control}
       name={name}
-      render={({ field }) => (
-        <FormItem className={className}>
-          <FormLabel className="text-sm md:text-base  font-medium">
-            {label} {isRequired && <span className="text-destructive">*</span>}
-          </FormLabel>
-          <FormControl>
-            {type === 'textarea' ? (
-              <Textarea placeholder={placeholder} rows={4} className="text-sm md:text-base" {...field} />
-            ) : type === 'password' ? (
+      render={({ field }) => {
+        const renderInputField = () => {
+          if (type === 'textarea') {
+            return <Textarea placeholder={placeholder} rows={4} className="text-sm md:text-base" {...field} />;
+          } else if (type === 'password') {
+            return (
               <div className="relative">
                 <Input placeholder={placeholder} type={showPassword ? 'text' : 'password'} className="text-sm md:text-base" {...field} />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 cursor-pointer">
                   {showPassword ? <Eye onClick={handleChangePassword} /> : <EyeClosed onClick={handleChangePassword} />}
                 </span>
               </div>
-            ) : (
-              <Input placeholder={placeholder} type={type} className="text-sm md:text-base" {...field} />
-            )}
-          </FormControl>
-          <FormMessage />
-        </FormItem>
-      )}
+            );
+          } else {
+            return <Input placeholder={placeholder} type={type} className="text-sm md:text-base" {...field} />;
+          }
+        };
+
+        return (
+          <FormItem className={className}>
+            <FormLabel className="text-sm md:text-base font-medium">
+              {label} {isRequired && <span className="text-destructive">*</span>}
+            </FormLabel>
+            <FormControl>{renderInputField()}</FormControl>
+            <FormMessage />
+          </FormItem>
+        );
+      }}
     />
   );
 };

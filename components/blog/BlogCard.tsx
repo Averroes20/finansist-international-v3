@@ -25,12 +25,14 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
             height={300}
             className="w-full object-cover h-56 lg:h-64 rounded-lg"
           />
-          <Image
-            src={images.DefaultAvatar}
-            alt={`Avatar for ${item.title}`}
-            loading="lazy"
-            className="w-12 h-12 object-cover rounded-full absolute bottom-[-20px] left-5 shadow-lg"
-          />
+          <div className="absolute bottom-[-10px] left-5 flex items-center">
+            <Image
+              src={images.DefaultAvatar}
+              alt={`Avatar for ${item.title}`}
+              loading="lazy"
+              className="w-12 h-12 object-cover rounded-full shadow-lg"
+            />
+          </div>
           <h1
             className="text-white text-xs lg:text-base absolute top-4 right-5 px-3 py-1 bg-gray-500 rounded-full uppercase"
             aria-label={`Category: ${item.category}`}

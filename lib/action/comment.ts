@@ -1,16 +1,9 @@
 'use server';
 
+import { prismaClient } from '@/lib/database/connection';
 import { revalidatePath } from 'next/cache';
-import { prismaClient } from '../database/connection';
 
-interface formData {
-  blogId: number;
-  name: string;
-  email: string;
-  comment: string;
-}
-
-export const getCommentsByBlog = async (blogId: number) => {
+export async function getCommentsByBlog(blogId: number) {
   try {
     const comments = await prismaClient.comments.findMany({
       where: { blog_id: blogId },
@@ -20,23 +13,27 @@ export const getCommentsByBlog = async (blogId: number) => {
     console.error(error);
     throw new Error('Failed to fetch blog');
   }
-};
+}
 
-export const createComment = async (form: formData, slug: string) => {
+export async function createComment(form: FormData, slug: string) {
   try {
     if (!(form instanceof FormData)) {
       throw new Error('Invalid form data');
     }
+    const payload = form.get('payload') as string;
+    console.log('payload', payload);
 
-    if (!form.name || !form.email || !form.comment) {
+    const { name, email, content, blog_id } = JSON.parse(payload);
+
+    if (!name || !email || !content || !blog_id) {
       throw new Error('All fields are required');
     }
     const comments = await prismaClient.comments.create({
       data: {
-        name: form.name,
-        email: form.email,
-        content: form.comment,
-        blog_id: form.blogId,
+        name: name,
+        email: email,
+        content: content,
+        blog_id: Number(blog_id),
       },
     });
     revalidatePath(`/blog/${slug}`);
@@ -45,9 +42,9 @@ export const createComment = async (form: formData, slug: string) => {
     console.error(error);
     throw new Error('Failed to post comment');
   }
-};
+}
 
-export const deleteComment = async (id: number, slug: string) => {
+export async function deleteComment(id: number, slug: string) {
   try {
     const comments = await prismaClient.comments.delete({
       where: { id },
@@ -58,4 +55,4 @@ export const deleteComment = async (id: number, slug: string) => {
     console.error(error);
     throw new Error('Failed to delete comment');
   }
-};
+}

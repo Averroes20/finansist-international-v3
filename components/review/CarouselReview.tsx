@@ -62,8 +62,8 @@ const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
         onMouseLeave={handleMouseLeave}
       >
         <CarouselContent>
-          {data.data.map((item, index) => (
-            <CarouselItem key={index}>
+          {data.data.map((item) => (
+            <CarouselItem key={item.id}>
               <div className="p-1">
                 <div className="items-center justify-center text-white">
                   <span className="flex justify-center">
@@ -82,8 +82,8 @@ const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
       </Carousel>
       <div className="w-full flex justify-center space-x-2 mb-10 md:mb-16 z-10">
         {Array.from({ length: count }).map((_, idx) => (
-          <div
-            key={idx}
+          <button
+            key={`dot-${idx + 1}`}
             onClick={() => api?.scrollTo(idx)}
             className={clsx(
               `h-2 w-2 rounded-full cursor-pointer `,

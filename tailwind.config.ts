@@ -59,6 +59,9 @@ const config: Config = {
       animation: {
         randomHover: 'randomHover 15s infinite ease-in-out',
         slider: 'slider 100s linear infinite',
+        'fade-in-right': 'fadeInRight 0.7s ease-in-out',
+        'bounce-fade': 'bounceFade 0.8s ease-in-out',
+        'fade-in-left': 'fadeInLeft 0.7s ease-in-out',
       },
       keyframes: {
         randomHover: {
@@ -77,6 +80,18 @@ const config: Config = {
         slider: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(-100px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        fadeInLeft: {
+          '0%': { opacity: '0', transform: 'translateX(100px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        bounceFade: {
+          '0%': { opacity: '0', transform: 'translateY(100px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
       borderRadius: {

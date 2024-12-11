@@ -8,7 +8,7 @@ import { Prisma } from '@prisma/client';
 import { randomUUID } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { BlogWithComments } from '@/lib/type/blog';
+import { BlogListResponses, BlogWithComments } from '@/lib/type/blog';
 import { revalidatePath } from 'next/cache';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'public', 'blogs');
@@ -88,7 +88,13 @@ export async function getBlogs({ page = 1, limit = 10, title, category }: FetchB
       totalPages: Math.ceil(totalCount / limit),
       totalCount,
     };
-    return { data, meta };
+
+    const res: BlogListResponses = {
+      data: data,
+      meta: meta,
+    };
+
+    return res;
   } catch (error) {
     console.error('Failed to fetch blogs:', error);
     throw new Error('Failed to fetch blogs');
@@ -220,7 +226,7 @@ export async function createBlog(formData: FormData) {
   }
 }
 
-export const updateBlog = async (formData: FormData, blogId: number) => {
+export async function updateBlog(formData: FormData, blogId: number) {
   const title = formData.get('title') as string | null;
   const resume = formData.get('resume') as string | null;
   const article = formData.get('article') as string | null;
@@ -259,21 +265,21 @@ export const updateBlog = async (formData: FormData, blogId: number) => {
   const updatedBlog = await prismaClient.blogs.update({
     where: { id: blogId },
     data: {
-      title: title || undefined,
-      resume: resume || undefined,
-      article: article || undefined,
-      author: author || undefined,
-      category: category || undefined,
-      slug: slug || undefined,
-      cover: coverPath || undefined,
+      title: title ?? undefined,
+      resume: resume ?? undefined,
+      article: article ?? undefined,
+      author: author ?? undefined,
+      category: category ?? undefined,
+      slug: slug ?? undefined,
+      cover: coverPath ?? undefined,
     },
   });
   revalidatePath('/admin/blog');
   revalidatePath('/');
   return updatedBlog;
-};
+}
 
-export const deleteBlog = async (blogId: number) => {
+export async function deleteBlog(blogId: number) {
   const existingBlog = await prismaClient.blogs.findUnique({
     where: { id: blogId },
   });
@@ -293,4 +299,4 @@ export const deleteBlog = async (blogId: number) => {
   revalidatePath('/admin/blog');
   revalidatePath('/');
   return deletedBlog;
-};
+}

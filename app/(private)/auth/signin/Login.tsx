@@ -40,13 +40,10 @@ const PageLogin = () => {
       console.error('Error Login', error);
       setMsgError('Error Login');
       if (error instanceof AuthError) {
-        switch (error.type) {
-          case 'CredentialsSignin':
-            setMsgError('Invalid email or password');
-            break;
-          default:
-            setMsgError('something went wrong');
-            break;
+        if (error.type === 'CredentialsSignin') {
+          setMsgError('Invalid email or password');
+        } else {
+          setMsgError('something went wrong');
         }
       }
     } finally {
@@ -59,38 +56,36 @@ const PageLogin = () => {
   }, []);
 
   return (
-    <main className="flex px-5 md:px-0 max-w-lg min-h-screen items-center mx-auto ">
-      <div className="w-full p-4 md:p-8 bg-white border border-gray-200 rounded-lg shadow">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold">Login</h1>
-          <p className="text-sm">Please sign in to your account.</p>
-          {msgError && <p className="text-base text-black border border-red-700 text-center py-5 bg-red-400 rounded-lg">{msgError}</p>}
-        </div>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <TextInput<TypeLogin> label="Email" name="email" placeholder="your email..." isRequired />
-            <div>
-              <TextInput<TypeLogin>
-                label="Password"
-                name="password"
-                type="password"
-                handleChangePassword={handleShowPassword}
-                showPassword={showPassword}
-                placeholder="your password..."
-                isRequired
-              />
-            </div>
-            <p>
-              Don&apos;t have an account?{' '}
-              <a href="/auth/signup" className="text-blue-500 hover:underline">
-                Sign Up
-              </a>
-            </p>
-            <Button type="submit" disabled={loading}>{`${loading ? 'Submit...' : 'Sign In'}`}</Button>
-          </form>
-        </Form>
+    <div className="w-full p-4 md:p-8 bg-white border border-gray-200 rounded-lg shadow">
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold">Login</h1>
+        <p className="text-sm">Please sign in to your account.</p>
+        {msgError && <p className="text-base text-black border border-red-700 text-center py-5 bg-red-400 rounded-lg">{msgError}</p>}
       </div>
-    </main>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <TextInput<TypeLogin> label="Email" name="email" placeholder="your email..." isRequired />
+          <div>
+            <TextInput<TypeLogin>
+              label="Password"
+              name="password"
+              type="password"
+              handleChangePassword={handleShowPassword}
+              showPassword={showPassword}
+              placeholder="your password..."
+              isRequired
+            />
+          </div>
+          <p>
+            Don&apos;t have an account?{' '}
+            <a href="/auth/signup" className="text-blue-500 hover:underline">
+              Sign Up
+            </a>
+          </p>
+          <Button type="submit" disabled={loading}>{`${loading ? 'Submit...' : 'Sign In'}`}</Button>
+        </form>
+      </Form>
+    </div>
   );
 };
 

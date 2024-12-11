@@ -15,11 +15,25 @@ type Props<T extends FieldValues> = {
 
 const FileInputComponent = <T extends FieldValues>({ name, label, className, defaultImageUrl, isRequired, accept = 'image/*' }: Props<T>) => {
   const { control } = useFormContext<T>();
-  const [preview, setPreview] = useState<string | null>(defaultImageUrl || null);
+  const [preview, setPreview] = useState<string | null>(defaultImageUrl ?? null);
 
   useEffect(() => {
-    setPreview(defaultImageUrl || null);
+    setPreview(defaultImageUrl ?? null);
   }, [defaultImageUrl]);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, field: any) => {
+    const file = event.target.files?.[0] || null;
+    if (file) {
+      field.onChange(file);
+
+      const reader = new FileReader();
+      reader.onload = () => setPreview(reader.result as string);
+      reader.readAsDataURL(file);
+    } else {
+      setPreview(defaultImageUrl ?? null);
+    }
+  };
 
   return (
     <FormField
@@ -40,23 +54,7 @@ const FileInputComponent = <T extends FieldValues>({ name, label, className, def
                     <Image src={preview} alt="Image preview" width={200} height={200} className="mb-2  object-cover" />
                   )}
 
-                  <Input
-                    type="file"
-                    accept={accept}
-                    onChange={(event) => {
-                      const file = event.target.files?.[0] || null;
-                      if (file) {
-                        field.onChange(file);
-
-                        const reader = new FileReader();
-                        reader.onload = () => setPreview(reader.result as string);
-                        reader.readAsDataURL(file);
-                      } else {
-                        // Kembalikan preview ke default jika tidak ada file yang dipilih
-                        setPreview(defaultImageUrl || null);
-                      }
-                    }}
-                  />
+                  <Input type="file" accept={accept} onChange={(event) => handleFileChange(event, field)} />
                   {fieldState.error && <FormMessage>{fieldState.error.message}</FormMessage>}
                 </>
               )}

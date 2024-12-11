@@ -1,7 +1,7 @@
+import { auth } from '@/auth';
 import { getBlog } from '@/lib/action/blog';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import './style.css';
 
 const DetailBlog = dynamic(() => import('./DetailBlog'));
 
@@ -21,8 +21,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
 
 const Detail = async ({ params }: Props) => {
   const blog = await getBlog(params.slug);
+  const session = await auth();
 
-  return <DetailBlog data={blog} />;
+  return <DetailBlog data={blog} session={session} />;
 };
 
 export default Detail;

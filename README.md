@@ -34,3 +34,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+<!--
+
+C:\Users\ilham\Downloads\sonarqube\sonar-scanner-6.2.1.4610-windows-x64\bin\sonar-scanner.bat -D"sonar.projectKey=finansistinternational" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_437257c0a6c3bf5bc37ba631a71d1f761dd5e145"
+
+-->

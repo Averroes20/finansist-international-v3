@@ -74,6 +74,6 @@ export interface Dictionary {
 
 export interface LanguageContextType {
   language: Language;
-  dictionary: Dictionary;
+  dictionary: Dictionary | null;
   changeLanguage: (lang: Language) => Promise<void>;
 }

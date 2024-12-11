@@ -1,8 +1,8 @@
 export const categories = [
-  { label: 'Akutansi & pembukuan', value: 'Akutansi & pembukuan' },
-  { label: 'Pajak', value: 'Pajak' },
-  { label: 'Bisnis', value: 'Bisnis' },
-  { label: 'Belajar keuangan', value: 'Belajar keuangan' },
-  { label: 'Investasi', value: 'Investasi' },
-  { label: 'Hiburan', value: 'Hiburan' },
+  { label: 'Accounting & Bookkeeping', value: 'Accounting & Bookkeeping' },
+  { label: 'Taxes', value: 'Taxes' },
+  { label: 'Business', value: 'Business' },
+  { label: 'Financial Learning', value: 'Financial Learning' },
+  { label: 'Investment', value: 'Investment' },
+  { label: 'Entertainment', value: 'Entertainment' },
 ];

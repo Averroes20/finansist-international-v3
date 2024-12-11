@@ -1,5 +1,6 @@
 'use client';
 
+import { getRandomNumber } from '@/utils/getRandomNumber';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
@@ -11,14 +12,13 @@ interface AnimatedTagProps {
 
 const AnimatedTag: React.FC<AnimatedTagProps> = ({ children, className, delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  // Generate random animation duration and delay
-  const randomDuration = 10 + Math.random() * 20; // Random duration between 10-20s
-  const randomDelay = Math.random() * 5; // Random delay between 0-5s
+  const randomDuration = 10 + getRandomNumber() * 10; // Random duration between 10-20s
+  const randomDelay = getRandomNumber() * 3; // Random delay between 0-5s
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsVisible(true);
-    }, delay * 3000); // Delay in milliseconds
+    }, delay * 2000); // Delay in milliseconds
 
     return () => clearTimeout(timeout); // Cleanup timeout
   }, [delay]);

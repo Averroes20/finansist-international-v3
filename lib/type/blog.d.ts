@@ -14,10 +14,9 @@ export interface Blog {
   updatedAt: Date;
 }
 
-export interface BlogListResponse {
+export interface BlogListResponses {
   data: Blog[];
   meta: BlogMeta;
-  message?: string;
 }
 export interface BlogMeta {
   page: number;

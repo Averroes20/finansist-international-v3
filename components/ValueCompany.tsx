@@ -14,11 +14,11 @@ const Modal = dynamic(() => import('@/components/common/Modal'), { ssr: false })
 
 const ValueCompany = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
   const { setIsDarkMode } = useTheme();
   const { dictionary } = useLanguage();
-  const { items, title } = dictionary.valueCompany;
+  const { items, title } = dictionary?.valueCompany || {};
 
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
@@ -50,8 +50,8 @@ const ValueCompany = () => {
     };
   }, [activeCard, handleClickOutside]);
 
-  const part1 = splitString(title.part1);
-  const part2 = splitString(title.part2);
+  const part1 = title?.part1 ? splitString(title.part1) : [];
+  const part2 = title?.part2 ? splitString(title.part2) : [];
 
   const charVariants: Variants = {
     hidden: { opacity: 0 },
@@ -68,12 +68,12 @@ const ValueCompany = () => {
           className="text-3xl md:text-6xl md:leading-tight font-bold text-white"
         >
           {part1.map((word, index) => (
-            <motion.span key={index} transition={{ duration: 0.5 }} variants={charVariants} className="text-[#84A2B7]">
+            <motion.span key={`${index + 1}-${word}`} transition={{ duration: 0.5 }} variants={charVariants} className="text-[#84A2B7]">
               {word}
             </motion.span>
           ))}{' '}
           {part2.map((word, index) => (
-            <motion.span key={index} transition={{ duration: 0.5 }} variants={charVariants}>
+            <motion.span key={`${index + 1}-${word}`} transition={{ duration: 0.5 }} variants={charVariants}>
               {word}
             </motion.span>
           ))}
@@ -81,15 +81,18 @@ const ValueCompany = () => {
       </header>
 
       <div className="flex flex-col justify-center items-center md:flex-row md:justify-end md:self-end gap-4 pb-12">
-        {items.map((item, index) => (
-          <div
+        {items?.map((item, index) => (
+          <button
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
             className={`relative w-80 md:h-[570px] bg-[#091f2f] rounded-lg overflow-hidden shadow-lg flex flex-col 
-            group transition-all duration-500`}
+          group transition-all duration-500 cursor-default`}
             onClick={() => handleCardToggle(index)}
-            key={index}
+            aria-pressed={activeCard === index}
+            aria-label={`card-${index + 1}`}
+            tabIndex={0}
+            key={`${index + 1}-${item.title}`}
           >
             <div className="p-5 mb-10 mt-5">
               <h1 className="text-3xl text-white font-bold leading-tight">{item.title}</h1>
@@ -152,7 +155,7 @@ const ValueCompany = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </button>
         ))}
       </div>
     </section>

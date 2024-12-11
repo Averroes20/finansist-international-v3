@@ -9,7 +9,7 @@ import { useLanguage } from '@/context/LanguageProvider';
 
 const Footer = () => {
   const { dictionary } = useLanguage();
-  const { items: service } = dictionary.services;
+  const { items: service } = dictionary?.services || {};
   const [copied, setCopied] = useState<{ email: boolean; phone: boolean }>({ email: false, phone: false });
 
   const handleCopy = useCallback(async (text: string, type: 'email' | 'phone') => {
@@ -24,8 +24,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-slate-100 py-10">
-      <link rel="preload" href="/images/logo-large.svg" as="image" type="image/webp" media="(min-width: 1px)" />
-      <link rel="preload" href="/images/certifications.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <div className="container grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto px-0 md:px-36 ">
         <div className="flex flex-col gap-5 px-10 items-center justify-center">
           <Image src={images.LogoLarge} alt="Logo" width={200} height={200} loading="lazy" className="w-full h-full object-contain" />
@@ -34,8 +32,8 @@ const Footer = () => {
         <div className="flex flex-col gap-4 items-center ">
           <h4 className="text-xl font-semibold tracking-tight md:text-2xl md:font-bold">Our Service</h4>
           <ul className="text-center space-y-2 text-sm md:text-lg">
-            {service.map((service, index) => (
-              <li key={index}>
+            {service?.map((service, index) => (
+              <li key={service.link + index}>
                 <Link href={`#${service.link}`} aria-label={service.title} className="hover:text-blue-700 hover:underline">
                   {service.title}
                 </Link>
@@ -49,19 +47,23 @@ const Footer = () => {
             <span className="mr-1">
               <Email className="text-red-500 inline" />
             </span>
-            support@finansistinternational.com
-            <span className="ml-1 cursor-pointer" onClick={() => handleCopy('support@finansistinternational.com', 'email')}>
+            <span className="ml-1">support@finansistinternational.com</span>
+            <button
+              className="ml-1 cursor-pointer"
+              onClick={() => handleCopy('support@finansistinternational.com', 'email')}
+              aria-label="Copy email address"
+            >
               {copied.email ? <ClipboardCheck size={20} /> : <Clipboard size={20} />}
-            </span>
+            </button>
           </p>
           <p className="flex items-center text-sm md:text-lg">
             <span className="mr-1">
               <Whatsapp className="text-green-500 inline" />
             </span>
-            +6281211114994
-            <span className="ml-1 cursor-pointer" onClick={() => handleCopy('+6281211114994', 'phone')}>
+            <span>+6281211114994</span>
+            <button className="ml-1 cursor-pointer" onClick={() => handleCopy('+6281211114994', 'phone')} aria-label="Copy phone number">
               {copied.phone ? <ClipboardCheck size={20} /> : <Clipboard size={20} />}
-            </span>
+            </button>
           </p>
           <div className="flex gap-2 items-center justify-center mt-8">
             <Link href="#" className="p-[5px] rounded-lg bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]">

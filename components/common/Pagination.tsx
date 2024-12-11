@@ -16,19 +16,16 @@ interface PaginationProps {
   handlePageChange: (page: number) => void;
 }
 
-const PaginationComponent = ({ meta, handlePageChange }: PaginationProps) => {
-  const pageNumbers = [];
-  const totalPages = meta.totalPages;
-
+const generatePageNumbers = (totalPages: number, currentPage: number) => {
+  const pageNumbers: (number | string)[] = [];
   const pageLimit = 3;
-
   if (totalPages <= pageLimit) {
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(i);
     }
   } else {
-    const start = Math.max(1, meta.page - 1);
-    const end = Math.min(totalPages, meta.page + 1);
+    const start = Math.max(1, currentPage - 1);
+    const end = Math.min(totalPages, currentPage + 1);
 
     if (start > 1) pageNumbers.push(1);
     if (start > 2) pageNumbers.push('...');
@@ -40,6 +37,11 @@ const PaginationComponent = ({ meta, handlePageChange }: PaginationProps) => {
     if (end < totalPages - 1) pageNumbers.push('...');
     if (end < totalPages) pageNumbers.push(totalPages);
   }
+  return pageNumbers;
+};
+
+const PaginationComponent = ({ meta, handlePageChange }: PaginationProps) => {
+  const pageNumbers = generatePageNumbers(meta.totalPages, meta.page);
 
   return (
     <Pagination>
@@ -50,7 +52,7 @@ const PaginationComponent = ({ meta, handlePageChange }: PaginationProps) => {
 
         {/* Menampilkan nomor halaman yang dapat diklik */}
         {pageNumbers.map((pageNumber, index) => (
-          <PaginationItem key={index}>
+          <PaginationItem key={`${index}-${pageNumber}`}>
             {pageNumber === '...' ? (
               <PaginationEllipsis />
             ) : (

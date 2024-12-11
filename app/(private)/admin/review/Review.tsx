@@ -1,4 +1,5 @@
 'use client';
+import HeaderAdmin from '@/components/common/HeaderAdmin';
 import PaginationComponent from '@/components/common/Pagination';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -74,11 +75,8 @@ const PageReview = () => {
 
   return (
     <>
-      <div className="space-y-4 mb-7">
-        <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Review</h2>
-        <p className="text-gray-500">List of all reviews</p>
-      </div>
-      <div className="flex flex-col md:flex-row gap-4">
+      <HeaderAdmin title="Reviews" description="Manage reviews" />
+      <div className="flex flex-col md:flex-row gap-4 my-7">
         <Input placeholder="Search..." value={company} onChange={(e) => setCompany(e.target.value)} />
         <ReviewForm onSubmit={handleAdd} title="Add" description="Add a new review" trigger={<Button className="">Add Review</Button>} />
       </div>

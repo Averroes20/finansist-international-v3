@@ -1,4 +1,5 @@
 'use client';
+import { getRandomNumber } from '@/utils/getRandomNumber';
 import { motion } from 'framer-motion';
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 
@@ -31,7 +32,7 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
             return digit;
           }
 
-          const randomDigitIndex = Math.floor(Math.random() * DIGITS.length);
+          const randomDigitIndex = Math.floor(getRandomNumber() * DIGITS.length);
           const randomDigit = DIGITS[randomDigitIndex];
 
           return randomDigit;

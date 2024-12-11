@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 };
 
 const Login = () => {
-  return <Register />;
+  return (
+    <main className="flex px-5 md:px-0 max-w-lg min-h-screen items-center mx-auto ">
+      <Register />
+    </main>
+  );
 };
 
 export default Login;

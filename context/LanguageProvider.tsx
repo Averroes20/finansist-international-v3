@@ -1,5 +1,5 @@
 'use client';
-import { createContext, memo, useContext, useEffect, useState } from 'react';
+import { createContext, memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { Language, Dictionary, LanguageContextType } from '@/lib/type/languange';
 import Loading from '@/components/Loading';
 
@@ -16,7 +16,7 @@ const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [dictionary, setDictionary] = useState<Dictionary | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const loadDictionary = async (lang: Language): Promise<Dictionary> => {
+  const loadDictionary = useCallback(async (lang: Language): Promise<Dictionary> => {
     try {
       const dict = await import(`@/dictionaries/${lang}.json`);
       return dict.default;
@@ -24,19 +24,22 @@ const LanguageProvider = ({ children }: LanguageProviderProps) => {
       console.error(`Failed to load dictionary for ${lang}:`, error);
       throw error;
     }
-  };
+  }, []);
 
-  const changeLanguage = async (newLang: Language): Promise<void> => {
-    try {
-      const newDictionary = await loadDictionary(newLang);
-      setDictionary(newDictionary);
-      setLanguage(newLang);
+  const changeLanguage = useCallback(
+    async (newLang: Language): Promise<void> => {
+      try {
+        const newDictionary = await loadDictionary(newLang);
+        setDictionary(newDictionary);
+        setLanguage(newLang);
 
-      localStorage.setItem('preferredLanguage', newLang);
-    } catch (error) {
-      console.error('Error changing language:', error);
-    }
-  };
+        localStorage.setItem('preferredLanguage', newLang);
+      } catch (error) {
+        console.error('Error changing language:', error);
+      }
+    },
+    [loadDictionary, setDictionary, setLanguage]
+  );
 
   useEffect(() => {
     const initializeLanguage = async () => {
@@ -55,23 +58,21 @@ const LanguageProvider = ({ children }: LanguageProviderProps) => {
     };
 
     initializeLanguage();
-  }, []);
+  }, [loadDictionary]);
+
+  const valueContext = useMemo(() => {
+    return {
+      language,
+      dictionary,
+      changeLanguage,
+    };
+  }, [changeLanguage, dictionary, language]);
 
   if (loading || !dictionary) {
     return <Loading />;
   }
 
-  return (
-    <LanguageContext.Provider
-      value={{
-        language,
-        dictionary,
-        changeLanguage,
-      }}
-    >
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={valueContext}>{children}</LanguageContext.Provider>;
 };
 
 export const LanguageProviders = memo(LanguageProvider);

@@ -1,7 +1,7 @@
+import { TitleSection } from '@/components/ui/typography';
 import { getBlogs } from '@/lib/action/blog';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { TitleSection } from '@/components/ui/typography';
 
 const CardBlogs = dynamic(() => import('@/components/blog/BlogCard'), { ssr: true });
 

@@ -12,6 +12,7 @@ import {
 } from '../ui/sidebar';
 import ToggleSidebar from './ToggleSidebar';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const items = [
   {
@@ -40,7 +41,9 @@ const AppSidebar = () => {
         <SidebarGroup>
           <SidebarGroupContent>
             <div className={`p-5 ${open ? 'block' : 'hidden'}`}>
-              <Image width={50} height={50} src="/images/logo-large.svg" alt="logo" className="w-full" />
+              <Link href={'/'}>
+                <Image width={1028} height={1028} quality={100} src="/images/logo-large.webp" alt="logo" className="w-full" />
+              </Link>
             </div>
             <SidebarGroupLabel>Menu</SidebarGroupLabel>
             <SidebarMenu>

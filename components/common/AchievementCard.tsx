@@ -10,16 +10,19 @@ type Props = {
 const Achievements: React.FC<Props> = ({ data }) => {
   return data.map((achievement, index) => {
     // Tentukan animasi berdasarkan index
+    const animationDirection =
+      index === 1
+        ? 'motion-translate-y-in-[100%]' // Dari bawah
+        : 'motion-translate-x-in-[100%]';
+
     const animationClass =
       index === 0
         ? 'motion-translate-x-in-[-100%]' // Dari kiri
-        : index === 1
-        ? 'motion-translate-y-in-[100%]' // Dari bawah
-        : 'motion-translate-x-in-[100%]'; // Dari kanan
+        : animationDirection;
 
     return (
       <div
-        key={index}
+        key={`achievement-${index + 1}`}
         className={`${animationClass} motion-opacity-in-[0%] motion-duration-[3s] motion-delay-[${0.5 * index}s] motion-ease-spring-smooth`}
       >
         <div className="text-3xl md:text-4xl font-bold flex justify-center items-end md:gap-1">

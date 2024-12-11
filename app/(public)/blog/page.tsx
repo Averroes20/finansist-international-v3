@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const Blog = dynamic(() => import('./Blog'));
+const BlogPage = dynamic(() => import('./Blog'));
 
 export const metadata = {
   title: 'Blogs | Finansist International',
@@ -10,7 +10,7 @@ export const metadata = {
 const Blogs = () => {
   return (
     <main className="px-5 min-h-screen">
-      <Blog />
+      <BlogPage />
     </main>
   );
 };

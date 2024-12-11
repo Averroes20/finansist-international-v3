@@ -7,9 +7,10 @@ import CommentSchema, { CommentType } from '@/lib/validation/schema-form-comment
 
 type Props = {
   onSubmit: (data: CommentType) => void;
+  isLoading: boolean;
 };
 
-const CommentForm: React.FC<Props> = ({ onSubmit }) => {
+const CommentForm: React.FC<Props> = ({ onSubmit, isLoading }) => {
   const form = useForm<CommentType>({
     resolver: zodResolver(CommentSchema),
     defaultValues: {
@@ -33,8 +34,13 @@ const CommentForm: React.FC<Props> = ({ onSubmit }) => {
           <TextInput<CommentType> name="email" placeholder="Email" label="Email" isRequired className="col-span-2 md:col-span-1" />
           <TextInput<CommentType> name="comment" placeholder="Comment" label="Comment" type="textarea" className="col-span-2" isRequired />
           <div className="col-span-3 md:col-span-1 md:col-start-2 flex md:justify-end">
-            <Button type="submit" variant={'outline'} className="md:px-28 w-full border-green-600 hover:bg-green-600 hover:text-white">
-              Post Comment
+            <Button
+              type="submit"
+              variant={'outline'}
+              disabled={isLoading}
+              className="md:px-28 w-full border-green-600 hover:bg-green-600 hover:text-white"
+            >
+              {isLoading ? 'Posting...' : 'Post Comment'}
             </Button>
           </div>
         </form>

@@ -13,9 +13,12 @@ import SkeletonLoading from './loading';
 
 type Props = {
   data: BlogWithComments;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  session: any;
 };
-const DetailBlog: React.FC<Props> = ({ data }) => {
+const DetailBlog: React.FC<Props> = ({ data, session }) => {
   const [cleanHTML, setCleanHTML] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const DOMPurify = createDOMPurify(window);
@@ -26,10 +29,21 @@ const DetailBlog: React.FC<Props> = ({ data }) => {
     async (formData: CommentType) => {
       'server only';
       try {
-        await createComment({ ...formData, blogId: data?.id }, data?.slug as string);
+        setIsLoading(true);
+        const form = new FormData();
+        const payload = {
+          name: formData.name,
+          email: formData.email,
+          content: formData.comment,
+          blog_id: data.id,
+        };
+        form.append('payload', JSON.stringify(payload));
+        await createComment(form, data?.slug);
         alert('Comment created successfully');
       } catch (error) {
         alert(`Failed to create comment: ${error instanceof Error && error.message}`);
+      } finally {
+        setIsLoading(false);
       }
     },
     [data?.id, data?.slug]
@@ -39,7 +53,7 @@ const DetailBlog: React.FC<Props> = ({ data }) => {
     async (id: number) => {
       'server only';
       try {
-        await deleteComment(id, data.slug as string);
+        await deleteComment(id, data.slug);
         alert('Comment deleted successfully');
       } catch (error) {
         alert(`Failed to delete comment: ${error instanceof Error && error.message}`);
@@ -53,7 +67,7 @@ const DetailBlog: React.FC<Props> = ({ data }) => {
   }
 
   return (
-    <main className="px-5 min-h-[90vh] max-w-4xl mx-auto">
+    <main className="px-5 min-h-[90vh] max-w-4xl mx-auto pt-20">
       <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl py-6">{data.title}</h1>
       <div className="flex flex-wrap gap-7 border-y border-dashed border-gray-400 p-2">
         <span className="flex gap-2 items-center">
@@ -84,17 +98,17 @@ const DetailBlog: React.FC<Props> = ({ data }) => {
             Your email address will not be published. Required fields are marked <span className="text-destructive">*</span>
           </p>
         </div>
-        <CommentForm onSubmit={handleSubmit} />
+        <CommentForm onSubmit={handleSubmit} isLoading={isLoading} />
         <div className="space-y-2">
-          {data.comments &&
-            data.comments.map((comment) => (
-              <div key={comment.id} className="border p-4 rounded-md space-y-2">
-                <div className="flex flex-col space-y-1 md:flex-row md:justify-between md:items-center md:space-x-3">
-                  <b>{comment.name}</b>
-                  <p className="text-sm md:text-xs text-gray-600">{formatDateTime(comment.createdAt.toLocaleString())}</p>
-                </div>
-                <div className="flex justify-between items-end">
-                  <p className="md:px-5">{comment.content}</p>
+          {data.comments?.map((comment) => (
+            <div key={comment.id} className="border p-4 rounded-md space-y-2">
+              <div className="flex flex-col space-y-1 md:flex-row md:justify-between md:items-center md:space-x-3">
+                <b>{comment.name}</b>
+                <p className="text-sm md:text-xs text-gray-600">{formatDateTime(comment.createdAt.toLocaleString())}</p>
+              </div>
+              <div className="flex justify-between items-end">
+                <p className="md:px-5">{comment.content}</p>
+                {session && (
                   <span className="w-5 h-5">
                     <ActionDelete
                       title="Delete"
@@ -102,9 +116,10 @@ const DetailBlog: React.FC<Props> = ({ data }) => {
                       onClick={() => handleDelete(comment.id)}
                     />
                   </span>
-                </div>
+                )}
               </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
     </main>

@@ -11,7 +11,7 @@ import { Search } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 
 const limit = 4;
-const Blog = () => {
+const BlogPage = () => {
   const [data, setData] = useState<Blog[]>([]);
   const [meta, setMeta] = useState({
     page: 1,
@@ -76,4 +76,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogPage;

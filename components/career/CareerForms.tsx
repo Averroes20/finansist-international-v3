@@ -119,9 +119,9 @@ PatnerFields.displayName = 'PatnerFields';
 JobFields.displayName = 'JobFields';
 InternFields.displayName = 'InternFields';
 
-export const FormPatner = (
-  props: Omit<FormProps<FormPatnerType>, 'schema' | 'defaultValues' | 'title' | 'description' | 'fields' | 'triggerText'>
-) => (
+type FormOmittedProps = 'schema' | 'defaultValues' | 'title' | 'description' | 'fields' | 'triggerText';
+
+export const FormPatner = (props: Omit<FormProps<FormPatnerType>, FormOmittedProps>) => (
   <FormComponent
     schema={FormPatnerSchema}
     loading={props.loading}
@@ -135,7 +135,7 @@ export const FormPatner = (
   />
 );
 
-export const FormJob = (props: Omit<FormProps<FormJobType>, 'schema' | 'defaultValues' | 'title' | 'description' | 'fields' | 'triggerText'>) => (
+export const FormJob = (props: Omit<FormProps<FormJobType>, FormOmittedProps>) => (
   <FormComponent
     schema={FormJobSchema}
     defaultValues={{
@@ -158,9 +158,7 @@ export const FormJob = (props: Omit<FormProps<FormJobType>, 'schema' | 'defaultV
   />
 );
 
-export const FormIntern = (
-  props: Omit<FormProps<FormInternType>, 'schema' | 'defaultValues' | 'title' | 'description' | 'fields' | 'triggerText'>
-) => (
+export const FormIntern = (props: Omit<FormProps<FormInternType>, FormOmittedProps>) => (
   <FormComponent
     schema={FormInternSchema}
     defaultValues={{

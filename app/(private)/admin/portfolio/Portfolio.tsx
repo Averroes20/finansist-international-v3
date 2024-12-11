@@ -1,5 +1,6 @@
 'use client';
 
+import HeaderAdmin from '@/components/common/HeaderAdmin';
 import PaginationComponent from '@/components/common/Pagination';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -93,11 +94,8 @@ const PortfolioAdmin = () => {
 
   return (
     <>
-      <div className="space-y-4 mb-7">
-        <h2 className="tracking-tight first:mt-0 text-3xl font-bold">Portfolio</h2>
-        <p className="text-gray-500">You can manage your portfolio here</p>
-      </div>
-      <div className="flex flex-col md:flex-row gap-4">
+      <HeaderAdmin title="Portfolio" description="Manage your portfolio" />
+      <div className="flex flex-col md:flex-row gap-4 my-7">
         <Input placeholder="Search company..." value={title} onChange={(e) => setTitle(e.target.value)} />
         <PortfolioForm onSubmit={handleAdd} title="Add" description="Add a new portfolio" trigger={<Button className="">Add Portfolio</Button>} />
       </div>

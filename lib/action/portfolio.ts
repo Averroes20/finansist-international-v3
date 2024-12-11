@@ -79,7 +79,7 @@ export async function getPortfolio({ page = 1, limit, companyName }: FetchPortfo
   }
 }
 
-export const createPortfolio = async (formData: FormData) => {
+export async function createPortfolio(formData: FormData) {
   const companyName = formData.get('companyName') as string;
   const software = formData.get('software') as string;
   const country = formData.get('country') as string;
@@ -123,7 +123,7 @@ export const createPortfolio = async (formData: FormData) => {
   revalidatePath('/admin/portfolio');
   revalidatePath('/');
   return newPortfolio;
-};
+}
 
 export async function updatePortfolio(formData: FormData, id: number) {
   try {
@@ -165,11 +165,11 @@ export async function updatePortfolio(formData: FormData, id: number) {
     const updatedPortfolio = await prismaClient.portfolio.update({
       where: { id },
       data: {
-        company_name: company_name || undefined,
-        software: software || undefined,
-        country: country || undefined,
-        description: description || undefined,
-        company_logo: logoPath || undefined,
+        company_name: company_name ?? undefined,
+        software: software ?? undefined,
+        country: country ?? undefined,
+        description: description ?? undefined,
+        company_logo: logoPath ?? undefined,
       },
     });
 
