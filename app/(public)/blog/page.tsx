@@ -1,10 +1,11 @@
+import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
 const BlogPage = dynamic(() => import('./Blog'));
 
-export const metadata = {
-  title: 'Blogs | Finansist International',
-  description: 'Blog of Finansist International',
+export const metadata: Metadata = {
+  title: 'Blogs',
+  description: 'Search and read our blogs at Finansist International.',
 };
 
 const Blogs = () => {

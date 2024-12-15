@@ -20,7 +20,7 @@ export const useInView = (once: boolean, threshold?: number) => {
           setIsInView(false);
         }
       },
-      { threshold: threshold ?? 0.2 }
+      { threshold: threshold ?? 0.5 }
     );
 
     const element = elementRef.current;

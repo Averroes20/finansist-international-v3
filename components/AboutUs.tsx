@@ -4,10 +4,13 @@ import { images } from '@/constants/images';
 import { useLanguage } from '@/context/LanguageProvider';
 import Image from 'next/image';
 import AnimatedComponent from './animation/animation-component';
+import { useInView } from '@/hooks/use-in-view';
+import { cn } from '@/lib/utils';
 
 const AboutUs = () => {
   const { dictionary } = useLanguage();
   const { title, aboutCEO } = dictionary?.about || {};
+  const { elementRef: aboutRef, isInView: aboutInView } = useInView(true, 0.5);
 
   return (
     <>
@@ -19,12 +22,21 @@ const AboutUs = () => {
           <TitleSection>{title}</TitleSection>
           <Image src={images.OurJourney} alt="Our Journey" className="mx-auto aspect-auto w-full md:w-[65%]" loading="lazy" />
           <div className="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row place-items-center md:px-32">
-            <AnimatedComponent effect="fade-in-left" className="md:col-span-2 order-2 md:order-1">
+            <div
+              ref={aboutRef}
+              className={cn(
+                'md:col-span-2 order-2 md:order-1',
+                aboutInView
+                  ? 'motion-translate-x-in-[-100%] motion-translate-y-in-[0%] motion-opacity-in-[0%] motion-duration-[1.50s] motion-duration-[2.00s]/translate motion-duration-[2.00s]/opacity'
+                  : 'opacity-0'
+              )}
+            >
               <p data-testid="about-ceo" className="text-center md:text-right text-sm md:text-lg">
                 &quot;{aboutCEO}&quot;
               </p>
-            </AnimatedComponent>
+            </div>
             <AnimatedComponent
+              threshold={0.5}
               effect="fade-in-right"
               className="flex flex-col md:col-span-1 items-center gap-2 mb-5 md:mb-0 md:gap-0 order-1 md:order-2"
             >

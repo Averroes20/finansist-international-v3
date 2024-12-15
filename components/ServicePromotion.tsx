@@ -18,13 +18,13 @@ const ServicePromotion: React.FC = () => {
     setIsHovered(false);
   }, []);
   return (
-    <section id="servicePromotion" className="min-h-screen max-w-screen-lg mx-auto px-5 md:px-0 flex items-center relative">
+    <section id="servicePromotion" className="min-h-screen max-w-screen-lg mx-auto px-5 md:px-0 flex items-center overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2 pr-6">
-          <AnimatedComponent>
+          <AnimatedComponent className="pb-4">
             <h1 className="font-santaCatalina text-slate-900 dark:text-white text-center leading-[5rem] text-[2.25rem] md:text-[3rem] ">{title}</h1>
           </AnimatedComponent>
-          <AnimatedComponent effect="fade-in-left" className="flex flex-col space-y-3 py-4">
+          <AnimatedComponent effect="fade-in-left" once={true} className="flex flex-col space-y-3 py-4">
             <ul>
               {points?.map((item, index) => (
                 <li key={`${index + 1}-${item.title}`} className="flex text-sm md:text-base">
@@ -38,7 +38,7 @@ const ServicePromotion: React.FC = () => {
             </ul>
             <p className="text-base font-libreBaskerville">{description}</p>
           </AnimatedComponent>
-          <AnimatedComponent effect="fade-in-bottom" threshold={0.9}>
+          <AnimatedComponent effect="fade-in-bottom" once={true}>
             <h2 className="font-santaCatalina text-slate-900 dark:text-white text-right text-[2rem] md:text-[2.25rem]">{tagsLine}</h2>
           </AnimatedComponent>
         </div>
