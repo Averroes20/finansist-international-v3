@@ -1,22 +1,23 @@
+import { DOMAIN_WEB } from '@/constants/env';
 import { getBlogs } from '@/lib/action/blog';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogs = await getBlogs({ page: 1, limit: 10000 });
+  const blogs = await getBlogs({ page: 1 });
 
   const blogUrls = blogs.data.map((blog) => {
     return {
-      url: `https://finansist-international-beta.vercel.app/blog/${blog.slug}`,
-      lastModified: new Date(blog.createdAt),
+      url: `${DOMAIN_WEB}/blog/${blog.slug}`,
+      lastModified: new Date(blog.updatedAt),
     };
   });
   return [
     {
-      url: 'https://finansist-international-beta.vercel.app',
+      url: `${DOMAIN_WEB}`,
       lastModified: new Date(),
     },
     {
-      url: 'https://finansist-international-beta.vercel.app/blog',
+      url: `${DOMAIN_WEB}/blog`,
       lastModified: new Date(),
     },
     ...blogUrls,

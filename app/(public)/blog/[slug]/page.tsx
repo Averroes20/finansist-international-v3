@@ -1,4 +1,5 @@
 import { auth } from '@/auth';
+import { DOMAIN_WEB } from '@/constants/env';
 import { getBlog } from '@/lib/action/blog';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
@@ -22,7 +23,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       description: desc,
       type: 'website',
       locale: 'en_US',
-      url: `https://finansist-international-beta.vercel.app/blog/${params.slug}`,
+      url: `${DOMAIN_WEB}/blog/${params.slug}`,
       siteName: 'Finansist International',
       images: [
         {

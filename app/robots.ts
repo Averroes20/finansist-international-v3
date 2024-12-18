@@ -1,3 +1,4 @@
+import { DOMAIN_WEB } from '@/constants/env';
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/admin',
     },
-    sitemap: 'https://finansist-international-beta.vercel.app/sitemap.xml',
+    sitemap: `${DOMAIN_WEB}/sitemap.xml`,
   };
 }
