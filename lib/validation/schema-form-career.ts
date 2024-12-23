@@ -25,9 +25,11 @@ const FormJobSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   phone: z.string().min(7, { message: 'Phone must be at least 7 characters' }),
   email: z.string().email({ message: 'Invalid email address' }),
-  lastEducation: z.string().min(3, { message: 'Last education must be at least 3 characters' }),
+  degree: z.string().min(3, { message: 'Degree must be at least 3 characters' }).max(50, { message: 'Degree must be at most 50 characters' }),
+  university: z.string().min(3, { message: 'University place must be at least 3 characters' }),
+  major: z.string().min(3, { message: 'Major place must be at least 3 characters' }).max(50, { message: 'Major must be at most 50 characters' }),
+  graduationYear: z.string().regex(/^\d{4}$/, { message: 'Invalid graduation year' }),
   desirablePosition: z.string().min(5, { message: 'Desirable position must be at least 5 characters' }),
-  collegePlace: z.string().min(3, { message: 'College place must be at least 3 characters' }),
   cv: z
     .instanceof(File)
     .refine((file) => file.size > 0, {
@@ -46,8 +48,8 @@ const FormInternSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   phone: z.string().min(7, { message: 'Phone must be at least 7 characters' }),
   email: z.string().email({ message: 'Invalid email address' }),
-  currentCollege: z.string().min(3, { message: 'Current college must be at least 3 characters' }),
-  collegePlace: z.string().min(3, { message: 'College place must be at least 3 characters' }),
+  currentUniversity: z.string().min(3, { message: 'Current university must be at least 3 characters' }),
+  campusAddress: z.string().min(3, { message: 'Campus address must be at least 3 characters' }),
   gpa: z
     .string()
     .min(3, { message: 'GPA must be at least 3 characters. Example: 3.50' })

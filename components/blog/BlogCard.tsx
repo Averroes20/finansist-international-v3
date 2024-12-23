@@ -54,8 +54,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
             prefetch={true}
             className="inline-flex items-center text-blue-600 hover:text-blue-700"
           >
-            <span className="mr-1 text-sm lg:text-base">Read More</span>
-            <span aria-hidden="true">
+            <span className="mr-1 text-sm lg:text-base">Read more</span>
+            <span>
               <ChevronRight size={16} />
             </span>
           </Link>

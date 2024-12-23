@@ -69,6 +69,7 @@ const PageReview = () => {
       alert(`Failed to delete review: ${error instanceof Error && error.message}`);
     }
   }, []);
+
   const handlePageChange = (newPage: number) => {
     setMeta((prev) => ({ ...prev, page: newPage }));
   };
@@ -83,20 +84,22 @@ const PageReview = () => {
       <div className="overflow-x-auto">
         <Table className="min-w-[700px]">
           <TableHeader>
-            <TableRow>
+            <TableRow className="text-base">
               <TableHead className="w-[50px]">No.</TableHead>
-              <TableHead className="min-w-[250px]">Name</TableHead>
+              <TableHead className="min-w-[200px]">Name</TableHead>
               <TableHead className="min-w-[150px]">Company</TableHead>
-              <TableHead className="min-w-[200px]">Review</TableHead>
+              <TableHead className="min-w-[150px]">Country</TableHead>
+              <TableHead className="min-w-[250px]">Review</TableHead>
             </TableRow>
           </TableHeader>
           {review.length > 0 ? (
             review.map((item, index) => (
-              <TableBody key={item.id}>
+              <TableBody key={item.id} className="text-base">
                 <TableRow className="hover:bg-gray-100 border-b-2 items-center border-slate-900">
                   <TableCell className="font-medium">{index + 1}</TableCell>
                   <TableCell>{item.name}</TableCell>
                   <TableCell>{item.company}</TableCell>
+                  <TableCell>{item.country}</TableCell>
                   <TableCell>{item.review}</TableCell>
                   <TableCell>
                     <div className="flex gap-3 self-center">
@@ -106,6 +109,7 @@ const PageReview = () => {
                           name: item.name,
                           company: item.company,
                           review: item.review,
+                          country: item.country,
                         }}
                         title="Edit"
                         description="Edit portfolio details"
@@ -120,7 +124,7 @@ const PageReview = () => {
           ) : (
             <TableBody>
               <TableRow>
-                <TableCell colSpan={5} className="text-center font-bold text-gray-500 text-md">
+                <TableCell colSpan={6} className="text-center font-bold text-gray-500 text-md">
                   No blog found
                 </TableCell>
               </TableRow>

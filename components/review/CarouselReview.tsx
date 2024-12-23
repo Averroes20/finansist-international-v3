@@ -69,9 +69,12 @@ const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
                   <span className="flex justify-center">
                     <Quote className="text-blue-400" />
                   </span>
-                  <p className="text-base tracking-tight text-center font-normal mb-3 md:text-xl">{item.review}</p>
-                  <h1 className="text-sm font-semibold tracking-tight text-center md:text-lg">{item.name}</h1>
-                  <h5 className="text-center">{item.company}</h5>
+                  <p className="text-lg tracking-tight text-center font-normal md:text-xl">{item.review}</p>
+                  <div className="py-4 space-y-1">
+                    <h1 className="text-base font-semibold tracking-tight text-center md:text-lg">{item.name}</h1>
+                    <h5 className="text-lg text-center">{item.company}</h5>
+                    <h6 className="text-base text-center">{item.country}</h6>
+                  </div>
                 </div>
               </div>
             </CarouselItem>

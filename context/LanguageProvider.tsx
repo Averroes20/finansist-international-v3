@@ -1,9 +1,9 @@
 'use client';
-import { createContext, memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import type { Language, Dictionary, LanguageContextType } from '@/lib/type/languange';
 import Loading from '@/components/Loading';
+import type { Dictionary, Language, LanguageContextType } from '@/lib/type/languange';
+import { createContext, memo, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+export const LanguageContext = createContext<LanguageContextType | null>(null);
 
 const defaultLanguage: Language = 'en';
 
@@ -11,7 +11,7 @@ interface LanguageProviderProps {
   children: React.ReactNode;
 }
 
-const LanguageProvider = ({ children }: LanguageProviderProps) => {
+const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>(defaultLanguage);
   const [dictionary, setDictionary] = useState<Dictionary | null>(null);
   const [loading, setLoading] = useState(true);

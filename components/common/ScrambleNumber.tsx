@@ -1,11 +1,12 @@
 'use client';
-import { getRandomNumber } from '@/utils/getRandomNumber';
-import { motion } from 'framer-motion';
+
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 const CYCLES_PER_DIGIT = 20;
 const SHUFFLE_TIME = 75;
 const DIGITS = '0123456789';
+
+const getRandomNumber = () => Math.random();
 
 type Props = {
   children: string;
@@ -55,17 +56,7 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
     };
   }, [scramble, stopScramble]);
 
-  return (
-    <motion.h1
-      whileTap={{
-        scale: 0.975,
-      }}
-      onMouseLeave={stopScramble}
-      className="cursor-default text-3xl font-bold dark:text-white md:text-[2.5rem] md:leading-[2.5rem]"
-    >
-      {text}
-    </motion.h1>
-  );
+  return <h1 className="cursor-default text-3xl font-bold dark:text-white md:text-[2.5rem] md:leading-[2.5rem]">{text}</h1>;
 };
 
 export default memo(ScrambleNumber);

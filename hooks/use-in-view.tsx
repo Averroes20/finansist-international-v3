@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from 'react';
 
 export const useInView = (once: boolean, threshold?: number) => {
-  const elementRef = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const elementRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

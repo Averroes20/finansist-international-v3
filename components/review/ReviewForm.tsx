@@ -24,6 +24,7 @@ const ReviewForm: React.FC<Props> = ({ data, onSubmit, title, description, trigg
       company: '',
       name: '',
       review: '',
+      country: '',
     },
   });
 
@@ -51,6 +52,7 @@ const ReviewForm: React.FC<Props> = ({ data, onSubmit, title, description, trigg
         <form onSubmit={form.handleSubmit(handleSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <TextInput<ReviewType> name="name" placeholder="Name" label="Name" isRequired className="col-span-1" />
           <TextInput<ReviewType> name="company" placeholder="Company" label="Company" isRequired className="col-span-1" />
+          <TextInput<ReviewType> name="country" placeholder="Country" label="Country" isRequired className="col-span-2" />
           <TextInput<ReviewType> name="review" placeholder="Review" label="Review" type="textarea" className="col-span-2" isRequired />
           <div className="col-span-2 flex justify-end">
             <Button type="submit" className="px-28">

@@ -102,7 +102,7 @@ const PortfolioAdmin = () => {
       <div className="overflow-x-auto">
         <Table className="min-w-[700px]">
           <TableHeader>
-            <TableRow>
+            <TableRow className="text-base">
               <TableHead className="w-[50px]">No.</TableHead>
               <TableHead className="min-w-[140px]">Logo Company</TableHead>
               <TableHead className="min-w-[250px]">Company Name</TableHead>
@@ -112,7 +112,7 @@ const PortfolioAdmin = () => {
           </TableHeader>
           {portfolio.length > 0 ? (
             portfolio.map((item, index) => (
-              <TableBody key={item.id}>
+              <TableBody key={item.id} className="text-base">
                 <TableRow className="hover:bg-gray-100 border-b-2 items-center border-slate-900">
                   <TableCell className="font-medium">{index + 1}</TableCell>
                   <TableCell>

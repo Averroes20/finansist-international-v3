@@ -1,9 +1,9 @@
 'use client';
 import { TitleSection } from '@/components/ui/typography';
-import { memo } from 'react';
-import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageProvider';
-import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import { memo } from 'react';
+import AnimatedComponent from './animation/animation-component';
 
 const ServiceCard = dynamic(() => import('@/components/common/ServiceCard'), { ssr: true });
 
@@ -15,17 +15,17 @@ const Services = () => {
       <TitleSection>{title}</TitleSection>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-0 gap-y-10 md:gap-x-6 md:gap-y-20 py-6">
         {items?.map((service, index) => (
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2, duration: 0.2 }}
-            viewport={{ once: true, margin: '-20px' }}
+          <AnimatedComponent
             key={index + 1}
             id={service.link}
+            once={true}
+            threshold={0.2}
             className="flex flex-col scroll-mt-20"
+            effect="fade-up"
+            delay={index * 0.5}
           >
             <ServiceCard service={service} />
-          </motion.article>
+          </AnimatedComponent>
         ))}
       </div>
     </section>

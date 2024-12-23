@@ -1,72 +1,91 @@
 'use server';
 
 import { prismaClient } from '@/lib/database/connection';
+import { BlogListResponses, BlogWithComments } from '@/lib/type/blog';
 import { deleteFile } from '@/utils/delete-file';
-import { saveFile } from '@/utils/save-file';
+import { dirFiles, saveFile } from '@/utils/save-file';
 import { slugify } from '@/utils/slugify';
 import { Prisma } from '@prisma/client';
-import { randomUUID } from 'crypto';
 import fs from 'fs';
-import path from 'path';
-import { BlogListResponses, BlogWithComments } from '@/lib/type/blog';
 import { revalidatePath } from 'next/cache';
+import path from 'path';
 
-const UPLOAD_DIR = path.join(process.cwd(), 'public', 'blogs');
+const UPLOAD_DIR = dirFiles('blogs');
 
 interface FetchBlogsParams {
   page?: number;
   limit?: number;
   title?: string;
   category?: string;
+  year?: number;
+  month?: string;
+  author?: string;
 }
 
-export async function getBlogs({ page = 1, limit = 10, title, category }: FetchBlogsParams) {
+const buildWhereClause = ({ title, category, year, month, author }: FetchBlogsParams): Prisma.BlogsWhereInput => {
+  const whereClause: Prisma.BlogsWhereInput = {};
+
+  if (title) {
+    whereClause.title = { contains: title, mode: 'insensitive' };
+  }
+
+  if (category) {
+    whereClause.category = { contains: category, mode: 'insensitive' };
+  }
+
+  if (author) {
+    whereClause.author = { contains: author, mode: 'insensitive' };
+  }
+
+  if (year) {
+    whereClause.created_at = {
+      gte: new Date(year, 0, 1),
+      lt: new Date(year + 1, 0, 1),
+    };
+  }
+
+  if (month) {
+    const startMonth = parseInt(month) - 1;
+    const start = new Date(year ?? new Date().getFullYear(), startMonth, 1);
+    const end = new Date(start.getFullYear(), start.getMonth() + 1, 1);
+    whereClause.created_at = {
+      ...(typeof whereClause.created_at === 'object' ? whereClause.created_at : {}),
+      gte: start,
+      lt: end,
+    };
+  }
+
+  return whereClause;
+};
+
+export async function getBlogs(params: FetchBlogsParams) {
+  const { page = 1, limit = 10 } = params;
+  const skip = (page - 1) * limit;
+  const whereClause = buildWhereClause(params);
+
   try {
-    const skip = (page - 1) * limit;
-
-    const whereClause: Prisma.BlogsWhereInput = {};
-
-    if (title) {
-      whereClause.title = {
-        contains: title,
-        mode: 'insensitive',
-      };
-    }
-
-    if (category) {
-      whereClause.category = {
-        contains: category,
-        mode: 'insensitive',
-      };
-    }
-
-    const totalCount = await prismaClient.blogs.count({
-      where: whereClause,
-    });
-
-    const blogs = await prismaClient.blogs.findMany({
-      where: whereClause,
-      skip,
-      take: limit,
-      orderBy: { created_at: 'desc' },
-      select: {
-        id: true,
-        title: true,
-        resume: true,
-        article: true,
-        author: true,
-        category: true,
-        cover: true,
-        slug: true,
-        created_at: true,
-        updated_at: true,
-        comments: {
-          select: {
-            id: true,
-          },
+    const [totalCount, blogs] = await Promise.all([
+      prismaClient.blogs.count({ where: whereClause }),
+      prismaClient.blogs.findMany({
+        where: whereClause,
+        skip,
+        take: limit,
+        orderBy: { created_at: 'desc' },
+        select: {
+          id: true,
+          title: true,
+          resume: true,
+          article: true,
+          author: true,
+          category: true,
+          cover: true,
+          slug: true,
+          created_at: true,
+          updated_at: true,
+          comments: { select: { id: true } },
         },
-      },
-    });
+      }),
+    ]);
 
     const data = blogs.map((blog) => ({
       id: blog.id,
@@ -89,12 +108,9 @@ export async function getBlogs({ page = 1, limit = 10, title, category }: FetchB
       totalCount,
     };
 
-    const res: BlogListResponses = {
-      data: data,
-      meta: meta,
-    };
+    console.log('Blogs fetched:', data.length);
 
-    return res;
+    return { data, meta } as BlogListResponses;
   } catch (error) {
     console.error('Failed to fetch blogs:', error);
     throw new Error('Failed to fetch blogs');
@@ -164,64 +180,34 @@ export async function getBlog(slug: string) {
 }
 
 export async function createBlog(formData: FormData) {
+  const title = formData.get('title') as string;
+  const resume = formData.get('resume') as string;
+  const article = formData.get('article') as string;
+  const author = formData.get('author') as string;
+  const category = formData.get('category') as string;
+  const slug = slugify(title);
+
+  if (!title || !resume || !article || !author || !category) {
+    throw new Error('All fields are required');
+  }
+
+  const existingBlogBySlug = await prismaClient.blogs.findUnique({ where: { slug } });
+  if (existingBlogBySlug) {
+    throw new Error('A blog with this title already exists');
+  }
+
+  const coverFile = formData.get('cover') as File | null;
+  const coverPath = coverFile ? await saveFile(coverFile, 'blogs') : '';
+
   try {
-    const title = formData.get('title') as string;
-    const resume = formData.get('resume') as string;
-    const article = formData.get('article') as string;
-    const author = formData.get('author') as string;
-    const category = formData.get('category') as string;
-    let slug = slugify(title);
-
-    if (!title || !resume || !article || !author || !category) {
-      throw new Error('All fields are required');
-    }
-
-    const existingBlog = await prismaClient.blogs.findUnique({
-      where: { slug },
-    });
-
-    if (existingBlog) {
-      slug = `${slugify(title)}-${randomUUID().split('-')[0]}`;
-    }
-
-    const coverFile = formData.get('cover') as File | null;
-    let coverPath = '';
-
-    if (coverFile) {
-      try {
-        const fileName = `${Date.now()}-${Math.round(Math.random() * 1e9)}-${coverFile.name}`;
-        coverPath = path.join(UPLOAD_DIR, fileName);
-
-        if (!fs.existsSync(UPLOAD_DIR)) {
-          fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-        }
-
-        const fileBuffer = Buffer.from(await coverFile.arrayBuffer());
-        fs.writeFileSync(coverPath, fileBuffer);
-
-        coverPath = `/blogs/${fileName}`;
-      } catch (error) {
-        console.error('File upload failed:', error);
-        throw new Error('Failed to upload cover image');
-      }
-    }
-
     const newBlog = await prismaClient.blogs.create({
-      data: {
-        title,
-        resume,
-        article,
-        author,
-        category,
-        cover: coverPath,
-        slug,
-      },
+      data: { title, resume, article, author, category, cover: coverPath, slug },
     });
     revalidatePath('/admin/blog');
     revalidatePath('/');
     return newBlog;
   } catch (error) {
-    console.error(error);
+    console.error('Failed to create blog post:', error);
     throw new Error('Failed to create blog post');
   }
 }
@@ -232,51 +218,46 @@ export async function updateBlog(formData: FormData, blogId: number) {
   const article = formData.get('article') as string | null;
   const author = formData.get('author') as string | null;
   const category = formData.get('category') as string | null;
-  let slug = slugify(title as string);
+  const slug = slugify(title as string);
   const coverFile = formData.get('cover') as File | null;
 
-  const existingBlog = await prismaClient.blogs.findUnique({
-    where: { id: blogId },
-  });
+  const existingBlog = await prismaClient.blogs.findUnique({ where: { id: blogId } });
+  if (!existingBlog) throw new Error('Blog not found');
 
-  if (!existingBlog) {
-    throw new Error('Blog not found');
-  }
-
-  const existingSlug = await prismaClient.blogs.findUnique({
-    where: { slug },
-  });
-
+  const existingSlug = await prismaClient.blogs.findUnique({ where: { slug } });
   if (existingSlug) {
-    slug = `${slugify(title as string)}-${randomUUID().split('-')[0]}`;
+    throw new Error('A blog with this title already exists');
   }
 
   let coverPath = existingBlog.cover;
-
   if (coverFile) {
     const oldFilePath = path.join(UPLOAD_DIR, path.basename(existingBlog.cover as string));
     if (existingBlog.cover && fs.existsSync(oldFilePath)) {
       fs.unlinkSync(oldFilePath);
     }
-
     coverPath = await saveFile(coverFile, 'blogs');
   }
 
-  const updatedBlog = await prismaClient.blogs.update({
-    where: { id: blogId },
-    data: {
-      title: title ?? undefined,
-      resume: resume ?? undefined,
-      article: article ?? undefined,
-      author: author ?? undefined,
-      category: category ?? undefined,
-      slug: slug ?? undefined,
-      cover: coverPath ?? undefined,
-    },
-  });
-  revalidatePath('/admin/blog');
-  revalidatePath('/');
-  return updatedBlog;
+  try {
+    const updatedBlog = await prismaClient.blogs.update({
+      where: { id: blogId },
+      data: {
+        title: title ?? undefined,
+        resume: resume ?? undefined,
+        article: article ?? undefined,
+        author: author ?? undefined,
+        category: category ?? undefined,
+        slug: slug ?? undefined,
+        cover: coverPath ?? undefined,
+      },
+    });
+    revalidatePath('/admin/blog');
+    revalidatePath('/');
+    return updatedBlog;
+  } catch (error) {
+    console.error('Failed to update blog post:', error);
+    throw new Error('Failed to update blog post');
+  }
 }
 
 export async function deleteBlog(blogId: number) {

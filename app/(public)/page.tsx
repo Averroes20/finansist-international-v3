@@ -8,11 +8,6 @@ const Profile = dynamic(() => import('@/components/Profile'), {
   loading: () => <p>Loading Portfolio...</p>,
 });
 
-const AirPlane = dynamic(() => import('@/components/AirPlane'), {
-  ssr: false,
-  loading: () => <p>Loading Airplane...</p>,
-});
-
 const Portfolio = dynamic(() => import('@/components/Portfolio'), {
   ssr: true,
   loading: () => <p>Loading Portfolio...</p>,
@@ -52,14 +47,13 @@ const ButtonContact = dynamic(() => import('@/components/common/ButtonContact'))
 
 const RootPage = () => {
   return (
-    <main>
+    <>
       <Suspense fallback={<p>Loading ...</p>}>
         <Intro />
         <div className="stacking">
           <Profile />
           <AboutUs />
         </div>
-        <AirPlane />
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>
@@ -75,7 +69,7 @@ const RootPage = () => {
         <Careers />
       </Suspense>
       <ButtonContact className="fixed bottom-5 right-5 md:hidden" title="Free Consultation" />
-    </main>
+    </>
   );
 };
 

@@ -5,49 +5,54 @@ import path from 'path';
 import fs from 'fs';
 import { PortfolioListResponse } from '../type/portfolio';
 import { revalidatePath } from 'next/cache';
+import { deleteFile } from '@/utils/delete-file';
+import { dirFiles, saveFile } from '@/utils/save-file';
+
+const UPLOAD_DIR = dirFiles('portfolio');
 
 interface FetchPortfolioParams {
   page?: number;
   limit?: number;
   companyName?: string;
 }
-const UPLOAD_DIR = path.join(process.cwd(), 'public', 'portfolio');
+
+const buildWhereClause = ({ companyName }: FetchPortfolioParams): Prisma.PortfolioWhereInput => {
+  const whereClause: Prisma.PortfolioWhereInput = {};
+
+  if (companyName) {
+    whereClause.company_name = {
+      contains: companyName,
+      mode: 'insensitive',
+    };
+  }
+
+  return whereClause;
+};
 
 export async function getPortfolio({ page = 1, limit, companyName }: FetchPortfolioParams) {
+  const skip = page && limit ? (page - 1) * limit : undefined;
+  const whereClause = buildWhereClause({ companyName });
+
   try {
-    const skip = page && limit ? (page - 1) * limit : undefined;
-
-    const whereClause: Prisma.PortfolioWhereInput = {};
-
-    if (companyName) {
-      whereClause.company_name = {
-        contains: companyName,
-        mode: 'insensitive',
-      };
-    }
-
-    const totalCount = await prismaClient.portfolio.count({
-      where: whereClause,
-    });
-
-    const portfolios = await prismaClient.portfolio.findMany({
-      where: whereClause,
-      skip,
-      take: limit,
-      orderBy: {
-        created_at: 'desc',
-      },
-      select: {
-        id: true,
-        company_name: true,
-        software: true,
-        country: true,
-        description: true,
-        company_logo: true,
-        created_at: true,
-        updated_at: true,
-      },
-    });
+    const [totalCount, portfolios] = await Promise.all([
+      prismaClient.portfolio.count({ where: whereClause }),
+      prismaClient.portfolio.findMany({
+        where: whereClause,
+        skip,
+        take: limit,
+        orderBy: { created_at: 'desc' },
+        select: {
+          id: true,
+          company_name: true,
+          software: true,
+          country: true,
+          description: true,
+          company_logo: true,
+          created_at: true,
+          updated_at: true,
+        },
+      }),
+    ]);
 
     const data = portfolios.map((portfolio) => ({
       id: portfolio.id,
@@ -67,12 +72,7 @@ export async function getPortfolio({ page = 1, limit, companyName }: FetchPortfo
       totalCount,
     };
 
-    const result: PortfolioListResponse = {
-      data,
-      meta,
-    };
-
-    return result;
+    return { data, meta } as PortfolioListResponse;
   } catch (error) {
     console.error('Failed to fetch portfolios:', error);
     throw new Error('Failed to fetch portfolios');
@@ -89,77 +89,47 @@ export async function createPortfolio(formData: FormData) {
     throw new Error('All fields are required');
   }
 
-  let logoPath = '';
   const companyLogo = formData.get('companyLogo') as File;
+  const logoPath = companyLogo ? await saveFile(companyLogo, 'portfolio') : '';
 
-  if (companyLogo) {
-    try {
-      const fileName = `${Date.now()}-${Math.round(Math.random() * 1e9)}-${companyLogo.name}`;
-      logoPath = path.join(UPLOAD_DIR, fileName);
-
-      if (!fs.existsSync(UPLOAD_DIR)) {
-        fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-      }
-
-      const fileBuffer = Buffer.from(await companyLogo.arrayBuffer());
-      fs.writeFileSync(logoPath, fileBuffer);
-
-      logoPath = `/portfolio/${fileName}`;
-    } catch (error) {
-      console.error(error);
-      throw new Error('Failed to upload logo');
-    }
+  try {
+    const newPortfolio = await prismaClient.portfolio.create({
+      data: {
+        company_name: companyName,
+        software,
+        country,
+        description,
+        company_logo: logoPath,
+      },
+    });
+    revalidatePath('/admin/portfolio');
+    revalidatePath('/');
+    return newPortfolio;
+  } catch (error) {
+    throw new Error(`Failed to create portfolio post: ${error instanceof Error ? error.message : error}`);
   }
-
-  const newPortfolio = await prismaClient.portfolio.create({
-    data: {
-      company_name: companyName,
-      software,
-      country,
-      description,
-      company_logo: logoPath,
-    },
-  });
-  revalidatePath('/admin/portfolio');
-  revalidatePath('/');
-  return newPortfolio;
 }
 
 export async function updatePortfolio(formData: FormData, id: number) {
+  const company_name = formData.get('company_name') as string | null;
+  const software = formData.get('software') as string | null;
+  const country = formData.get('country') as string | null;
+  const description = formData.get('description') as string | null;
+  const company_logo = formData.get('company_logo') as File | null;
+
   try {
-    const company_name = formData.get('company_name') as string | null;
-    const software = formData.get('software') as string | null;
-    const country = formData.get('country') as string | null;
-    const description = formData.get('description') as string | null;
-    const company_logo = formData.get('company_logo') as File | null;
-
-    const existingPortfolio = await prismaClient.portfolio.findUnique({
-      where: { id },
-    });
-
-    if (!existingPortfolio) {
-      throw new Error('Portfolio not found');
-    }
+    const existingPortfolio = await prismaClient.portfolio.findUnique({ where: { id: id } });
+    if (!existingPortfolio) throw new Error('Portfolio not found');
 
     let logoPath = existingPortfolio.company_logo;
 
     if (company_logo) {
-      try {
-        if (existingPortfolio.company_logo) {
-          const oldFilePath = path.join(UPLOAD_DIR, path.basename(existingPortfolio.company_logo));
-          if (fs.existsSync(oldFilePath)) {
-            fs.unlinkSync(oldFilePath);
-          }
-        }
-        const fileName = `${Date.now()}-${Math.round(Math.random() * 1e9)}-${company_logo.name}`;
-        logoPath = `/portfolio/${fileName}`;
-
-        const fileBuffer = Buffer.from(await company_logo.arrayBuffer());
-        fs.writeFileSync(path.join(UPLOAD_DIR, fileName), fileBuffer);
-      } catch (error) {
-        console.error('File upload failed:', error);
-        throw new Error('Failed to upload logo image');
+      const oldFilePath = path.join(UPLOAD_DIR, path.basename(existingPortfolio.company_logo as string));
+      if (fs.existsSync(oldFilePath)) {
+        fs.unlinkSync(oldFilePath);
       }
+
+      logoPath = await saveFile(company_logo, 'portfolio');
     }
 
     const updatedPortfolio = await prismaClient.portfolio.update({
@@ -198,9 +168,7 @@ export async function deletePortfolio(id: number) {
 
     if (existingPortfolio.company_logo) {
       const filePath = path.join(UPLOAD_DIR, path.basename(existingPortfolio.company_logo));
-      if (fs.existsSync(filePath)) {
-        fs.unlinkSync(filePath);
-      }
+      deleteFile(filePath);
     }
 
     revalidatePath('/admin/portfolio');

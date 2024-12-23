@@ -1,8 +1,8 @@
-const Video = () => {
+const Video = ({ link }: { link: string }) => {
   return (
     <iframe
       className="w-full aspect-video"
-      src="https://www.youtube.com/embed/Fo93nnxN8EA?si=jAb9GEe7ziWzw6Z5"
+      src={link}
       title="Profile Company Finansist International"
       style={{ border: 'none' }}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

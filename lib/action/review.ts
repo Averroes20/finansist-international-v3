@@ -4,12 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { prismaClient } from '../database/connection';
 import { Prisma } from '@prisma/client';
 import { ReviewListResponse } from '../type/review';
-
-interface FormData {
-  name: string;
-  company: string;
-  review: string;
-}
+import { ReviewType } from '../validation/schema-form-review';
 
 interface FetchReviewsParams {
   page?: number;
@@ -47,6 +42,7 @@ export async function getReviews({ page = 1, limit, companyName }: FetchReviewsP
       name: review.name,
       company: review.company,
       review: review.review,
+      country: review.country,
     }));
 
     const result: ReviewListResponse = {
@@ -65,7 +61,7 @@ export async function getReviews({ page = 1, limit, companyName }: FetchReviewsP
   }
 }
 
-export async function createReview(form: FormData) {
+export async function createReview(form: ReviewType) {
   try {
     if (!form.name || !form.company || !form.review) {
       throw new Error('All fields are required');
@@ -75,6 +71,7 @@ export async function createReview(form: FormData) {
         name: form.name,
         company: form.company,
         review: form.review,
+        country: form.country,
       },
     });
     revalidatePath('/admin/review');
@@ -106,7 +103,7 @@ export async function deleteReview(id: number) {
   }
 }
 
-export async function updateReview(id: number, form: FormData) {
+export async function updateReview(id: number, form: ReviewType) {
   try {
     const existingReview = await prismaClient.reviews.findUnique({
       where: { id },
@@ -120,6 +117,7 @@ export async function updateReview(id: number, form: FormData) {
         name: form.name,
         company: form.company,
         review: form.review,
+        country: form.country,
       },
     });
     revalidatePath('/admin/review');

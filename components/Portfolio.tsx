@@ -15,7 +15,7 @@ const Portfolios = async () => {
 
   const chunks = chunkArray(portfolios.data || [], 6);
   return (
-    <section className="max-w-screen-lg min-h-screen grid place-items-center mx-auto px-5 md:mt-0 md:px-0">
+    <section className="max-w-screen-xl min-h-screen mx-auto px-5 md:mt-0 md:px-0">
       <CarouselPortfolio portfolioChunks={chunks} />
     </section>
   );

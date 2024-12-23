@@ -1,16 +1,17 @@
 'use client';
 
 import BlogCategory from '@/components/blog/BlogCategory';
+import BlogMonth from '@/components/blog/BlogMonth';
 import HeaderAdmin from '@/components/common/HeaderAdmin';
 import PaginationComponent from '@/components/common/Pagination';
+import SearchInput from '@/components/common/SearchInput';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { useDebounce } from '@/hooks/use-debounce';
 import { createBlog, deleteBlog, getBlogs, updateBlog } from '@/lib/action/blog';
 import { Blog } from '@/lib/type/blog';
 import { BlogType } from '@/lib/validation/schema-form-blog';
-import { PenBox } from 'lucide-react';
+import { formatDate } from '@/utils/format-date';
+import { PenBox, Search } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,6 +23,7 @@ const ActionDelete = dynamic(() => import('@/components/common/ActionDelete'));
 const limit = 10;
 const BlogsAdmin: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogId, setBlogId] = useState<number | null>(null);
   const [meta, setMeta] = useState({
     page: 1,
     totalPages: 1,
@@ -29,16 +31,49 @@ const BlogsAdmin: React.FC = () => {
   const [search, setSearch] = useState({
     title: '',
     category: '',
+    author: '',
+    year: 0,
+    month: '',
   });
-  const [blogId, setBlogId] = useState<number | null>(null);
-  const queryTitle = useDebounce(search.title, 500);
+
+  const [input, setInput] = useState({
+    title: '',
+    category: '',
+    author: '',
+    year: '',
+    month: '',
+  });
 
   const fetchDataBlogs = useCallback(async () => {
-    const select = search.category === 'null' ? '' : search.category;
-    const data = await getBlogs({ page: meta.page, limit, title: queryTitle, category: select });
-    setBlogs(data.data);
-    setMeta({ page: data.meta.page, totalPages: data.meta.totalPages });
-  }, [meta.page, queryTitle, search.category]);
+    const selectCategory = search.category === 'null' ? '' : search.category;
+    const selectMonth = search.month === 'null' ? '' : search.month;
+
+    try {
+      const data = await getBlogs({
+        page: meta.page,
+        limit,
+        title: search.title,
+        category: selectCategory,
+        author: search.author,
+        month: selectMonth || undefined,
+        year: search.year || undefined,
+      });
+      setBlogs(data.data);
+      setMeta({ page: data.meta.page, totalPages: data.meta.totalPages });
+    } catch (error) {
+      console.error('Error fetching blogs:', error);
+    }
+  }, [meta.page, search]);
+
+  const handleSearchClick = () => {
+    setSearch({
+      title: input.title,
+      category: input.category,
+      author: input.author,
+      year: parseInt(input.year, 10) || 0,
+      month: input.month,
+    });
+  };
 
   useEffect(() => {
     fetchDataBlogs();
@@ -57,7 +92,9 @@ const BlogsAdmin: React.FC = () => {
         formData.append('article', data.article);
         formData.append('author', data.author);
         formData.append('category', data.category);
-        formData.append('cover', data.cover);
+        if (data.cover) {
+          formData.append('cover', data.cover);
+        }
         await createBlog(formData);
         fetchDataBlogs();
       } catch (error) {
@@ -78,7 +115,9 @@ const BlogsAdmin: React.FC = () => {
         formData.append('article', data.article);
         formData.append('author', data.author);
         formData.append('category', data.category);
-        formData.append('cover', data.cover);
+        if (data.cover) {
+          formData.append('cover', data.cover);
+        }
 
         await updateBlog(formData, blogId);
         setBlogId(null);
@@ -111,35 +150,62 @@ const BlogsAdmin: React.FC = () => {
   return (
     <>
       <HeaderAdmin title="Blogs" description="Manage your blogs" />
-      <div className="flex flex-col md:flex-row gap-4 my-7">
-        <Input placeholder="Search by title..." value={search.title} onChange={(e) => setSearch({ ...search, title: e.target.value })} />
-        <BlogCategory setSearch={setSearch} />
-        <BlogForm onSubmit={handleAdd} title="Add" description="Add a new blog" trigger={<Button className="">Add Blog</Button>} />
+      <div className="space-y-4 py-4">
+        <div className="flex flex-col md:flex-row gap-4">
+          <SearchInput placeholder="Search by title..." value={input.title} onChange={(e) => setInput({ ...input, title: e.target.value })} />
+          <BlogCategory setSearch={setInput} />
+          <BlogForm onSubmit={handleAdd} title="Add" description="Add a new blog" trigger={<Button className="">Add Blog</Button>} />
+        </div>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="grid grid-cols-2 gap-4 w-full">
+            <SearchInput
+              className="col-span-1"
+              placeholder="Search by author..."
+              value={input.author}
+              onChange={(e) => setInput({ ...input, author: e.target.value })}
+            />
+            <div className="flex gap-4 col-span-1">
+              <SearchInput
+                placeholder="Search by year..."
+                type="number"
+                value={input.year || ''}
+                onChange={(e) => setInput({ ...input, year: e.target.value })}
+              />
+              <BlogMonth setSearch={setInput} />
+            </div>
+          </div>
+          <Button className="bg-[#113870] hover:bg-[#0c2444] text-base" onClick={handleSearchClick}>
+            Search <Search />
+          </Button>
+        </div>
       </div>
+
       <div className="overflow-x-auto">
         <Table className="min-w-[700px]">
-          <TableHeader>
+          <TableHeader className="text-base">
             <TableRow>
               <TableHead className="w-[50px]">No.</TableHead>
               <TableHead className="min-w-[150px]">Cover</TableHead>
               <TableHead className="min-w-[200px]">Title</TableHead>
+              <TableHead className="min-w-[150px]">Published</TableHead>
               <TableHead className="min-w-[150px]">Author</TableHead>
               <TableHead className="min-w-[150px]">Category</TableHead>
             </TableRow>
           </TableHeader>
           {blogs.length > 0 ? (
             blogs.map((item, index) => (
-              <TableBody key={item.id} className="hover:bg-gray-100 h-[5px]">
+              <TableBody key={item.id} className="hover:bg-gray-100 h-[5px] text-base">
                 <TableRow className="hover:bg-gray-100 h-[5px]">
                   <TableCell className="font-medium">{index + 1}</TableCell>
                   <TableCell>
                     <Image src={item.cover} alt={item.title} width={100} height={100} className="object-cover" />
                   </TableCell>
-                  <TableCell className="cursor-pointer">
+                  <TableCell className="cursor-pointer hover:text-indigo-700 hover:underline">
                     <Link rel="preload" href={`/blog/${item.slug}`} prefetch={true}>
                       {item.title}
                     </Link>
                   </TableCell>
+                  <TableCell>{formatDate(item.createdAt.toISOString())}</TableCell>
                   <TableCell>{item.author}</TableCell>
                   <TableCell>{item.category}</TableCell>
                   <TableCell>
@@ -167,7 +233,7 @@ const BlogsAdmin: React.FC = () => {
           ) : (
             <TableBody>
               <TableRow>
-                <TableCell colSpan={4} className="text-center font-bold text-gray-500 text-md">
+                <TableCell colSpan={6} className="text-center font-bold text-gray-500 text-md">
                   No blog found
                 </TableCell>
               </TableRow>

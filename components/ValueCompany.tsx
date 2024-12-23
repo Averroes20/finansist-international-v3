@@ -3,12 +3,13 @@ import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from '@/context/ThemeProvider';
-import { DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
+import { DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 import { useLanguage } from '@/context/LanguageProvider';
 import { splitString } from '@/utils/split-string';
 import { motion, Variants } from 'framer-motion';
+import { Button } from './ui/button';
 
 const Modal = dynamic(() => import('@/components/common/Modal'), { ssr: false });
 
@@ -79,8 +80,7 @@ const ValueCompany = () => {
           ))}
         </motion.h2>
       </header>
-
-      <div className="flex flex-col justify-center items-center md:flex-row md:justify-end md:self-end gap-4 pb-12">
+      <div className="flex flex-col justify-center max-w-screen overflow-auto items-center md:flex-row md:justify-end md:self-end gap-4 pb-12">
         {items?.map((item, index) => (
           <button
             ref={(el) => {
@@ -94,8 +94,8 @@ const ValueCompany = () => {
             tabIndex={0}
             key={`${index + 1}-${item.title}`}
           >
-            <div className="p-5 mb-10 mt-5">
-              <h1 className="text-3xl text-white font-bold leading-tight">{item.title}</h1>
+            <div className="p-5 mb-10">
+              <h1 className="text-3xl text-white text-start font-bold leading-tight">{item.title}</h1>
             </div>
             <div className="relative w-full h-full">
               <div
@@ -120,7 +120,7 @@ const ValueCompany = () => {
                 }}
               >
                 <div className="p-4 text-white">
-                  <p className="text-lg font-medium">{item.description}</p>
+                  <p className="text-lg font-medium text-start line-clamp-3 md:line-clamp-4 lg:line-clamp-6">{item.description}</p>
                 </div>
 
                 {/* Chevron */}
@@ -132,22 +132,28 @@ const ValueCompany = () => {
                   )}
                 >
                   <Modal
-                    trigger={<ChevronRight className="w-6 h-6 text-white" />}
-                    contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[50vw] md:max-h-[80vh] p-0 border-0 overflow-y-auto"
+                    trigger={
+                      <Button className="bg-transparent hover:bg-transparent py-0 flex flex-row items-center" aria-label="Read More">
+                        <span className="text-sm md:text-base">Read more</span> <ChevronRight className="text-white text-sm md:text-base" size={20} />
+                      </Button>
+                    }
+                    contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[70vw] md:max-h-[90vh] p-0 border-0 overflow-y-auto border-0"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3">
                       <div className="col-span-1 p-5 bg-[#3A9DA1]">
-                        <h1 className="text-center text-lg text-white mb-4">{item.contentModal.title}</h1>
-                        <p>{item.contentModal.otherDesc}</p>
+                        <h1 className="text-center text-xl text-white mb-4">{item.contentModal.title}</h1>
+                        <p className="text-lg">{item.contentModal.otherDesc}</p>
                       </div>
-                      <div className="col-span-2 p-5 bg-slate-900">
+                      <div className="col-span-2 p-5 bg-[#091f2f]">
                         <DialogHeader>
                           <DialogTitle className="font-bold text-center">
-                            <span className="border-b-4 border-[#3A9DA1] inline-block pb-2 text-white">C02 AI raises 12m USD in seed funding</span>
+                            <span className="border-b-4 border-[#3A9DA1] inline-block pb-2 text-white text-xl">
+                              C02 AI raises 12m USD in seed funding
+                            </span>
                           </DialogTitle>
                         </DialogHeader>
                         <div className="mt-4">
-                          <DialogDescription className="leading-7 text-white text-base">{item.contentModal.description}</DialogDescription>
+                          <DialogDescription className="leading-7 text-white text-lg">{item.contentModal.description}</DialogDescription>
                         </div>
                       </div>
                     </div>

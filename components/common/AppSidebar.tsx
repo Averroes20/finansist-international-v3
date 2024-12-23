@@ -1,4 +1,4 @@
-import { Handshake, LibraryBig, Star } from 'lucide-react';
+import { Handshake, LibraryBig, Link2, Star, User } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -29,6 +29,16 @@ const items = [
     title: 'Review',
     url: '/admin/review',
     icon: Star,
+  },
+  {
+    title: 'Link Socials',
+    url: '/admin/links',
+    icon: Link2,
+  },
+  {
+    title: 'Users Management',
+    url: '/admin/users',
+    icon: User,
   },
 ];
 

@@ -1,6 +1,6 @@
 'use client';
-import ActionDelete from '@/components/common/ActionDelete';
 import CommentForm from '@/components/comment/CommentForm';
+import ActionDelete from '@/components/common/ActionDelete';
 import { createComment, deleteComment } from '@/lib/action/comment';
 import { BlogWithComments } from '@/lib/type/blog';
 import { CommentType } from '@/lib/validation/schema-form-comment';
@@ -28,6 +28,8 @@ const DetailBlog: React.FC<Props> = ({ data, session }) => {
   const handleSubmit = useCallback(
     async (formData: CommentType) => {
       'server only';
+      console.log('formData', formData);
+
       try {
         setIsLoading(true);
         const form = new FormData();
@@ -35,7 +37,7 @@ const DetailBlog: React.FC<Props> = ({ data, session }) => {
           name: formData.name,
           email: formData.email,
           content: formData.comment,
-          blog_id: data.id,
+          blog_id: data?.id,
         };
         form.append('payload', JSON.stringify(payload));
         await createComment(form, data?.slug);
@@ -67,30 +69,32 @@ const DetailBlog: React.FC<Props> = ({ data, session }) => {
   }
 
   return (
-    <main className="px-5 min-h-[90vh] max-w-4xl mx-auto pt-20">
+    <main className="px-5 min-h-[90vh] max-w-4xl mx-auto pt-24">
       <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl py-6">{data.title}</h1>
-      <div className="flex flex-wrap gap-7 border-y border-dashed border-gray-400 p-2">
+      <div className="flex flex-wrap gap-7 border-y border-dashed border-gray-400 p-2 ">
         <span className="flex gap-2 items-center">
-          <CircleUser size={18} className="text-gray-600" />
-          <p className="text-sm text-gray-600">{data.author}</p>
+          <CircleUser size={20} className="text-gray-600" />
+          <p className="text-sm md:text-base text-gray-600">{data.author}</p>
         </span>
         <span className="flex gap-2 items-center">
-          <CalendarDaysIcon size={18} className="text-gray-600" />
-          <p className="text-sm text-gray-600">{data.createdAt && formatDate(data.createdAt.toLocaleString())}</p>
+          <CalendarDaysIcon size={20} className="text-gray-600" />
+          <p className="text-sm md:text-base text-gray-600">{data.createdAt && formatDate(data.createdAt.toISOString())}</p>
         </span>
         <span className="flex gap-2 items-center">
-          <Clock size={18} className="text-gray-600" />
-          <p className="text-sm text-gray-600">{data.createdAt && formatTime(data.createdAt.toLocaleString())}</p>
+          <Clock size={20} className="text-gray-600" />
+          <p className="text-sm md:text-base text-gray-600">{data.createdAt && formatTime(data.createdAt.toISOString())}</p>
         </span>
         <span className="flex gap-2 items-center">
-          <MessageCircleMore size={18} className="text-gray-600" />
-          <p className="text-sm text-gray-600">{data.sumComments > 0 ? `${data.sumComments} comments` : 'No comments'}</p>
+          <MessageCircleMore size={20} className="text-gray-600" />
+          <p className="text-sm md:text-base text-gray-600">{data.sumComments > 0 ? `${data.sumComments} comments` : 'No comments'}</p>
         </span>
       </div>
-      <div>
-        {(data.cover || data.title) && <Image src={data.cover} alt={data.title} width={640} height={640} className="w-full object-cover mt-4" />}
+      <div className="mt-5">
+        {(data.cover || data.title) && (
+          <Image src={data.cover} alt={data.title} width={1000} height={1000} className="w-1/4 object-cover mr-4 float-start" />
+        )}
+        <article dangerouslySetInnerHTML={{ __html: cleanHTML }} className="prose prose-lg max-w-full text-lg text-justify" />
       </div>
-      <article dangerouslySetInnerHTML={{ __html: cleanHTML }} className="py-5 prose prose-lg max-w-full" />
       <div className="mt-10 py-5">
         <div className="space-y-3">
           <p className="text-2xl">Leave a Reply</p>
@@ -104,7 +108,7 @@ const DetailBlog: React.FC<Props> = ({ data, session }) => {
             <div key={comment.id} className="border p-4 rounded-md space-y-2">
               <div className="flex flex-col space-y-1 md:flex-row md:justify-between md:items-center md:space-x-3">
                 <b>{comment.name}</b>
-                <p className="text-sm md:text-xs text-gray-600">{formatDateTime(comment.createdAt.toLocaleString())}</p>
+                <p className="text-sm md:text-xs text-gray-600">{formatDateTime(comment.createdAt.toISOString())}</p>
               </div>
               <div className="flex justify-between items-end">
                 <p className="md:px-5">{comment.content}</p>

@@ -10,15 +10,14 @@ interface AnimatedTagProps {
   delay?: number;
 }
 
-const AnimatedTag: React.FC<AnimatedTagProps> = ({ children, className, delay = 0 }) => {
+const AnimatedTag: React.FC<AnimatedTagProps> = ({ children, className, delay = 2 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const randomDuration = 10 + getRandomNumber() * 10; // Random duration between 10-20s
-  const randomDelay = getRandomNumber() * 3; // Random delay between 0-5s
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsVisible(true);
-    }, delay * 2000); // Delay in milliseconds
+    }, delay * 1000); // Delay in milliseconds
 
     return () => clearTimeout(timeout); // Cleanup timeout
   }, [delay]);
@@ -32,7 +31,7 @@ const AnimatedTag: React.FC<AnimatedTagProps> = ({ children, className, delay = 
       )}
       style={{
         animationDuration: `${randomDuration}s`,
-        animationDelay: `${randomDelay}s`,
+        // animationDelay: '',
       }}
       aria-label="tag"
     >

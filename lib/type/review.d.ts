@@ -3,6 +3,7 @@ export interface Review {
   name: string;
   company: string;
   review: string;
+  country: string;
 }
 
 export interface ReviewListResponse {

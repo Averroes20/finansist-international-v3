@@ -82,10 +82,30 @@
   },
   "valueCompany": {
     "title": {
-      "part1": "Visual excellence is only our starting point,",
-      "part2": "delivering measurable results is our promise."
+      "part1": "Being an",
+      "part2": "Effective Solution"
     },
     "items": [
+      {
+        "title": "C02 AI raises 12m USD in seed funding",
+        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "What you will get",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
+      {
+        "title": "C02 AI raises 12m USD in seed funding",
+        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "What you will get",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
       {
         "title": "C02 AI raises 12m USD in seed funding",
         "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",

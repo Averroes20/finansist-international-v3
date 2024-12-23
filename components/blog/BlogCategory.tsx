@@ -3,14 +3,23 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { categories } from '@/lib/data/categories';
 
 interface Props {
-  setSearch: React.Dispatch<React.SetStateAction<{ title: string; category: string }>>;
+  setSearch: React.Dispatch<
+    React.SetStateAction<{
+      title: string;
+      category: string;
+      year: string;
+      month: string;
+      author: string;
+    }>
+  >;
+  className?: string;
 }
 
-const BlogCategory: React.FC<Props> = ({ setSearch }) => {
+const BlogCategory: React.FC<Props> = ({ setSearch, className }) => {
   return (
     <Select onValueChange={(value) => setSearch((prev) => ({ ...prev, category: value }))}>
       <SelectTrigger>
-        <SelectValue placeholder="Select a category" />
+        <SelectValue placeholder="Select a category" className={className} />
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="null">All</SelectItem>

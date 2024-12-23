@@ -6,6 +6,7 @@ import { TitleSection } from './ui/typography';
 import { submitInternshipRequest, submitJobRequest, submitPartnershipRequest } from '@/lib/action/send-email';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import AnimatedComponent from './animation/animation-component';
 
 type Action = (formData: FormData) => Promise<{ success: boolean; error?: string; message?: string }>;
 
@@ -46,26 +47,31 @@ const Careers = () => {
   return (
     <section
       id="career"
-      className="relative min-h-screen overflow-hidden mt-10 bg-cover bg-center bg-fixed"
+      className="relative min-h-screen overflow-hidden bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(/images/bg-cover-career.webp)` }}
       aria-labelledby="career-title"
     >
       <link rel="preload" href="/images/bg-cover-career.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-5 md:p-0 md:h-[70vh] bg-black bg-opacity-30">
-        <TitleSection id="career-title" className="mb-5 text-white">
+        <TitleSection id="career-title" className="mb-10 md:mb-32 text-white">
           {title}
         </TitleSection>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg lg:max-w-screen-xl lg:h-[55vh] mx-auto">
           {items?.map((item, index) => (
-            <article key={`${index + 1}-${item.title}`} className="p-4 lg:p-7 bg-white rounded-xl flex flex-col h-full shadow-xl">
-              <header className="flex-grow">
+            <AnimatedComponent
+              once={true}
+              effect="scale"
+              key={`${index + 1}-${item.title}`}
+              className="p-4 lg:p-7 bg-white rounded-xl flex flex-col h-full shadow-xl"
+            >
+              <div className="flex-grow lg:text-lg lg:py-3 xl:text-xl xl:py-4">
                 <h1
-                  className="text-xl md:text-2xl tracking-tight font-bold mb-4 uppercase text-center p-2 border-b-4 w-fit mx-auto"
+                  className="text-xl md:text-3xl tracking-tight font-bold mb-4 uppercase text-center p-2 border-b-4 w-fit mx-auto"
                   style={{ borderColor: `#${item.color}` }}
                 >
                   {item.title}
                 </h1>
-                <p className="mb-4 text-base">{item.description}</p>
+                <p className="mb-4">{item.description}</p>
                 {!!item.facilities && (
                   <>
                     <p className="mb-2 ">What facilities will you get?</p>
@@ -76,7 +82,7 @@ const Careers = () => {
                     </ul>
                   </>
                 )}
-              </header>
+              </div>
               {(item.title === 'Partner' || item.title === 'Magang') && (
                 <FormPatner colorHeader={item.color} loading={loading} onSubmit={(data) => handleSubmit(submitPartnershipRequest, data)} />
               )}
@@ -86,7 +92,7 @@ const Careers = () => {
               {(item.title === 'Internship' || item.title === 'Mitra') && (
                 <FormIntern colorHeader={item.color} loading={loading} onSubmit={(data) => handleSubmit(submitInternshipRequest, data)} />
               )}
-            </article>
+            </AnimatedComponent>
           ))}
         </div>
       </div>

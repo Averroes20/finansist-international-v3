@@ -14,6 +14,7 @@ type Props<T extends FieldValues> = {
 
 const modules = {
   toolbar: [
+    [{ size: ['small', false, 'large', 'huge'] }],
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
     [{ align: [] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
@@ -36,7 +37,7 @@ const TextEditorInput = <T extends FieldValues>({ name, label, placeholder, clas
       name={name}
       render={({ field }) => (
         <FormItem className="col-span-2">
-          <FormLabel>
+          <FormLabel className="text-sm md:text-base font-medium">
             {label} {isRequired && <span className="text-destructive">*</span>}
           </FormLabel>
           <FormControl>
@@ -45,7 +46,8 @@ const TextEditorInput = <T extends FieldValues>({ name, label, placeholder, clas
               modules={modules}
               value={field.value}
               onChange={field.onChange}
-              className={`w-full ${className}`}
+              style={{ fontSize: '1rem' }}
+              className={`w-full text-sm md:text-base font-medium ${className}`}
               placeholder={placeholder}
             />
           </FormControl>

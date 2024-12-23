@@ -3,12 +3,17 @@ import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, Car
 import { Portfolio } from '@/lib/type/portfolio';
 import Autoplay from 'embla-carousel-autoplay';
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { TitleSection } from '@/components/ui/typography';
 import { useLanguage } from '@/context/LanguageProvider';
 import AnimatedComponent from '../animation/animation-component';
+import { software } from '@/lib/data/intro';
 
-const CarouselPortfolio = ({ portfolioChunks }: { portfolioChunks: Array<Portfolio[]> }) => {
+type PortfolioCarouselProps = {
+  portfolioChunks: Array<Portfolio[]>;
+};
+
+const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }) => {
   const plugins = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
   const [api, setApi] = useState<CarouselApi | undefined>();
   const [current, setCurrent] = useState<number>(1);
@@ -70,19 +75,27 @@ const CarouselPortfolio = ({ portfolioChunks }: { portfolioChunks: Array<Portfol
           ))}
         </div>
       </AnimatedComponent>
+      <div className="flex flex-row items-center min-w-fit mx-5 space-x-2 mt-10 flex-wrap justify-center">
+        {software.map((item, index) => (
+          <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit mx-5 space-x-2 p-3">
+            <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] rounded-full shadow-md" />
+            <span>{item.label}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-const PortfolioCard = ({ item }: { item: Portfolio }) => (
+const PortfolioCard: React.FC<{ item: Portfolio }> = memo(({ item }) => (
   <article className="p-2">
     <header className="flex items-end gap-2 mb-2">
       <Image
         src={item.companyLogo as string}
         alt={item.companyName}
         loading="lazy"
-        width={1000}
-        height={1000}
+        width={800}
+        height={800}
         className="w-[60px] md:w-[70px] rounded-full shadow-md"
       />
       <div className="flex gap-1 items-center">
@@ -94,8 +107,8 @@ const PortfolioCard = ({ item }: { item: Portfolio }) => (
                   src={logo}
                   alt={`${item.companyName} Software Logo ${logoIndex}`}
                   loading="lazy"
-                  width={1000}
-                  height={1000}
+                  width={800}
+                  height={800}
                   className="w-[20px] md:w-[30px] rounded-full shadow-sm"
                   key={`logo-${logoIndex + 1}`}
                 />
@@ -109,6 +122,8 @@ const PortfolioCard = ({ item }: { item: Portfolio }) => (
       <p className="text-sm">{item.description}</p>
     </div>
   </article>
-);
+));
 
-export default CarouselPortfolio;
+PortfolioCard.displayName = 'PortfolioCard';
+
+export default memo(CarouselPortfolio);

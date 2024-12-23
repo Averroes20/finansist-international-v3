@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import formSchema, { TypeLogin } from '@/lib/validation/schema-login';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AuthError } from 'next-auth';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
@@ -32,19 +31,15 @@ const PageLogin = () => {
         redirect: false,
       });
       if (result?.error) {
-        setMsgError(result.error);
+        throw new Error(result.error);
       } else {
         router.push('/admin/blogs');
       }
     } catch (error) {
-      console.error('Error Login', error);
-      setMsgError('Error Login');
-      if (error instanceof AuthError) {
-        if (error.type === 'CredentialsSignin') {
-          setMsgError('Invalid email or password');
-        } else {
-          setMsgError('something went wrong');
-        }
+      if (error instanceof Error && error.message === 'CredentialsSignin') {
+        setMsgError('Invalid email or password');
+      } else {
+        setMsgError('something went wrong');
       }
     } finally {
       setLoading(false);
@@ -76,12 +71,6 @@ const PageLogin = () => {
               isRequired
             />
           </div>
-          <p>
-            Don&apos;t have an account?{' '}
-            <a href="/auth/signup" className="text-blue-500 hover:underline">
-              Sign Up
-            </a>
-          </p>
           <Button type="submit" disabled={loading}>{`${loading ? 'Submit...' : 'Sign In'}`}</Button>
         </form>
       </Form>

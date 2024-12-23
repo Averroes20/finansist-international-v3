@@ -86,18 +86,18 @@ const Navbar = () => {
   const navigate = useCallback((url: string) => router.push(url), [router]);
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-white shadow-sm py-5 dark:backdrop-blur-lg dark:bg-transparent">
+    <header className="fixed w-full top-0 z-50 bg-white shadow-md py-5 dark:backdrop-blur-lg dark:bg-transparent">
       <link rel="preload" href="/images/logo-large.webp" as="image" type="image/webp" fetchPriority="high" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-united-kingdom.png" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-indonesia.png" as="image" type="image/webp" media="(min-width: 1px)" />
 
       <nav className="container px-5 md:max-w-screen-xl mx-auto flex items-center justify-between backdrop-blur-lg">
-        <div className="w-[150px]">
+        <div className="w-[225px]">
           <Image
             src={images.LogoLarge}
             alt="logo"
-            width={150}
-            height={150}
+            width={1000}
+            height={1000}
             className="cursor-pointer w-full h-full object-contain"
             onClick={() => navigate('/')}
             priority
@@ -107,7 +107,7 @@ const Navbar = () => {
         {/* Manu */}
         <div className="hidden w-full md:flex md:flex-row md:w-auto md:space-x-7" id="navbar-multi-level">
           <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
-            <NavigationMenuList>
+            <NavigationMenuList className="flex gap-5">
               {items?.map((item, index) => (
                 <NavigationMenuItem key={index + 1}>
                   {item.subItems ? (
@@ -115,7 +115,7 @@ const Navbar = () => {
                       <PopoverTrigger
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
-                        className="uppercase bg-transparent hover:bg-transparent hover:text-gray-500 text-[14px] font-medium flex items-center justify-between ring-0 focus:outline-none focus:ring-0"
+                        className="uppercase bg-transparent hover:bg-transparent hover:text-gray-500 font-medium flex items-center justify-between ring-0 focus:outline-none focus:ring-0 text-base"
                         aria-expanded={openDropdown}
                         aria-haspopup="true"
                       >
@@ -150,7 +150,7 @@ const Navbar = () => {
                         )}
                         aria-label={item.label}
                       >
-                        {item.label}
+                        <span className="text-base">{item.label}</span>
                       </NavigationMenuLink>
                     </Link>
                   )}
@@ -160,20 +160,20 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-6">
           <ButtonContact className="hidden md:flex py-0" title="Free Consultation" />
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
             <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
               <SelectValue>
-                <div className="flex items-center gap-1 w-[24px] h-[24px]">
+                <div className="flex items-center gap-2">
                   <Image
                     src={menuLanguages.find((item) => item.value === lang)?.icon ?? '/default-icon.png'}
                     alt={lang}
-                    width={24}
-                    height={24}
-                    className="w-full h-full"
+                    width={100}
+                    height={100}
+                    className="w-full h-[25px]"
                   />
-                  {lang === 'en' ? 'English' : 'Indonesia'}
+                  <span className="text-base hidden md:block">{lang === 'en' ? 'English' : 'Bahasa'}</span>
                 </div>
               </SelectValue>
             </SelectTrigger>
@@ -182,9 +182,9 @@ const Navbar = () => {
                 .filter((item) => item.value !== lang)
                 .map((item, index) => (
                   <SelectItem key={`${index + 1}-${item.value}`} value={item.value} className="px-2">
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-2">
                       <Image src={item.icon} alt={item.value} width={24} height={24} />
-                      {item.value === 'en' ? 'EN' : 'ID'}
+                      <span className="text-base">{item.value === 'en' ? 'English' : 'Bahasa'}</span>
                     </div>
                   </SelectItem>
                 ))}

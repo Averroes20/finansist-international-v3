@@ -82,10 +82,30 @@
   },
   "valueCompany": {
     "title": {
-      "part1": "Keunggulan visual hanyalah titik awal kami,",
-      "part2": "memberikan hasil yang terukur adalah janji kami."
+      "part1": "Menjadi",
+      "part2": "Solusi Effektif"
     },
     "items": [
+      {
+        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "Apa yang akan Anda dapatkan",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
+      {
+        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
+        "urlImage": "/images/earth.png",
+        "contentModal": {
+          "title": "Apa yang akan Anda dapatkan",
+          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
+          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+        }
+      },
       {
         "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
         "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",

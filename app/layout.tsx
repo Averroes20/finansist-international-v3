@@ -1,6 +1,6 @@
-import { PIXEL_ID } from '@/constants/env';
+import { DOMAIN_WEB, PIXEL_ID } from '@/constants/env';
 import { LanguageProviders } from '@/context/LanguageProvider';
-import { Dosis, Inter, Libre_Baskerville } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import Script from 'next/script';
 import './globals.css';
@@ -11,26 +11,6 @@ const inter = Inter({
   preload: true,
 });
 
-const libre_baskerville = Libre_Baskerville({
-  subsets: ['latin'],
-  variable: '--font-libre-baskerville',
-  display: 'swap',
-  preload: true,
-  weight: ['400', '700'],
-});
-
-const dosis = Dosis({
-  subsets: ['latin'],
-  variable: '--font-dosis',
-  display: 'swap',
-  preload: true,
-  weight: ['400', '700', '800', '500'],
-});
-
-// export const metadata: Metadata = {
-//   title: 'Finansist International',
-// };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,10 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <link rel="icon" href="/favicon.ico" />
-      <link rel="canonical" href="https://finansist-international-beta.vercel.app" />
-      <body
-        className={`${inter.className} ${libre_baskerville.variable} ${dosis.variable} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}
-      >
+      <link rel="canonical" href={DOMAIN_WEB} />
+      <body className={`${inter.className} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}>
         <LanguageProviders>{children}</LanguageProviders>
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
@@ -56,7 +34,6 @@ export default function RootLayout({
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '${PIXEL_ID}');
           fbq('track', 'PageView');
-          fbq('track', 'Purchase', {currency: "USD", value: 30.00});
         `}
         </Script>
         <noscript>

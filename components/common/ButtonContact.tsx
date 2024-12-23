@@ -1,6 +1,8 @@
 'use client';
 import { Button } from '../ui/button';
 import { Whatsapp } from '../icons/social-media';
+import { cn } from '@/lib/utils';
+import { memo } from 'react';
 
 type Props = {
   className?: string;
@@ -18,11 +20,10 @@ const ButtonContact: React.FC<Props> = ({ className, title }) => {
   return (
     <Button
       onClick={openWhatsApp}
-      className={`px-3 py-1 items-center text-sm self-start text-white rounded-full hover:bg-[linear-gradient(135deg, #20C35A, #0F7A6A)] hover:motion-preset-shake hover:motion-duration-500 ${className}`}
-      style={{
-        background: 'linear-gradient(135deg, rgba(37,211,80,1) 20%, rgba(18,140,126,1) 80%)', // Gradasi diagonal khas WhatsApp
-        transition: 'background 0.3s ease',
-      }}
+      className={cn(
+        `px-3 py-1 items-center text-sm self-start text-white rounded-full transform transition-transform duration-300 ease-out hover:scale-110 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-400 hover:to-teal-500`,
+        className
+      )}
     >
       <Whatsapp />
       {title}
@@ -30,4 +31,4 @@ const ButtonContact: React.FC<Props> = ({ className, title }) => {
   );
 };
 
-export default ButtonContact;
+export default memo(ButtonContact);

@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import validationLogin from '@/lib/validation/schema-login';
 import { prismaClient } from '@/lib/database/connection';
-import { compareSync } from 'bcrypt-ts';
+import bcrypt from 'bcryptjs';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   session: { strategy: 'jwt' },
@@ -33,11 +33,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           // Check password
-          const matchedPassword = compareSync(credentials?.password as string, user.password);
+          const matchedPassword = bcrypt.compareSync(credentials?.password as string, user.password);
 
           if (!matchedPassword) {
-            console.log('Invalid password');
-
+            console.error('Invalid password');
             return null;
           }
 
@@ -58,6 +57,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       const isLoggedIn = !!auth?.user;
       const privateRoutes = ['/admin/blogs', '/admin/portfolio', '/admin/review'];
       const { pathname } = nextUrl;
+
+      const apiRoute = nextUrl.pathname.startsWith('/api');
+      if (!isLoggedIn && apiRoute) {
+        return Response.redirect(new URL('/auth/signin', nextUrl));
+      }
 
       if (!isLoggedIn && privateRoutes.includes(pathname)) {
         return Response.redirect(new URL('/', nextUrl));

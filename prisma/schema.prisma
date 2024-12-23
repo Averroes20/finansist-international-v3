@@ -9,16 +9,19 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String @db.VarChar(100)
-  email    String @unique @db.VarChar(100)
-  password String @db.VarChar(200)
+  id         Int      @id @default(autoincrement())
+  name       String   @db.VarChar(100)
+  email      String   @unique @db.VarChar(100)
+  password   String   @db.VarChar(200)
+  role       String   @db.VarChar(50)
+  created_at DateTime @default(now()) @db.Timestamp()
+  updated_at DateTime @updatedAt @db.Timestamp()
 
   @@map("users")
 }
@@ -70,8 +73,17 @@ model Reviews {
   name       String   @db.VarChar(100)
   review     String   @db.Text
   company    String   @db.VarChar(100)
+  country    String   @db.VarChar(100)
   created_at DateTime @default(now()) @db.Timestamp()
   updated_at DateTime @updatedAt @db.Timestamp()
 
   @@map("reviews")
+}
+
+model LinkSocialMedia {
+  id    Int    @id @default(autoincrement())
+  label String @db.VarChar(100)
+  url   String @db.Text
+
+  @@map("link_social_media")
 }

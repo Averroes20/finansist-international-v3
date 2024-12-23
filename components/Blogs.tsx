@@ -17,7 +17,7 @@ const Blogs = async () => {
       </div>
       <div className="flex justify-center">
         <Link href={'/blog'} prefetch={true} className="mt-10 py-2 px-4 bg-slate-800 hover:bg-slate-950 text-white  rounded-md">
-          More Blog
+          Read more
         </Link>
       </div>
     </section>

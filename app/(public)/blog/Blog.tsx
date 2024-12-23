@@ -20,6 +20,9 @@ const BlogPage = () => {
   const [search, setSearch] = useState({
     title: '',
     category: '',
+    year: '',
+    month: '',
+    author: '',
   });
   const queryTitle = useDebounce(search.title, 500);
 

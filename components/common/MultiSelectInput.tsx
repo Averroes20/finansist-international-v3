@@ -19,12 +19,12 @@ const MultiSelectInput = <T extends FieldValues>({ name, label, options, placeho
       name={name}
       render={({ field }) => (
         <FormItem className={className}>
-          <FormLabel>
+          <FormLabel className="text-sm md:text-base font-medium">
             {label} {isRequired && <span className="text-destructive">*</span>}
           </FormLabel>
           <FormControl>
             <MultiSelect
-              className="w-full"
+              className="w-full text-sm md:text-base font-medium"
               options={options}
               onValueChange={field.onChange}
               defaultValue={field.value}

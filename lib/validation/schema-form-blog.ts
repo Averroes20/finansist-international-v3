@@ -22,9 +22,15 @@ const BlogSchema = z.object({
   cover: z
     .union([z.instanceof(File), z.string()])
     .optional()
-    .refine((file) => typeof file === 'string' || file instanceof File, {
-      message: 'Input must be a File or URL',
-    }),
+    .refine(
+      (file) => {
+        if (typeof file === 'string') return true;
+        return file instanceof File && file.size <= 3 * 1024 * 1024;
+      },
+      {
+        message: 'Input must be a File or URL and less than 3MB',
+      }
+    ),
 });
 
 export type BlogType = z.infer<typeof BlogSchema>;

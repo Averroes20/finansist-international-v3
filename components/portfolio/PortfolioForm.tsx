@@ -65,7 +65,7 @@ const PortfolioForm: React.FC<Props> = ({ data, onSubmit, title, description, tr
           />
           <MultiSelectInput<PortfolioType> label="Sofrtware" name="software" placeholder="Sofrtware" options={software} className="col-span-2" />
           <TextInput<PortfolioType> label="Country" name="country" placeholder="Country" className="col-span-2" />
-          <TextInput<PortfolioType> label="description" name="description" placeholder="Description" type="textarea" className="col-span-2" />
+          <TextInput<PortfolioType> label="Description" name="description" placeholder="Description" type="textarea" className="col-span-2" />
           <div className="col-span-2 flex justify-center">
             <Button type="submit" className="px-28">
               Submit

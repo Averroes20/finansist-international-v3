@@ -25,13 +25,13 @@ const DropdownInputComponent = <T extends FieldValues>({ name, label, className,
       name={name}
       control={control}
       render={({ field, fieldState }) => (
-        <FormItem className={`flex flex-col space-y-3 mt-[0.4rem] ${className}`}>
-          <FormLabel>
+        <FormItem className={`flex flex-col ${className}`}>
+          <FormLabel className="text-sm md:text-base font-medium">
             {label} {isRequired && <span className="text-destructive">*</span>}
           </FormLabel>
           <Select onValueChange={field.onChange} defaultValue={field.value}>
             <SelectTrigger>
-              <SelectValue placeholder={placeholder} />
+              <SelectValue placeholder={placeholder} className="text-sm md:text-base font-medium" />
             </SelectTrigger>
             <SelectContent>
               {data.map((item) => (
