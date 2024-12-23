@@ -58,16 +58,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       const privateRoutes = ['/admin/blogs', '/admin/portfolio', '/admin/review'];
       const { pathname } = nextUrl;
 
-      const apiRoute = nextUrl.pathname.startsWith('/api');
-      if (!isLoggedIn && apiRoute) {
-        return Response.redirect(new URL('/auth/signin', nextUrl));
-      }
-
-      if (!isLoggedIn && privateRoutes.includes(pathname)) {
+      if (!isLoggedIn && (privateRoutes.includes(pathname) || pathname.startsWith('/api/auth/signout'))) {
         return Response.redirect(new URL('/', nextUrl));
       }
 
-      if (isLoggedIn && pathname.startsWith('/auth/signin')) {
+      if (isLoggedIn && pathname.startsWith('/auth/signin/z6ByYZ6H8N')) {
         return Response.redirect(new URL('/', nextUrl));
       }
       return true;
@@ -87,6 +82,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   },
   pages: {
-    signIn: '/auth/signin',
+    signIn: '/auth/signin/z6ByYZ6H8N',
   },
 });
