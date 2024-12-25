@@ -1,14 +1,13 @@
 'use client';
-import { ChevronRight } from 'lucide-react';
+import { DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { useLanguage } from '@/context/LanguageProvider';
+import { useTheme } from '@/context/ThemeProvider';
+import { splitString } from '@/utils/split-string';
+import clsx from 'clsx';
+import { motion, Variants } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useTheme } from '@/context/ThemeProvider';
-import { DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import dynamic from 'next/dynamic';
-import clsx from 'clsx';
-import { useLanguage } from '@/context/LanguageProvider';
-import { splitString } from '@/utils/split-string';
-import { motion, Variants } from 'framer-motion';
 import { Button } from './ui/button';
 
 const Modal = dynamic(() => import('@/components/common/Modal'), { ssr: false });
@@ -82,7 +81,7 @@ const ValueCompany = () => {
       </header>
       <div className="flex flex-col justify-center max-w-screen overflow-auto items-center md:flex-row md:justify-end md:self-end gap-4 pb-12">
         {items?.map((item, index) => (
-          <button
+          <div
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
@@ -132,11 +131,7 @@ const ValueCompany = () => {
                   )}
                 >
                   <Modal
-                    trigger={
-                      <Button className="bg-transparent hover:bg-transparent py-0 flex flex-row items-center" aria-label="Read More">
-                        <span className="text-sm md:text-base">Read more</span> <ChevronRight className="text-white text-sm md:text-base" size={20} />
-                      </Button>
-                    }
+                    trigger={<Button className="bg-transparent hover:bg-transparent py-0 text-sm md:text-base">Read more &#8594;</Button>}
                     contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[70vw] md:max-h-[90vh] p-0 border-0 overflow-y-auto border-0"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3">
@@ -161,7 +156,7 @@ const ValueCompany = () => {
                 </div>
               </div>
             </div>
-          </button>
+          </div>
         ))}
       </div>
     </section>

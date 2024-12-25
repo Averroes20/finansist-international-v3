@@ -33,7 +33,7 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
         setDictionary(newDictionary);
         setLanguage(newLang);
 
-        localStorage.setItem('preferredLanguage', newLang);
+        localStorage.setItem('lang', newLang);
       } catch (error) {
         console.error('Error changing language:', error);
       }
@@ -44,7 +44,7 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   useEffect(() => {
     const initializeLanguage = async () => {
       try {
-        const savedLanguage = localStorage.getItem('preferredLanguage') as Language;
+        const savedLanguage = localStorage.getItem('lang') as Language;
         const initialLanguage = savedLanguage || defaultLanguage;
 
         const initialDictionary = await loadDictionary(initialLanguage);
