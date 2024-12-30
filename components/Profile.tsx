@@ -13,7 +13,7 @@ const Profile = () => {
   const { description, tagsLine } = dictionary?.whyFinansist || {};
   const linkVideo = data.find((item) => item.id === 1 && item.active);
   return (
-    <section id="why-finansist" className="space-y-2 md:space-y-3 min-h-[80vh] flex justify-center items-center bg-[#071620]">
+    <section id="why-finansist" className="space-y-2 md:space-y-3 min-h-[80vh] flex justify-center items-center bg-[#113870]">
       {linkVideo?.url && <link rel="preconnect" href={linkVideo.url} as="document" />}
       <div className="grid grid-cols-1 md:grid-cols-2 max-w-screen-xl mx-auto gap-5 md:gap-10">
         <div className="w-full h-full flex justify-center items-center">
