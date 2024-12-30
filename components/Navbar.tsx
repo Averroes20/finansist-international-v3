@@ -20,6 +20,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { Button } from './ui/button';
 
 const ButtonContact = dynamic(() => import('@/components/common/ButtonContact'), { ssr: false });
 const Select = dynamic(() => import('@/components/ui/select').then((mod) => mod.Select), { ssr: false });
@@ -92,7 +93,7 @@ const Navbar = () => {
       <link rel="preload" href="/icons/flag-united-kingdom.png" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-indonesia.png" as="image" type="image/webp" media="(min-width: 1px)" />
 
-      <nav className="container px-5 md:max-w-screen-xl mx-auto flex items-center justify-between backdrop-blur-lg">
+      <nav className="container px-5 md:max-w-screen-2xl mx-auto flex items-center justify-between backdrop-blur-lg">
         <div className="w-[225px]">
           <Image
             src={images.LogoLarge}
@@ -159,7 +160,12 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center">
-          <ButtonContact className="hidden md:flex py-0" title="Free Consultation" />
+          <div className="flex items-center border-r-2">
+            <ButtonContact className="hidden md:flex py-0" title="Free Consultation" />
+            <Button variant="outline" className="hidden md:flex border-blue-900 border-2 text-blue-900 font-semibold ml-5 mr-3">
+              Login
+            </Button>
+          </div>
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
             <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
               <SelectValue>
