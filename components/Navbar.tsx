@@ -14,16 +14,15 @@ import { menuLanguages } from '@/lib/data/navbar';
 import { Language } from '@/lib/type/languange';
 import clsx from 'clsx';
 import { motion, Variants } from 'framer-motion';
-import { ChevronUp, Menu, X } from 'lucide-react';
+import { ChartCandlestick, ChevronUp, CircleDollarSign, Gem, HandCoins, Landmark, Menu, Wallet, X } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 const ButtonContact = dynamic(() => import('@/components/common/ButtonContact'), { ssr: false });
 const Select = dynamic(() => import('@/components/ui/select').then((mod) => mod.Select), { ssr: false });
-const AnimateComponent = dynamic(() => import('@/components/animation/beach-animated'), { ssr: false });
 
 const dropdownVariants: Variants = {
   open: {
@@ -46,6 +45,8 @@ const dropdownVariants: Variants = {
     },
   },
 };
+
+const iconServices = [CircleDollarSign, Wallet, HandCoins, Landmark, Gem, ChartCandlestick];
 
 const Navbar = () => {
   const router = useRouter();
@@ -107,7 +108,7 @@ const Navbar = () => {
         {/* Manu */}
         <div className="hidden w-full md:flex md:flex-row md:w-auto md:space-x-7" id="navbar-multi-level">
           <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
-            <NavigationMenuList className="flex gap-5">
+            <NavigationMenuList className="flex gap-3">
               {items?.map((item, index) => (
                 <NavigationMenuItem key={index + 1}>
                   {item.subItems ? (
@@ -121,22 +122,19 @@ const Navbar = () => {
                       >
                         {item.label} <ChevronUp className={`h-4 w-4 ml-1 transition duration-300 ${openDropdown ? '' : 'rotate-180'}`} />
                       </PopoverTrigger>
-                      <PopoverContent
-                        className="w-screen border-0 shadow-lg p-0 mt-4"
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                      >
+                      <PopoverContent className="shadow-lg p-0 mt-4" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <div className="flex gap-4 justify-around">
-                          <div className="flex flex-col col-span-1 space-y-2 py-5 px-3">
-                            <b>Company Services</b>
+                          <div className="flex flex-col col-span-1 space-y-3 py-3 px-4">
                             {service?.map((item, index) => (
-                              <Link href={`#${item.link}`} key={`${index + 1}-${item.link}`}>
+                              <Link
+                                href={`#${item.link}`}
+                                key={`${index + 1}-${item.link}`}
+                                className="text-sm md:text-base flex items-center gap-4 hover:text-gray-500 hover:bg-transparent"
+                              >
+                                {iconServices[index] && React.createElement(iconServices[index], { className: 'w-6 h-6' })}
                                 {item.title}
                               </Link>
                             ))}
-                          </div>
-                          <div className="col-span-1 justify-items-end">
-                            <AnimateComponent />
                           </div>
                         </div>
                       </PopoverContent>
@@ -160,7 +158,7 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center">
           <ButtonContact className="hidden md:flex py-0" title="Free Consultation" />
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
             <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
@@ -264,4 +262,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

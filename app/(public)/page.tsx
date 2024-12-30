@@ -1,4 +1,5 @@
 import AboutUs from '@/components/AboutUs';
+import FAQ from '@/components/FAQ';
 import Intro from '@/components/Intro';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
@@ -50,10 +51,8 @@ const RootPage = () => {
     <>
       <Suspense fallback={<p>Loading ...</p>}>
         <Intro />
-        <div className="stacking">
-          <Profile />
-          <AboutUs />
-        </div>
+        <Profile />
+        <AboutUs />
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>
@@ -67,6 +66,7 @@ const RootPage = () => {
         <Reviews />
         <Blogs />
         <Careers />
+        <FAQ />
       </Suspense>
       <ButtonContact className="fixed bottom-5 right-5 md:hidden" title="Free Consultation" />
     </>

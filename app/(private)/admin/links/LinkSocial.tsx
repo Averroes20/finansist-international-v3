@@ -8,7 +8,7 @@ import { TypeLink } from '@/lib/validation/schema-form-link';
 import { PenBox } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 
-const PageLinkSocial = () => {
+const PageLinkSocial: React.FC = () => {
   const [data, setData] = useState<Link[]>([]);
 
   const fetchLink = useCallback(async () => {
@@ -38,6 +38,7 @@ const PageLinkSocial = () => {
               <TableHead className="w-[50px]">No.</TableHead>
               <TableHead className="">Label</TableHead>
               <TableHead className="">Link</TableHead>
+              <TableHead className="">Active</TableHead>
             </TableRow>
           </TableHeader>
           {data.map((link, index) => (
@@ -47,6 +48,13 @@ const PageLinkSocial = () => {
                 <TableCell className="">{link.label}</TableCell>
                 <TableCell className=" hover:text-indigo-700 hover:underline cursor-pointer" onClick={() => window.open(link.url, '_blank')}>
                   {link.url}
+                </TableCell>
+                <TableCell className="">
+                  {link.active ? (
+                    <span className="bg-green-600 text-white px-3 py-2 rounded-full">Active</span>
+                  ) : (
+                    <span className="bg-red-600 text-white px-3 py-2 rounded-full">Inactive</span>
+                  )}
                 </TableCell>
                 <TableCell>
                   <SocialMediaForm

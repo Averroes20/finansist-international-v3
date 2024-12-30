@@ -81,9 +81,10 @@ model Reviews {
 }
 
 model LinkSocialMedia {
-  id    Int    @id @default(autoincrement())
-  label String @db.VarChar(100)
-  url   String @db.Text
+  id     Int     @id @default(autoincrement())
+  label  String  @db.VarChar(100)
+  active Boolean @default(false)
+  url    String  @db.Text
 
   @@map("link_social_media")
 }

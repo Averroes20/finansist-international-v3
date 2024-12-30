@@ -2,12 +2,8 @@
   "navbar": {
     "items": [
       {
-        "label": "Beranda",
-        "url": "/#home"
-      },
-      {
-        "label": "Tentang Kami",
-        "url": "/#about-us"
+        "label": "Mengapa Finansist?",
+        "url": "/#why-finansist"
       },
       {
         "label": "Layanan",
@@ -15,12 +11,20 @@
         "url": "/#"
       },
       {
-        "label": "Karir",
+        "label": "Harga",
+        "url": "/#pricing"
+      },
+      {
+        "label": "Karier",
         "url": "/#career"
       },
       {
         "label": "Blog",
         "url": "/blog"
+      },
+      {
+        "label": "FAQ",
+        "url": "/#faq"
       }
     ]
   },
@@ -32,7 +36,7 @@
     },
     "subtitle": "Profesional Bersertifikat",
     "certifiedOf": "Bersertifikat",
-    "description": "Tidak perlu lagi mempekerjakan tim keuangan, karena Finansist siap menjadi mitra bisnis Anda yang terpercaya",
+    "description": "Ucapkan selamat tinggal pada kerepotan memiliki tim keuangan internal! Biarkan kami menangani kebutuhan keuangan Anda dengan keahlian dan efisiensi, sehingga Anda dapat fokus pada hal-hal yang benar-benar penting.",
     "softwareTitle": "Ahli dalam banyak Perangkat Lunak Akuntansi",
     "achievements": [
       {
@@ -50,8 +54,24 @@
     ]
   },
   "about": {
-    "title": "Kami menangani klien dari banyak negara",
-    "aboutCEO": "Selama lebih dari 10 tahun, Finansist telah berkembang dari perusahaan lokal menjadi perusahaan layanan internasional dengan klien di seluruh dunia. Kami ahli dalam peraturan internasional dan memanfaatkan teknologi untuk menawarkan pembukuan dan persiapan pajak yang lancar dari mana saja. Layanan kami yang berbasis di Indonesia membuat biaya lebih terjangkau daripada negara lain dengan hasil yang lebih memuaskan."
+    "title": "KAMI MELAYANI BERAGAM JENIS KLIEN DARI SELURUH DUNIA",
+    "aboutCEO": "Dengan pengalaman lebih dari satu dekade, Finansist telah berkembang dari penyedia layanan lokal menjadi perusahaan yang diakui secara global, melayani klien di seluruh dunia. Dengan keahlian dalam regulasi internasional, kami memanfaatkan teknologi terkini untuk memberikan layanan pembukuan dan persiapan pajak yang mulus, di mana pun Anda berada. Berbasis di Indonesia, lokasi strategis kami memungkinkan kami menawarkan solusi yang hemat biaya dan secara konsisten melampaui ekspektasi, memberikan nilai luar biasa dibandingkan pasar lainnya."
+  },
+  "whyFinansist": {
+    "tagsLine": {
+      "part1": "Kami Membuatnya",
+      "part2": [
+        "Efisien",
+        "Dapat Diandalkan",
+        "Presisi",
+        "Terpercaya",
+        "Presisi"
+      ]
+    },
+    "description": [
+      "Hemat biaya perekrutan Anda dengan layanan keuangan profesional kami. Para profesional bersertifikasi internasional kami akan menangani kebutuhan Anda dengan presisi untuk hasil yang mulus dan hemat biaya.",
+      "Bagikan gambaran umum tentang situasi perusahaan Anda saat ini, sehingga kami dapat memberikan proposal yang akurat dan sesuai dengan kebutuhan Anda. Kami percaya bahwa akuntansi adalah fondasi penting untuk kesuksesan bisnis, tetapi tidak seharusnya menjadi beban yang berlebihan. Dengan pendekatan yang fleksibel, kami memastikan layanan kami disesuaikan dengan kemampuan dan kondisi Anda, memberikan nilai maksimal tanpa biaya yang berlebihan. Mari bekerja sama untuk menciptakan solusi akuntansi yang efisien dan terjangkau untuk mendukung pertumbuhan bisnis Anda."
+    ]
   },
   "financialSupport": {
     "title": "Dapatkan Dukungan Keuangan Ahli Tanpa Khawatir!",
@@ -139,12 +159,14 @@
     ]
   },
   "services": {
-    "title": "Layanan Kami",
+    "title": "Harga Kami",
     "items": [
       {
         "title": "Akuntansi & Pembukuan",
         "link": "accounting-and-bookkeeping",
         "icon": "/animate/bookkeeping.lottie",
+        "price": "3.500",
+        "tagPrice": "Mulai dari",
         "shortDescription": [
           "Menyusun Bagian Akun",
           "Entry Jurnal",
@@ -196,9 +218,11 @@
         }
       },
       {
-        "title": "Pelaporan Pajak",
+        "title": "Laporan Pajak",
         "link": "tax-reporting",
         "icon": "/animate/tax-reporting.lottie",
+        "price": "1.500",
+        "tagPrice": "Mulai dari",
         "shortDescription": [
           "Pelaporan Pajak Perusahaan dan Pribadi",
           "Perhitungan Pajak Penghasilan",
@@ -247,6 +271,8 @@
         "title": "Penggajian",
         "link": "payroll",
         "icon": "/animate/payroll.lottie",
+        "price": "500",
+        "tagPrice": "Mulai dari",
         "shortDescription": [
           "Pelacakan Kehadiran Karyawan",
           "Perhitungan Gaji dan Pajak Penghasilan 21",
@@ -293,6 +319,8 @@
         "title": "Layanan CFO",
         "link": "cfo-services",
         "icon": "/animate/cfo.lottie",
+        "price": "3.500",
+        "tagPrice": "Mulai dari",
         "shortDescription": [
           "Paket Pembukuan Lengkap",
           "Paket Pelaporan Pajak Lengkap",
@@ -341,6 +369,8 @@
         "title": "Layanan Audit",
         "link": "audit-services",
         "icon": "/animate/audit.lottie",
+        "price": "3.500",
+        "tagPrice": "Mulai dari",
         "shortDescription": [
           "Audit Internal (Laporan kondisi perusahaan, Penyesuaian audit keuangan, Rekomendasi perbaikan)",
           "Audit Eksternal (Laporan Akuntan Publik Bersertifikat)"
@@ -373,6 +403,8 @@
         "title": "Perangkat Lunak Akuntansi",
         "link": "accounting-software",
         "icon": "/animate/accounting-software.lottie",
+        "price": "3.500",
+        "tagPrice": "Mulai dari",
         "shortDescription": [
           "Instalasi dan Pengaturan Perangkat Lunak",
           "Migrasi File",
@@ -411,9 +443,10 @@
     "title": "Portofolio Kami"
   },
   "career": {
-    "title": "Bergabunglah Dengan Program Kami!",
+    "title": "Membuka Masa Depan Anda!",
     "items": [
       {
+        "id": 1,
         "title": "Magang",
         "description": "Finansist International memberikan kesempatan bagi mahasiswa atau lulusan baru untuk membangun pengalaman bersama kami dalam program magang.",
         "facilities": [
@@ -424,15 +457,35 @@
         "color": "EC5078"
       },
       {
-        "title": "Pekerjaan",
+        "id": 2,
+        "title": "Lowongan Pekerjaan",
         "description": "Finansist International memberikan kesempatan untuk bergabung dengan perusahaan kami. Nantikan peluang dan pengembangan bersama kami!",
         "color": "F7B70D"
       },
       {
-        "title": "Mitra",
+        "id": 3,
+        "title": "Mitra Bisnis",
         "description": "Finansist International membuka peluang untuk bekerja sama dalam rangka mengembangkan layanan yang lebih baik. Bagi Anda yang berminat untuk tumbuh bersama kami, jangan ragu untuk menghubungi kami!",
         "color": "81BDE3"
       }
     ]
-  }
+  },
+  "faq": [
+    {
+      "question": "Apa itu Finansist?",
+      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "question": "Apa manfaat menggunakan layanan Finansist?",
+      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "question": "Bagaimana cara kerja Finansist?",
+      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "question": "Bagaimana cara memulai menggunakan layanan Finansist?",
+      "answer": "Untuk memulai, Kamu dapat mengunjungi situs web finansistinternational.com dan menghubungi tim Finansist melalui informasi yang tersedia. Tim Finansist akan membantu Kamu dalam langkah-langkah selanjutnya untuk memulai penggunaan layanan. Jika Kamu memiliki pertanyaan lain yang tidak tercakup di FAQ ini, jangan ragu untuk menghubungi tim Finansist langsung untuk mendapatkan informasi lebih lanjut dan dukungan yang dibutuhkan"
+    }
+  ]
 }

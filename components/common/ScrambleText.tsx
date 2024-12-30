@@ -1,6 +1,8 @@
-const TextScramble: React.FC = () => {
-  const words = ['Efficient', 'Reliable', 'Precision', 'Trusted', 'Precision'];
+type Props = {
+  words: string[];
+};
 
+const TextScramble: React.FC<Props> = ({ words }) => {
   return (
     <div className="">
       <div className="font-extrabold text-3xl md:text-4xl [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-40% to-white">

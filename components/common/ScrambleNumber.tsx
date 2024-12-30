@@ -56,7 +56,7 @@ const ScrambleNumber: React.FC<Props> = ({ children }) => {
     };
   }, [scramble, stopScramble]);
 
-  return <h1 className="cursor-default text-3xl font-bold dark:text-white md:text-[2.5rem] md:leading-[2.5rem]">{text}</h1>;
+  return <span className="cursor-default text-3xl font-bold dark:text-white md:text-5xl md:leading-[2.5rem]">{text}</span>;
 };
 
 export default memo(ScrambleNumber);

@@ -75,10 +75,10 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
           ))}
         </div>
       </AnimatedComponent>
-      <div className="flex flex-row items-center min-w-fit mx-5 space-x-2 mt-10 flex-wrap justify-center">
+      <div className="flex flex-row items-center min-w-fit mx-5 space-x-2 mt-14 flex-wrap justify-center">
         {software.map((item, index) => (
           <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit mx-5 space-x-2 p-3">
-            <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] rounded-full shadow-md" />
+            <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] border-0" />
             <span>{item.label}</span>
           </div>
         ))}

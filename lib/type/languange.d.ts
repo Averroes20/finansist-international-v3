@@ -16,6 +16,13 @@ export interface Dictionary {
     softwareTitle: string;
     achievements: Array<{ count: string; description: string }>;
   };
+  whyFinansist: {
+    tagsLine: {
+      part1: string;
+      part2: Array<string>;
+    };
+    description: Array<string>;
+  };
   about: {
     [key: string]: string;
   };
@@ -47,6 +54,8 @@ export interface Dictionary {
       title: string;
       link: string;
       icon: string;
+      price: string;
+      tagPrice: string;
       shortDescription: string[];
       details: {
         overview: string;
@@ -64,12 +73,14 @@ export interface Dictionary {
   career: {
     title: string;
     items: Array<{
+      id: number;
       title: string;
       description: string;
       facilities?: string[];
       color: string;
     }>;
   };
+  faq: Array<{ question: string; answer: string }>;
 }
 
 export interface LanguageContextType {

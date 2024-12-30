@@ -7,6 +7,9 @@ export async function submitInternshipRequest(formData: FormData) {
     const cv = formData.get('cv') as File;
     const fileBuffer = await cv.arrayBuffer();
 
+    const applyLatter = formData.get('applyLatter') as File;
+    const fileBuffer2 = await applyLatter.arrayBuffer();
+
     const name = formData.get('name') as string;
     const phone = formData.get('phone') as string;
     const email = formData.get('email') as string;
@@ -29,8 +32,8 @@ export async function submitInternshipRequest(formData: FormData) {
           <p style="margin: 0;"><strong>Email:</strong> ${email}</p>
           <p style="margin: 0;"><strong>Desirable Position:</strong> ${desirablePosition}</p>
           <p style="margin: 0;"><strong>Current University:</strong> ${currentUniversity}</p>
-          <p style="margin: 0;"><strong>Campus Address:</strong> ${campusAddress}</p>
-          <p style="margin: 0;"><strong>GPA:</strong> ${gpa}</p>
+          <p style="margin: 0;"><strong>Address University:</strong> ${campusAddress}</p>
+          <p style="margin: 0;"><strong>Latest GPA:</strong> ${gpa}</p>
           <p><strong>Cover Letter:</strong></p>
           <div style="background-color: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
             ${coverLetter}
@@ -42,13 +45,17 @@ export async function submitInternshipRequest(formData: FormData) {
           filename: cv.name,
           content: Buffer.from(fileBuffer),
         },
+        {
+          filename: applyLatter.name,
+          content: Buffer.from(fileBuffer2),
+        },
       ],
     });
 
     // Kirim email ke pelamar
     await transporter.sendMail({
       from: `Finansis Intenational <${process.env.COMPANY_EMAIL}>`,
-      to: `Finansis Intenational <${email}>`,
+      to: `${name} <${email}>`,
       subject: 'Internship Request Received',
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; text-align: center;">
@@ -81,6 +88,7 @@ export async function submitJobRequest(formData: FormData) {
     const major = formData.get('major') as string;
     const graduationYear = formData.get('graduationYear') as string;
     const desirablePosition = formData.get('desirablePosition') as string;
+    const languages = JSON.parse(formData.get('language') as string) as { language: string; level: string }[];
 
     // Email ke perusahaan
     await transporter.sendMail({
@@ -89,21 +97,52 @@ export async function submitJobRequest(formData: FormData) {
       replyTo: email,
       subject: `Job Request from ${name}`,
       html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-          <h2 style="color: #0056b3; margin-bottom: 20px;">New Job Request</h2>
-          <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
-          <p style="margin: 5px 0;"><strong>Phone:</strong> ${phone}</p>
-          <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
-          <p style="margin: 5px 0;"><strong>Desirable Position:</strong> ${desirablePosition}</p>
-          <p style="margin: 5px 0;"><strong>University:</strong> ${university}</p>
-          <p style="margin: 5px 0;"><strong>Degree:</strong> ${degree}</p>
-          <p style="margin: 5px 0;"><strong>Major:</strong> ${major}</p>
-          <p style="margin: 5px 0;"><strong>Graduation Year:</strong> ${graduationYear}</p>
-          <p style="margin-top: 20px;"><strong>Cover Letter:</strong></p>
-          <div style="background-color: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px;">
-            ${coverLetter}
+        <!DOCTYPE html>
+        <html>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 20px;">
+
+          <div>
+            <h2 style="color: #0056b3; margin-bottom: 20px;">New Job Request</h2>
+            <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
+            <p style="margin: 5px 0;"><strong>Phone:</strong> ${phone}</p>
+            <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
+            <p style="margin: 5px 0;"><strong>Desirable Position:</strong> ${desirablePosition}</p>
+            <p style="margin: 5px 0;"><strong>University:</strong> ${university}</p>
+            <p style="margin: 5px 0;"><strong>Degree:</strong> ${degree}</p>
+            <p style="margin: 5px 0;"><strong>Major:</strong> ${major}</p>
+            <p style="margin: 5px 0;"><strong>Graduation Year:</strong> ${graduationYear}</p>
+
+            <div style="margin-top: 20px;">
+              <p style="margin-bottom: 10px;"><strong>Languages:</strong></p>
+              <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                  <tr style="background-color: #f1f1f1; text-align: left;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Language</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Proficiency Level</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${languages
+                    .map(
+                      (l) =>
+                        `<tr>
+                          <td style="padding: 8px; border: 1px solid #ddd;">${l.language || '-'}</td>
+                          <td style="padding: 8px; border: 1px solid #ddd;">${l.level || '-'}</td>
+                        </tr>`
+                    )
+                    .join('')}
+                </tbody>
+              </table>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>Cover Letter:</strong></p>
+            <div style="background-color: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px;">
+              ${coverLetter}
+            </div>
           </div>
-        </div>
+
+        </body>
+        </html>
       `,
       attachments: [
         {
@@ -116,7 +155,7 @@ export async function submitJobRequest(formData: FormData) {
     // Email konfirmasi ke pelamar
     await transporter.sendMail({
       from: `Finansis Intenational <${process.env.COMPANY_EMAIL}>`,
-      to: `Finansis Intenational <${email}>`,
+      to: `${name} <${email}>`,
       subject: 'Job Request Received',
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; text-align: center;">
@@ -175,7 +214,7 @@ export async function submitPartnershipRequest(formData: FormData) {
     // Email konfirmasi ke partner
     await transporter.sendMail({
       from: `Finansis Intenational <${process.env.COMPANY_EMAIL}>`,
-      to: `Finansis Intenational <${email}>`,
+      to: `${name} <${email}>`,
       subject: 'Partnership Request Received',
       html: `
         <h2>Thank you for your partnership request</h2>

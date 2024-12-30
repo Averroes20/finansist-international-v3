@@ -12,11 +12,11 @@ const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
 const ServiceCard = ({ service }: { service: Service }) => {
   return (
     <>
-      <div className="flex flex-col items-center flex-grow w-[90%]">
-        <header className="px-8 flex flex-col justify-center w-auto min-h-[80px] border-b-4 border-[#3A9DA1]">
+      <div className="flex flex-col items-center flex-grow">
+        <header className="px-8 flex flex-col justify-center min-h-[80px]">
           <h3 className="text-center text-lg md:text-xl font-bold">{service.title}</h3>
         </header>
-
+        <span className="w-[60%] h-1 bg-[#3A9DA1]" />
         <div className="w-72 mx-auto p-4 flex justify-center">
           <Gif src={service.icon} />
         </div>
@@ -29,11 +29,19 @@ const ServiceCard = ({ service }: { service: Service }) => {
                 <span className="text-base">{short}</span>
               </li>
             ))}
-            <li className="flex items-start border-b">etc...</li>
+            <li className="flex items-start border-b">
+              <span className="mr-2 text-green-600 font-bold">✔</span>
+              <span className="text-base">etc...</span>
+            </li>
           </ul>
         </section>
       </div>
-
+      <div className="font-dosis flex flex-col gap-y-2 pt-6">
+        <span className="block font-semibold">{service.tagPrice}</span>
+        <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-center">
+          Rp. {service.price} <span className="text-xl md:text-2xl lg:text-3xl">/month</span>{' '}
+        </span>
+      </div>
       <ServiceModal service={service} />
     </>
   );
@@ -47,10 +55,10 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
           More Details <span className="ml-2">&#8594;</span>
         </Button>
       }
-      contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[70vw] md:min-h-[90vh] p-0 border-0 overflow-y-auto"
+      contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[65vw] md:min-h-[90vh] p-0 border-0 overflow-y-auto"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0 md:space-x-4">
-        <div className="col-span-1 p-5 bg-[#3A9DA1]">
+        <div className="col-span-1 px-5 bg-[#3A9DA1] pt-28">
           <h1 className="text-center text-xl text-white font-libreBaskerville">What you will get</h1>
           {service.details.benefits.map((benefit, index) => (
             <div key={`benefit-${index + 1}`} className={clsx(benefit.title === '-' ? 'mt-5' : 'mt-0')}>
@@ -65,7 +73,7 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
             </div>
           ))}
         </div>
-        <div className="col-span-2 p-5 flex flex-col h-full ">
+        <div className="col-span-2 pt-28 px-5 flex flex-col h-full justify-center items-center">
           <DialogHeader>
             <div className="w-72 mx-auto p-4">
               <Gif src={service.icon} />
@@ -83,8 +91,11 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
               </p>
             ))}
           </div>
-          <div className="flex justify-center mt-auto">
-            <ButtonContact title="Contact Now!" className="font-semibold py-2 px-4 rounded-lg mt-5 shadow-md self-center text-sm md:text-base" />
+          <div className="flex justify-center mt-auto mb-10">
+            <ButtonContact
+              title="Free Consultasion!"
+              className="font-semibold py-2 px-4 rounded-lg mt-5 shadow-md self-center text-sm md:text-base"
+            />
           </div>
         </div>
       </div>

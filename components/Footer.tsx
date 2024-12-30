@@ -4,7 +4,7 @@ import { Clipboard, ClipboardCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useState } from 'react';
-import { Email, Facebook, Instagram, Linkedin, TikTok, Whatsapp, Youtube } from '@/components/icons/social-media';
+import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtube } from '@/components/icons/social-media';
 import { useLanguage } from '@/context/LanguageProvider';
 import { useSocialMedia } from '@/context/SocialMediaProvider';
 
@@ -29,7 +29,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-slate-100 py-10">
+    <footer className="bg-white py-10 shadow-inner">
       <div className="container grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto px-0 md:px-36 ">
         <div className="flex flex-col gap-4 px-10 items-center justify-center">
           <Image src={images.LogoLarge} alt="Logo" width={1000} height={1000} loading="lazy" className="w-[700px] object-contain" />
@@ -74,30 +74,42 @@ const Footer = () => {
             </p>
             {data && (
               <div className="flex gap-2 items-center justify-center mt-3">
-                {data[1]?.url && (
-                  <Link href={data[1].url} target="_blank" className="p-[5px] rounded-lg bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]">
-                    <Instagram className="text-white" />
-                  </Link>
-                )}
-                {data[4]?.url && (
-                  <Link href={data[4].url} target="_blank" className="p-[5px] rounded-lg bg-black">
-                    <TikTok className="text-white" />
-                  </Link>
-                )}
-                {data[2]?.url && (
-                  <Link href={data[2].url} target="_blank" className="p-[5px] rounded-lg bg-[#0e76a8]">
-                    <Linkedin className="text-white" />
-                  </Link>
-                )}
-                {data[5]?.url && (
-                  <Link href={data[5].url} target="_blank" className="p-[5px] rounded-lg bg-[#3b5998]">
-                    <Facebook className="text-white" />
-                  </Link>
-                )}
-                {data[3]?.url && (
-                  <Link href={data[4].url} target="_blank" className="p-[5px] rounded-lg bg-[#c4302b]">
-                    <Youtube className="text-white" />
-                  </Link>
+                {data.map(
+                  ({ id, url, active }) =>
+                    url && (
+                      <Link key={id} href={url} target="_blank" aria-label={`Social Media ${id}`} className="p-[5px] rounded-lg">
+                        {id === 3 && active && (
+                          <div className="p-[5px] rounded-lg bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]">
+                            <Instagram className="text-white" />
+                          </div>
+                        )}
+                        {id === 6 && active && (
+                          <div className="p-[5px] rounded-lg bg-black">
+                            <TikTok className="text-white" />
+                          </div>
+                        )}
+                        {id === 4 && active && (
+                          <div className="p-[5px] rounded-lg bg-[#0e76a8]">
+                            <Linkedin className="text-white" />
+                          </div>
+                        )}
+                        {id === 7 && active && (
+                          <div className="p-[5px] rounded-lg bg-[#3b5998]">
+                            <Facebook className="text-white" />
+                          </div>
+                        )}
+                        {id === 5 && active && (
+                          <div className="p-[5px] rounded-lg bg-[#c4302b]">
+                            <Youtube className="text-white" />
+                          </div>
+                        )}
+                        {id === 2 && active && (
+                          <div className="p-[5px] rounded-lg bg-white">
+                            <Twitter className="text-black" />
+                          </div>
+                        )}
+                      </Link>
+                    )
                 )}
               </div>
             )}

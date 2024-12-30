@@ -14,7 +14,7 @@ const AboutUs = () => {
       <link rel="preload" href="/images/our-journey.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/images/image-ceo.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       {/* About us */}
-      <section id="about-us" className="min-h-screen scroll-mt-20 bg-white dark:bg-slate-800 card">
+      <section id="about-us" className="min-h-screen scroll-mt-20 bg-white dark:bg-slate-800">
         <div className="h-36 relative" aria-label="wave">
           <Image src="/waves/wave-down.svg" alt="Layer 1" fill className="object-cover absolute bottom-2" />
         </div>
@@ -31,7 +31,7 @@ const AboutUs = () => {
               threshold={0.5}
               once={true}
               effect="fade-in-right"
-              className="flex flex-col md:col-span-1 items-center w-60 gap-2 gap-y-2 md:mb-0 md:gap-0 order-1 md:order-2"
+              className="flex flex-col md:col-span-1 items-center w-56 gap-2 gap-y-2 md:mb-0 md:gap-0 order-1 md:order-2"
             >
               <Image
                 src={images.ProfileCEO}

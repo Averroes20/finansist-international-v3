@@ -38,7 +38,7 @@ const AnimatedComponent: React.FC<AnimatedComponentProps> = ({
       case 'scale':
         return 'motion-scale-in-[0] motion-opacity-in-[0%] motion-duration-[2.00s]';
       case 'fade-up':
-        return 'motion-translate-x-in-[0%] motion-translate-y-in-[100%] motion-opacity-in-[0%] motion-duration-[1.00s]/translate motion-duration-[0.70s]/opacity motion-delay-[0.30s]/opacity motion-ease-spring-bouncy';
+        return 'motion-translate-x-in-[0%] motion-translate-y-in-[20%] motion-opacity-in-[0%] motion-duration-[1.00s]/translate motion-duration-[0.80s]/opacity motion-delay-[0.20s]/opacity motion-ease-spring-bouncier';
       default:
         return '';
     }

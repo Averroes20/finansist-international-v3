@@ -1,7 +1,7 @@
 'use server';
 import { revalidatePath } from 'next/cache';
-import { prismaClient } from '../database/connection';
-import { TypeLink } from '../validation/schema-form-link';
+import { prismaClient } from '@/lib/database/connection';
+import { TypeLink } from '@/lib/validation/schema-form-link';
 
 export async function getLinks() {
   try {
@@ -20,6 +20,7 @@ export async function updateLink(data: TypeLink) {
       data: {
         label: data.label,
         url: data.url,
+        active: data.active,
       },
     });
     revalidatePath('/admin/links');

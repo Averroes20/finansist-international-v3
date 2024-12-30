@@ -23,12 +23,14 @@ const Achievements: React.FC<Props> = ({ data }) => {
     return (
       <div
         key={`achievement-${index + 1}`}
-        className={`${animationClass} motion-opacity-in-[0%] motion-duration-[3s] motion-delay-[${0.5 * index}s] motion-ease-spring-smooth`}
+        className={`${animationClass} motion-opacity-in-[0%] motion-duration-[3s] motion-delay-[${
+          0.5 * index
+        }s] motion-ease-spring-smooth space-y-2 md:space-y-4`}
       >
         <div className="text-3xl md:text-4xl font-bold flex justify-center items-end md:gap-1">
           <ScrambleNumber>{achievement.count}</ScrambleNumber>+
         </div>
-        <p className="text-sm leading-4">{achievement.description}</p>
+        <p className="text-sm md:text-base text-center font-semibold">{achievement.description}</p>
       </div>
     );
   });

@@ -69,9 +69,9 @@ const DetailBlog: React.FC<Props> = ({ data, session }) => {
   }
 
   return (
-    <main className="px-5 min-h-[90vh] max-w-4xl mx-auto pt-24">
+    <main className="px-5 min-h-screen max-w-4xl mx-auto pt-28">
       <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl py-6">{data.title}</h1>
-      <div className="flex flex-wrap gap-7 border-y border-dashed border-gray-400 p-2 ">
+      <div className="grid grid-cols-2 gap-4 md:flex md:flex-row md:gap-7 border-y border-dashed border-gray-400 p-2 ">
         <span className="flex gap-2 items-center">
           <CircleUser size={20} className="text-gray-600" />
           <p className="text-sm md:text-base text-gray-600">{data.author}</p>
@@ -91,7 +91,7 @@ const DetailBlog: React.FC<Props> = ({ data, session }) => {
       </div>
       <div className="mt-5">
         {(data.cover || data.title) && (
-          <Image src={data.cover} alt={data.title} width={1000} height={1000} className="w-1/4 object-cover mr-4 float-start" />
+          <Image src={data.cover} alt={data.title} width={1000} height={1000} className="w-full object-cover mr-4 md:w-1/4 md:float-start" />
         )}
         <article dangerouslySetInnerHTML={{ __html: cleanHTML }} className="prose prose-lg max-w-full text-lg text-justify" />
       </div>

@@ -13,7 +13,7 @@ const Services = () => {
   return (
     <section className="max-w-screen-lg mx-auto min-h-screen py-5 px-5 md:px-0 md:my-10">
       <TitleSection>{title}</TitleSection>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-0 gap-y-10 md:gap-x-6 md:gap-y-20 py-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-0 gap-y-10 md:gap-x-6 md:gap-y-20 pb-6">
         {items?.map((service, index) => (
           <AnimatedComponent
             key={index + 1}

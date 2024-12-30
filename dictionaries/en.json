@@ -2,17 +2,17 @@
   "navbar": {
     "items": [
       {
-        "label": "Home",
-        "url": "/#home"
-      },
-      {
-        "label": "About Us",
-        "url": "/#about-us"
+        "label": "Why Finansist?",
+        "url": "/#why-finansist"
       },
       {
         "label": "Services",
         "subItems": true,
         "url": "/#"
+      },
+      {
+        "label": "Pricing",
+        "url": "/#pricing"
       },
       {
         "label": "Career",
@@ -21,6 +21,10 @@
       {
         "label": "Blog",
         "url": "/blog"
+      },
+      {
+        "label": "FAQ",
+        "url": "/#faq"
       }
     ]
   },
@@ -32,7 +36,7 @@
     },
     "subtitle": "Certified Professionals",
     "certifiedOf": "Certified of",
-    "description": "There is no need to hire an inhouse financial team, as Finansist is ready to serve as your trusted business partner.",
+    "description": "Say goodbye to the hassles of an in-house financial team! Allowing you to focus on what truly matters while we handle your financial needs with expertise and efficiency.",
     "softwareTitle": "Expert in many Accounting Software",
     "achievements": [
       {
@@ -50,8 +54,24 @@
     ]
   },
   "about": {
-    "title": "We handle clients from many countries",
-    "aboutCEO": "For over 10 years, Finansist has grown from a local to an international service company with worldwide clients. We are experts at international regulations and utilize technology to offer smooth bookkeeping and tax preparation from anywhere. Our Indonesia-based service makes the cost more affordable than other countries with more satisfying results."
+    "title": "WE SERVE A DIVERSE RANGE OF CLIENTS FROM ACROSS THE GLOBE",
+    "aboutCEO": "With over a decade of experience, Finansist has evolved from a local service provider to a globally recognized, serving clients across the world. With specializing in international regulations, we leverage cutting-edge technology to deliver seamless bookkeeping and tax preparation services, no matter where you are. Based in Indonesia, our strategic location allows us to offer cost-effective solutions that consistently exceed expectations, providing exceptional value compared to other markets."
+  },
+  "whyFinansist": {
+    "tagsLine": {
+      "part1": "We Make It",
+      "part2": [
+        "Efficient",
+        "Reliable",
+        "Precision",
+        "Trusted",
+        "Precision"
+      ]
+    },
+    "description": [
+      "Save your hiring costs with our expert financial services. Our international certified professionals will handle your needs with precision for seamless and cost-effective results.",
+      "Share with us the overview of your company's current situation, so we can provide a proposal that is accurate and meets to your needs. We believe accounting is a critical foundation for business success, but it should never become an overwhelming burden. With a flexible approach, we ensure our services are adapted to your capabilities and circumstances, delivering maximum value without excessive costs. Let's work together to create efficient and affordable accounting solutions to support your business growth."
+    ]
   },
   "financialSupport": {
     "title": "Unlock Expert Financial Support with Zero Worries!",
@@ -139,12 +159,14 @@
     ]
   },
   "services": {
-    "title": "Our Services",
+    "title": "Our Pricing",
     "items": [
       {
         "title": "Accounting & Bookkeeping",
         "link": "accounting-and-bookkeeping",
         "icon": "/animate/bookkeeping.lottie",
+        "price": "3.500",
+        "tagPrice": "Start from",
         "shortDescription": [
           "Set Up Chart of Accounts",
           "Entry Journal",
@@ -196,9 +218,11 @@
         }
       },
       {
-        "title": "Tax Reporting",
+        "title": "Tax Report",
         "link": "tax-reporting",
         "icon": "/animate/tax-reporting.lottie",
+        "price": "1.500",
+        "tagPrice": "Start from",
         "shortDescription": [
           "Corporate and Personal Tax Reporting",
           "Income Tax Calculation",
@@ -247,6 +271,8 @@
         "title": "Payroll",
         "link": "payroll",
         "icon": "/animate/payroll.lottie",
+        "price": "500",
+        "tagPrice": "Start from",
         "shortDescription": [
           "Employee Attendance Tracking",
           "Payroll and Income Tax 21 Calculations",
@@ -293,6 +319,8 @@
         "title": "CFO Services",
         "link": "cfo-services",
         "icon": "/animate/cfo.lottie",
+        "price": "3.500",
+        "tagPrice": "Start from",
         "shortDescription": [
           "Comprehensive Bookkeeping Package",
           "Full Tax Reporting Package",
@@ -341,6 +369,8 @@
         "title": "Audit Services",
         "link": "audit-services",
         "icon": "/animate/audit.lottie",
+        "price": "3.500",
+        "tagPrice": "Start from",
         "shortDescription": [
           "Internal Audit (Company condition report, Financial audit adjustments, Improvement recommendations)",
           "External Audit (Certified Public Accountant report)"
@@ -373,6 +403,8 @@
         "title": "Accounting Software",
         "link": "accounting-software",
         "icon": "/animate/accounting-software.lottie",
+        "price": "3.500",
+        "tagPrice": "Start from",
         "shortDescription": [
           "Software Installation and Setup",
           "File Migration",
@@ -411,9 +443,10 @@
     "title": "Our Portfolio"
   },
   "career": {
-    "title": "Join our program!",
+    "title": "UNLOCK YOUR FUTURE!",
     "items": [
       {
+        "id": 1,
         "title": "Internship",
         "description": "Finansist International gives opportunities for students or fresh-graduates to build experience with us in our internship program.",
         "facilities": [
@@ -424,15 +457,35 @@
         "color": "EC5078"
       },
       {
-        "title": "Jobs",
+        "id": 2,
+        "title": "Job Vacancy",
         "description": "Finansist International gives opportunities to join with our company. Look forward to opportunities and developments with us!",
         "color": "F7B70D"
       },
       {
-        "title": "Partner",
+        "id": 3,
+        "title": "Business Partner",
         "description": "Finansist International opens opportunities to cooperation in order to develop better services. For those of you who interested to grow with us, feel free to contact us!",
         "color": "81BDE3"
       }
     ]
-  }
+  },
+  "faq": [
+    {
+      "question": "What is Finansist?",
+      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "question": "What are the benefits of using Finansist's services?",
+      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "question": "How does Finansist work?",
+      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "question": "How do I get started with Finansist's services?",
+      "answer": "To get started, you can visit the website finansistinternational.com and contact the Finansist team through the available information. The Finansist team will assist you with the next steps to start using the services. If you have other questions not covered in this FAQ, feel free to reach out to the Finansist team directly for further information and support."
+    }
+  ]
 }

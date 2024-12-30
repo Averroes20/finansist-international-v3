@@ -18,7 +18,7 @@ const ServicePromotion: React.FC = () => {
     setIsHovered(false);
   }, []);
   return (
-    <section id="servicePromotion" className="min-h-screen max-w-screen-lg mx-auto px-5 md:px-0 flex items-center overflow-hidden">
+    <section id="servicePromotion" className="min-h-[90vh] max-w-screen-lg mx-auto px-5 md:px-0 flex items-center overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2 pr-6">
           <AnimatedComponent className="pb-4" once={true}>

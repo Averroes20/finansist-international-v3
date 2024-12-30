@@ -8,6 +8,7 @@ import Modal from '../common/Modal';
 import { Form } from '../ui/form';
 import TextInput from '../common/TextInput';
 import { Button } from '../ui/button';
+import ButtonSwitch from '../common/ButtonSwitch';
 
 type Props = {
   data: TypeLink;
@@ -43,6 +44,7 @@ const SocialMediaForm: React.FC<Props> = ({ data, onSubmit, title, description, 
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
           <TextInput<TypeLink> name="label" disabled placeholder="Enter your label.." label="Label" isRequired />
           <TextInput<TypeLink> name="url" placeholder="Enter your link.." label="Link" isRequired />
+          <ButtonSwitch<TypeLink> name="active" label="Active" isRequired />
           <div className="col-span-2 flex justify-center">
             <Button type="submit" className="px-28">
               Submit

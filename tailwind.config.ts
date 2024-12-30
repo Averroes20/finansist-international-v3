@@ -62,7 +62,6 @@ const config: Config = {
         slider: 'slider 100s linear infinite',
         'slide-in': 'slide-in 0.5s ease-in-out',
         'slide-out': 'slide-out 0.5s ease-in-out',
-
         'text-slide-2': 'text-slide-2 5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
         'text-slide-3': 'text-slide-3 7.5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
         'text-slide-4': 'text-slide-4 10s cubic-bezier(0.83, 0, 0.17, 1) infinite',
@@ -70,32 +69,72 @@ const config: Config = {
         'text-slide-6': 'text-slide-6 15s cubic-bezier(0.83, 0, 0.17, 1) infinite',
         'text-slide-7': 'text-slide-7 17.5s cubic-bezier(0.83, 0, 0.17, 1) infinite',
         'text-slide-8': 'text-slide-8 20s cubic-bezier(0.83, 0, 0.17, 1) infinite',
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
       keyframes: {
         randomHover: {
-          '0%': { transform: 'translate(0, 0) scale(1)' },
-          '10%': { transform: 'translate(4px, -6px) scale(1.05)' },
-          '20%': { transform: 'translate(-8px, 5px) scale(0.95)' },
-          '30%': { transform: 'translate(7px, -4px) scale(1.1)' },
-          '40%': { transform: 'translate(-5px, 7px) scale(0.9)' },
-          '50%': { transform: 'translate(6px, -8px) scale(1.05)' },
-          '60%': { transform: 'translate(-7px, 6px) scale(0.95)' },
-          '70%': { transform: 'translate(8px, -5px) scale(1.1)' },
-          '80%': { transform: 'translate(-4px, 4px) scale(0.9)' },
-          '90%': { transform: 'translate(5px, -6px) scale(1.05)' },
-          '100%': { transform: 'translate(0, 0) scale(1)' },
+          '0%': {
+            transform: 'translate(0, 0) scale(1)',
+          },
+          '10%': {
+            transform: 'translate(4px, -6px) scale(1.05)',
+          },
+          '20%': {
+            transform: 'translate(-8px, 5px) scale(0.95)',
+          },
+          '30%': {
+            transform: 'translate(7px, -4px) scale(1.1)',
+          },
+          '40%': {
+            transform: 'translate(-5px, 7px) scale(0.9)',
+          },
+          '50%': {
+            transform: 'translate(6px, -8px) scale(1.05)',
+          },
+          '60%': {
+            transform: 'translate(-7px, 6px) scale(0.95)',
+          },
+          '70%': {
+            transform: 'translate(8px, -5px) scale(1.1)',
+          },
+          '80%': {
+            transform: 'translate(-4px, 4px) scale(0.9)',
+          },
+          '90%': {
+            transform: 'translate(5px, -6px) scale(1.05)',
+          },
+          '100%': {
+            transform: 'translate(0, 0) scale(1)',
+          },
         },
         slider: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-100%)' },
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(-100%)',
+          },
         },
         'slide-in': {
-          '0%': { transform: 'translateY(-100%)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+          '0%': {
+            transform: 'translateY(-100%)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
         },
         'slide-out': {
-          '0%': { transform: 'translateY(0)', opacity: '1' },
-          '100%': { transform: 'translateY(100%)', opacity: '0' },
+          '0%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'translateY(100%)',
+            opacity: '0',
+          },
         },
         'text-slide-2': {
           '0%, 40%': {
@@ -235,6 +274,22 @@ const config: Config = {
           },
           '100%': {
             transform: 'translateY(-88.88%)',
+          },
+        },
+        'accordion-down': {
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+        },
+        'accordion-up': {
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
           },
         },
       },

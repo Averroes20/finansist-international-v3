@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import Script from 'next/script';
 import './globals.css';
-import HTMLProvider from '@/context/HTMLProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <HTMLProvider>
+    <html lang="en" className="!scroll-smooth">
       <link rel="icon" href="/favicon.ico" />
       <link rel="canonical" href={DOMAIN_WEB} />
       <body className={`${inter.className} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}>
@@ -37,10 +36,27 @@ export default function RootLayout({
           fbq('track', 'PageView');
         `}
         </Script>
+        <Script id="set-language" strategy="afterInteractive">
+          {`
+          (function() {
+            function setLanguage() {
+              const lang = window.localStorage.getItem('lang');
+              document.documentElement.lang = lang || 'en';
+            }
+
+            window.addEventListener('storage', (event) => {
+              if (event.key === 'lang') {
+                setLanguage();
+              }
+            });
+            setLanguage();
+          })();
+          `}
+        </Script>
         <noscript>
           <Image height="1" width="1" style={{ display: 'none' }} src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`} alt="" />
         </noscript>
       </body>
-    </HTMLProvider>
+    </html>
   );
 }

@@ -1,12 +1,12 @@
 'use client';
 
+import { FormIntern, FormJobs, FormPatner } from '@/components/career/CareerForms';
 import { useLanguage } from '@/context/LanguageProvider';
-import { FormIntern, FormJob, FormPatner } from '@/components/career/CareerForms';
-import { TitleSection } from './ui/typography';
-import { submitInternshipRequest, submitJobRequest, submitPartnershipRequest } from '@/lib/action/send-email';
 import { useToast } from '@/hooks/use-toast';
+import { submitInternshipRequest, submitJobRequest, submitPartnershipRequest } from '@/lib/action/send-email';
 import { useState } from 'react';
 import AnimatedComponent from './animation/animation-component';
+import { TitleSection } from './ui/typography';
 
 type Action = (formData: FormData) => Promise<{ success: boolean; error?: string; message?: string }>;
 
@@ -22,7 +22,13 @@ const Careers = () => {
     try {
       setLoading(true);
       const formData = new FormData();
-      Object.keys(data).forEach((key) => formData.append(key, data[key]));
+      Object.keys(data).forEach((key) => {
+        if (key === 'language') {
+          formData.append(key, JSON.stringify(data[key]));
+        } else {
+          formData.append(key, data[key]);
+        }
+      });
 
       const result = await action(formData);
 
@@ -65,12 +71,8 @@ const Careers = () => {
               className="p-4 lg:p-7 bg-white rounded-xl flex flex-col h-full shadow-xl"
             >
               <div className="flex-grow lg:text-lg lg:py-3 xl:text-xl xl:py-4">
-                <h1
-                  className="text-xl md:text-3xl tracking-tight font-bold mb-4 uppercase text-center p-2 border-b-4 w-fit mx-auto"
-                  style={{ borderColor: `#${item.color}` }}
-                >
-                  {item.title}
-                </h1>
+                <h1 className="text-xl md:text-3xl tracking-tight font-bold uppercase text-center ">{item.title}</h1>
+                <div className="h-1 w-[50%] mx-auto mt-2 mb-4" style={{ backgroundColor: `#${item.color}` }} />
                 <p className="mb-4">{item.description}</p>
                 {!!item.facilities && (
                   <>
@@ -83,13 +85,11 @@ const Careers = () => {
                   </>
                 )}
               </div>
-              {(item.title === 'Partner' || item.title === 'Magang') && (
+              {item.id === 3 && (
                 <FormPatner colorHeader={item.color} loading={loading} onSubmit={(data) => handleSubmit(submitPartnershipRequest, data)} />
               )}
-              {(item.title === 'Jobs' || item.title === 'Pekerjaan') && (
-                <FormJob colorHeader={item.color} loading={loading} onSubmit={(data) => handleSubmit(submitJobRequest, data)} />
-              )}
-              {(item.title === 'Internship' || item.title === 'Mitra') && (
+              {item.id === 2 && <FormJobs colorHeader={item.color} loading={loading} onSubmit={(data) => handleSubmit(submitJobRequest, data)} />}
+              {item.id === 1 && (
                 <FormIntern colorHeader={item.color} loading={loading} onSubmit={(data) => handleSubmit(submitInternshipRequest, data)} />
               )}
             </AnimatedComponent>

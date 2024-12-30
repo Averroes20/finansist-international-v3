@@ -41,6 +41,15 @@ const FormJobSchema = z.object({
     .refine((file) => allowedMimeTypes.includes(file.type), {
       message: 'Invalid file type. Only PDF or Word documents are allowed',
     }),
+
+  language: z
+    .array(
+      z.object({
+        language: z.string().optional(),
+        level: z.string().optional(),
+      })
+    )
+    .optional(),
   coverLetter: z.string().min(5, { message: 'Cover letter must be at least 5 characters' }),
 });
 
@@ -59,6 +68,17 @@ const FormInternSchema = z.object({
     .instanceof(File)
     .refine((file) => file.size > 0, {
       message: 'Cover letter must not be empty',
+    })
+    .refine((file) => file.size <= 5 * 1024 * 1024, {
+      message: 'File size must be less than or equal to 5MB',
+    })
+    .refine((file) => allowedMimeTypes.includes(file.type), {
+      message: 'Invalid file type. Only PDF or Word documents are allowed',
+    }),
+  applyLatter: z
+    .instanceof(File)
+    .refine((file) => file.size > 0, {
+      message: 'Application letter must not be empty',
     })
     .refine((file) => file.size <= 5 * 1024 * 1024, {
       message: 'File size must be less than or equal to 5MB',

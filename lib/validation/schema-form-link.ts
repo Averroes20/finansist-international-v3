@@ -16,6 +16,7 @@ const LinkSchema = z.object({
   id: z.number(),
   label: z.string().min(1, { message: 'Label must be at least 1 character' }).max(20, { message: 'Label must be less than 20 characters' }),
   url: HttpsLinkValidator,
+  active: z.boolean(),
 });
 
 export type TypeLink = z.infer<typeof LinkSchema>;
