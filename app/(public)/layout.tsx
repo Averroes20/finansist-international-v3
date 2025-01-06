@@ -25,7 +25,7 @@ const dosis = Dosis({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DOMAIN_WEB as string),
+  metadataBase: new URL(DOMAIN_WEB),
   title: {
     default: 'Finansist International',
     template: '%s | Finansist International',

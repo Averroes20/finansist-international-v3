@@ -8,7 +8,7 @@ import { motion, Variants } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 
 const Modal = dynamic(() => import('@/components/common/Modal'), { ssr: false });
 
@@ -71,7 +71,8 @@ const ValueCompany = () => {
             <motion.span key={`${index + 1}-${word}`} transition={{ duration: 0.5 }} variants={charVariants} className="text-[#84A2B7]">
               {word}
             </motion.span>
-          ))}{' '}
+          ))}
+          <br />
           {part2.map((word, index) => (
             <motion.span key={`${index + 1}-${word}`} transition={{ duration: 0.5 }} variants={charVariants}>
               {word}
@@ -79,14 +80,13 @@ const ValueCompany = () => {
           ))}
         </motion.h2>
       </header>
-      <div className="flex flex-col justify-center max-w-screen overflow-auto items-center md:flex-row md:justify-end md:self-end gap-4 pb-12">
+      <div className="flex flex-col justify-center max-w-screen overflow-auto items-center md:flex-row md:justify-end md:self-end gap-4 pb-10 md:pb-20">
         {items?.map((item, index) => (
           <div
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className={`relative w-80 md:h-[570px] bg-[#091f2f] rounded-lg overflow-hidden shadow-lg flex flex-col 
-          group transition-all duration-500 cursor-default`}
+            className={`relative w-80 md:h-[520px] bg-[#091f2f] rounded-lg overflow-hidden shadow-lg flex flex-col group transition-all duration-500 cursor-default`}
             onClick={() => handleCardToggle(index)}
             aria-pressed={activeCard === index}
             aria-label={`card-${index + 1}`}

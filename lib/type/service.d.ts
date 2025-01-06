@@ -1,16 +1,17 @@
 export interface Service {
   title: string;
-  icon: string;
+  newService: boolean;
   link: string;
-  price: string;
-  tagPrice: string;
-  shortDescription: string[];
+  icon: string;
+  tags: string[];
+  benefits: string[];
+  prices: {
+    label: string;
+    price: string;
+    desc: string;
+  };
   details: {
     overview: string;
     extendedServices: string[];
-    benefits: {
-      title: string;
-      items: string[];
-    }[];
   };
 }

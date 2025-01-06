@@ -1,5 +1,5 @@
 import { Service } from '@/lib/type/service';
-import clsx from 'clsx';
+import { Minus } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { memo } from 'react';
 import { Button } from '../ui/button';
@@ -13,20 +13,30 @@ const ServiceCard = ({ service }: { service: Service }) => {
   return (
     <>
       <div className="flex flex-col items-center flex-grow">
-        <header className="px-8 flex flex-col justify-center min-h-[80px]">
+        <header className="px-8 flex flex-col justify-center items-start min-h-[60px] relative">
           <h3 className="text-center text-lg md:text-xl font-bold">{service.title}</h3>
+          {service.newService && (
+            <span className="absolute -top-1 -right-2 text-xs text-[#3A9DA1] font-bold px-2 py-1 bg-[#98eded] rounded-lg">New</span>
+          )}
         </header>
         <span className="w-[60%] h-1 bg-[#3A9DA1]" />
         <div className="w-72 mx-auto p-4 flex justify-center">
           <Gif src={service.icon} />
         </div>
-
         <section className="w-full">
-          <ul className="px-4 space-y-3">
-            {service.shortDescription.map((short, shortIndex) => (
-              <li key={`short-${shortIndex + 1}`} className="flex items-start border-b">
+          <div className="justify-center items-center flex flex-wrap p-4 gap-x-3">
+            {service.tags.map((tag, tagIndex) => (
+              <div key={`tag-${tagIndex + 1}`}>
+                <span className="text-base font-semibold text-[#3A9DA1}">{tag}</span>
+                <span>{tagIndex !== service.tags.length - 1 && <Minus size={20} className="rotate-90" />}</span>
+              </div>
+            ))}
+          </div>
+          <ul className="space-y-2">
+            {service.benefits.slice(0, ['CFO Management', 'Manajemen CFO'].includes(service.title) ? 5 : 7).map((benefit, index) => (
+              <li key={`benefit-${index + 1}`} className="flex items-start border-b">
                 <span className="mr-2 text-green-600 font-bold">✔</span>
-                <span className="text-base">{short}</span>
+                <span className="text-base">{benefit}</span>
               </li>
             ))}
             <li className="flex items-start border-b">
@@ -37,10 +47,11 @@ const ServiceCard = ({ service }: { service: Service }) => {
         </section>
       </div>
       <div className="font-dosis flex flex-col gap-y-2 pt-6">
-        <span className="block font-semibold">{service.tagPrice}</span>
+        <p className="font-semibold">{service.prices.label}</p>
         <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-center">
-          Rp. {service.price} <span className="text-xl md:text-2xl lg:text-3xl">/month</span>{' '}
+          Rp. {service.prices.price} <span className="text-base md:text-2xl lg:text-3xl">/month</span>{' '}
         </span>
+        <p className="font-medium text-base text-end">{service.prices.desc}</p>
       </div>
       <ServiceModal service={service} />
     </>
@@ -58,44 +69,45 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
       contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[65vw] md:min-h-[90vh] p-0 border-0 overflow-y-auto"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0 md:space-x-4">
-        <div className="col-span-1 px-5 bg-[#3A9DA1] pt-28">
-          <h1 className="text-center text-xl text-white font-libreBaskerville">What you will get</h1>
-          {service.details.benefits.map((benefit, index) => (
-            <div key={`benefit-${index + 1}`} className={clsx(benefit.title === '-' ? 'mt-5' : 'mt-0')}>
-              {benefit.title !== '-' && <h2 className="font-bold text-white mt-5">{benefit.title}</h2>}
-              <ul className="list-disc pl-6 text-white">
-                {benefit.items.map((item, itemIndex) => (
-                  <li key={`item-${itemIndex + 1}`} className="my-1">
-                    {item}
+        <div className="col-span-1 px-5 bg-[#3A9DA1] flex flex-col h-full justify-center items-center">
+          <div>
+            <h1 className="text-center text-xl text-white font-libreBaskerville mb-9">What you will get</h1>
+            {service.benefits.map((benefit, index) => (
+              <div key={`benefit-${index + 1}`} className="">
+                <ul className="list-disc pl-6 text-white">
+                  <li className="my-1">{benefit}</li>
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="col-span-2 px-5 flex relative flex-col h-full justify-center items-center">
+          <div>
+            <DialogHeader>
+              <div className="w-72 mx-auto p-4">
+                <Gif src={service.icon} />
+              </div>
+              <DialogTitle className="font-bold text-center text-xl text-black">
+                <span className="border-b-4 border-[#3A9DA1] inline-block pb-2">{service.title}</span>
+              </DialogTitle>
+            </DialogHeader>
+            <div className="mt-4 flex flex-col flex-grow flex-1">
+              <DialogDescription className="leading-7 text-black text-lg">{service.details.overview}</DialogDescription>
+              <ul>
+                {service.details.extendedServices.map((extendedService, index) => (
+                  <li key={`extendedService-${index + 1}`} className="my-1 text-black text-lg">
+                    <span className="mr-2 text-green-600 font-bold">✔</span>
+                    <span>{extendedService}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
-        <div className="col-span-2 pt-28 px-5 flex flex-col h-full justify-center items-center">
-          <DialogHeader>
-            <div className="w-72 mx-auto p-4">
-              <Gif src={service.icon} />
+            <div className="flex justify-center m-10">
+              <ButtonContact
+                title="Free Consultasion!"
+                className="font-semibold py-2 px-4 rounded-lg mt-5 shadow-md self-center text-sm md:text-base"
+              />
             </div>
-            <DialogTitle className="font-bold text-center text-xl text-black">
-              <span className="border-b-4 border-[#3A9DA1] inline-block pb-2">{service.title}</span>
-            </DialogTitle>
-          </DialogHeader>
-          <div className="mt-4 flex flex-col flex-grow flex-1">
-            <DialogDescription className="leading-7 text-black text-lg">{service.details.overview}</DialogDescription>
-            {service.details.extendedServices.map((extendedService, index) => (
-              <p key={`extendedService-${index + 1}`} className="my-1 text-black text-lg">
-                <span className="mr-2 text-green-600 font-bold">✔</span>
-                <span>{extendedService}</span>
-              </p>
-            ))}
-          </div>
-          <div className="flex justify-center mt-auto mb-10">
-            <ButtonContact
-              title="Free Consultasion!"
-              className="font-semibold py-2 px-4 rounded-lg mt-5 shadow-md self-center text-sm md:text-base"
-            />
           </div>
         </div>
       </div>

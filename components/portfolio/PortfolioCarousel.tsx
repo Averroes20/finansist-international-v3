@@ -38,7 +38,7 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
   return (
     <div>
       <TitleSection className="mb-5">{title}</TitleSection>
-      <AnimatedComponent effect="scale" className="flex flex-col">
+      <AnimatedComponent effect="fade-up" once={true} className="flex flex-col">
         <Carousel
           className="w-full max-w-5xl mx-auto"
           opts={{ loop: true }}
@@ -75,10 +75,10 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
           ))}
         </div>
       </AnimatedComponent>
-      <div className="flex flex-row items-center min-w-fit mx-5 space-x-2 mt-14 flex-wrap justify-center">
+      <div className="grid grid-cols-2 md:flex md:flex-row md:items-center min-w-fit md:mx-5 md:space-x-2 mt-14 md:flex-wrap justify-center">
         {software.map((item, index) => (
-          <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit mx-5 space-x-2 p-3">
-            <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] border-0" />
+          <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit md:mx-5 space-x-2 p-3">
+            <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] border-0 object-contain" />
             <span>{item.label}</span>
           </div>
         ))}

@@ -13,7 +13,7 @@ const SoftwareSlider = () => {
         <div className="flex flex-row whitespace-nowrap animate-slider" style={{ willChange: 'transform' }}>
           {softwareList.map((item, index) => (
             <div key={`software-${index + 1}`} className="flex flex-row items-center min-w-fit mx-5 space-x-2">
-              <Image src={item.value} alt={item.label} width={1000} height={1000} className="h-full w-[60px] object-contain rounded-full" />
+              <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[60px] object-contain" />
               <p className="text-lg">{item.label}</p>
             </div>
           ))}

@@ -20,7 +20,7 @@ import { useCallback, useEffect, useState } from 'react';
 const BlogForm = dynamic(() => import('@/components/blog/BlogForm'));
 const ActionDelete = dynamic(() => import('@/components/common/ActionDelete'));
 
-const limit = 10;
+const limit = 5;
 const BlogsAdmin: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [blogId, setBlogId] = useState<number | null>(null);

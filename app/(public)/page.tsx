@@ -1,5 +1,3 @@
-import AboutUs from '@/components/AboutUs';
-import FAQ from '@/components/FAQ';
 import Intro from '@/components/Intro';
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
@@ -9,8 +7,13 @@ const Profile = dynamic(() => import('@/components/Profile'), {
   loading: () => <p>Loading Portfolio...</p>,
 });
 
+const AboutUs = dynamic(() => import('@/components/AboutUs'), {
+  ssr: false,
+  loading: () => <p>Loading Portfolio...</p>,
+});
+
 const Portfolio = dynamic(() => import('@/components/Portfolio'), {
-  ssr: true,
+  ssr: false,
   loading: () => <p>Loading Portfolio...</p>,
 });
 
@@ -24,6 +27,16 @@ const Services = dynamic(() => import('@/components/Services'), {
   loading: () => <p>Loading Services...</p>,
 });
 
+const ValueCompany = dynamic(() => import('@/components/ValueCompany'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+
+const ServicePromotion = dynamic(() => import('@/components/ServicePromotion'), {
+  ssr: false,
+  loading: () => <p>Loading ...</p>,
+});
+
 const Blogs = dynamic(() => import('@/components/Blogs'), {
   ssr: true,
   loading: () => <p>Loading Blogs...</p>,
@@ -34,14 +47,9 @@ const Careers = dynamic(() => import('@/components/Careers'), {
   loading: () => <p>Loading Careers...</p>,
 });
 
-const ValueCompany = dynamic(() => import('@/components/ValueCompany'), {
+const FAQ = dynamic(() => import('@/components/FAQ'), {
   ssr: false,
-  loading: () => <p>Loading...</p>,
-});
-
-const ServicePromotion = dynamic(() => import('@/components/ServicePromotion'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
+  loading: () => <p>Loading FAQ...</p>,
 });
 
 const ButtonContact = dynamic(() => import('@/components/common/ButtonContact'));

@@ -3,9 +3,9 @@ import { useLanguage } from '@/context/LanguageProvider';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { memo } from 'react';
-import SoftwareSlider from './common/SoftwareSlider';
+import SoftwareSlider from '@/components/common/SoftwareSlider';
+import ProfitAnimated from '@/components/animation/profit-animated';
 
-const ProfitAnimated = dynamic(() => import('@/components/animation/profit-animated'), { ssr: false });
 const Achievements = dynamic(() => import('@/components/common/AchievementCard'), { ssr: false });
 
 const Intro = () => {
@@ -49,19 +49,19 @@ const Intro = () => {
             </div>
           </div>
 
-          <div className="flex flex-col overflow-hidden motion-translate-x-in-[100%] motion-translate-y-in-[0%] motion-duration-[1.13s] motion-duration-[1.50s]/translate motion-ease-spring-bouncy">
+          <div className="flex flex-col my-auto gap-y-4 overflow-hidden motion-translate-x-in-[100%] motion-translate-y-in-[0%] motion-duration-[1.13s] motion-duration-[1.50s]/translate motion-ease-spring-bouncy">
             <ProfitAnimated />
             <div className="flex flex-row gap-1 justify-center sm:gap-4 md:gap-7">
               <Achievements data={achievements || []} />
             </div>
-            <div className="flex flex-col space-y-4 py-10 mt-auto">
-              <p className="text-base font-libreBaskerville text-black opacity-60 text-center">{softwareTitle}</p>
-              <SoftwareSlider />
-            </div>
           </div>
         </div>
+        <div className="flex flex-col space-y-4 pt-8 mt-auto">
+          <p className="text-base font-libreBaskerville text-black opacity-60 text-center">{softwareTitle}</p>
+          <SoftwareSlider />
+        </div>
       </div>
-      <div className="h-40 relative" aria-label="wave">
+      <div className="h-24 relative" aria-label="wave">
         <Image src="/waves/wave-up.svg" alt="Layer 1" fill priority className="object-cover absolute bottom-2" />
       </div>
     </section>

@@ -1,12 +1,12 @@
 'use client';
+import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtube } from '@/components/icons/social-media';
 import { images } from '@/constants/images';
+import { useLanguage } from '@/context/LanguageProvider';
+import { useSocialMedia } from '@/context/SocialMediaProvider';
 import { Clipboard, ClipboardCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useState } from 'react';
-import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtube } from '@/components/icons/social-media';
-import { useLanguage } from '@/context/LanguageProvider';
-import { useSocialMedia } from '@/context/SocialMediaProvider';
 
 const Footer = () => {
   const { dictionary } = useLanguage();
@@ -30,7 +30,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-white py-10 shadow-inner">
-      <div className="container grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto px-0 md:px-36 ">
+      <div className="container grid grid-cols-1 md:grid-cols-3 gap-5 mx-auto px-5 ">
         <div className="flex flex-col gap-4 px-10 items-center justify-center">
           <Image src={images.LogoLarge} alt="Logo" width={1000} height={1000} loading="lazy" className="w-[700px] object-contain" />
           <Image src={images.Certifications} alt="Certifications" width={1000} height={1000} loading="lazy" className="w-[700px] object-contain" />

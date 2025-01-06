@@ -7,6 +7,7 @@ import { TitleSection } from '@/components/ui/typography';
 import { useDebounce } from '@/hooks/use-debounce';
 import { getBlogs } from '@/lib/action/blog';
 import type { Blog } from '@/lib/type/blog';
+import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 
 const limit = 4;
@@ -64,8 +65,20 @@ const BlogPage = () => {
             <BlogCategory setSearch={setSearch} />
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6">
-          <BlogCard data={data} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-6 relative">
+          {data.length > 0 ? (
+            <BlogCard data={data} />
+          ) : (
+            <div className="w-screen h-[50vh] ">
+              <Image
+                src="/images/blog-not-found.webp"
+                alt="no-data"
+                width={500}
+                height={500}
+                className="w-[350px] h-[350px] object-contain absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+              />
+            </div>
+          )}
         </div>
         <PaginationComponent meta={meta} handlePageChange={handlePageChange} />
       </div>

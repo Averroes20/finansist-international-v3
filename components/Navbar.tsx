@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -14,13 +15,12 @@ import { menuLanguages } from '@/lib/data/navbar';
 import { Language } from '@/lib/type/languange';
 import clsx from 'clsx';
 import { motion, Variants } from 'framer-motion';
-import { ChartCandlestick, ChevronUp, CircleDollarSign, Gem, HandCoins, Landmark, Menu, Wallet, X } from 'lucide-react';
+import { BadgeDollarSign, BarChartBig, BookText, ChevronUp, Cpu, Menu, PieChart, ShieldCheck, UserCheck2, X } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
-import { Button } from './ui/button';
+import { createElement, memo, useCallback, useEffect, useRef, useState } from 'react';
 
 const ButtonContact = dynamic(() => import('@/components/common/ButtonContact'), { ssr: false });
 const Select = dynamic(() => import('@/components/ui/select').then((mod) => mod.Select), { ssr: false });
@@ -47,7 +47,7 @@ const dropdownVariants: Variants = {
   },
 };
 
-const iconServices = [CircleDollarSign, Wallet, HandCoins, Landmark, Gem, ChartCandlestick];
+const iconServices = [BookText, BarChartBig, BadgeDollarSign, ShieldCheck, UserCheck2, PieChart, Cpu];
 
 const Navbar = () => {
   const router = useRouter();
@@ -109,7 +109,7 @@ const Navbar = () => {
         {/* Manu */}
         <div className="hidden w-full md:flex md:flex-row md:w-auto md:space-x-7" id="navbar-multi-level">
           <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
-            <NavigationMenuList className="flex gap-3">
+            <NavigationMenuList className="flex gap-x-5">
               {items?.map((item, index) => (
                 <NavigationMenuItem key={index + 1}>
                   {item.subItems ? (
@@ -123,17 +123,18 @@ const Navbar = () => {
                       >
                         {item.label} <ChevronUp className={`h-4 w-4 ml-1 transition duration-300 ${openDropdown ? '' : 'rotate-180'}`} />
                       </PopoverTrigger>
-                      <PopoverContent className="shadow-lg p-0 mt-4" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                      <PopoverContent className="shadow-lg p-0 mt-4 w-[450px]" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                         <div className="flex gap-4 justify-around">
                           <div className="flex flex-col col-span-1 space-y-3 py-3 px-4">
                             {service?.map((item, index) => (
                               <Link
                                 href={`#${item.link}`}
                                 key={`${index + 1}-${item.link}`}
-                                className="text-sm md:text-base flex items-center gap-4 hover:text-gray-500 hover:bg-transparent"
+                                className="text-base md:text-lg flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md"
                               >
-                                {iconServices[index] && React.createElement(iconServices[index], { className: 'w-6 h-6' })}
+                                <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-8 h-8 text-[#3A9DA1]' })}</span>
                                 {item.title}
+                                {item.newService && <span className="text-xs text-[#3A9DA1] font-bold px-2 py-1 bg-[#98eded] rounded-lg">New</span>}
                               </Link>
                             ))}
                           </div>
@@ -144,7 +145,9 @@ const Navbar = () => {
                     <Link href={item.url ? item.url : '/'} legacyBehavior passHref>
                       <NavigationMenuLink
                         className={clsx(
-                          'uppercase bg-transparent hover:bg-transparent hover:text-gray-500 focus:bg-transparent focus:text-gray-500',
+                          index === 0
+                            ? 'px-3 py-2 bg-blue-950 text-white rounded-md  transform transition-transform duration-300 ease-out hover:bg-blue-900 hover:scale-105 hover:text-white dark:bg-white dark:text-black dark:hover:bg-white dark:hover:text-black mr-5'
+                            : 'uppercase bg-transparent hover:bg-transparent hover:text-gray-500 focus:bg-transparent focus:text-gray-500',
                           navigationMenuTriggerStyle()
                         )}
                         aria-label={item.label}
@@ -160,12 +163,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center">
-          <div className="flex items-center border-r-2">
-            <ButtonContact className="hidden md:flex py-0" title="Free Consultation" />
-            <Button variant="outline" className="hidden md:flex border-blue-900 border-2 text-blue-900 font-semibold ml-5 mr-3">
-              Login
-            </Button>
-          </div>
+          <ButtonContact className="hidden md:flex py-0" title="Free Consultation" />
+          <Button
+            variant="outline"
+            className="hidden md:flex border-blue-900 border-2 text-blue-900 font-semibold ml-6 mr-4 dark:text-white dark:border-white bg-transparent"
+          >
+            Login
+          </Button>
+          <span className="hidden md:flex text-3xl mx-5 font-light text-gray-300 dark:text-white">|</span>
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
             <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
               <SelectValue>
@@ -196,7 +201,7 @@ const Navbar = () => {
           </Select>
 
           {/* Mobile menu */}
-          <motion.nav aria-hidden="true" initial={false} animate={openMenuMobile ? 'open' : 'closed'} className="md:hidden md:ml-4 ">
+          <motion.nav aria-hidden="true" initial={false} animate={openMenuMobile ? 'open' : 'closed'} className="md:hidden">
             <motion.button
               className="lg:hidden rounded-md text-gray-700 hover:bg-gray-200"
               onClick={toggleMobileMenu}
@@ -243,9 +248,13 @@ const Navbar = () => {
                                 <Link
                                   href={`#${item.link}`}
                                   key={`${index + 1}-${item.link}`}
-                                  className={`border-b border-gray-200 py-2 pl-4  ${index === service.length - 1 ? 'border-none' : ''}`}
+                                  className={`border-b border-gray-200 py-2 pl-4  ${
+                                    index === service.length - 1 ? 'border-none' : ''
+                                  } flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md`}
                                 >
+                                  <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-5 h-5 text-[#3A9DA1]' })}</span>
                                   {item.title}
+                                  {item.newService && <span className="text-xs text-[#3A9DA1] font-bold px-2 py-1 bg-[#98eded] rounded-lg">New</span>}
                                 </Link>
                               ))}
                             </div>

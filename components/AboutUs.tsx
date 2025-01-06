@@ -3,7 +3,7 @@ import { TitleSection } from '@/components/ui/typography';
 import { images } from '@/constants/images';
 import { useLanguage } from '@/context/LanguageProvider';
 import Image from 'next/image';
-import AnimatedComponent from './animation/animation-component';
+import AnimatedComponent from '@/components/animation/animation-component';
 
 const AboutUs = () => {
   const { dictionary } = useLanguage();
@@ -14,15 +14,15 @@ const AboutUs = () => {
       <link rel="preload" href="/images/our-journey.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/images/image-ceo.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       {/* About us */}
-      <section id="about-us" className="min-h-screen scroll-mt-20 bg-white dark:bg-slate-800">
-        <div className="h-36 relative" aria-label="wave">
-          <Image src="/waves/wave-down.svg" alt="Layer 1" fill className="object-cover absolute bottom-2" />
+      <section id="about-us" className="scroll-mt-20 bg-white dark:bg-slate-800">
+        <div className="h-24 relative" aria-label="wave">
+          <Image src="/waves/wave-down.svg" alt="Layer 1" fill className="object-cover" />
         </div>
         <div className="flex flex-col space-y-4 container px-5 md:px-0 mx-auto">
-          <TitleSection>{title}</TitleSection>
-          <Image src={images.OurJourney} alt="Our Journey" className="mx-auto aspect-auto w-full md:w-[65%]" loading="lazy" />
-          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row  md:px-32">
-            <AnimatedComponent threshold={0.5} once={true} effect="fade-in-left" className="md:col-span-2 order-2 md:order-1">
+          <TitleSection className="text-center max-w-screen-lg mx-auto">{title}</TitleSection>
+          <Image src={images.OurJourney} alt="Our Journey" className="mx-auto aspect-auto w-full md:w-[55%]" loading="lazy" />
+          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-flow-row gap-5 md:gap-0 md:px-32">
+            <AnimatedComponent threshold={0.5} once={true} effect="fade-in-left" className="md:col-span-2">
               <p data-testid="about-ceo" className="text-center md:text-right text-sm md:text-lg font-facultyGlyphic">
                 &quot;{aboutCEO}&quot;
               </p>
@@ -31,7 +31,7 @@ const AboutUs = () => {
               threshold={0.5}
               once={true}
               effect="fade-in-right"
-              className="flex flex-col md:col-span-1 items-center w-56 gap-2 gap-y-2 md:mb-0 md:gap-0 order-1 md:order-2"
+              className="flex flex-col md:col-span-1 items-center gap-2 gap-y-2 md:mb-0 md:gap-0 md:justify-self-start md:ml-10"
             >
               <Image
                 src={images.ProfileCEO}

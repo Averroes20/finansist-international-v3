@@ -1,23 +1,32 @@
 'use client';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { TitleSection } from '@/components/ui/typography';
 import { useLanguage } from '@/context/LanguageProvider';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
-import { TitleSection } from './ui/typography';
+import Image from 'next/image';
 
 const FAQ: React.FC = () => {
   const { dictionary } = useLanguage();
-  const faq = dictionary?.faq || [];
+  const { title, questions } = dictionary?.faq ?? {};
   return (
-    <section id="faq" className="py-24 space-y-10">
-      <TitleSection>FAQ</TitleSection>
-      <div className="max-w-screen-md m-auto p-4 border rounded-xl">
-        <Accordion type="single" collapsible>
-          {faq.map((item, index) => (
-            <AccordionItem value={`item-${index + 1}`} key={`faq-${index + 1}`}>
-              <AccordionTrigger className="text-lg font font-semibold">{item.question}</AccordionTrigger>
-              <AccordionContent className="text-base">{item.answer}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+    <section id="faq" className="scroll-mt-24">
+      <div className="h-32 relative" aria-label="wave">
+        <Image src="/waves/wave-up.svg" alt="Layer 1" fill className="object-cover" />
+      </div>
+      <div className="bg-[#113870]">
+        <TitleSection className="text-white mx-10 mb-5 md:mx-0 md:mb-10">{title}</TitleSection>
+        <div className="max-w-screen-md p-4 bg-white rounded-xl mx-10 md:mx-auto">
+          <Accordion type="single" collapsible>
+            {questions?.map((item, index) => (
+              <AccordionItem value={`item-${index + 1}`} key={`faq-${index + 1}`}>
+                <AccordionTrigger className="text-lg text-start font-semibold">{item.question}</AccordionTrigger>
+                <AccordionContent className="text-base">{item.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </div>
+      <div className="h-32 relative" aria-label="wave">
+        <Image src="/waves/wave-down.svg" alt="Layer 1" fill className="object-cover" />
       </div>
     </section>
   );

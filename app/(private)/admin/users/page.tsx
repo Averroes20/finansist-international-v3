@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
-import PageUser from './User';
+import dynamic from 'next/dynamic';
+
+const PageUser = dynamic(() => import('./User'));
 
 export const metadata: Metadata = {
   title: 'User | Finansist International',

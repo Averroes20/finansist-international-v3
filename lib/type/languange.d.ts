@@ -21,7 +21,10 @@ export interface Dictionary {
       part1: string;
       part2: Array<string>;
     };
-    description: Array<string>;
+    description: Array<{
+      subtitle: string;
+      description: string;
+    }>;
   };
   about: {
     [key: string]: string;
@@ -52,18 +55,19 @@ export interface Dictionary {
     title: string;
     items: Array<{
       title: string;
+      newService: boolean;
       link: string;
       icon: string;
-      price: string;
-      tagPrice: string;
-      shortDescription: string[];
+      tags: string[];
+      benefits: string[];
+      prices: {
+        label: string;
+        price: string;
+        desc: string;
+      };
       details: {
         overview: string;
         extendedServices: string[];
-        benefits: {
-          title: string;
-          items: string[];
-        }[];
       };
     }>;
   };
@@ -80,7 +84,10 @@ export interface Dictionary {
       color: string;
     }>;
   };
-  faq: Array<{ question: string; answer: string }>;
+  faq: {
+    title: string;
+    questions: Array<{ question: string; answer: string }>;
+  };
 }
 
 export interface LanguageContextType {

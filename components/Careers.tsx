@@ -5,8 +5,8 @@ import { useLanguage } from '@/context/LanguageProvider';
 import { useToast } from '@/hooks/use-toast';
 import { submitInternshipRequest, submitJobRequest, submitPartnershipRequest } from '@/lib/action/send-email';
 import { useState } from 'react';
-import AnimatedComponent from './animation/animation-component';
-import { TitleSection } from './ui/typography';
+import AnimatedComponent from '@/components/animation/animation-component';
+import { TitleSection } from '@/components/ui/typography';
 
 type Action = (formData: FormData) => Promise<{ success: boolean; error?: string; message?: string }>;
 
@@ -52,17 +52,16 @@ const Careers = () => {
 
   return (
     <section
-      id="career"
-      className="relative min-h-screen overflow-hidden bg-cover bg-center bg-fixed"
+      className="relative overflow-hidden h-full bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(/images/bg-cover-career.webp)` }}
       aria-labelledby="career-title"
     >
       <link rel="preload" href="/images/bg-cover-career.webp" as="image" type="image/webp" media="(min-width: 1px)" />
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-5 md:p-0 md:h-[70vh] bg-black bg-opacity-30">
-        <TitleSection id="career-title" className="mb-10 md:mb-32 text-white">
+      <div id="career" className="relative z-10 flex flex-col items-center justify-center md:p-20 bg-black bg-opacity-30 scroll-mt-96">
+        <TitleSection id="career-title" className="mb-10 text-white scroll-mt-96">
           {title}
         </TitleSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg lg:max-w-screen-xl lg:h-[55vh] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10  max-w-screen-lg lg:max-w-screen-xl mx-auto px-10 mb-20 md:mb-0 md:px-0">
           {items?.map((item, index) => (
             <AnimatedComponent
               once={true}

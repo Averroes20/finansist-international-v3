@@ -11,10 +11,6 @@
         "url": "/#"
       },
       {
-        "label": "Harga",
-        "url": "/#pricing"
-      },
-      {
         "label": "Karier",
         "url": "/#career"
       },
@@ -55,7 +51,7 @@
   },
   "about": {
     "title": "KAMI MELAYANI BERAGAM JENIS KLIEN DARI SELURUH DUNIA",
-    "aboutCEO": "Dengan pengalaman lebih dari satu dekade, Finansist telah berkembang dari penyedia layanan lokal menjadi perusahaan yang diakui secara global, melayani klien di seluruh dunia. Dengan keahlian dalam regulasi internasional, kami memanfaatkan teknologi terkini untuk memberikan layanan pembukuan dan persiapan pajak yang mulus, di mana pun Anda berada. Berbasis di Indonesia, lokasi strategis kami memungkinkan kami menawarkan solusi yang hemat biaya dan secara konsisten melampaui ekspektasi, memberikan nilai luar biasa dibandingkan pasar lainnya."
+    "aboutCEO": "Dengan pengalaman lebih dari satu dekade, Finansialku telah berevolusi dari penyedia layanan lokal menjadi penyedia layanan yang diakui secara global. Melayani klien di seluruh dunia, dengan spesialisasi pada peraturan internasional. Kami memanfaatkan teknologi mutakhir untuk memberikan layanan pembukuan dan persiapan pajak tanpa hambatan, di mana pun Anda berada. Berbasis di Indonesia, lokasi kami yang strategis memungkinkan kami untuk menawarkan solusi hemat biaya yang secara konsisten melebihi ekspektasi, memberikan nilai yang luar biasa dibandingkan dengan pasar lainnya."
   },
   "whyFinansist": {
     "tagsLine": {
@@ -69,8 +65,18 @@
       ]
     },
     "description": [
-      "Hemat biaya perekrutan Anda dengan layanan keuangan profesional kami. Para profesional bersertifikasi internasional kami akan menangani kebutuhan Anda dengan presisi untuk hasil yang mulus dan hemat biaya.",
-      "Bagikan gambaran umum tentang situasi perusahaan Anda saat ini, sehingga kami dapat memberikan proposal yang akurat dan sesuai dengan kebutuhan Anda. Kami percaya bahwa akuntansi adalah fondasi penting untuk kesuksesan bisnis, tetapi tidak seharusnya menjadi beban yang berlebihan. Dengan pendekatan yang fleksibel, kami memastikan layanan kami disesuaikan dengan kemampuan dan kondisi Anda, memberikan nilai maksimal tanpa biaya yang berlebihan. Mari bekerja sama untuk menciptakan solusi akuntansi yang efisien dan terjangkau untuk mendukung pertumbuhan bisnis Anda."
+      {
+        "subtitle": "Menghemat biaya rekrutmen Anda dengan lebih banyak manfaat",
+        "description": "Profesional bersertifikat internasional kami akan menangani kebutuhan Anda dengan presisi untuk hasil yang mulus, hemat biaya, dan tanpa drama."
+      },
+      {
+        "subtitle": "Kami menyediakan layanan yang sesuai dengan kebutuhan Anda",
+        "description": "Bagikan kepada kami gambaran situasi perusahaan Anda saat ini, sehingga kami dapat memberikan proposal yang adil dan sesuai dengan kebutuhan Anda. Kami percaya akuntansi adalah fondasi penting untuk kesuksesan bisnis, namun tidak seharusnya menjadi beban."
+      },
+      {
+        "subtitle": "Layanan kami disesuaikan dengan kemampuan Anda",
+        "description": "Dengan pendekatan yang fleksibel, kami memberikan nilai maksimal tanpa biaya yang berlebihan. Mari bekerja sama untuk menciptakan solusi akuntansi yang efisien dan terjangkau untuk mendukung pertumbuhan bisnis Anda."
+      }
     ]
   },
   "financialSupport": {
@@ -102,12 +108,12 @@
   },
   "valueCompany": {
     "title": {
-      "part1": "Menjadi",
-      "part2": "Solusi Effektif"
+      "part1": "Menjadi solusi yang sempurna",
+      "part2": "Melawan kerepotan memiliki karyawan"
     },
     "items": [
       {
-        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "title": "Biaya yang Lebih Tinggi",
         "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
         "urlImage": "/images/earth.png",
         "contentModal": {
@@ -117,7 +123,7 @@
         }
       },
       {
-        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "title": "Keterbatasan Keahlian",
         "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
         "urlImage": "/images/earth.png",
         "contentModal": {
@@ -127,7 +133,7 @@
         }
       },
       {
-        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "title": "Fleksibilitas yang Terbatas",
         "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
         "urlImage": "/images/earth.png",
         "contentModal": {
@@ -137,7 +143,7 @@
         }
       },
       {
-        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "title": "Peningkatan Beban Manajerial",
         "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
         "urlImage": "/images/earth.png",
         "contentModal": {
@@ -147,7 +153,7 @@
         }
       },
       {
-        "title": "C02 AI mengumpulkan 12 juta USD dalam pendanaan awal",
+        "title": "Kemampuan Menghadapi Perubahan Regulasi",
         "description": "Investasi ini memungkinkan CO2 AI untuk memperluas jejak mereka di seluruh Eropa dan Amerika Utara, membantu perusahaan mengukur, mengurangi, dan mengelola emisi karbon mereka secara efektif, menempatkan diri mereka sebagai pemimpin dalam manajemen keberlanjutan.",
         "urlImage": "/images/earth.png",
         "contentModal": {
@@ -159,281 +165,252 @@
     ]
   },
   "services": {
-    "title": "Harga Kami",
+    "title": "Layanan Kami",
     "items": [
       {
         "title": "Akuntansi & Pembukuan",
         "link": "accounting-and-bookkeeping",
         "icon": "/animate/bookkeeping.lottie",
-        "price": "3.500",
-        "tagPrice": "Mulai dari",
-        "shortDescription": [
-          "Menyusun Bagian Akun",
-          "Entry Jurnal",
-          "Usia Hutang dan Piutang",
-          "Pencatatan Inventaris",
-          "Rekonsiliasi Bank",
-          "Laporan Keuangan",
-          "Membuat Faktur dan Mengirim Tagihan",
-          "Rekap Transaksi dan Biaya"
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "3.500.000",
+          "desc": "Berdasarkan pendapatan dan kompleksitas"
+        },
+        "benefits": [
+          "Penyusunan laporan keuangan (contoh: neraca, laporan laba rugi, laporan arus kas)",
+          "Pembuatan anggaran dan proyeksi keuangan",
+          "Pengawasan buku besar umum",
+          "Analisis dan pelaporan keuangan",
+          "Manajemen aset tetap",
+          "Analisis varians (ROI, BEP, dll.)",
+          "Penyusunan dan pemeliharaan bagan akun",
+          "Pelaporan khusus untuk wawasan bisnis",
+          "Pencatatan transaksi keuangan harian",
+          "Rekonsiliasi bank, kartu kredit, dan pinjaman",
+          "Pemeliharaan buku besar umum",
+          "Manajemen utang dan piutang",
+          "Alokasi penggajian",
+          "Pelacakan dan pengkategorian pengeluaran",
+          "Persiapan neraca saldo",
+          "Manajemen arus kas"
         ],
         "details": {
-          "overview": "Kami menyediakan layanan akuntansi dan pembukuan profesional untuk memastikan catatan keuangan Anda akurat dan terbaru. Layanan kami mencakup pembukuan, penyusunan laporan keuangan, dan analisis bisnis, membantu Anda membuat keputusan keuangan yang tepat:",
+          "overview": "Layanan kami berfokus pada memberikan solusi manajemen keuangan menyeluruh yang mencakup penyusunan laporan keuangan yang akurat, pembukuan yang efisien, dan optimalisasi arus kas. Kami menyederhanakan proses akuntansi dengan pemeliharaan buku besar yang kokoh, rekonsiliasi, dan pelacakan pengeluaran. Melalui pelaporan khusus, analisis varians, dan wawasan bisnis yang disesuaikan, kami memungkinkan pengambilan keputusan yang lebih baik. Selain itu, kami memastikan manajemen utang, piutang, dan penggajian berjalan lancar, disertai anggaran dan perencanaan strategis untuk mendukung pertumbuhan dan stabilitas keuangan.",
           "extendedServices": [
-            "Laporan keuangan yang akurat untuk panduan strategi bisnis.",
-            "Review pembukuan untuk memastikan catatan yang akurat.",
-            "Analisis bisnis untuk profitabilitas dan efisiensi.",
-            "Bantuan dalam persiapan pajak."
-          ],
-          "benefits": [
-            {
-              "title": "-",
-              "items": [
-                "Menyusun bagian akun",
-                "Entry jurnal",
-                "Usia hutang dan piutang",
-                "Pencatatan inventaris",
-                "Arsip transaksi",
-                "Rekonsiliasi bank",
-                "Review pembukuan",
-                "Neraca keuangan",
-                "Laporan laba rugi",
-                "Manajemen arus kas",
-                "Pembukuan akhir tahun"
-              ]
-            },
-            {
-              "title": "Layanan Tambahan",
-              "items": [
-                "Membuat faktur",
-                "Mengirim tagihan",
-                "Rekap transaksi dan biaya",
-                "Perhitungan HPP",
-                "Analisis break-even",
-                "Perhitungan ROI",
-                "Persiapan laporan investasi/LKPM"
-              ]
-            }
+            "Manajemen Keuangan Menyeluruh",
+            "Proses Akuntansi yang Disederhanakan",
+            "Efisiensi Operasional dan Optimalisasi Arus Kas",
+            "Pelaporan dan Wawasan yang Disesuaikan"
           ]
         }
       },
       {
-        "title": "Laporan Pajak",
-        "link": "tax-reporting",
+        "title": "Laporan Pajak dan Perencanaan",
+        "link": "tax-reporting-planning",
         "icon": "/animate/tax-reporting.lottie",
-        "price": "1.500",
-        "tagPrice": "Mulai dari",
-        "shortDescription": [
-          "Pelaporan Pajak Perusahaan dan Pribadi",
-          "Perhitungan Pajak Penghasilan",
-          "Pengisian Formulir E-SPT",
-          "Perencanaan Pajak",
-          "Koreksi Fiskal",
-          "Kepatuhan Pajak Internasional",
-          "Manajemen PPN",
-          "SP2DK - Bantuan Audit Pajak"
+        "newService": false,
+        "tags": [
+          "Bulanan",
+          "Tahunan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "1.500.000",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
+          "Perencanaan dan strategi pajak",
+          "Pelaporan dan pengajuan pajak penjualan",
+          "Kepatuhan dan pelaporan PPN/GST",
+          "Pelaporan dan pengajuan pajak pemotongan",
+          "Pajak nasional Indonesia dan perwakilan otoritas pajak daerah",
+          "Layanan konsultasi pajak",
+          "Dukungan dalam audit pajak",
+          "Bantuan terkait PPN, pajak internasional, dan penyesuaian fiskal",
+          "Perhitungan pajak penghasilan yang akurat"
         ],
         "details": {
-          "overview": "Layanan pajak profesional kami memastikan kepatuhan pajak yang efisien dan akurat, termasuk pelaporan pajak perusahaan dan pribadi, perhitungan pajak penghasilan, dan perencanaan pajak yang komprehensif. Dukungan tambahan mencakup koreksi fiskal, kepatuhan pajak internasional, dan lainnya:",
+          "overview": "Layanan pajak kami memberikan solusi menyeluruh untuk memenuhi semua kebutuhan kepatuhan dan perencanaan pajak Anda. Kami memastikan persiapan dan pengajuan laporan pajak penghasilan yang akurat untuk individu, korporasi, dan kemitraan, serta kepatuhan penuh terhadap regulasi PPN/GST, pajak penjualan, dan pajak pemotongan. Layanan perencanaan strategis dan konsultasi pajak kami dirancang untuk meminimalkan kewajiban, memaksimalkan penghematan, dan menangani masalah pajak yang kompleks seperti pajak internasional dan penyesuaian fiskal. Kami juga menawarkan perwakilan profesional dengan otoritas pajak serta bantuan dalam audit pajak, memastikan operasi berjalan lancar dan sesuai aturan. Solusi khusus disesuaikan dengan kebutuhan bisnis Anda, menawarkan wawasan tentang kredit pajak, pengurangan, dan strategi untuk mengoptimalkan hasil keuangan.",
           "extendedServices": [
-            "Perhitungan pajak penghasilan yang akurat (misalnya Pajak Penghasilan 21, 22).",
-            "Persiapan dokumen dan kepatuhan terhadap tenggat waktu.",
-            "Dukungan untuk audit pajak dan kepatuhan SP2DK.",
-            "Bantuan dengan PPN, pajak internasional, dan penyesuaian fiskal."
-          ],
-          "benefits": [
-            {
-              "title": "-",
-              "items": [
-                "Pelaporan pajak perusahaan dan pribadi",
-                "Perhitungan pajak penghasilan",
-                "Pencetakan tagihan pajak",
-                "Pengisian formulir E-SPT",
-                "Sertifikat pajak potong",
-                "Perencanaan pajak"
-              ]
-            },
-            {
-              "title": "Layanan Tambahan",
-              "items": [
-                "Koreksi fiskal",
-                "Kepatuhan pajak internasional",
-                "PPN (masukan dan keluaran)",
-                "SP2DK - Bantuan audit pajak",
-                "Pengisian formulir DGT-1",
-                "Penanganan formulir elektronik"
-              ]
-            }
+            "Kepatuhan Pajak yang Komprehensif",
+            "Perencanaan dan Konsultasi Pajak Strategis",
+            "Perwakilan dan Dukungan",
+            "Solusi Khusus untuk Kebutuhan Pajak yang Kompleks"
           ]
         }
       },
       {
-        "title": "Penggajian",
-        "link": "payroll",
-        "icon": "/animate/payroll.lottie",
-        "price": "500",
-        "tagPrice": "Mulai dari",
-        "shortDescription": [
-          "Pelacakan Kehadiran Karyawan",
-          "Perhitungan Gaji dan Pajak Penghasilan 21",
-          "Pengisian Formulir E-SPT",
-          "Sertifikat Pajak Potong",
-          "Administrasi Manfaat Karyawan",
-          "Transfer Gaji Massal",
-          "Rekap Gaji dan Pajak Bulanan",
-          "Pelacakan Pinjaman dan Penggantian Karyawan"
-        ],
-        "details": {
-          "overview": "Layanan penggajian kami mencakup penggajian yang akurat, kepatuhan pajak, dan manajemen manfaat untuk memastikan pembayaran karyawan tepat waktu dan kepatuhan terhadap peraturan:",
-          "extendedServices": [
-            "Pelacakan kehadiran dan gaji.",
-            "Pengolahan Pajak Penghasilan 21 dan pengisian E-SPT.",
-            "Manajemen manfaat (BPJS, asuransi, dll.).",
-            "Dukungan untuk transfer gaji dan dokumentasi penggajian."
-          ],
-          "benefits": [
-            {
-              "title": "-",
-              "items": [
-                "Pelacakan kehadiran karyawan",
-                "Perhitungan gaji",
-                "Perhitungan Pajak Penghasilan 21",
-                "Pencetakan tagihan pajak",
-                "Pengisian formulir E-SPT",
-                "Sertifikat pajak potong",
-                "Manajemen manfaat BPJS, asuransi, dll."
-              ]
-            },
-            {
-              "title": "Layanan Tambahan",
-              "items": [
-                "Transfer gaji massal",
-                "Rekap gaji dan pajak bulanan",
-                "Pelacakan pinjaman dan penggantian karyawan"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "title": "Layanan CFO",
-        "link": "cfo-services",
+        "title": "Manajemen CFO",
+        "link": "cfo-management",
         "icon": "/animate/cfo.lottie",
-        "price": "3.500",
-        "tagPrice": "Mulai dari",
-        "shortDescription": [
-          "Paket Pembukuan Lengkap",
-          "Paket Pelaporan Pajak Lengkap",
-          "Paket Penggajian Lengkap",
-          "Strategi dan Analisis Keuangan",
-          "Strategi dan Perencanaan Pajak"
+        "newService": true,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "6.000.000",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Kepemimpinan keuangan strategis untuk menyelaraskan tujuan bisnis dengan strategi keuangan.",
+          "Pengawasan tim dan proses akuntansi untuk memastikan efisiensi dan akurasi.",
+          "Analisis kinerja bisnis untuk mengevaluasi KPI dan mengidentifikasi peluang perbaikan.",
+          "Perencanaan dan strategi keuangan mendalam untuk pertumbuhan jangka panjang dan adaptasi pasar.",
+          "Strategi pengendalian dan pengurangan biaya untuk meningkatkan margin keuntungan.",
+          "Optimalisasi efisiensi operasional untuk memperlancar proses dan mengurangi inefisiensi.",
+          "Analisis keuangan menyeluruh, termasuk laporan manajemen dan penilaian titik impas.",
+          "Pemantauan kinerja dengan pelacakan KPI untuk memastikan tercapainya tujuan strategis.",
+          "Manajemen risiko keuangan untuk mengurangi potensi ancaman terhadap stabilitas bisnis.",
+          "Perencanaan dan penganggaran keuangan jangka panjang untuk kesuksesan yang berkelanjutan."
         ],
         "details": {
-          "overview": "Layanan CFO kami mencakup semua aspek manajemen keuangan Anda, termasuk:",
+          "overview": "Layanan CFO yang ditingkatkan ini dirancang untuk memberikan kepemimpinan keuangan strategis, wawasan yang dapat ditindaklanjuti, dan dukungan operasional menyeluruh bagi bisnis, memungkinkan kesuksesan di pasar yang kompetitif.",
           "extendedServices": [
-            "Semua dalam pembukuan, seperti entry jurnal, usia hutang/piutang, laporan keuangan, dan rekonsiliasi bank.",
-            "Semua dalam pelaporan pajak, seperti pelaporan pajak perusahaan dan pribadi, perhitungan pajak penghasilan, dan perencanaan pajak.",
-            "Semua dalam penggajian, termasuk pelacakan kehadiran karyawan, perhitungan gaji, dan manajemen manfaat.",
-            "Ditambah strategi keuangan dan perencanaan tingkat lanjut, termasuk strategi keuangan jangka panjang, anggaran, pengendalian arus kas, dan strategi efisien pajak untuk kepatuhan perusahaan."
-          ],
-          "benefits": [
-            {
-              "title": "-",
-              "items": [
-                "Semua Paket Dasar Pembukuan",
-                "Semua Paket Dasar Pelaporan Pajak",
-                "Semua Paket Dasar Penggajian"
-              ]
-            },
-            {
-              "title": "Strategi Keuangan, Perencanaan & Analisis",
-              "items": [
-                "Mengembangkan Strategi Keuangan Jangka Panjang.",
-                "Membuat Anggaran dan Perkiraan Keuangan.",
-                "Manajemen dan Pengendalian Arus Kas.",
-                "Menyusun dan Menyajikan Laporan Keuangan.",
-                "Memantau Kinerja Bisnis dan Keuangan."
-              ]
-            },
-            {
-              "title": "Strategi & Perencanaan Pajak",
-              "items": [
-                "Pengembangan strategi efisien pajak",
-                "Pengawasan kepatuhan pajak perusahaan"
-              ]
-            }
+            "Layanan CFO kami menyediakan kepemimpinan keuangan holistik, konsultasi strategis, dan pengoptimalan kinerja untuk mendorong pertumbuhan bisnis, stabilitas, dan keunggulan operasional. Kami menggabungkan strategi keuangan dengan akuntansi manajemen yang mendalam, konsultasi bisnis, dan wawasan operasional untuk memastikan perusahaan Anda mencapai tujuan jangka panjangnya.",
+            "Kepemimpinan Keuangan Strategis memastikan bahwa strategi keuangan Anda mendukung pertumbuhan berkelanjutan. Tim kami mengawasi tim dan proses akuntansi, memastikan pelaporan keuangan yang akurat dan operasi yang efisien, sekaligus menetapkan praktik terbaik untuk alur kerja yang lebih lancar.",
+            "Melalui konsultasi strategi kinerja bisnis dan keuangan, kami melakukan analisis kinerja bisnis menyeluruh, mengevaluasi KPI, dan mengembangkan rencana keuangan jangka panjang yang selaras dengan tujuan bisnis Anda. Hal ini memastikan pengoptimalan operasional dan peningkatan profitabilitas.",
+            "Layanan akuntansi manajemen dan pengoptimalan kinerja kami mencakup pelaporan manajemen, analisis biaya-manfaat dan titik impas, serta pelacakan KPI. Ini memungkinkan pengambilan keputusan yang tepat berbasis data untuk meningkatkan efisiensi operasional dan mengurangi biaya.",
+            "Selain itu, layanan manajemen risiko keuangan kami mengidentifikasi risiko potensial dan menerapkan strategi untuk menguranginya, memastikan bisnis Anda tetap tangguh di pasar yang dinamis. Dikombinasikan dengan pengendalian biaya dan optimalisasi, kami membantu mengurangi pengeluaran operasional sambil mempertahankan kualitas dan produktivitas.",
+            "Terakhir, perencanaan dan penganggaran keuangan jangka panjang memastikan alokasi sumber daya yang tepat dan adaptasi terhadap perubahan pasar, memberikan peta jalan untuk pertumbuhan yang berkelanjutan."
           ]
         }
       },
       {
-        "title": "Layanan Audit",
+        "title": "Audit, Jaminan, dan Layanan Manajemen Risiko",
         "link": "audit-services",
         "icon": "/animate/audit.lottie",
-        "price": "3.500",
-        "tagPrice": "Mulai dari",
-        "shortDescription": [
-          "Audit Internal (Laporan kondisi perusahaan, Penyesuaian audit keuangan, Rekomendasi perbaikan)",
-          "Audit Eksternal (Laporan Akuntan Publik Bersertifikat)"
+        "newService": false,
+        "tags": [
+          "Perusahaan",
+          "Hubungi Kami"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Audit internal dan eksternal",
+          "Audit laporan keuangan",
+          "Audit forensik",
+          "Audit kepatuhan",
+          "Penilaian dan manajemen risiko",
+          "Audit kinerja",
+          "Uji tuntas untuk merger dan akuisisi"
         ],
         "details": {
-          "overview": "Kami menyediakan layanan audit internal dan eksternal untuk memastikan bisnis Anda beroperasi secara efisien dan sesuai dengan standar industri:",
+          "overview": "Layanan audit dan jaminan kami menyediakan pendekatan komprehensif terhadap transparansi keuangan, manajemen risiko, dan efisiensi operasional. Kami melakukan audit internal dan eksternal, termasuk audit laporan keuangan dan audit forensik, untuk memastikan akurasi dan mendeteksi ketidaksesuaian atau kecurangan. Audit kepatuhan kami menilai kepatuhan terhadap persyaratan regulasi, sementara layanan penilaian dan manajemen risiko membantu mengidentifikasi dan mengurangi potensi risiko keuangan. Selain itu, kami melakukan audit kinerja untuk mengevaluasi dan meningkatkan efektivitas operasional, memberikan wawasan berharga untuk meningkatkan produktivitas. Dalam dukungan bisnis strategis, kami menawarkan layanan uji tuntas untuk merger dan akuisisi, memastikan evaluasi menyeluruh terhadap kesehatan keuangan dan risiko untuk mendukung pengambilan keputusan yang tepat. Layanan ini secara keseluruhan memastikan integritas keuangan, kepatuhan, dan peningkatan kinerja, memberikan dasar yang kokoh untuk pertumbuhan dan kesuksesan bisnis.",
           "extendedServices": [
-            "Audit Internal, memberikan laporan auditor internal tentang kondisi perusahaan saat ini, potensi risiko, dan penyesuaian untuk audit keuangan, serta rekomendasi perbaikan yang dapat diterapkan.",
-            "Audit Eksternal, menyampaikan laporan auditor independen yang ditandatangani oleh Akuntan Publik Bersertifikat untuk memastikan kepatuhan dan kredibilitas."
-          ],
-          "benefits": [
-            {
-              "title": "Audit Internal",
-              "items": [
-                "Laporan Auditor Internal tentang kondisi perusahaan saat ini, disertai penjelasan risiko potensial yang dihadapi perusahaan.",
-                "Penyesuaian jurnal (untuk kebutuhan audit keuangan)",
-                "Rekomendasi perbaikan berdasarkan temuan audit"
-              ]
-            },
-            {
-              "title": "Audit Eksternal",
-              "items": [
-                "Laporan Auditor Independen yang ditandatangani oleh Akuntan Publik Bersertifikat"
-              ]
-            }
+            "Layanan Audit Komprehensif",
+            "Jaminan Regulasi dan Kepatuhan",
+            "Audit Kinerja dan Operasional",
+            "Dukungan Bisnis Strategis"
           ]
         }
       },
       {
-        "title": "Perangkat Lunak Akuntansi",
-        "link": "accounting-software",
-        "icon": "/animate/accounting-software.lottie",
-        "price": "3.500",
-        "tagPrice": "Mulai dari",
-        "shortDescription": [
-          "Instalasi dan Pengaturan Perangkat Lunak",
-          "Migrasi File",
-          "Transisi Bagian Akun",
-          "Pengaturan Daftar Produk dan Layanan",
-          "Pembukuan Catch-Up"
+        "title": "Layanan Pengelolaan Penggajian dan Manfaat Karyawan",
+        "link": "payroll",
+        "icon": "/animate/payroll.lottie",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "500.000",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Perhitungan dan pemrosesan penggajian",
+          "Kepatuhan pajak penggajian dan pelaporan/ Pelaporan PPh 21 Karyawan (Indonesia)",
+          "Pembuatan slip gaji dan ringkasan pembayaran",
+          "Administrasi manfaat karyawan/ atau BPJS Kesehatan (Indonesia) dan manfaat tambahan lainnya",
+          "Penanganan pemotongan pajak karyawan",
+          "Pengelolaan program pensiun dan superannuation/ atau BPJS Ketenagakerjaan (Indonesia)"
         ],
         "details": {
-          "overview": "Layanan kami menyediakan instalasi dan pengaturan perangkat lunak akuntansi yang tepat untuk bisnis Anda, serta pembukuan catch-up untuk periode sebelumnya. Kami menjalankan berbagai perangkat lunak seperti QuickBooks, Xero, Accurate, dan platform terkemuka lainnya. Kami juga membantu migrasi dari sistem Anda saat ini untuk memastikan transisi yang lancar:",
+          "overview": "Layanan penggajian dan manfaat karyawan kami memastikan pengelolaan yang efisien dan patuh terhadap semua aspek kompensasi dan kesejahteraan karyawan. Kami menangani perhitungan dan pemrosesan penggajian yang akurat, pembuatan slip gaji, dan ringkasan pembayaran untuk transparansi. Layanan kami mencakup kepatuhan penuh terhadap pajak, termasuk pelaporan PPh 21 Karyawan di Indonesia, serta pengelolaan pemotongan pajak karyawan untuk menghindari masalah dengan otoritas pajak. Kami juga mengelola manfaat karyawan, termasuk jaminan kesehatan (BPJS Kesehatan) dan program pensiun (BPJS Ketenagakerjaan), memastikan kepatuhan penuh terhadap regulasi lokal. Selain itu, kami mengawasi program pensiun dan superannuation, memberikan keamanan finansial jangka panjang bagi karyawan dengan kontribusi yang tepat waktu dan benar. Layanan ini dirancang untuk mendukung pemberi kerja dan karyawan, memastikan operasi penggajian berjalan lancar dan kepuasan karyawan terjamin.",
           "extendedServices": [
-            "Instalasi & pengaturan perangkat lunak yang disesuaikan dengan kebutuhan bisnis Anda.",
-            "Migrasi data akuntansi tanpa mengganggu operasi bisnis."
-          ],
-          "benefits": [
-            {
-              "title": "-",
-              "items": [
-                "Instalasi dan pengaturan perangkat lunak",
-                "Migrasi file",
-                "Pengaturan bagan akun",
-                "Konfigurasi daftar produk dan layanan"
-              ]
-            },
-            {
-              "title": "Layanan Tambahan",
-              "items": [
-                "Pembukuan catch-up untuk periode sebelumnya"
-              ]
-            }
+            "Pemrosesan Penggajian yang Akurat",
+            "Kepatuhan dan Pelaporan Pajak Penggajian",
+            "Pengelolaan Manfaat dan Kesejahteraan Karyawan",
+            "Program Pensiun dan Superannuation"
+          ]
+        }
+      },
+      {
+        "title": "Pelaporan Khusus dan Layanan Kustom",
+        "link": "specialized-reporting",
+        "icon": "/animate/audit.lottie",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan",
+          "Hubungi Kami"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Deteksi, pelaporan, dan pencegahan kecurangan",
+          "Penilaian dan perencanaan Prosedur Operasional Standar (SOP) dan alur kerja",
+          "Pelaporan penjualan kostum e-commerce",
+          "Akuntansi khusus industri (misalnya, untuk konstruksi, e-commerce, manufaktur, atau lainnya)",
+          "Akuntansi berbasis proyek",
+          "Akuntansi persediaan dan biaya",
+          "Laporan Investasi (LKPM)"
+        ],
+        "details": {
+          "overview": "Layanan deteksi kecurangan dan optimalisasi operasional kami melindungi bisnis sambil meningkatkan efisiensi melalui langkah-langkah deteksi, pelaporan, dan pencegahan kecurangan yang canggih, bersama dengan penilaian Prosedur Operasional Standar (SOP) dan alur kerja untuk menghilangkan hambatan dan meningkatkan efektivitas. Dengan menggabungkan pelaporan penjualan e-commerce untuk melacak metrik utama dan mengoptimalkan strategi dengan layanan akuntansi khusus yang dirancang untuk industri seperti konstruksi, e-commerce, dan manufaktur, kami menangani tantangan keuangan dan persyaratan regulasi yang unik. Solusi akuntansi berbasis proyek kami memastikan pelacakan biaya yang tepat dan pemantauan anggaran untuk profitabilitas, sementara sistem akuntansi persediaan dan biaya mengoptimalkan manajemen stok dan biaya produksi. Secara keseluruhan, layanan ini memberikan wawasan real-time, meningkatkan kinerja operasional, dan mendorong profitabilitas secara keseluruhan.",
+          "extendedServices": [
+            "Solusi Akuntansi dan Berbasis Proyek yang Disesuaikan",
+            "Deteksi, Pelaporan, dan Pencegahan Kecurangan",
+            "Optimalisasi SOP dan Risiko",
+            "Wawasan Data-Driven untuk E-Commerce dan Keuangan"
+          ]
+        }
+      },
+      {
+        "title": "Layanan Implementasi dan Dukungan Perangkat Lunak Akuntansi",
+        "link": "accounting-software",
+        "icon": "/animate/accounting-software.lottie",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan",
+          "Hubungi Kami"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
+          "Pelatihan dan dukungan perangkat lunak",
+          "Implementasi sistem akuntansi berbasis cloud",
+          "Layanan migrasi dan integrasi data",
+          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
+        ],
+        "details": {
+          "overview": "Layanan implementasi perangkat lunak dan sistem akuntansi kami dirancang untuk meningkatkan manajemen keuangan Anda dengan solusi modern yang efisien. Kami memulai dengan pengaturan perangkat lunak akuntansi, memastikan platform seperti QuickBooks dan Xero dikonfigurasi sesuai kebutuhan bisnis Anda untuk memastikan pelacakan keuangan yang akurat. Kami juga menawarkan pelatihan perangkat lunak yang komprehensif dan dukungan berkelanjutan, memberdayakan tim Anda untuk memaksimalkan kemampuan perangkat lunak dan menyelesaikan masalah teknis dengan cepat. Layanan kami mencakup implementasi sistem akuntansi berbasis cloud, memungkinkan bisnis Anda mendapatkan manfaat akses fleksibel dan real-time terhadap data keuangan sambil mempertahankan keamanan. Akhirnya, kami menangani migrasi dan integrasi data, memastikan transisi yang mulus dari sistem sebelumnya ke perangkat lunak baru tanpa kehilangan data, serta mengintegrasikan berbagai alat keuangan untuk menyederhanakan operasi Anda. Layanan ini membantu bisnis meningkatkan proses akuntansi mereka, meningkatkan efisiensi, dan mengurangi kesalahan manual.",
+          "extendedServices": [
+            "Pengaturan Perangkat Lunak Akuntansi",
+            "Pelatihan dan Dukungan Perangkat Lunak",
+            "Implementasi Sistem Akuntansi Berbasis Cloud",
+            "Migrasi dan Integrasi Data"
           ]
         }
       }
@@ -470,22 +447,25 @@
       }
     ]
   },
-  "faq": [
-    {
-      "question": "Apa itu Finansist?",
-      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-    },
-    {
-      "question": "Apa manfaat menggunakan layanan Finansist?",
-      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-    },
-    {
-      "question": "Bagaimana cara kerja Finansist?",
-      "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-    },
-    {
-      "question": "Bagaimana cara memulai menggunakan layanan Finansist?",
-      "answer": "Untuk memulai, Kamu dapat mengunjungi situs web finansistinternational.com dan menghubungi tim Finansist melalui informasi yang tersedia. Tim Finansist akan membantu Kamu dalam langkah-langkah selanjutnya untuk memulai penggunaan layanan. Jika Kamu memiliki pertanyaan lain yang tidak tercakup di FAQ ini, jangan ragu untuk menghubungi tim Finansist langsung untuk mendapatkan informasi lebih lanjut dan dukungan yang dibutuhkan"
-    }
-  ]
+  "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
+    "questions": [
+      {
+        "question": "Apa itu Finansist?",
+        "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "question": "Apa manfaat menggunakan layanan Finansist?",
+        "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "question": "Bagaimana cara kerja Finansist?",
+        "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "question": "Bagaimana cara memulai menggunakan layanan Finansist?",
+        "answer": "Untuk memulai, Kamu dapat mengunjungi situs web finansistinternational.com dan menghubungi tim Finansist melalui informasi yang tersedia. Tim Finansist akan membantu Kamu dalam langkah-langkah selanjutnya untuk memulai penggunaan layanan. Jika Kamu memiliki pertanyaan lain yang tidak tercakup di FAQ ini, jangan ragu untuk menghubungi tim Finansist langsung untuk mendapatkan informasi lebih lanjut dan dukungan yang dibutuhkan"
+      }
+    ]
+  }
 }

@@ -4,7 +4,7 @@ import { useLanguage } from '@/context/LanguageProvider';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
-import AnimatedComponent from './animation/animation-component';
+import AnimatedComponent from '@/components/animation/animation-component';
 
 const ServicePromotion: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
