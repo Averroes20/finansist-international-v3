@@ -3,7 +3,7 @@ import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtub
 import { images } from '@/constants/images';
 import { useLanguage } from '@/context/LanguageProvider';
 import { useSocialMedia } from '@/context/SocialMediaProvider';
-import { BadgeDollarSign, BookText, Clipboard, ClipboardCheck, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
+import { BadgeDollarSign, BookText, Clipboard, ClipboardCheck, Gem, LaptopMinimal, Lightbulb, MapPinned, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { createElement, useCallback, useState } from 'react';
@@ -80,6 +80,12 @@ const Footer = () => {
                 <button className="ml-1 cursor-pointer" onClick={() => handleCopy(`+${data && data.find((item) => item.id === 9)?.url}`, 'phone')} aria-label="Copy phone number">
                   {copied.phone ? <ClipboardCheck size={20} /> : <Clipboard size={20} />}
                 </button>
+              </p>
+              <p className="flex text-sm md:text-base">
+                <span className="mr-1">
+                  <MapPinned size={20} className="text-red-700 inline" />
+                </span>
+                <Link href={data && data.find((item) => item.id === 10)?.url || ''} className='hover:underline' target="_blank">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115</Link>
               </p>
               {data && (
                 <div className="flex gap-2 items-center justify-center mt-3">
