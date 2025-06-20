@@ -15,8 +15,8 @@ const ServiceCard = ({ service, price, isAnnual, code, lang }: { service: Servic
   return (
     <>
       <div className="flex flex-col items-center flex-grow">
-        <header className="px-8 flex flex-col justify-center items-start min-h-[60px] relative">
-          <h3 className="text-center text-lg md:text-xl font-bold">{service.title}</h3>
+        <header className="px-8 flex flex-col justify-center items-center min-h-[80px] relative text-center">
+          <h3 className="text-lg md:text-xl font-bold">{service.title}</h3>
           {service.newService && (
             <span className="absolute -top-1 -right-2 text-xs text-[#3A9DA1] font-bold px-2 py-1 bg-[#98eded] rounded-lg">New</span>
           )}
@@ -27,12 +27,14 @@ const ServiceCard = ({ service, price, isAnnual, code, lang }: { service: Servic
         </div>
         <section className="w-full">
           <div className="flex justify-center items-center my-2">
-            {service.tags.map((tag, tagIndex) => (
-              <div key={`tag-${tagIndex + 1}`} className="flex items-center">
-                <span className="text-base font-semibold text-[#3A9DA1}">{tag}</span>
-                <span>{tagIndex !== service.tags.length - 1 && <Minus size={20} className="rotate-90" />}</span>
-              </div>
-            ))}
+            <span className='inline-flex bg-slate-900 text-white dark:bg-slate-50 dark:text-slate-900 p-1 px-2 rounded-lg'>
+              {service.tags.map((tag, tagIndex) => (
+                <div key={`tag-${tagIndex + 1}`} className="flex items-center">
+                  <span className="text-base font-semibold text-[#3A9DA1}">{tag}</span>
+                  <span>{tagIndex !== service.tags.length - 1 && <Minus size={20} className="rotate-90" />}</span>
+                </div>
+              ))}
+            </span>
           </div>
           <ul className="space-y-2">
             {service.benefits.map((benefit, index) => (
