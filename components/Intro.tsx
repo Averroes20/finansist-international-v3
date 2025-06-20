@@ -10,7 +10,7 @@ const Achievements = dynamic(() => import('@/components/common/AchievementCard')
 
 const Intro = () => {
   const { dictionary } = useLanguage();
-  const { achievements, certifiedOf, description, softwareTitle, title, subtitle } = dictionary?.intro || {};
+  const { achievements, certifiedOf, description, softwareTitle, title, subtitle, tagsLine } = dictionary?.intro || {};
 
   return (
     <section>
@@ -50,7 +50,7 @@ const Intro = () => {
           </div>
 
           <div className="flex flex-col my-auto gap-y-4 overflow-hidden motion-translate-x-in-[100%] motion-translate-y-in-[0%] motion-duration-[1.13s] motion-duration-[1.50s]/translate motion-ease-spring-bouncy">
-            <ProfitAnimated />
+            <ProfitAnimated tagsLine={tagsLine ?? []} />
             <div className="flex flex-row gap-1 justify-center sm:gap-4 md:gap-7">
               <Achievements data={achievements || []} />
             </div>

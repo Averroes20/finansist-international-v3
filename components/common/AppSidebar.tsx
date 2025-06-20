@@ -1,4 +1,4 @@
-import { Handshake, LibraryBig, Link2, Star, User } from 'lucide-react';
+import { CircleDollarSign, Handshake, LibraryBig, Link2, Star, User } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -34,6 +34,11 @@ const items = [
     title: 'Link Socials',
     url: '/admin/links',
     icon: Link2,
+  },
+  {
+    title: 'Price Service',
+    url: '/admin/price',
+    icon: CircleDollarSign,
   },
   {
     title: 'Users Management',

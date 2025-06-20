@@ -8,12 +8,12 @@ const Profile = dynamic(() => import('@/components/Profile'), {
 });
 
 const AboutUs = dynamic(() => import('@/components/AboutUs'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Loading Portfolio...</p>,
 });
 
 const Portfolio = dynamic(() => import('@/components/Portfolio'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Loading Portfolio...</p>,
 });
 
@@ -23,17 +23,17 @@ const Reviews = dynamic(() => import('@/components/Review'), {
 });
 
 const Services = dynamic(() => import('@/components/Services'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Loading Services...</p>,
 });
 
 const ValueCompany = dynamic(() => import('@/components/ValueCompany'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Loading...</p>,
 });
 
 const ServicePromotion = dynamic(() => import('@/components/ServicePromotion'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Loading ...</p>,
 });
 
@@ -43,12 +43,12 @@ const Blogs = dynamic(() => import('@/components/Blogs'), {
 });
 
 const Careers = dynamic(() => import('@/components/Careers'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Loading Careers...</p>,
 });
 
 const FAQ = dynamic(() => import('@/components/FAQ'), {
-  ssr: false,
+  ssr: true,
   loading: () => <p>Loading FAQ...</p>,
 });
 
@@ -70,8 +70,8 @@ const RootPage = () => {
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>
-        <Portfolio />
         <Reviews />
+        <Portfolio />
         <Blogs />
         <Careers />
         <FAQ />

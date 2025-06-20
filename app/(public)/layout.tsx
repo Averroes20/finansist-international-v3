@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import { Toaster } from '@/components/ui/toaster';
 import { DOMAIN_WEB } from '@/constants/env';
 import { SocialMediaProviders } from '@/context/SocialMediaProvider';
 import { ThemeProviders } from '@/context/ThemeProvider';
@@ -78,6 +79,7 @@ export default function HomeLayout({
       <SocialMediaProviders>
         <Navbar />
         <main className={`${libre_baskerville.variable} ${dosis.variable} `}>{children}</main>
+        <Toaster />
         <Footer />
       </SocialMediaProviders>
     </ThemeProviders>

@@ -70,16 +70,21 @@ CREATE TABLE "reviews" (
 -- CreateTable
 CREATE TABLE "link_social_media" (
     "id" SERIAL NOT NULL,
-    "facebook" VARCHAR(100),
-    "twitter" VARCHAR(100),
-    "instagram" VARCHAR(100),
-    "linkedin" VARCHAR(100),
-    "youtube" VARCHAR(100),
-    "link_profile" VARCHAR(100),
-    "created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP NOT NULL,
+    "label" VARCHAR(100) NOT NULL,
+    "active" BOOLEAN NOT NULL DEFAULT false,
+    "url" TEXT NOT NULL,
 
     CONSTRAINT "link_social_media_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "service_fee" (
+    "id" SERIAL NOT NULL,
+    "code" VARCHAR(100) NOT NULL,
+    "sort" INTEGER NOT NULL,
+    "fee" DOUBLE PRECISION NOT NULL DEFAULT 0,
+
+    CONSTRAINT "service_fee_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex

@@ -5,11 +5,13 @@ import { TypeLink } from '@/lib/validation/schema-form-link';
 
 export async function getLinks() {
   try {
-    const links = await prismaClient.linkSocialMedia.findMany();
-    return links;
+    return await prismaClient.linkSocialMedia.findMany({
+      orderBy: {
+        id: 'asc',
+      },
+    });
   } catch (error) {
-    console.error('Error fetching links:', error);
-    throw new Error('Failed to fetch links');
+    throw new Error('❌ Failed to fetch links', error as Error);
   }
 }
 
@@ -25,7 +27,6 @@ export async function updateLink(data: TypeLink) {
     });
     revalidatePath('/admin/links');
   } catch (error) {
-    console.error(error);
-    throw new Error('Failed to update link');
+    throw new Error('❌ Failed to update link', error as Error);
   }
 }

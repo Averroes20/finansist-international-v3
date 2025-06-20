@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { FieldValues, Path, useFormContext } from 'react-hook-form';
+import { FieldValues, Path, PathValue, useFormContext } from 'react-hook-form';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 
@@ -9,25 +9,31 @@ type Props<T extends FieldValues> = {
   className?: string;
   isRequired?: boolean;
   accept?: string;
+  multiple?: boolean;
 };
 
-const FileInputPDFComponent = <T extends FieldValues>({ name, label, className, accept, isRequired }: Props<T>) => {
-  const { control } = useFormContext<T>();
+const FileInputPDFComponent = <T extends FieldValues>({ name, label, className, accept = 'application/pdf', isRequired = false, multiple = false }: Props<T>) => {
+  const { control, setValue } = useFormContext<T>();
 
   const handleFileChange = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (event: React.ChangeEvent<HTMLInputElement>, field: any) => {
-      const file = event.target.files?.[0] || null;
-      field.onChange(file); // Langsung mengatur file ke field
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const files = event.target.files;
+      if (files) {
+        if (multiple) {
+          setValue(name, Array.from(files) as unknown as PathValue<T, Path<T>>, { shouldValidate: true });
+        } else {
+          setValue(name, (files[0] ?? null) as unknown as PathValue<T, Path<T>>, { shouldValidate: true });
+        }
+      }
     },
-    []
+    [multiple, name, setValue]
   );
 
   return (
     <FormField
       control={control}
       name={name}
-      render={({ field }) => (
+      render={() => (
         <FormItem className={className}>
           <FormLabel className="text-sm md:text-base font-medium">
             {label} {isRequired && <span className="text-destructive">*</span>}
@@ -36,9 +42,10 @@ const FileInputPDFComponent = <T extends FieldValues>({ name, label, className, 
             <Input
               id={`file-input-${name}`}
               type="file"
+              multiple={multiple}
               className="text-sm md:text-base placeholder:text-sm md:placeholder:text-base font-medium"
               accept={accept}
-              onChange={(event) => handleFileChange(event, field)}
+              onChange={(event) => handleFileChange(event)}
             />
           </FormControl>
           <FormMessage />

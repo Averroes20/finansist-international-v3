@@ -5,6 +5,8 @@ export interface Service {
   icon: string;
   tags: string[];
   benefits: string[];
+  benefitsDetails: string[];
+  lang?: string;
   prices: {
     label: string;
     price: string;

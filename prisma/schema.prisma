@@ -88,3 +88,12 @@ model LinkSocialMedia {
 
   @@map("link_social_media")
 }
+
+model ServiceFee {
+  id   Int    @id @default(autoincrement())
+  code String @db.VarChar(100)
+  sort Int
+  fee  Float  @default(0)
+
+  @@map("service_fee")
+}

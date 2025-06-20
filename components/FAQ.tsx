@@ -12,8 +12,8 @@ const FAQ: React.FC = () => {
       <div className="h-32 relative" aria-label="wave">
         <Image src="/waves/wave-up.svg" alt="Layer 1" fill className="object-cover" />
       </div>
-      <div className="bg-[#113870]">
-        <TitleSection className="text-white mx-10 mb-5 md:mx-0 md:mb-10">{title}</TitleSection>
+      <div className="bg-[#113870] py-5">
+        <TitleSection className="text-white mx-10 mb-3 md:mx-0 md:mb-7">{title}</TitleSection>
         <div className="max-w-screen-md p-4 bg-white rounded-xl mx-10 md:mx-auto">
           <Accordion type="single" collapsible>
             {questions?.map((item, index) => (

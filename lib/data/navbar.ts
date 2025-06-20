@@ -4,6 +4,6 @@ interface MenuLanguage {
 }
 
 export const menuLanguages: MenuLanguage[] = [
-  { value: 'en', icon: '/icons/flag-united-kingdom.png' },
-  { value: 'id', icon: '/icons/flag-indonesia.png' },
+  { value: 'en', icon: '/icons/flag-united-kingdom.webp' },
+  { value: 'id', icon: '/icons/flag-indonesia.webp' },
 ];

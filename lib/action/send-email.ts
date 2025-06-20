@@ -76,8 +76,13 @@ export async function submitInternshipRequest(formData: FormData) {
 
 export async function submitJobRequest(formData: FormData) {
   try {
-    const cv = formData.get('cv') as File;
-    const fileBuffer = await cv.arrayBuffer();
+    const cvFiles = formData.getAll('cv') as File[];
+    const attachments = await Promise.all(
+      cvFiles.map(async (cv) => ({
+        filename: cv.name,
+        content: Buffer.from(await cv.arrayBuffer()),
+      }))
+    );
 
     const name = formData.get('name') as string;
     const phone = formData.get('phone') as string;
@@ -123,14 +128,14 @@ export async function submitJobRequest(formData: FormData) {
                 </thead>
                 <tbody>
                   ${languages
-                    .map(
-                      (l) =>
-                        `<tr>
+          .map(
+            (l) =>
+              `<tr>
                           <td style="padding: 8px; border: 1px solid #ddd;">${l.language || '-'}</td>
                           <td style="padding: 8px; border: 1px solid #ddd;">${l.level || '-'}</td>
                         </tr>`
-                    )
-                    .join('')}
+          )
+          .join('')}
                 </tbody>
               </table>
             </div>
@@ -144,12 +149,7 @@ export async function submitJobRequest(formData: FormData) {
         </body>
         </html>
       `,
-      attachments: [
-        {
-          filename: cv.name,
-          content: Buffer.from(fileBuffer),
-        },
-      ],
+      attachments: attachments,
     });
 
     // Email konfirmasi ke pelamar

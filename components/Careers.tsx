@@ -1,12 +1,12 @@
 'use client';
 
+import AnimatedComponent from '@/components/animation/animation-component';
 import { FormIntern, FormJobs, FormPatner } from '@/components/career/CareerForms';
+import { TitleSection } from '@/components/ui/typography';
 import { useLanguage } from '@/context/LanguageProvider';
 import { useToast } from '@/hooks/use-toast';
 import { submitInternshipRequest, submitJobRequest, submitPartnershipRequest } from '@/lib/action/send-email';
 import { useState } from 'react';
-import AnimatedComponent from '@/components/animation/animation-component';
-import { TitleSection } from '@/components/ui/typography';
 
 type Action = (formData: FormData) => Promise<{ success: boolean; error?: string; message?: string }>;
 
@@ -23,7 +23,12 @@ const Careers = () => {
       setLoading(true);
       const formData = new FormData();
       Object.keys(data).forEach((key) => {
-        if (key === 'language') {
+        if (key === 'cv') {
+          const files = Array.isArray(data[key]) ? data[key] : [data[key]];
+          files.forEach((file) => {
+            formData.append('cv', file);
+          });
+        } else if (key === 'language') {
           formData.append(key, JSON.stringify(data[key]));
         } else {
           formData.append(key, data[key]);
@@ -33,18 +38,25 @@ const Careers = () => {
       const result = await action(formData);
 
       if (result.success) {
-        alert(result.message ?? 'Your request has been successfully sent.');
         toast({
           title: 'Success',
           description: 'Your request has been successfully sent.',
           variant: 'default',
         });
       } else {
+        toast({
+          title: 'Failed',
+          description: `${result.error ?? 'Failed to send request'}`,
+          variant: 'destructive',
+        });
         throw new Error(result.error ?? 'Failed to send request');
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to send request. Please try again.');
+      toast({
+        title: 'Failed',
+        description: `${error instanceof Error ? error.message : 'Failed to send request. Please try again.'}`,
+        variant: 'destructive',
+      });
     } finally {
       setLoading(false);
     }
@@ -58,7 +70,7 @@ const Careers = () => {
     >
       <link rel="preload" href="/images/bg-cover-career.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <div id="career" className="relative z-10 flex flex-col items-center justify-center md:p-20 bg-black bg-opacity-30 scroll-mt-96">
-        <TitleSection id="career-title" className="mb-10 text-white scroll-mt-96">
+        <TitleSection id="career-title" className="mb-20 text-white scroll-mt-96">
           {title}
         </TitleSection>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10  max-w-screen-lg lg:max-w-screen-xl mx-auto px-10 mb-20 md:mb-0 md:px-0">
@@ -70,8 +82,12 @@ const Careers = () => {
               className="p-4 lg:p-7 bg-white rounded-xl flex flex-col h-full shadow-xl"
             >
               <div className="flex-grow lg:text-lg lg:py-3 xl:text-xl xl:py-4">
-                <h1 className="text-xl md:text-3xl tracking-tight font-bold uppercase text-center ">{item.title}</h1>
-                <div className="h-1 w-[50%] mx-auto mt-2 mb-4" style={{ backgroundColor: `#${item.color}` }} />
+
+                <p className='text-center mb-4'>
+                  <span className="text-xl md:text-3xl tracking-tight font-bold uppercase inline-block pb-2" style={{ borderBottom: `4px solid #${item.color}` }}>
+                    {item.title}
+                  </span>
+                </p>
                 <p className="mb-4">{item.description}</p>
                 {!!item.facilities && (
                   <>

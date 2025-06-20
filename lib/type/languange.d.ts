@@ -1,3 +1,4 @@
+
 export type Language = 'id' | 'en';
 
 export interface Dictionary {
@@ -14,14 +15,17 @@ export interface Dictionary {
     certifiedOf: string;
     description: string;
     softwareTitle: string;
+    tagsLine: Array<string>;
     achievements: Array<{ count: string; description: string }>;
   };
   whyFinansist: {
     tagsLine: {
+      part0: string;
       part1: string;
       part2: Array<string>;
     };
     description: Array<{
+      icon: string;
       subtitle: string;
       description: string;
     }>;
@@ -31,10 +35,18 @@ export interface Dictionary {
   };
   financialSupport: {
     title: string;
+    subtitle: string;
     points: Array<{ title: string; description: string }>;
-    description: string;
+    description: {
+      text: string;
+      points: Array<string>;
+    };
     tagsLine: string;
   };
+  customerType: {
+    title: string;
+    description: string;
+  }
   valueCompany: {
     title: {
       part1: string;
@@ -45,9 +57,8 @@ export interface Dictionary {
       description: string;
       urlImage: string;
       contentModal: {
-        title: string;
-        description: string;
-        otherDesc: string;
+        description1: string;
+        description2: string;
       };
     }>;
   };
@@ -60,6 +71,7 @@ export interface Dictionary {
       icon: string;
       tags: string[];
       benefits: string[];
+      benefitsDetails: string[];
       prices: {
         label: string;
         price: string;

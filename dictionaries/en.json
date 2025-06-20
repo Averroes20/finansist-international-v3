@@ -3,20 +3,20 @@
     "items": [
       {
         "label": "Why Finansist?",
-        "url": "/#why-finansist"
+        "url": ""
       },
       {
         "label": "Services",
         "subItems": true,
-        "url": "/#"
-      },
-      {
-        "label": "Career",
-        "url": "/#career"
+        "url": ""
       },
       {
         "label": "Blog",
         "url": "/blog"
+      },
+      {
+        "label": "Career",
+        "url": "/#career"
       },
       {
         "label": "FAQ",
@@ -32,12 +32,20 @@
     },
     "subtitle": "Certified Professionals",
     "certifiedOf": "Certified of",
-    "description": "Say goodbye to the hassles of an in-house financial team! Allowing you to focus on what truly matters while we handle your financial needs with expertise and efficiency.",
+    "description": "Say goodbye to the hassle and high costs of maintaining an internal finance team. Let us handle it with ease and deliver better results, so you can focus on growing your business!",
     "softwareTitle": "Expert in many Accounting Software",
+    "tagsLine": [
+      "Audit",
+      "Accounting",
+      "Bookkeeping",
+      "Payroll",
+      "CFO Package",
+      "Tax Planning"
+    ],
     "achievements": [
       {
         "count": "10",
-        "description": "Years of experience"
+        "description": "Years of Experience"
       },
       {
         "count": "54",
@@ -50,61 +58,80 @@
     ]
   },
   "about": {
-    "title": "WE SERVE A DIVERSE RANGE OF CLIENTS FROM ACROSS THE GLOBE",
-    "aboutCEO": "With over a decade of experience, Finansist has evolved from a local service provider to a globally recognized. Serving clients across the world, specializing in international regulations. We leverage cutting-edge technology to deliver seamless bookkeeping and tax preparation services, no matter where you are. Based in Indonesia, our strategic location allows us to offer cost-effective solutions that consistently exceed expectations, providing exceptional value compared to other markets."
+    "title": "WE SERVE A VARIETY OF ENTREPRENEURS FROM ALL OVER THE WORLD",
+    "aboutCEO": "With over a decade of experience, Finansist has evolved from a local accounting firm to a globally recognized. Serving clients across the world, specializing in international regulations. We leverage cutting-edge technology to deliver seamless bookkeeping and tax preparation services no matter where you are. Based in Indonesia, our strategic location allows us to offer cost-effective solutions that consistently exceed expectations, providing exceptional value compared to other consultant."
   },
   "whyFinansist": {
     "tagsLine": {
-      "part1": "We Make It",
+      "part0": "We Make You Focus On Developing Your Business",
+      "part1": "We Make Your Business More",
       "part2": [
         "Efficient",
-        "Reliable",
+        "Growing",
         "Precision",
-        "Trusted",
+        "Controlled",
         "Precision"
       ]
     },
     "description": [
       {
+        "icon": "target",
+        "subtitle": "Providing services that is meets to your needs",
+        "description": "We believe accounting is a critical foundation for business success, but it should never become a burden. Please share with us the overview of your company’s current situation, so that we can provide a fair proposal and a perfect solution for you."
+      },
+      {
+        "icon": "wallet",
         "subtitle": "Saving your hiring costs with more benefits",
-        "description": "Our international certified professionals will handle your needs with precision for seamless, cost-effective results and no drama."
+        "description": "Our internationally certified professionals will precisely handle your needs for seamless, cost-effective results and no drama. Stop paying salaries, allowances, bonuses, training costs, monitoring software, and other expenses for each person."
       },
       {
-        "subtitle": "We provide a service that is meets to your needs",
-        "description": "Share with us the overview of your company's current situation, so we can provide a proposal that is fair and meets to your needs. We believe accounting is a critical foundation for business success, but it should never become a burden."
-      },
-      {
-        "subtitle": "Our services are adapted to your capabilities",
-        "description": "With a flexible approach, we delivering maximum value without excessive costs. Let's work together to create efficient and affordable accounting solutions to support your business growth."
+        "icon": "droplet",
+        "subtitle": "Adapt to your capabilities",
+        "description": "With a flexible approach, we deliver maximum value without excessive costs. Let’s work together to create efficient and affordable accounting solutions to support your business growth."
       }
     ]
   },
   "financialSupport": {
     "title": "Unlock Expert Financial Support with Zero Worries!",
+    "subtitle": "What makes Finansist so special?",
     "points": [
       {
-        "title": "Prioritize Data Security",
-        "description": "Your financial data is safe with us—protected by cutting-edge security measures."
+        "title": "Prioritize Data Security:",
+        "description": "Your financial data is safe with us, protected by cloud security."
       },
       {
-        "title": "Precision in Reporting",
-        "description": "Rely on accurate, timely financial schedules and reports that keep you informed and in control."
+        "title": "Precision in Reporting:",
+        "description": "Rely on accurate, timely schedules and reports that keep you informed and in control."
       },
       {
-        "title": "Seamless System Integration",
-        "description": "We expertly navigate many accounting applications and systems, ensuring smooth operations."
+        "title": "Seamless System Integration:",
+        "description": "We expertly navigate many accounting applications and systems, ensuring smooth."
       },
       {
-        "title": "24/7 Global Communication",
-        "description": "Get round-the-clock support, no matter where you are in the world."
+        "title": "24/7 Global Communication:",
+        "description": "Get round-the-clock support, no matter where you are."
       },
       {
-        "title": "Uncompromising Compliance",
+        "title": "Uncompromising Compliance:",
         "description": "Rest easy knowing your business is fully compliant with both local and international regulations (GAAP, IFRS, and more)."
       }
     ],
-    "description": "Let our expert team handle the complexities of finance while you focus on what matters most:",
+    "description": {
+      "text": "We believe accounting is a critical foundation for business success, but it should never become a burden. With a flexible approach, we ensure our services are suits and adapted to your capabilities, delivering maximum value without excessive costs. Let’s work together to create efficient and affordable solutions to support your business growth.",
+      "points": [
+        "No More",
+        "Wasting money because of having to pay employee benefits and insurance",
+        "Wasting time to find and train employees",
+        "The hassle of finding a replacement for a sick, on leave, or resign employee",
+        "Incompetent employees & not experts in their field",
+        "Let our expert handle the complexities of finance while you focus on:"
+      ]
+    },
     "tagsLine": "Growing your business!"
+  },
+  "customerType": {
+    "title": "Whatever your line of business, Finansist is the right partner you can trust!",
+    "description": "We serve various industries, supported by a team of internationally certified experts and have in-depth experience in the specific needs of each sector. With a flexible approach, Finansist is ready to help your business grow based on your goals and business conditions."
   },
   "valueCompany": {
     "title": {
@@ -113,59 +140,54 @@
     },
     "items": [
       {
-        "title": "Higher Costs",
-        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
-        "urlImage": "/images/earth.png",
+        "title": "Cost Efficiency",
+        "description": "Hiring a large number of employees comes with significant expenses, including salaries, benefits, insurance, training, and workplace infrastructure. These costs can reduce financial efficiency, especially for businesses aiming to growing forward and cost-effective.",
+        "urlImage": "/images/profit.png",
         "contentModal": {
-          "title": "What you will get",
-          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
-          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+          "description1": "Having an in-house team means committing to fixed salaries, benefits, and other ongoing employee costs.",
+          "description2": "With us, you only pay per project or service, allowing you to allocate more of your budget toward growing your business."
         }
       },
       {
-        "title": "Limited Expertise",
-        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
-        "urlImage": "/images/earth.png",
+        "title": "Powered by Professionals",
+        "description": "Not all employees possess the specialized skills your business may require. Recruiting high-level talent can be expensive and time-consuming, often leaving companies with teams that may lack the necessary competence to tackle complex or evolving challenges.",
+        "urlImage": "/images/profesional.png",
         "contentModal": {
-          "title": "What you will get",
-          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
-          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+          "description1": "When your company requires highly specialized financial expertise (mergers and acquisitions, international taxation, or advanced investment analysis) your in-house team may lack the necessary depth of knowledge.",
+          "description2": "Finansist offers internationally certified expertise across a wide range of fields, giving your business access to a complete and capable team."
         }
       },
       {
-        "title": "Limited Flexibility",
-        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
-        "urlImage": "/images/earth.png",
+        "title": "High Flexibility",
+        "description": "In-house teams are often limited by their size, making it difficult to handle multiple projects simultaneously. This can lead to delays, lowered performance, and challenges in meeting evolving business demands.",
+        "urlImage": "/images/flexibilitas.png",
         "contentModal": {
-          "title": "What you will get",
-          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
-          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+          "description1": "In-house teams often face limitations in bandwidth, making it difficult to manage multiple priorities or respond quickly to unexpected demands.",
+          "description2": "Finanasist offer the flexibility to scale resources up or down as needed, allowing your business to stay agile and responsive without being constrained by internal capacity."
         }
       },
       {
-        "title": "Increased Managerial Burden",
-        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
-        "urlImage": "/images/earth.png",
+        "title": "Reduced Managerial Burden",
+        "description": "Managing more employees means more time spent on supervision, performance reviews, internal communication, and conflict resolution. This can divert leadership’s attention away from strategic growth and innovation.",
+        "urlImage": "/images/reduction.png",
         "contentModal": {
-          "title": "What you will get",
-          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
-          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+          "description1": "Building an in-house finance team also requires ongoing recruitment and training costs to ensure the team stays up to date with the latest skills and knowledge.",
+          "description2": "You can access a complete set of resources at a significantly lower cost, without the hassle of recruiting and training."
         }
       },
       {
-        "title": "Ability to Deal with Regulatory Changes",
-        "description": "This investment enables CO2 AI to expand their footprint across Europe and North America, helping enterprises measure, reduce, and manage their carbon emissions effectively, positioning themselves as leaders in sustainability management.",
-        "urlImage": "/images/earth.png",
+        "title": "Always Adapt to New Regulation",
+        "description": "In-house teams often struggle to keep up with evolving regulations and financial trends as their focus is primarily on day-to-day operations and they are not typically tasked with monitoring regulatory developments.",
+        "urlImage": "/images/regulation.png",
         "contentModal": {
-          "title": "What you will get",
-          "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur provident ea quis expedita at iste? Quisquam porro, cumque sit incidunt itaque nisi officia cupiditate repellat, nobis enim animi nostrum aliquid error quis, soluta veritatis praesentium distinctio eius? Optio aspernatur rerum beatae quam amet labore ipsum unde similique nihil dolore sunt eos tempore harum fugiat a quisquam minus ullam rem, temporibus minima vitae. Nemo quia provident aliquam, placeat",
-          "otherDesc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, voluptates. Sint, similique doloribus sequi ullam at provident. Minus, alias dolorem."
+          "description1": "In-house teams may find it challenging to stay up to date with the constantly evolving regulations and trends in finance, business, and taxation.",
+          "description2": "Our experienced team bring diverse industry insights, enabling your business to stay connected, agile, and compliant with the latest regulatory changes."
         }
       }
     ]
   },
   "services": {
-    "title": "Our Services",
+    "title": "Our Services & Pricing",
     "items": [
       {
         "title": "Accounting & Bookkeeping",
@@ -182,6 +204,15 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
+          "Preparation of financial statements (e.g., balance sheet, income statement, cash flow statement)",
+          "Budgeting and forecasting",
+          "General ledger oversight",
+          "Financial analysis and reporting",
+          "Fixed asset management",
+          "Variance analysis (ROI, BEP, etc.)",
+          "Chart of accounts setup and maintenance"
+        ],
+        "benefitsDetails": [
           "Preparation of financial statements (e.g., balance sheet, income statement, cash flow statement)",
           "Budgeting and forecasting",
           "General ledger oversight",
@@ -229,7 +260,16 @@
           "Sales tax reporting and filing",
           "VAT/GST compliance and filing",
           "Withholding tax reporting and filling",
-          "Indonesian national taxes and local tax authority representatio",
+          "Indonesian national taxes and local tax authority representation",
+          "Tax advisory service"
+        ],
+        "benefitsDetails": [
+          "Income tax preparation and filing (corporate, individual, and partnership)",
+          "Tax planning and strategy",
+          "Sales tax reporting and filing",
+          "VAT/GST compliance and filing",
+          "Withholding tax reporting and filling",
+          "Indonesian national taxes and local tax authority representation",
           "Tax advisory service",
           "Support with tax audit",
           "Assistance with VAT, international tax, and fiscal adjustmen",
@@ -246,8 +286,8 @@
         }
       },
       {
-        "title": "CFO Management",
-        "link": "cfo-management",
+        "title": "CFO Package | Accounting, Finance, and Tax Support",
+        "link": "cfo-package",
         "icon": "/animate/cfo.lottie",
         "newService": true,
         "tags": [
@@ -260,26 +300,27 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
-          "Strategic financial leadership to align business goals with financial strategies.",
-          "Oversight of accounting teams and processes to ensure efficiency and accuracy.",
-          "Business performance analysis to evaluate KPIs and identify improvement opportunities.",
-          "In-depth financial planning and strategy, ensuring long-term growth and market adaptability.",
-          "Cost control and reduction strategies to improve profit margins.",
-          "Operational efficiency optimization to streamline processes and reduce inefficiencies.",
-          "Comprehensive financial analysis, including management reports and break-even assessments.",
-          "Performance monitoring with KPI tracking to ensure strategic goals are achieved.",
-          "Financial risk management to mitigate potential threats to business stability.",
-          "Long-term financial planning and budgeting for sustained success"
+          "Financial dashboard including overview profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators.",
+          "Financial planning and analysis.",
+          "Budgeting and forecasting.",
+          "Cash flow management."
+        ],
+        "benefitsDetails": [
+          "Financial dashboard including overview profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators.",
+          "Financial planning and analysis.",
+          "Budgeting and forecasting.",
+          "Cash flow management.",
+          "Financial reporting and performance monitoring.",
+          "Advising on funding, investments, and cost efficiency.",
+          "Ensuring regulatory compliance.",
+          "Guiding financial strategy aligned with business goals."
         ],
         "details": {
-          "overview": "This enhanced CFO Service is designed to provide businesses with strategic financial leadership, actionable insights, and comprehensive operational support, enabling success in today's competitive market.",
+          "overview": "Our CFO services provide the strategic financial expertise your business needs without the cost of a full-time executive. Finansist provide a comprehensive financial dashboard that gives you a real-time overview of your business performance. The overview includes key metrics such as profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators. With this clear and customized output, you can monitor your business health at a glance and make faster, data-driven decisions. From cash flow and budgeting to financial forecasting and decision support, we help you build a stronger financial foundation and drive smarter growth.",
           "extendedServices": [
-            "Our CFO Service provides holistic financial leadership, strategic advisory, and performance optimization to drive business growth, stability, and operational excellence. We combine financial strategy with in-depth management accounting, business advisory, and operational insights to ensure your company achieves its long-term objectives.",
-            "Strategic Financial Leadership ensures that your financial strategies support sustainable growth. Our team provides oversight of accounting teams and processes, ensuring accurate financial reporting and efficient operations, while establishing best practices for streamlined workflows.",
-            "Through business performance and financial strategy advisory, we conduct comprehensive business performance analysis, evaluate KPIs, and develop long-term financial plans aligned with your business goals. This ensures operational optimization and profitability improvements.",
-            "Our management accounting and performance optimization services include management reporting, cost-benefit and break-even analysis, and KPI tracking. These allow for precise, data-driven decision-making to enhance operational efficiency and reduce costs.",
-            "Additionally, our financial risk management services identify potential risks and implement strategies to mitigate them, ensuring your business remains resilient in a dynamic market. Combined with cost control and optimization, we help reduce operational expenses while maintaining quality and productivity.",
-            "Finally, long-term financial planning and budgeting ensure proper resource allocation and adaptability to market changes, providing a roadmap for sustainable growth."
+            "A complete strategic financial management package that lets you focus on other areas such as operations and marketing.",
+            "Monitoring cash flow, assets, inventory, and taxation to ensure your business runs healthily, grows sustainably, and stays compliant with standards.",
+            "Our services include consultations, monthly business analysis, and identifying opportunities for fraud prevention and improvement."
           ]
         }
       },
@@ -289,8 +330,7 @@
         "icon": "/animate/audit.lottie",
         "newService": false,
         "tags": [
-          "Company",
-          "Contact Us"
+          "Company"
         ],
         "prices": {
           "label": "Start from",
@@ -306,8 +346,17 @@
           "Performance audits",
           "Due diligence for mergers and acquisitions"
         ],
+        "benefitsDetails": [
+          "Internal and external audits",
+          "Financial statement audits",
+          "Forensic audits",
+          "Compliance audits",
+          "Risk assessment and management",
+          "Performance audits",
+          "Due diligence for mergers and acquisitions"
+        ],
         "details": {
-          "overview": "Our audit and assurance services provide a comprehensive approach to financial transparency, risk management, and operational efficiency. We conduct both internal and external audits, including financial statement audits and forensic audits, to ensure accuracy and detect any discrepancies or fraud. Our compliance audits assess adherence to regulatory requirements, while risk assessment and management services help identify and mitigate potential financial risks. Additionally, we perform performance audits to evaluate and improve operational effectiveness, offering valuable insights for enhanced productivity. In strategic business support, we offer due diligence services for mergers and acquisitions, ensuring thorough evaluations of financial health and risks to facilitate informed decision-making. These services collectively ensure financial integrity, compliance, and improved performance, providing a solid foundation for business growth and success.",
+          "overview": "Our audit services provide a thorough examination of your financial transparency, fraud risks, abuse of authority, asset valuation, cash flow tracking, risk management, and operational efficiency. We ensure your financial reports are accurate, identify potential discrepancies, and verify your compliance with regulations. By detecting and mitigating financial risks early, we help keep your business secure, well-controlled, and capable of adapting to market challenges with confidence.",
           "extendedServices": [
             "Comprehensive Audit Services",
             "Regulatory and Compliance Assurance",
@@ -322,7 +371,6 @@
         "icon": "/animate/payroll.lottie",
         "newService": false,
         "tags": [
-          "Personal",
           "Company"
         ],
         "prices": {
@@ -331,6 +379,13 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
+          "Payroll Calculation and processing",
+          "Compliance and Calculation of Employee Withholding Tax Article 21",
+          "Generating payslips and payment summaries",
+          "Employee benefits administration/ or BPJS Kesehatan (Indonesia) and other additional",
+          "Handling employee tax deductions"
+        ],
+        "benefitsDetails": [
           "Payroll Calculation and processing",
           "Payroll tax compliance and reporting/ Reporting of Employee PPh 21 (Indonesia)",
           "Generating payslips and payment summaries",
@@ -349,14 +404,12 @@
         }
       },
       {
-        "title": "Specialized Reporting and Costume Made Services",
-        "link": "specialized-reporting",
-        "icon": "/animate/audit.lottie",
+        "title": "SET UP PMA service",
+        "link": "pma",
+        "icon": "/animate/setup-pma.lottie",
         "newService": false,
         "tags": [
-          "Personal",
-          "Company",
-          "Contact Us"
+          "Null"
         ],
         "prices": {
           "label": "Start from",
@@ -364,21 +417,65 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
-          "Fraud detection, reporting, and prevention ",
-          "Standard Operational Procedure and Flowchart assessment and planning ",
+          "Deed of Establishment",
+          "Approval from the Ministry of Law and Human Rights of the Republic of Indonesia",
+          "Tax Identification Number (NPWP)",
+          "Username and Password for PT PMA application access",
+          "Approval of Conformity of Land Use Activities with Spatial Planning",
+          "Business Identification Number (NIB)"
+        ],
+        "benefitsDetails": [
+          "Deed of Establishment",
+          "Approval from the Ministry of Law and Human Rights of the Republic of Indonesia",
+          "Tax Identification Number (NPWP)",
+          "Username and Password for PT PMA application access",
+          "Approval of Conformity of Land Use Activities with Spatial Planning",
+          "Business Identification Number (NIB)",
+          "Set Up Bank Account"
+        ],
+        "details": {
+          "overview": "Setting up a PT PMA, or Foreign Investment Limited Liability Company, in Indonesia requires thorough understanding of applicable regulations and legal procedures. We are here to assist you through every step of the establishment process smoothly and without obstacles. Our services include guidance from drafting the deed of establishment, obtaining official permits, to securing all essential documents such as Tax Identification Number (NPWP), Business Identification Number (NIB), and approvals from relevant authorities. We also ensure your company complies with land use regulations according to spatial planning. Additionally, we assist in opening bank accounts to support your company’s financial operations. With our experience and extensive network, we guarantee your PT PMA establishment is fast, accurate, and fully compliant with the latest Indonesian regulations.",
+          "extendedServices": []
+        }
+      },
+      {
+        "title": "Specialized Reporting and Costume Made Services",
+        "link": "specialized-reporting",
+        "icon": "/animate/specialized-reporting.lottie",
+        "newService": false,
+        "tags": [
+          "Personal",
+          "Company"
+        ],
+        "prices": {
+          "label": "Start from",
+          "price": "-",
+          "desc": "Based on revenue and complexity"
+        },
+        "benefits": [
+          "Investment Report (LKPM)",
+          "Registration NPWP, EFIN, Electronic Sertificate, Coretax Account, NPWPD, etc",
+          "BPJS Healthcare and Employment Enrollment & Deregistration",
+          "Creating Company Standard Operational Procedure",
+          "E-commerce costume sales reporting"
+        ],
+        "benefitsDetails": [
+          "Investment Report (LKPM)",
+          "Registration NPWP, EFIN, Electronic Sertificate, Coretax Account, NPWPD, etc",
+          "BPJS Healthcare and Employment Enrollment & Deregistration",
+          "Creating Company Standard Operational Procedure",
           "E-commerce costume sales reporting",
           "Industry-specific accounting (e.g., for construction, e-commerce, manufacture, or others)",
           "Project-based accounting",
           "Inventory and cost accounting",
-          "Investment Report (LKPM)"
+          "Additional reports customized to your preferences"
         ],
         "details": {
-          "overview": "Our fraud detection and operational optimization services protect businesses while improving efficiency through advanced fraud detection, reporting, and prevention measures, alongside streamlined Standard Operational Procedures (SOP) and flowchart assessments to eliminate bottlenecks and enhance effectiveness. By combining e-commerce sales reporting to track key metrics and optimize strategies with specialized accounting services tailored to industries like construction, e-commerce, and manufacturing, we address unique financial challenges and regulatory requirements. Our project-based accounting solutions ensure precise cost tracking and budget monitoring for profitability, while inventory and cost accounting systems optimize stock management and production costs. Together, these services deliver real-time insights, enhance operational performance, and drive overall profitability.",
+          "overview": "Finansist's services go beyond standard financial reporting. We provide tailored solutions to meet the specific needs of your business, including BPJS administration, comprehensive tax services from NPWP registration to tax audit assistance, as well as LKPM reporting and OSS administration. No need to worry if financial reports seem difficult to understand. With Finansist, you will receive financial reports customized to reflect the nature of your business, whether in e commerce, construction, manufacturing, hospitality, or other industries, making them more relevant, easier to read, and more useful for decision making.",
           "extendedServices": [
-            "Customized Accounting and Project-Based Solutions",
-            "Fraud Detection, Reporting, and Prevention",
-            "Standard Operational Procedure (SOP) and Risk Optimization",
-            "Data-Driven E-Commerce and Financial Insights"
+            "BPJ, tax, OSS, LKPM administration services",
+            " Reports customized to your business needs and preferences",
+            "Creating Company Standard Operational Procedure"
           ]
         }
       },
@@ -389,8 +486,7 @@
         "newService": false,
         "tags": [
           "Personal",
-          "Company",
-          "Contact Us"
+          "Company"
         ],
         "prices": {
           "label": "Start from",
@@ -398,6 +494,13 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
+          "Accounting software setup (e.g., QuickBooks, Xero, Accurate, etc.)",
+          "Software training and support",
+          "Cloud-based accounting system implementation ",
+          "Data migration and integration services",
+          "Checking the validity of the software currently in use"
+        ],
+        "benefitsDetails": [
           "Accounting software setup (e.g., QuickBooks, Xero, Accurate, etc.)",
           "Software training and support",
           "Cloud-based accounting system implementation ",
@@ -420,7 +523,7 @@
     "title": "Our Portfolio"
   },
   "career": {
-    "title": "UNLOCK YOUR FUTURE!",
+    "title": "CAREER & PARTNERSHIP",
     "items": [
       {
         "id": 1,
@@ -452,19 +555,23 @@
     "questions": [
       {
         "question": "What is Finansist?",
-        "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        "answer": "Finansist International is an accounting and tax reporting service firm with over 10 years of experience in the industry, serving clients from Indonesia and around the world. We offer a wide range of professional services, including bookkeeping, tax compliance, financial reporting, cloud-based financial system implementation, and comprehensive financial packages that cover all aspects of your company’s financial management, so you can focus on operations and business growth. Backed by a team of internationally certified professionals, Finansist is committed to helping you manage your business finances efficiently and in full compliance with current regulations."
       },
       {
         "question": "What are the benefits of using Finansist's services?",
-        "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-      },
-      {
-        "question": "How does Finansist work?",
-        "answer": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        "answer": "With Finansist, managing your finances becomes easier, more accurate, and fully compliant, so you can focus on growing your business with confidence. Our services are built on a reliable cloud system that ensures data security and accessibility, giving you peace of mind every step of the way. Designed to be flexible and cost-effective, our solutions support businesses and professionals in optimizing their financial management. We’re here for you 24/7, wherever you are in the world. Enjoy customized financial reports, seamless online meetings, secure cloud-based document storage, and the support of a certified team experienced in leading accounting software."
       },
       {
         "question": "How do I get started with Finansist's services?",
-        "answer": "To get started, you can visit the website finansistinternational.com and contact the Finansist team through the available information. The Finansist team will assist you with the next steps to start using the services. If you have other questions not covered in this FAQ, feel free to reach out to the Finansist team directly for further information and support."
+        "answer": "Visit finansistinternational.com and contact our team via WhatsApp or email. We will guide you through the next steps to start using our services. For any questions beyond the FAQ, feel free to reach out for additional information and support."
+      },
+      {
+        "question": "How can Finansist guarantee the security of customer data?",
+        "answer": "Customer data security is guaranteed through advanced and trusted cloud-based systems designed to prevent unauthorized access, maintain confidentiality, and provide secure real-time access. Finansist also enforces strict security protocols in line with industry standards to protect client data integrity and privacy."
+      },
+      {
+        "question": "Is Finansist only for companies in Indonesia?",
+        "answer": "No. We also offer bookkeeping, tax, and CFO service packages for businesses internationally across the globe. Guided by our international standards, we provide 24/7 global services that can follow and adapt to your local time zone wherever you are."
       }
     ]
   }

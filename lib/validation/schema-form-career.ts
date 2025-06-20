@@ -25,22 +25,26 @@ const FormJobSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   phone: z.string().min(7, { message: 'Phone must be at least 7 characters' }),
   email: z.string().email({ message: 'Invalid email address' }),
-  degree: z.string().min(3, { message: 'Degree must be at least 3 characters' }).max(50, { message: 'Degree must be at most 50 characters' }),
+  degree: z.enum(['SMA', 'S1', 'S2', 'S3'], { message: 'Degree must be one of SMA, S1, S2, S3' }),
   university: z.string().min(3, { message: 'University place must be at least 3 characters' }),
   major: z.string().min(3, { message: 'Major place must be at least 3 characters' }).max(50, { message: 'Major must be at most 50 characters' }),
   graduationYear: z.string().regex(/^\d{4}$/, { message: 'Invalid graduation year' }),
   desirablePosition: z.string().min(5, { message: 'Desirable position must be at least 5 characters' }),
   cv: z
-    .instanceof(File)
-    .refine((file) => file.size > 0, {
-      message: 'Cover letter must not be empty',
-    })
-    .refine((file) => file.size <= 5 * 1024 * 1024, {
-      message: 'File size must be less than or equal to 5MB',
-    })
-    .refine((file) => allowedMimeTypes.includes(file.type), {
-      message: 'Invalid file type. Only PDF or Word documents are allowed',
-    }),
+    .array(
+      z.instanceof(File)
+        .refine((file) => file.size > 0, {
+          message: 'File must not be empty',
+        })
+        .refine((file) => file.size <= 5 * 1024 * 1024, {
+          message: 'File size must be <= 5MB',
+        })
+        .refine((file) => allowedMimeTypes.includes(file.type), {
+          message: 'Only PDF or Word allowed',
+        })
+    )
+    .min(1, { message: 'Please upload at least 1 file' })
+    .max(5, { message: 'Maximum 5 files allowed' }),
 
   language: z
     .array(
@@ -51,6 +55,11 @@ const FormJobSchema = z.object({
     )
     .optional(),
   coverLetter: z.string().min(5, { message: 'Cover letter must be at least 5 characters' }),
+}).transform((data) => {
+  return {
+    ...data,
+    cv: Array.from(data.cv ?? []),
+  };
 });
 
 const FormInternSchema = z.object({

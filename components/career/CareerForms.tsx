@@ -113,7 +113,7 @@ const JobFields: React.FC = memo(() => {
       <TextInput<FormJobType> name="major" placeholder="e.g., Accounting" label="Major" isRequired className="col-span-1" />
       <TextInput<FormJobType> name="graduationYear" placeholder="e.g., 2021" label="Graduation Year" isRequired className="col-span-1" />
       <TextInput<FormJobType> name="university" placeholder="e.g., Universitas Indonesia" label="University" isRequired className="col-span-1" />
-      <FileInputPDF<FormJobType> name="cv" label="CV" accept="application/pdf" isRequired className="col-span-1" />
+      <FileInputPDF<FormJobType> name="cv" label="CV & Supporting Documents" accept="application/pdf" multiple={true} isRequired className="col-span-1" />
       <TextInput<FormJobType> name="desirablePosition" placeholder="Accounting Staff" label="Desirable Position" isRequired className="col-span-1" />
       <div className="col-span-1">
         <label className="text-sm md:text-base font-medium mb-3 flex">
@@ -225,7 +225,7 @@ export const FormJobs = (props: Omit<FormProps<FormJobType>, FormOmittedProps>) 
     schema={FormJobSchema}
     defaultValues={{
       name: '',
-      degree: '',
+      degree: undefined,
       major: '',
       graduationYear: '',
       phone: '',
@@ -234,7 +234,7 @@ export const FormJobs = (props: Omit<FormProps<FormJobType>, FormOmittedProps>) 
       university: '',
       coverLetter: '',
       language: [{ language: '', level: '' }],
-      cv: new File([], '', { type: 'application/pdf' }),
+      cv: [],
     }}
     loading={props.loading}
     onSubmit={props.onSubmit}
