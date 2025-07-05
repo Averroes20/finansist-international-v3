@@ -3,4 +3,6 @@ export interface PriceService {
   code: string;
   sort: number;
   fee: number;
+  annual_fee: number;
+  is_discount: boolean;
 }

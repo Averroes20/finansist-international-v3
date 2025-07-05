@@ -3,7 +3,7 @@ import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtub
 import { images } from '@/constants/images';
 import { useLanguage } from '@/context/LanguageProvider';
 import { useSocialMedia } from '@/context/SocialMediaProvider';
-import { BadgeDollarSign, BookText, Clipboard, ClipboardCheck, Gem, LaptopMinimal, Lightbulb, MapPinned, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
+import { BadgeDollarSign, BookText, Clipboard, ClipboardCheck, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { createElement, useCallback, useState } from 'react';
@@ -35,12 +35,11 @@ const Footer = () => {
       <div className="absolute inset-0 bg-[url('/images/bg-footer.webp')] bg-cover bg-bottom filter grayscale opacity-10"></div>
       <div className="absolute inset-0 "></div>
       <div className="relative z-10 p-4">
-        <div className="container grid grid-cols-1 md:grid-cols-4 gap-5 mx-auto px-5">
-          <div className="flex flex-col md:col-span-1 gap-4 px-10 items-center justify-center">
-            <Image src={images.LogoLarge} alt="Logo" width={1000} height={1000} loading="lazy" className="w-full object-contain" />
+        <div className="container grid grid-cols-1 md:grid-cols-7 gap-5 mx-auto px-5">
+          <div className="flex flex-col md:col-span-2 gap-4 w-full items-center justify-center">
             <Image src={images.Certifications} alt="Certifications" width={1000} height={1000} loading="lazy" className="w-full object-contain" />
           </div>
-          <div className="flex flex-col md:col-span-2 gap-4 items-center ">
+          <div className="flex flex-col md:col-span-3 gap-4 items-center ">
             <h4 className="text-xl font-semibold tracking-tight md:text-2xl md:font-bold">{title?.split('&')[0]}</h4>
             <ul className="flex flex-col col-span-1 space-y-1 py-3 px-4">
               {service?.map((item, index) => (
@@ -56,7 +55,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col md:col-span-1 gap-4">
+          <div className="flex flex-col md:col-span-2 gap-4">
             <h4 className="text-xl font-semibold tracking-tight text-center md:text-2xl md:font-bold">{language === 'en' ? 'Get In Touch' : 'Hubungi Kami'}</h4>
             <div className="flex flex-col gap-y-5">
               <p className="flex text-sm md:text-base">
@@ -80,12 +79,6 @@ const Footer = () => {
                 <button className="ml-1 cursor-pointer" onClick={() => handleCopy(`+${data && data.find((item) => item.id === 9)?.url}`, 'phone')} aria-label="Copy phone number">
                   {copied.phone ? <ClipboardCheck size={20} /> : <Clipboard size={20} />}
                 </button>
-              </p>
-              <p className="flex text-sm md:text-base">
-                <span className="mr-1">
-                  <MapPinned size={20} className="text-red-700 inline" />
-                </span>
-                <Link href={data && data.find((item) => item.id === 10)?.url || ''} className='hover:underline' target="_blank">Jl. Diponegoro No.22, Citarum, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40115</Link>
               </p>
               {data && (
                 <div className="flex gap-2 items-center justify-center mt-3">
@@ -128,6 +121,14 @@ const Footer = () => {
                   )}
                 </div>
               )}
+              <div className={data && data.find((item) => item.id === 10)?.active ? '' : 'hidden'}>
+                <iframe height="250"
+                  className='w-full rounded-md shadow-md'
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps?q=${data && data.find((item) => item.id === 10)?.url || ''}&hl=id&ie=UTF8&iwloc=B&output=embed`}></iframe>
+              </div>
             </div>
           </div>
         </div>

@@ -90,10 +90,12 @@ model LinkSocialMedia {
 }
 
 model ServiceFee {
-  id   Int    @id @default(autoincrement())
-  code String @db.VarChar(100)
-  sort Int
-  fee  Float  @default(0)
+  id          Int     @id @default(autoincrement())
+  code        String  @db.VarChar(100)
+  sort        Int
+  fee         Float   @default(0)
+  annual_fee  Float   @default(0)
+  is_discount Boolean @default(false)
 
   @@map("service_fee")
 }

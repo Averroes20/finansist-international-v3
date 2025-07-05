@@ -58,7 +58,7 @@
     ]
   },
   "about": {
-    "title": "WE SERVE A VARIETY OF ENTREPRENEURS FROM ALL OVER THE WORLD",
+    "title": "WE SERVE CLIENTS FROM ALL OVER THE WORLD",
     "aboutCEO": "With over a decade of experience, Finansist has evolved from a local accounting firm to a globally recognized. Serving clients across the world, specializing in international regulations. We leverage cutting-edge technology to deliver seamless bookkeeping and tax preparation services no matter where you are. Based in Indonesia, our strategic location allows us to offer cost-effective solutions that consistently exceed expectations, providing exceptional value compared to other consultant."
   },
   "whyFinansist": {
@@ -409,7 +409,8 @@
         "icon": "/animate/setup-pma.lottie",
         "newService": false,
         "tags": [
-          "Null"
+          "Personal",
+          "Company"
         ],
         "prices": {
           "label": "Start from",

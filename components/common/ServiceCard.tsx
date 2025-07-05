@@ -1,22 +1,22 @@
 import { Service } from '@/lib/type/service';
-import { Minus } from 'lucide-react';
+import { formatCurrency } from '@/utils/currency';
+import { BadgePercent, Minus } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { memo } from 'react';
 import { Button } from '../ui/button';
 import { DialogDescription, DialogHeader, DialogTitle } from '../ui/dialog';
 import ButtonContact from './ButtonContact';
 import Modal from './Modal';
-import { formatCurrency } from '@/utils/currency';
-import Image from 'next/image';
 
 const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
 
-const ServiceCard = ({ service, price, isAnnual, code, lang }: { service: Service, price: number, isAnnual: boolean, code: string, lang: string }) => {
+const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscount }: { service: Service, monthly: number, annual: number, isAnnual: boolean, code: string, lang: string, isDiscount: boolean }) => {
   return (
     <>
       <div className="flex flex-col items-center flex-grow">
         <header className="px-8 flex flex-col justify-center items-center min-h-[80px] relative text-center">
-          <h3 className="text-lg md:text-xl font-bold">{service.title}</h3>
+          <h3 className="text-xl font-bold">{service.title}</h3>
           {service.newService && (
             <span className="absolute -top-1 -right-2 text-xs text-[#3A9DA1] font-bold px-2 py-1 bg-[#98eded] rounded-lg">New</span>
           )}
@@ -51,22 +51,26 @@ const ServiceCard = ({ service, price, isAnnual, code, lang }: { service: Servic
         </section>
       </div>
       <div className="font-dosis flex flex-col gap-y-2 pt-6">
-        {price === 0 ? <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center">{lang === 'en' ? 'Determined after consultation' : 'Ditentukan setelah konsultasi'}</span> :
+        {monthly == 0 && annual == 0 ? <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center">{lang === 'en' ? 'Determined after consultation' : 'Ditentukan setelah konsultasi'}</span> :
           <>
-            <p className="font-semibold">{service.prices.label}</p>
+            <p className="font-semibold">{service.prices.label} : </p>
             <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center">
-              {isAnnual ? formatCurrency(price * 12, code, code === 'IDR' ? 'id-ID' : 'en-US') : formatCurrency(price, code, code === 'IDR' ? 'id-ID' : 'en-US')} <span className="text-base md:text-2xl lg:text-3xl">/{isAnnual ? 'year' : 'month'}</span>{' '}
+              {isAnnual ? formatCurrency(annual, code, code === 'IDR' ? 'id-ID' : 'en-US') : formatCurrency(monthly, code, code === 'IDR' ? 'id-ID' : 'en-US')}
+              <span className="text-base md:text-2xl lg:text-3xl relative">
+                {isDiscount ? <span className="absolute -top-4 -left-3"><BadgePercent className='text-red-600' /></span> : null}
+                /{isAnnual ? 'year' : 'month'}
+              </span>{' '}
             </span>
             <p className="font-medium text-base text-end">{service.prices.desc}</p>
           </>
         }
       </div>
-      <ServiceModal service={service} />
+      <ServiceModal service={service} lang={lang} />
     </>
   );
 };
 
-const ServiceModal = memo(({ service }: { service: Service }) => {
+const ServiceModal = memo(({ service, lang }: { service: Service, lang: string }) => {
   return (
     <Modal
       trigger={
@@ -77,8 +81,8 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
       contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[65vw] md:min-h-[90vh] p-0 border-0 overflow-y-auto"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 space-y-4 md:space-y-0 md:space-x-4">
-        <div className="col-span-1 px-5 bg-[#3A9DA1] flex flex-col h-full justify-center items-center">
-          <div>
+        <div className="col-span-1 order-2 md:order-1 px-5 bg-[#3A9DA1] flex flex-col h-full justify-center items-center">
+          <div className='my-4 md:my-0'>
             <h1 className="text-center text-xl text-white font-libreBaskerville mb-9">What you will get</h1>
             {service.benefitsDetails.map((benefit, index) => (
               <div key={`benefit-${index + 1}`} className="">
@@ -87,9 +91,15 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
                 </ul>
               </div>
             ))}
+            <div className="md:hidden flex justify-center mb-10">
+              <ButtonContact
+                title={lang === 'en' ? "Free Consultasion!" : "Konsultasi Gratis!"}
+                className="font-semibold py-2 px-4 rounded-lg mt-5 shadow-md self-center text-sm md:text-base"
+              />
+            </div>
           </div>
         </div>
-        <div className="col-span-2 px-5 flex relative flex-col h-full justify-center items-center">
+        <div className="col-span-2 order-1 md:order-2 px-5 flex relative flex-col h-full justify-center items-center">
           <div>
             <DialogHeader>
               <div className="w-72 mx-auto p-4">
@@ -99,25 +109,25 @@ const ServiceModal = memo(({ service }: { service: Service }) => {
                 <span className="border-b-4 border-[#3A9DA1] inline-block pb-2">{service.title}</span>
               </DialogTitle>
             </DialogHeader>
-            <div className="mt-4 flex flex-col flex-grow flex-1">
+            <div className="mt-4 flex flex-col flex-grow flex-1 mb-10 md:mb-0">
               <div>
-                {service.newService ? <Image src="/images/statistik-cfo.png" alt="statistik-cfo" width={9999} height={9999} className='w-full object-cover mr-4 md:w-1/2 md:float-start' /> : ''}
-                <DialogDescription className="leading-7 text-black text-lg prose prose-lg text-justify">
+                {service.newService ? <Image src="/images/statistik-cfo.png" alt="statistik-cfo" width={9999} height={9999} className='w-full object-cover mr-4 md:w-1/3 md:float-start' /> : ''}
+                <DialogDescription className="leading-7 text-black text-sm md:text-base prose prose-lg text-justify">
                   {service.details.overview}
                 </DialogDescription>
               </div>
               <ul>
                 {service.details.extendedServices.map((extendedService, index) => (
-                  <li key={`extendedService-${index + 1}`} className="my-1 text-black text-lg flex">
+                  <li key={`extendedService-${index + 1}`} className="my-1 text-black text-sm md:text-base flex">
                     <span className="mr-2 text-green-600 font-bold">✔</span>
                     <span>{extendedService}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="flex justify-center m-10">
+            <div className="hidden md:flex justify-center mb-10">
               <ButtonContact
-                title={service.lang === 'en' ? "Free Consultasion!" : "Konsultasi Gratis!"}
+                title={lang === 'en' ? "Free Consultasion!" : "Konsultasi Gratis!"}
                 className="font-semibold py-2 px-4 rounded-lg mt-5 shadow-md self-center text-sm md:text-base"
               />
             </div>

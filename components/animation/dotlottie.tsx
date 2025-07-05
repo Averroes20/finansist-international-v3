@@ -18,8 +18,9 @@ const Dotlottie: React.FC<Props> = ({ src, loop, autoplay, segment, speed, dotLo
       autoplay={autoplay}
       segment={segment}
       speed={speed}
+      style={{ width: '100%', height: '100%' }}
       dotLottieRefCallback={dotLottieRefCallback}
-      className={className}
+      className={`${className}`}
     />
   );
 };

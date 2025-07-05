@@ -70,7 +70,7 @@ const Careers = () => {
     >
       <link rel="preload" href="/images/bg-cover-career.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <div id="career" className="relative z-10 flex flex-col items-center justify-center md:p-20 bg-black bg-opacity-30 scroll-mt-96">
-        <TitleSection id="career-title" className="mb-20 text-white scroll-mt-96">
+        <TitleSection id="career-title" className="my-10 md:my-14 text-white scroll-mt-96">
           {title}
         </TitleSection>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10  max-w-screen-lg lg:max-w-screen-xl mx-auto px-10 mb-20 md:mb-0 md:px-0">
