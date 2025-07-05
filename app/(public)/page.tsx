@@ -58,23 +58,23 @@ const RootPage = () => {
   return (
     <>
       <Suspense fallback={<p>Loading ...</p>}>
-        <Intro />
+        {/* <Intro />
         <Profile />
-        <AboutUs />
+        <AboutUs /> */}
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>
-        <ServicePromotion />
-        <ValueCompany />
+        {/* <ServicePromotion />
+        <ValueCompany /> */}
         <Services />
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>
-        <Reviews />
+        {/* <Reviews />
         <Portfolio />
         <Blogs />
         <Careers />
-        <FAQ />
+        <FAQ /> */}
       </Suspense>
       <ButtonContact className="fixed bottom-5 right-5 md:hidden z-[999]" title="Free Consultation" />
     </>
