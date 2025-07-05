@@ -59,7 +59,7 @@ const ValueCompany = () => {
   };
 
   return (
-    <section id="valueCompany" className="min-h-screen flex flex-col bg-[#071620]" ref={sectionRef}>
+    <section id="valueCompany" className="min-h-screen flex flex-col bg-[#071620] mt-8 md:mt-0" ref={sectionRef}>
       <header className="px-5 py-6 md:px-16 md:py-14 flex-grow">
         <motion.h2
           initial="hidden"
@@ -86,25 +86,28 @@ const ValueCompany = () => {
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className={`relative w-80 md:h-[500px] bg-[#091f2f] rounded-lg overflow-hidden shadow-lg flex flex-col group transition-all duration-500 cursor-default`}
+            className={`relative w-80 h-[200px] md:h-[500px] bg-[#091f2f] rounded-lg overflow-hidden shadow-lg flex flex-col group transition-all duration-500 cursor-default`}
             onClick={() => handleCardToggle(index)}
             aria-pressed={activeCard === index}
             aria-label={`card-${index + 1}`}
             tabIndex={0}
             key={`${index + 1}-${item.title}`}
           >
-            <div className="p-5 mb-10">
-              <h1 className="text-3xl text-white text-start font-bold leading-tight">{item.title}</h1>
+            <div className="p-3 md:p-5 flex flex-grow">
+              <h1 className="text-xl md:text-3xl text-white text-start font-bold leading-tight">{item.title}</h1>
             </div>
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-[350px]">
               <div
                 className={clsx(
-                  `flex-1 flex justify-end items-end h-full transition-transform duration-500 
+                  `flex-1 flex justify-start items-start md:justify-end md:items-end h-full transition-transform duration-500 
                   group-hover:translate-x-[-100%] group-hover:opacity-50`,
                   activeCard === index ? 'translate-x-[-100%] opacity-50' : 'translate-x-0 opacity-100'
                 )}
               >
-                <Image src={item.urlImage} alt="Card Image" width={300} height={300} loading="lazy" className="object-cover w-full h-full" />
+                <Image src={item.urlImage} alt="Card Image" width={9999} height={9999} loading="lazy" className="hidden md:block object-cover w-full h-full" />
+                <div className="block md:hidden px-4 py-0 text-white">
+                  <p className="text-sm md:text-base font-medium text-start">{item.description}</p>
+                </div>
               </div>
 
               {/* Description */}
@@ -118,14 +121,14 @@ const ValueCompany = () => {
                   transformOrigin: 'bottom',
                 }}
               >
-                <div className="p-4 text-white">
-                  <p className="text-lg font-medium text-start">{item.description}</p>
+                <div className="hidden md:block p-4 text-white">
+                  <p className="text-sm md:text-base font-medium text-start">{item.description}</p>
                 </div>
 
                 {/* Chevron */}
                 <div
                   className={clsx(
-                    `absolute bottom-5 right-4 bg-green-500 p-2 rounded-full cursor-pointer transition-transform ease-in delay-300 duration-500 
+                    `absolute bottom-4 right-4 bg-green-500 p-2 rounded-full cursor-pointer transition-transform ease-in delay-300 duration-500 
                     group-hover:translate-y-0`,
                     activeCard === index ? 'translate-y-0' : 'translate-y-[50px]'
                   )}

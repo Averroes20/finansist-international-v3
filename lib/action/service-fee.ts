@@ -15,7 +15,7 @@ export async function getPrice(code: string) {
     })
   } catch (error) {
     console.error(error);
-    throw new Error('Failed to get price');
+    throw new Error('❌ Failed to get price');
   }
 }
 
@@ -27,7 +27,9 @@ export async function updatePrice(data: TypePriceService) {
         code: data.code,
       },
       data: {
-        fee: Number(data.fee)
+        fee: Number(data.fee),
+        annual_fee: Number(data.annual_fee),
+        is_discount: data.is_discount
       }
     })
     revalidatePath('/admin/price');

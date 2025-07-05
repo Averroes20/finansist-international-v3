@@ -23,7 +23,7 @@ const Reviews = dynamic(() => import('@/components/Review'), {
 });
 
 const Services = dynamic(() => import('@/components/Services'), {
-  ssr: true,
+  ssr: false,
   loading: () => <p>Loading Services...</p>,
 });
 
@@ -58,25 +58,25 @@ const RootPage = () => {
   return (
     <>
       <Suspense fallback={<p>Loading ...</p>}>
-        <Intro />
+        {/* <Intro />
         <Profile />
-        <AboutUs />
+        <AboutUs /> */}
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>
-        <ServicePromotion />
-        <ValueCompany />
+        {/* <ServicePromotion />
+        <ValueCompany /> */}
         <Services />
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>
-        <Reviews />
+        {/* <Reviews />
         <Portfolio />
         <Blogs />
         <Careers />
-        <FAQ />
+        <FAQ /> */}
       </Suspense>
-      <ButtonContact className="fixed bottom-5 right-5 md:hidden" title="Free Consultation" />
+      <ButtonContact className="fixed bottom-5 right-5 md:hidden z-[999]" title="Free Consultation" />
     </>
   );
 };

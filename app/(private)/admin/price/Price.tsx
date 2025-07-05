@@ -79,7 +79,9 @@ const PricePage: React.FC = () => {
               <TableHead className="w-[50px]">No.</TableHead>
               <TableHead className="">Service Name</TableHead>
               <TableHead className="">Code</TableHead>
-              <TableHead className="">Price</TableHead>
+              <TableHead className="">Monthly</TableHead>
+              <TableHead className="">Annual</TableHead>
+              <TableHead className="">Discount</TableHead>
             </TableRow>
           </TableHeader>
           {items?.map((item, index) => (
@@ -93,13 +95,25 @@ const PricePage: React.FC = () => {
                 <TableCell className="">
                   {formatCurrency(data[index]?.fee, select.name, select.name === 'IDR' ? 'id-ID' : 'en-US')}
                 </TableCell>
+                <TableCell className="">
+                  {formatCurrency(data[index]?.annual_fee, select.name, select.name === 'IDR' ? 'id-ID' : 'en-US')}
+                </TableCell>
+                <TableCell className="">
+                  {data[index]?.is_discount ? (
+                    <span className="bg-green-600 text-white px-3 py-2 rounded-full">Active</span>
+                  ) : (
+                    <span className="bg-red-600 text-white px-3 py-2 rounded-full">Inactive</span>
+                  )}
+                </TableCell>
                 <TableCell>
                   <PriceServiceForm
                     data={{
                       code: data[index]?.code,
                       fee: String(data[index]?.fee),
+                      annual_fee: String(data[index]?.annual_fee),
                       id: data[index]?.id,
-                      serviceName: item.title
+                      serviceName: item.title,
+                      is_discount: data[index]?.is_discount
                     }}
                     onSubmit={handleEdit}
                     title="Edit Social Media"

@@ -34,7 +34,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
             />
           </div>
           <h1
-            className="text-white text-xs lg:text-base absolute top-4 right-5 px-3 py-1 bg-gray-500 rounded-full uppercase"
+            className="text-white text-xs lg:text-sm absolute top-4 right-5 px-3 py-1 bg-gray-500 rounded-full uppercase"
             aria-label={`Category: ${item.category}`}
           >
             {item.category}

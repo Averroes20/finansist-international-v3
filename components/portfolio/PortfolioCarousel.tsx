@@ -67,9 +67,8 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
             <button
               key={`dot-${idx + 1}`}
               onClick={() => api?.scrollTo(idx)}
-              className={`h-2 w-2 rounded-full ${
-                current === idx + 1 ? 'bg-gray-950' : 'bg-gray-400'
-              } transition-colors duration-300 hover:bg-gray-200`}
+              className={`h-2 w-2 rounded-full ${current === idx + 1 ? 'bg-gray-950' : 'bg-gray-400'
+                } transition-colors duration-300 hover:bg-gray-200`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
@@ -101,18 +100,18 @@ const PortfolioCard: React.FC<{ item: Portfolio }> = memo(({ item }) => (
       <div className="flex gap-1 items-center">
         {item.software
           ? item.software
-              ?.split(',')
-              .map((logo: string, logoIndex: number) => (
-                <Image
-                  src={logo}
-                  alt={`${item.companyName} Software Logo ${logoIndex}`}
-                  loading="lazy"
-                  width={800}
-                  height={800}
-                  className="w-[20px] md:w-[30px] rounded-full shadow-sm"
-                  key={`logo-${logoIndex + 1}`}
-                />
-              ))
+            ?.split(',')
+            .map((logo: string, logoIndex: number) => (
+              <Image
+                src={logo}
+                alt={`${item.companyName} Software Logo ${logoIndex}`}
+                loading="lazy"
+                width={800}
+                height={800}
+                className="w-[20px] md:w-[30px] rounded-full shadow-sm"
+                key={`logo-${logoIndex + 1}`}
+              />
+            ))
           : null}
       </div>
     </header>

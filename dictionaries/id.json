@@ -58,7 +58,7 @@
     ]
   },
   "about": {
-    "title": "KAMI MELAYANI BERAGAM PENGUSAHA DARI SELURUH DUNIA",
+    "title": "KAMI MELAYANI KLIEN DARI SELURUH DUNIA",
     "aboutCEO": "Dengan pengalaman lebih dari satu dekade, Finansist telah berevolusi dari konsultan keuangan lokal menjadi penyedia layanan yang berkembang secara global. Melayani pengusaha dari seluruh dunia, dengan spesialisasi pada peraturan internasional. Kami memanfaatkan teknologi mutakhir untuk memberikan layanan pembukuan dan perpajakan tanpa hambatan di mana pun Anda berada. Berbasis di Indonesia, lokasi yang strategis memungkinkan kami untuk menawarkan solusi hemat biaya yang secara konsisten melebihi ekspektasi, memberikan nilai yang luar biasa dibandingkan dengan konsultan lainnya."
   },
   "whyFinansist": {
@@ -407,7 +407,8 @@
         "icon": "/animate/setup-pma.lottie",
         "newService": false,
         "tags": [
-          "Null"
+          "Pribadi",
+          "Perusahaan"
         ],
         "prices": {
           "label": "Mulai dari",
