@@ -81,10 +81,9 @@ const Careers = () => {
               key={`${index + 1}-${item.title}`}
               className="p-4 lg:p-7 bg-white rounded-xl flex flex-col h-full shadow-xl"
             >
-              <div className="flex-grow lg:text-lg lg:py-3 xl:text-xl xl:py-4">
-
+              <div className="flex-grow text-base md:text-lg xl:py-4">
                 <p className='text-center mb-4'>
-                  <span className="text-xl md:text-3xl tracking-tight font-bold uppercase inline-block pb-2" style={{ borderBottom: `4px solid #${item.color}` }}>
+                  <span className="text-xl md:text-2xl tracking-tight font-bold uppercase inline-block pb-2" style={{ borderBottom: `4px solid #${item.color}` }}>
                     {item.title}
                   </span>
                 </p>

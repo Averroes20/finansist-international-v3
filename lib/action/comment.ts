@@ -21,7 +21,6 @@ export async function createComment(form: FormData, slug: string) {
       throw new Error('Invalid form data');
     }
     const payload = form.get('payload') as string;
-    console.log('payload', payload);
 
     const { name, email, content, blog_id } = JSON.parse(payload);
 

@@ -8,9 +8,11 @@ const FAQ: React.FC = () => {
   const { dictionary } = useLanguage();
   const { title, questions } = dictionary?.faq ?? {};
   return (
-    <section id="faq" className="scroll-mt-24">
-      <div className="h-32 relative" aria-label="wave">
-        <Image src="/waves/wave-up.svg" alt="Layer 1" fill className="object-cover" />
+    <section id="faq" className="scroll-mt-24 relative pt-24 pb-28">
+      <div className='absolute top-1 left-0 w-full'>
+        <div className="h-24 relative border-b border-b-[#113870]" aria-label="wave">
+          <Image src="/waves/wave-up.svg" alt="Layer 1" fill className="object-cover absolute bottom-2" />
+        </div>
       </div>
       <div className="bg-[#113870] py-5">
         <TitleSection className="text-white mx-10 mb-3 md:mx-0 md:mb-7">{title}</TitleSection>
@@ -25,8 +27,10 @@ const FAQ: React.FC = () => {
           </Accordion>
         </div>
       </div>
-      <div className="h-32 relative" aria-label="wave">
-        <Image src="/waves/wave-down.svg" alt="Layer 1" fill className="object-cover" />
+      <div className='absolute bottom-1 left-0 w-full'>
+        <div className="h-28 relative border-t border-[#113870]" style={{ background: '#' }} aria-label="wave">
+          <Image src="/waves/wave-down.svg" alt="Layer 2" fill loading='lazy' className="object-cover" />
+        </div>
       </div>
     </section>
   );

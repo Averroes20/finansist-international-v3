@@ -64,7 +64,7 @@
   "whyFinansist": {
     "tagsLine": {
       "part0": "Kami Membuat Anda Dapat Fokus Mengembangkan Bisnis",
-      "part1": "Kami Membuat Bisnis Anda Lebih",
+      "part1": "Bisnis Anda Lebih",
       "part2": [
         "Efisien",
         "Bertumbuh",
@@ -130,7 +130,8 @@
     "tagsLine": "Mengembangkan bisnis Anda!"
   },
   "customerType": {
-    "title": "Apa pun jenis usaha Anda, Finansist adalah mitra yang tepat!",
+    "title1": "Apa pun jenis usaha Anda, Finansist adalah mitra yang tepat!",
+    "title2": "Anda dapat percaya!",
     "description": "Kami melayani berbagai sektor bisnis dengan dukungan tim ahli yang berpengalaman sesuai kebutuhan spesifik di setiap industri dan telah bersertifikasi international. Dengan pendekatan yang fleksibel, Finansist siap membantu bisnis Anda tumbuh sesuai dengan kondisi dan target bisnis anda."
   },
   "valueCompany": {
@@ -405,7 +406,7 @@
         "title": "SET UP PMA service",
         "link": "pma",
         "icon": "/animate/setup-pma.lottie",
-        "newService": false,
+        "newService": true,
         "tags": [
           "Pribadi",
           "Perusahaan"
@@ -481,7 +482,7 @@
         }
       },
       {
-        "title": "Layanan Implementasi dan Dukungan Perangkat Lunak Akuntansi",
+        "title": "Layanan Implementasi Perangkat Lunak Akuntansi",
         "link": "accounting-software",
         "icon": "/animate/accounting-software.lottie",
         "newService": false,

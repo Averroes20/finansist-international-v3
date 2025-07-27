@@ -12,7 +12,7 @@ const chunkArray = (array: Portfolio[], size: number) => {
 const Portfolios = async () => {
   const headerlist = headers();
   const userAgent = headerlist.get('user-agent');
-  const isMobile = /Mobile|Android|iPhone|iPad/i.test(userAgent ?? '');
+  const isMobile = /Mobile|Android|iPhone/i.test(userAgent ?? '');
   const chunk = isMobile ? 4 : 6;
   const portfolio = getPortfolio({ page: 1 });
 
@@ -20,7 +20,7 @@ const Portfolios = async () => {
 
   const chunks = chunkArray(portfolios.data || [], chunk);
   return (
-    <section className="max-w-screen-xl min-h-screen mx-auto px-5 md:mt-14 md:px-0">
+    <section className="max-w-screen-xl min-h-screen mx-auto py-5 mb-5 px-5 md:mt-14 md:px-0">
       <CarouselPortfolio portfolioChunks={chunks} />
     </section>
   );

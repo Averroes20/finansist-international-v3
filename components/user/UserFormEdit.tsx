@@ -32,8 +32,6 @@ const UserFormEdit: React.FC<Props> = ({ data, onSubmit, title, description, tri
   });
 
   const handleSubmit = (data: TypeEditUser) => {
-    console.log('LOG FORM:', data);
-
     onSubmit(data);
     setOpen(false);
   };

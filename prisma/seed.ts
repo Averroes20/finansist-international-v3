@@ -100,7 +100,6 @@ async function main() {
       { label: 'Phone', url: '6281211114994', active: true },
     ]
   })
-  console.log({ price, social })
 }
 main()
   .then(async () => {

@@ -19,6 +19,7 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
   const [current, setCurrent] = useState<number>(1);
   const { dictionary } = useLanguage();
   const { title } = dictionary?.portfolio || {};
+  const { softwareTitle } = dictionary?.intro || {};
 
   const handleMouseEnter = useCallback(() => plugins.current?.stop(), []);
   const handleMouseLeave = useCallback(() => plugins.current?.play(), []);
@@ -74,13 +75,16 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
           ))}
         </div>
       </AnimatedComponent>
-      <div className="grid grid-cols-2 md:flex md:flex-row md:items-center min-w-fit md:mx-5 md:space-x-2 mt-14 md:flex-wrap justify-center">
-        {software.map((item, index) => (
-          <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit md:mx-5 space-x-2 p-3">
-            <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] border-0 object-contain" />
-            <span>{item.label}</span>
-          </div>
-        ))}
+      <div className='md:mx-5 md:space-x-2 mt-14'>
+        <p className="text-xs md:text-sm font-libreBaskerville text-black text-center mb-4">{softwareTitle}</p>
+        <div className="grid grid-cols-2 md:flex md:flex-row md:items-center min-w-fit md:flex-wrap justify-center">
+          {software.map((item, index) => (
+            <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit md:mx-5 space-x-2 p-3">
+              <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] border-0 object-contain" />
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

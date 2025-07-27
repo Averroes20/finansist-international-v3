@@ -28,8 +28,6 @@ const DetailBlog: React.FC<Props> = ({ data, session }) => {
   const handleSubmit = useCallback(
     async (formData: CommentType) => {
       'server only';
-      console.log('formData', formData);
-
       try {
         setIsLoading(true);
         const form = new FormData();

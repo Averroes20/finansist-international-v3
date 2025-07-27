@@ -47,22 +47,20 @@ const BlogsAdmin: React.FC = () => {
   const fetchDataBlogs = useCallback(async () => {
     const selectCategory = search.category === 'null' ? '' : search.category;
     const selectMonth = search.month === 'null' ? '' : search.month;
-
-    try {
-      const data = await getBlogs({
-        page: meta.page,
-        limit,
-        title: search.title,
-        category: selectCategory,
-        author: search.author,
-        month: selectMonth || undefined,
-        year: search.year || undefined,
-      });
-      setBlogs(data.data);
-      setMeta({ page: data.meta.page, totalPages: data.meta.totalPages });
-    } catch (error) {
-      console.error('Error fetching blogs:', error);
-    }
+    await getBlogs({
+      page: meta.page,
+      limit,
+      title: search.title,
+      category: selectCategory,
+      author: search.author,
+      month: selectMonth || undefined,
+      year: search.year || undefined,
+    }).then((res) => {
+      setBlogs(res.data);
+      setMeta({ page: res.meta.page, totalPages: res.meta.totalPages });
+    }).catch((error) => {
+      throw new Error(`Failed to fetch blogs: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    });
   }, [meta.page, search]);
 
   const handleSearchClick = () => {

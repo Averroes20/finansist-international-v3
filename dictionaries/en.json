@@ -64,7 +64,7 @@
   "whyFinansist": {
     "tagsLine": {
       "part0": "We Make You Focus On Developing Your Business",
-      "part1": "We Make Your Business More",
+      "part1": "Your Business More",
       "part2": [
         "Efficient",
         "Growing",
@@ -130,7 +130,8 @@
     "tagsLine": "Growing your business!"
   },
   "customerType": {
-    "title": "Whatever your line of business, Finansist is the right partner you can trust!",
+    "title1": "Whatever your line of business, Finansist is the right partner",
+    "title2": "You can trust!",
     "description": "We serve various industries, supported by a team of internationally certified experts and have in-depth experience in the specific needs of each sector. With a flexible approach, Finansist is ready to help your business grow based on your goals and business conditions."
   },
   "valueCompany": {
@@ -407,7 +408,7 @@
         "title": "SET UP PMA service",
         "link": "pma",
         "icon": "/animate/setup-pma.lottie",
-        "newService": false,
+        "newService": true,
         "tags": [
           "Personal",
           "Company"

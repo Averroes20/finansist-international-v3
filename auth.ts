@@ -18,7 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         const parsedCredentials = validationLogin.safeParse(credentials);
         if (!parsedCredentials.success) {
-          console.error('Invalid credentials:', parsedCredentials.error.errors);
+
           return null;
         }
 
@@ -28,7 +28,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           });
 
           if (!user) {
-            console.log('User not found');
             return null;
           }
 
@@ -36,7 +35,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const matchedPassword = bcrypt.compareSync(credentials?.password as string, user.password);
 
           if (!matchedPassword) {
-            console.error('Invalid password');
+
             return null;
           }
 
@@ -45,8 +44,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             name: user.name,
             email: user.email,
           };
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
-          console.error('Error verifying credentials:', error);
           return null;
         }
       },

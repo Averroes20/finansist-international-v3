@@ -41,7 +41,7 @@ const Services = () => {
   }, [fetchPrice]);
 
   return (
-    <section className="max-w-screen-xl mx-auto min-h-screen py-5 px-5 md:px-0 md:my-10">
+    <section className="max-w-screen-xl bg-white text-black mx-auto min-h-screen py-5 px-5 md:px-0 md:my-10">
       <TitleSection>{title}</TitleSection>
       <div className="flex items-center justify-center gap-4 my-5">
         <button

@@ -108,8 +108,6 @@ export async function getBlogs(params: FetchBlogsParams) {
       totalCount,
     };
 
-    console.log('Blogs fetched:', data.length);
-
     return { data, meta } as BlogListResponses;
   } catch (error) {
     console.error('Failed to fetch blogs:', error);

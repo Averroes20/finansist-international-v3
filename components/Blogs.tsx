@@ -14,8 +14,7 @@ const Blogs = async () => {
   const [blogs] = await Promise.all([blogPromise]);
   return (
     <>
-      <div className='h-10 bg-gradient-to-b from-white to-slate-100' />
-      <section id="blog" className="md:min-h-screen h-[80vh] flex justify-center items-center bg-slate-100">
+      <section id="blog" className="md:min-h-screen h-[80vh] flex justify-center items-center bg-[#f7f7f7]">
         <div className='max-w-screen-xl mx-auto '>
           <TitleSection>Our Blog</TitleSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2 md:py-0 md:mt-5">

@@ -36,7 +36,8 @@ const Footer = () => {
       <div className="absolute inset-0 "></div>
       <div className="relative z-10 p-4">
         <div className="container grid grid-cols-1 md:grid-cols-7 gap-5 mx-auto px-5">
-          <div className="flex flex-col md:col-span-2 gap-4 w-full items-center justify-center">
+          <div className="flex flex-col md:col-span-2 space-y-4 w-full items-center justify-center">
+            <Image src={images.LogoLarge} alt="Certifications" width={1000} height={1000} loading="lazy" className="w-full object-contain mb-4" />
             <Image src={images.Certifications} alt="Certifications" width={1000} height={1000} loading="lazy" className="w-full object-contain" />
           </div>
           <div className="flex flex-col md:col-span-3 gap-4 items-center ">
@@ -56,10 +57,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="flex flex-col md:col-span-2 gap-4">
-            <h4 className="text-xl font-semibold tracking-tight text-center md:text-2xl md:font-bold">{language === 'en' ? 'Get In Touch' : 'Hubungi Kami'}</h4>
+            <h4 className="text-xl font-semibold tracking-tight text-center mb-4 md:text-2xl md:font-bold">{language === 'en' ? 'Get In Touch' : 'Hubungi Kami'}</h4>
             <div className="flex flex-col gap-y-5">
               <p className="flex text-sm md:text-base">
-                <span className="mr-1">
+                <span className="mr-2">
                   <Email className="text-red-500 inline" />
                 </span>
                 <span className="ml-1">{data && data.find((item) => item.id === 8)?.url}</span>
@@ -72,7 +73,7 @@ const Footer = () => {
                 </button>
               </p>
               <p className="flex text-sm md:text-base">
-                <span className="mr-1">
+                <span className="mr-3.5">
                   <Whatsapp className="text-green-500 inline" />
                 </span>
                 <span>+{data && data.find((item) => item.id === 9)?.url}</span>

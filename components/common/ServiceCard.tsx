@@ -1,6 +1,6 @@
 import { Service } from '@/lib/type/service';
 import { formatCurrency } from '@/utils/currency';
-import { BadgePercent, Minus } from 'lucide-react';
+import { Minus } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { memo } from 'react';
@@ -18,7 +18,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
         <header className="px-8 flex flex-col justify-center items-center min-h-[80px] relative text-center">
           <h3 className="text-xl font-bold">{service.title}</h3>
           {service.newService && (
-            <span className="absolute -top-1 -right-2 text-xs text-[#3A9DA1] font-bold px-2 py-1 bg-[#98eded] rounded-lg">New</span>
+            <span className="absolute -top-1 -right-2 text-xs text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>
           )}
         </header>
         <span className="w-[60%] h-1 bg-[#3A9DA1]" />
@@ -27,7 +27,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
         </div>
         <section className="w-full">
           <div className="flex justify-center items-center my-2">
-            <span className='inline-flex bg-slate-900 text-white dark:bg-slate-50 dark:text-slate-900 p-1 px-2 rounded-lg'>
+            <span className='inline-flex bg-slate-900 text-white dark:bg-slate-50 dark:text-slate-900 p-1 px-2 rounded-lg mb-0 md:mb-3'>
               {service.tags.map((tag, tagIndex) => (
                 <div key={`tag-${tagIndex + 1}`} className="flex items-center">
                   <span className="text-base font-semibold text-[#3A9DA1}">{tag}</span>
@@ -51,14 +51,14 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
         </section>
       </div>
       <div className="font-dosis flex flex-col gap-y-2 pt-6">
-        {monthly == 0 && annual == 0 ? <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center">{lang === 'en' ? 'Determined after consultation' : 'Ditentukan setelah konsultasi'}</span> :
+        {monthly == 0 && annual == 0 ? <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-0 md:mb-5">{lang === 'en' ? 'Determined after consultation' : 'Ditentukan setelah konsultasi'}</span> :
           <>
             <p className="font-semibold">{service.prices.label} : </p>
-            <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center">
+            <span className="text-2xl lg:text-3xl font-bold text-center">
               {isAnnual ? formatCurrency(annual, code, code === 'IDR' ? 'id-ID' : 'en-US') : formatCurrency(monthly, code, code === 'IDR' ? 'id-ID' : 'en-US')}
-              <span className="text-base md:text-2xl lg:text-3xl relative">
-                {isDiscount ? <span className="absolute -top-4 -left-3"><BadgePercent className='text-red-600' /></span> : null}
+              <span className="text-xl md:text-2xl lg:text-3xl relative">
                 /{isAnnual ? 'year' : 'month'}
+                {isDiscount ? <Image src="/images/discount.png" alt="discount" width={50} height={50} className="absolute -top-6 left-14 md:-top-8 md:left-20 w-10 md:w-14"></Image> : null}
               </span>{' '}
             </span>
             <p className="font-medium text-base text-end">{service.prices.desc}</p>

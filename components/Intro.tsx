@@ -1,12 +1,12 @@
 'use client';
+import ProfitAnimated from '@/components/animation/profit-animated';
+import SoftwareSlider from '@/components/common/SoftwareSlider';
 import { useLanguage } from '@/context/LanguageProvider';
+import { BadgeDollarSign, BookText, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { createElement, memo } from 'react';
-import SoftwareSlider from '@/components/common/SoftwareSlider';
-import ProfitAnimated from '@/components/animation/profit-animated';
-import { BadgeDollarSign, BookText, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
 import Link from 'next/link';
+import { createElement } from 'react';
 
 const Achievements = dynamic(() => import('@/components/common/AchievementCard'), { ssr: false });
 
@@ -61,16 +61,16 @@ const Intro = () => {
             </div>
           </div>
           <div className="md:hidden pt-2 pb-4 md:pt-0 md:pb-0">
-            <div className="flex flex-row overflow-x-auto gap-4 py-2 snap-x snap-mandatory">
+            <div className="flex flex-col w-full gap-3">
               {items?.map((item, index) => (
-                <Link href={`#${item.link}`} key={`${index + 1}-${item.link}`} className="flex-shrink-0 snap-center rounded-2xl w-44 bg-[#002654] shadow-xl">
-                  <div className="flex flex-col p-4">
-                    <div className="text-sm text-[#ffffff] text-center pb-2 mx-auto">
+                <Link href={`#${item.link}`} key={`${index + 1}-${item.link}`} className="rounded-2xl bg-[#002654] shadow-xl">
+                  <div className="flex flex-row p-4 gap-3">
+                    <div className="text-sm text-[#ffffff]">
                       {iconServices[index] && createElement(iconServices[index], {
                         className: 'w-5 h-5 text-white text-center'
                       })}
                     </div>
-                    <div className="text-sm font-bold text-center text-[#ffffff]">
+                    <div className="text-sm font-bold text-[#ffffff]">
                       {item.title}
                     </div>
                   </div>
@@ -88,4 +88,4 @@ const Intro = () => {
   );
 };
 
-export default memo(Intro);
+export default Intro;

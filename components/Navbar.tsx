@@ -90,7 +90,7 @@ const Navbar = () => {
   const navigate = useCallback((url: string) => router.push(url), [router]);
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-white shadow-md py-5 dark:backdrop-blur-lg dark:bg-transparent">
+    <header className="fixed w-full top-0 z-50 bg-white shadow-md py-5 dark:bg-white dark:text-black">
       <link rel="preload" href="/images/logo-large.webp" as="image" type="image/webp" fetchPriority="high" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-united-kingdom.webp" as="image" type="image/webp" media="(min-width: 1px)" />
       <link rel="preload" href="/icons/flag-indonesia.webp" as="image" type="image/webp" media="(min-width: 1px)" />
@@ -149,7 +149,7 @@ const Navbar = () => {
                           open={openModal}
                           onOpenChange={setOpenModal}
                           contentStyle="max-w-[90vw] max-h-[90vh] md:max-w-[80vw] md:max-h-[90vh] p-0 border-0 overflow-y-auto border-0"
-                          trigger={<span role='button' className="px-3 py-2 bg-blue-950 text-white rounded-md  transform transition-transform duration-300 ease-out hover:bg-blue-900 hover:scale-105 hover:text-white dark:bg-white dark:text-black dark:hover:bg-white dark:hover:text-black mr-5 cursor-pointer">{item.label}</span>}>
+                          trigger={<span role='button' className="px-3 py-2 bg-blue-950 text-white rounded-md  transform transition-transform duration-300 ease-out hover:bg-blue-900 hover:scale-105 hover:text-white mr-5 cursor-pointer">{item.label}</span>}>
                           <ModalWhyFinansist />
                         </Modal>
                       ) : (
@@ -177,11 +177,11 @@ const Navbar = () => {
           <ButtonContact className="hidden md:flex py-0" title={lang === 'en' ? "Free Consultation" : "Konsultasi Gratis"} />
           <Button
             variant="outline"
-            className="hidden md:flex border-blue-900 border-2 text-blue-900 font-semibold ml-6 mr-4 dark:text-white dark:border-white bg-transparent"
+            className="hidden md:flex border-blue-900 border-2 text-blue-900 font-semibold ml-6 mr-4 bg-transparent"
           >
             Login
           </Button>
-          <span className="hidden md:flex text-3xl mx-5 font-light text-gray-300 dark:text-white">|</span>
+          <span className="hidden md:flex text-3xl mx-5 font-light text-gray-300">|</span>
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
             <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
               <SelectValue>
@@ -264,7 +264,7 @@ const Navbar = () => {
                                 >
                                   <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-5 h-5 text-[#3A9DA1]' })}</span>
                                   {item.title}
-                                  {item.newService && <span className="text-xs text-[#3A9DA1] font-bold px-2 py-1 bg-[#98eded] rounded-lg">New</span>}
+                                  {item.newService && <span className="text-xs text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>}
                                 </Link>
                               ))}
                             </div>
