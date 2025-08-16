@@ -11,12 +11,12 @@
         "url": ""
       },
       {
-        "label": "Blog",
-        "url": "/blog"
-      },
-      {
         "label": "Career",
         "url": "/#career"
+      },
+      {
+        "label": "Blog",
+        "url": "/blog"
       },
       {
         "label": "FAQ",
@@ -130,8 +130,9 @@
     "tagsLine": "Growing your business!"
   },
   "customerType": {
-    "title1": "Whatever your line of business, Finansist is the right partner",
-    "title2": "You can trust!",
+    "title1": "Whatever your line of business,",
+    "title2": "Finansist is the right partner",
+    "title3": "You can trust!",
     "description": "We serve various industries, supported by a team of internationally certified experts and have in-depth experience in the specific needs of each sector. With a flexible approach, Finansist is ready to help your business grow based on your goals and business conditions."
   },
   "valueCompany": {

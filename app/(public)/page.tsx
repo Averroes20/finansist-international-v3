@@ -72,8 +72,8 @@ const RootPage = () => {
       <Suspense fallback={<p>Loading ...</p>}>
         <Reviews />
         <Portfolio />
-        <Blogs />
         <Careers />
+        <Blogs />
         <FAQ />
       </Suspense>
       <ButtonContact className="fixed bottom-5 right-5 md:hidden z-[999]" title="Free Consultation" />

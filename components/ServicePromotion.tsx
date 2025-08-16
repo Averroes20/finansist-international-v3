@@ -10,7 +10,7 @@ const ServicePromotion: React.FC = () => {
   const [dark, setDark] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const { dictionary } = useLanguage();
-  const { description = '', title1 = '', title2 = '' } = dictionary?.customerType || {};
+  const { description = '', title1 = '', title2 = '', title3 = '' } = dictionary?.customerType || {};
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => setDark(entry.isIntersecting), { rootMargin: '50% 0px -50% 0px' });
@@ -58,7 +58,7 @@ const ServicePromotion: React.FC = () => {
           className="flex flex-col justify-center items-center md:col-span-2"
         >
           <h1 className='font-santaCatalina text-center leading-10 md:leading-[5.5rem] text-3xl md:text-5xl font-bold mb-4'>
-            {title1} <br /> {title2}
+            {title1} <br /> {title2} <br /> {title3}
           </h1>
           <p className='text-center text-base md:text-lg'>
             {description}

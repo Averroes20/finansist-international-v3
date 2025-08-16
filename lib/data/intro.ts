@@ -7,7 +7,7 @@ export const software: Software[] = [
   { label: 'Stessa', value: '/icons/software/stessa.webp' },
   { label: 'Mekari Jurnal', value: '/icons/software/jurnal.webp' },
   { label: 'Shopify', value: '/icons/software/shopify.webp' },
-  { label: 'Zoho Books', value: '/icons/software/zoho.webp' },
+  { label: 'Zoho Books', value: '/icons/software/zoho.svg' },
   { label: 'Quickbooks', value: '/icons/software/quickbooks.webp' },
   { label: 'Xero', value: '/icons/software/xero.webp' },
   { label: 'Myob', value: '/icons/software/myob.webp' },

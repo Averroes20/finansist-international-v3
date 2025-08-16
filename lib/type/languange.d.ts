@@ -46,6 +46,7 @@ export interface Dictionary {
   customerType: {
     title1: string;
     title2: string;
+    title3: string;
     description: string;
   }
   valueCompany: {

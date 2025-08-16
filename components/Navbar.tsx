@@ -131,9 +131,9 @@ const Navbar = () => {
                               <Link
                                 href={`#${item.link}`}
                                 key={`${index + 1}-${item.link}`}
-                                className="text-base md:text-lg flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md"
+                                className="text-sm md:text-base flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md"
                               >
-                                <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-8 h-8 text-[#3A9DA1]' })}</span>
+                                <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-6 h-6 text-[#3A9DA1]' })}</span>
                                 {item.title}
                                 {item.newService && <span className="text-sm text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>}
                               </Link>

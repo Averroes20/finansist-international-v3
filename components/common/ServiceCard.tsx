@@ -15,14 +15,14 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
   return (
     <>
       <div className="flex flex-col items-center flex-grow">
-        <header className="px-8 flex flex-col justify-center items-center min-h-[80px] relative text-center">
+        <header className="px-8 flex flex-col justify-center items-center min-h-5 md:h-24 relative text-center">
           <h3 className="text-xl font-bold">{service.title}</h3>
           {service.newService && (
-            <span className="absolute -top-1 -right-2 text-xs text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>
+            <span className="absolute -top-1 -right-2 text-xs md:text-sm text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>
           )}
         </header>
         <span className="w-[60%] h-1 bg-[#3A9DA1]" />
-        <div className="w-72 mx-auto p-4 flex justify-center">
+        <div className="w-72 h-40 mx-auto p-4 flex justify-center">
           <Gif src={service.icon} />
         </div>
         <section className="w-full">
@@ -51,7 +51,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
         </section>
       </div>
       <div className="font-dosis flex flex-col gap-y-2 pt-6">
-        {monthly == 0 && annual == 0 ? <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-0 md:mb-5">{lang === 'en' ? 'Determined after consultation' : 'Ditentukan setelah konsultasi'}</span> :
+        {monthly == 0 && annual == 0 ? <span className="text-xl md:text-2xl lg:text-3xl font-bold text-center">{lang === 'en' ? 'Determined after consultation' : 'Ditentukan setelah konsultasi'}</span> :
           <>
             <p className="font-semibold">{service.prices.label} : </p>
             <span className="text-2xl lg:text-3xl font-bold text-center">

@@ -53,7 +53,7 @@ const Services = () => {
         </button>
         <Popover open={openDropdown} onOpenChange={setOpenDropdown} defaultOpen>
           <PopoverTrigger
-            className="uppercase hover:bg-secondary dark:hover:text-slate-900 shadow-sm p-2 rounded-md font-medium flex items-center justify-between ring-0 focus:outline-none focus:ring-0 text-base"
+            className="uppercase hover:bg-secondary dark:hover:text-slate-900 shadow-sm p-2 rounded-md font-medium flex items-center justify-between ring-0 focus:outline-none focus:ring-0 text-base border "
             aria-expanded={openDropdown}
             aria-haspopup="true"
           >
