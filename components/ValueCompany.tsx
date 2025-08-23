@@ -22,8 +22,8 @@ const ValueCompany = () => {
   };
 
   return (
-    <section id="valueCompany" className="min-h-screen flex flex-col bg-[#071620] mt-8 md:mt-0">
-      <header className="px-5 py-6 md:px-16 md:py-12 flex-grow">
+    <section id="valueCompany" className="flex flex-col bg-[#071620] mt-8 md:mt-0">
+      <header className="px-5 py-6 md:px-16 md:py-12">
         <motion.h2
           initial="hidden"
           whileInView={'reveal'}
@@ -43,7 +43,7 @@ const ValueCompany = () => {
           ))}
         </motion.h2>
       </header>
-      <div className="flex flex-col justify-center max-w-screen overflow-auto items-center md:flex-row md:justify-center gap-4 pb-10">
+      <div className="flex flex-col justify-center max-w-screen overflow-auto items-center md:flex-row md:justify-center gap-4 pb-12">
         {items?.map((item, index) => (
           <div
             className="relative w-80 h-[300px] md:h-[500px] bg-[#091f2f] rounded-lg overflow-hidden shadow-lg flex flex-col group transition-all duration-500 cursor-default"

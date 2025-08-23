@@ -76,7 +76,7 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
         </div>
       </AnimatedComponent>
       <div className='md:mx-5 md:space-x-2 mt-14'>
-        <p className="text-xs md:text-sm font-libreBaskerville text-black text-center mb-4">{softwareTitle}</p>
+        <p className="text-sm md:text-lg font-libreBaskerville text-black text-center mb-4">{softwareTitle}</p>
         <div className="grid grid-cols-2 md:flex md:flex-row md:items-center min-w-fit md:flex-wrap justify-center">
           {software.map((item, index) => (
             <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit md:mx-5 space-x-2 p-3">

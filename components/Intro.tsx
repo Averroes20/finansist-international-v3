@@ -15,7 +15,7 @@ const iconServices = [BookText, BadgeDollarSign, Gem, ShieldCheck, UserCheck2, S
 const Intro = () => {
   const { dictionary } = useLanguage();
   const { achievements, certifiedOf, description, softwareTitle, title, subtitle, tagsLine } = dictionary?.intro || {};
-  const { items } = dictionary?.services || {};
+  const { items, title: serviceTitle } = dictionary?.services || {};
 
   return (
     <section>
@@ -62,8 +62,9 @@ const Intro = () => {
           </div>
           <div className="md:hidden pt-2 pb-4 md:pt-0 md:pb-0">
             <div className="flex flex-col w-full gap-3">
+              <p className="font-bold font-libreBaskerville text-lg">{serviceTitle?.split('&')[0]} :</p>
               {items?.map((item, index) => (
-                <Link href={`#${item.link}`} key={`${index + 1}-${item.link}`} className="rounded-2xl bg-[#002654] shadow-xl">
+                <Link href={`#${item.link}`} key={`${index + 1}-${item.link}`} className="rounded-2xl bg-[#002654]">
                   <div className="flex flex-row p-4 gap-3">
                     <div className="text-sm text-[#ffffff]">
                       {iconServices[index] && createElement(iconServices[index], {
@@ -73,6 +74,9 @@ const Intro = () => {
                     <div className="text-sm font-bold text-[#ffffff]">
                       {item.title}
                     </div>
+                    <div className="text-sm font-bold text-[#FFFF]">
+                      {item.newService ? <span className="px-2 py-1 bg-[#FFD700] rounded-lg">New</span> : ''}
+                    </div>
                   </div>
                 </Link>
               ))}
@@ -80,7 +84,7 @@ const Intro = () => {
           </div>
         </div>
         <div className="flex flex-col space-y-4  mt-auto">
-          <p className="text-xs md:text-sm font-libreBaskerville text-black opacity-60 text-center">{softwareTitle}</p>
+          <p className="text-sm md:text-lg font-libreBaskerville text-black opacity-60 text-center">{softwareTitle}</p>
           <SoftwareSlider />
         </div>
       </div>

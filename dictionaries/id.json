@@ -131,8 +131,8 @@
   },
   "customerType": {
     "title1": "Apa pun jenis usaha Anda,",
-    "title2": "Finansist adalah mitra yang tepat!",
-    "title3": "Anda dapat percaya!",
+    "title2": "Finansist adalah mitra yang",
+    "title3": "dapat anda percaya!",
     "description": "Kami melayani berbagai sektor bisnis dengan dukungan tim ahli yang berpengalaman sesuai kebutuhan spesifik di setiap industri dan telah bersertifikasi international. Dengan pendekatan yang fleksibel, Finansist siap membantu bisnis Anda tumbuh sesuai dengan kondisi dan target bisnis anda."
   },
   "valueCompany": {
@@ -203,7 +203,7 @@
         "prices": {
           "label": "Mulai dari",
           "price": "3.500.000",
-          "desc": "Berdasarkan pendapatan dan kompleksitas"
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
           "Penyusunan laporan keuangan (contoh: neraca, laporan laba rugi, laporan arus kas)",

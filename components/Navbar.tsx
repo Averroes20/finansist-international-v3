@@ -135,7 +135,7 @@ const Navbar = () => {
                               >
                                 <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-6 h-6 text-[#3A9DA1]' })}</span>
                                 {item.title}
-                                {item.newService && <span className="text-sm text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>}
+                                {item.newService && <span className="text-base text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>}
                               </Link>
                             ))}
                           </div>
