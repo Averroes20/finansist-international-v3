@@ -40,7 +40,7 @@ const AboutUs = () => {
           <Image src={images.OurJourney} alt="Our Journey" className="mx-auto aspect-auto w-full md:w-[55%]" loading="lazy" />
           <div className="grid grid-cols-1 md:grid-cols-6 md:grid-flow-row gap-5 md:gap-0 md:px-32">
             <AnimatedComponent threshold={0.5} once={true} effect="fade-in-left" className="mt-5 md:mt-0 md:col-span-5 md:items-center md:justify-center md:content-center">
-              <p data-testid="about-ceo" className="text-center md:text-right text-sm md:text-lg font-facultyGlyphic">
+              <p data-testid="about-ceo" className="text-left md:text-right text-sm md:text-lg font-facultyGlyphic">
                 &quot;{aboutCEO}&quot;
               </p>
             </AnimatedComponent>

@@ -60,7 +60,7 @@ const ServicePromotion: React.FC = () => {
           <h1 className='font-santaCatalina text-center leading-10 md:leading-[5.5rem] text-3xl md:text-5xl font-bold mb-4'>
             {title1} <br /> {title2} <br /> {title3}
           </h1>
-          <p className='text-center text-base md:text-lg'>
+          <p className='text-left text-base md:text-center md:text-lg'>
             {description}
           </p>
         </AnimatedComponent>
