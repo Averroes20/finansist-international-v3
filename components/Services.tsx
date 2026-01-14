@@ -60,27 +60,8 @@ const Services = () => {
 
   return (
     <section className="max-w-screen-xl bg-white text-black mx-auto min-h-screen py-5 px-5 md:px-0 md:my-10">
-      <TitleSection>{title}</TitleSection>
-
-      <div className="flex items-center justify-center gap-4 my-5">
-        <button
-          onClick={onToggle}
-          className="flex items-center gap-3 rounded-md bg-gray-100 dark:bg-white text-white font-bold shadow-inner"
-        >
-          <span
-            className={`${!isAnnual ? 'font-bold text-white bg-[#3A9DA1]' : 'text-muted-foreground'
-              } p-2 rounded-md`}
-          >
-            Monthly
-          </span>
-          <span
-            className={`${isAnnual ? 'font-bold text-white bg-[#3A9DA1]' : 'text-muted-foreground'
-              } p-2 rounded-md`}
-          >
-            Annual
-          </span>
-        </button>
-
+      <div className="flex flex-col items-center gap-3 my-5 md:flex-row md:justify-center md:gap-4">
+        <TitleSection>{title}</TitleSection>
         <Popover open={openDropdown} onOpenChange={setOpenDropdown}>
           <PopoverTrigger
             className="uppercase hover:bg-secondary dark:hover:text-slate-900 shadow-sm p-2 rounded-md font-medium flex items-center justify-between ring-0 focus:outline-none focus:ring-0 text-base border "

@@ -36,7 +36,14 @@ const PricePage: React.FC = () => {
 
   const handleEdit = useCallback(async (data: TypePriceService) => {
     try {
-      await updatePrice(data);
+      await updatePrice({
+        ...data,
+        fee: Number(data.fee),
+        annual_fee: Number(data.annual_fee),
+        is_discount: Boolean(data.is_discount),
+      });
+      alert('Price updated successfully');
+      fetchPrice();
     } catch (error) {
       alert(`Failed to update price ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
@@ -109,8 +116,8 @@ const PricePage: React.FC = () => {
                   <PriceServiceForm
                     data={{
                       code: data[index]?.code,
-                      fee: String(data[index]?.fee),
-                      annual_fee: String(data[index]?.annual_fee),
+                      fee: data[index]?.fee,
+                      annual_fee: data[index]?.annual_fee,
                       id: data[index]?.id,
                       serviceName: item.title,
                       is_discount: data[index]?.is_discount

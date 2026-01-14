@@ -54,7 +54,7 @@ const Intro = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex md:flex-col my-auto gap-y-4 overflow-hidden motion-translate-x-in-[100%] motion-translate-y-in-[0%] motion-duration-[1.13s] motion-duration-[1.50s]/translate motion-ease-spring-bouncy">
+          <div className="hidden md:flex md:flex-col my-4 gap-y-4 overflow-hidden motion-translate-x-in-[100%] motion-translate-y-in-[0%] motion-duration-[1.13s] motion-duration-[1.50s]/translate motion-ease-spring-bouncy">
             <ProfitAnimated tagsLine={tagsLine ?? []} />
             <div className="flex flex-row gap-1 justify-center sm:gap-4 md:gap-7">
               <Achievements data={achievements ?? []} />

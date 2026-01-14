@@ -36,6 +36,17 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
     };
   }, [api]);
 
+  
+  const allPortfolios = portfolioChunks.flat()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
   return (
     <div>
       <TitleSection className="mb-5">{title}</TitleSection>
@@ -49,17 +60,23 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
           onMouseLeave={handleMouseLeave}
           aria-label="Portfolio Carousel"
         >
-          <CarouselContent>
-            {portfolioChunks.map((chunk, chunkIndex) => (
-              <CarouselItem key={`portfolio-${chunkIndex + 1}`} className="w-full">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {chunk.map((item) => (
-                    <PortfolioCard key={`portfolio-${item.id}`} item={item} />
+            <CarouselContent>
+              {isMobile
+                ? allPortfolios.map((item) => (
+                    <CarouselItem key={item.id} className="w-full">
+                      <PortfolioCard item={item} />
+                    </CarouselItem>
+                  ))
+                : portfolioChunks.map((chunk, chunkIndex) => (
+                    <CarouselItem key={`portfolio-${chunkIndex}`} className="w-full">
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        {chunk.map((item) => (
+                          <PortfolioCard key={item.id} item={item} />
+                        ))}
+                      </div>
+                    </CarouselItem>
                   ))}
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+            </CarouselContent>
           <CarouselPrevious aria-label="Previous Slide" className="hidden md:flex" />
           <CarouselNext aria-label="Next Slide" className="hidden md:flex" />
         </Carousel>
@@ -104,18 +121,24 @@ const PortfolioCard: React.FC<{ item: Portfolio }> = memo(({ item }) => (
       <div className="flex gap-1 items-center">
         {item.software
           ? item.software
-            ?.split(',')
-            .map((logo: string, logoIndex: number) => (
-              <Image
-                src={logo}
-                alt={`${item.companyName} Software Logo ${logoIndex}`}
-                loading="lazy"
-                width={800}
-                height={800}
-                className="w-[20px] md:w-[30px] rounded-full shadow-sm"
-                key={`logo-${logoIndex + 1}`}
-              />
-            ))
+              .split(',')
+              .map((logo: string, logoIndex: number) => {
+                const cleanLogo = logo.trim()
+
+                if (!cleanLogo) return null
+
+                return (
+                  <Image
+                    key={`logo-${logoIndex + 1}`}
+                    src={cleanLogo}
+                    alt={`${item.companyName} Software Logo ${logoIndex + 1}`}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    className="w-[20px] md:w-[30px] rounded-full shadow-sm"
+                  />
+                )
+              })
           : null}
       </div>
     </header>

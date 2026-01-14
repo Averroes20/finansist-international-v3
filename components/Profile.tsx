@@ -51,10 +51,10 @@ const Profile = () => {
                   </li>
                 ))}
             </ul>
-            <div className="flex justify-center md:justify-center w-full pt-3">
-              <ButtonContact className="text-sm md:text-xl px-10 py-2" title={lang === 'en' ? "Book for Consultation" : "Pesan untuk Konsultasi"} showIcon={false} />
+            {/* <div className="flex justify-center md:justify-center w-full pt-3"> */}
+              {/* <ButtonContact className="text-sm md:text-xl px-10 py-2" title={lang === 'en' ? "Book for Consultation" : "Pesan untuk Konsultasi"} showIcon={false} /> */}
               {/* <ButtonContact title="Book for Consultation" className="items-center font-dosis font-bold" showIcon={false} /> */}
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>
