@@ -47,7 +47,7 @@ const PricePage: React.FC = () => {
     } catch (error) {
       alert(`Failed to update price ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
-  }, []);
+  }, [fetchPrice]);
 
   useEffect(() => {
     changeLanguage('en')

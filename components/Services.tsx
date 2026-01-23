@@ -23,12 +23,12 @@ const Services = () => {
   const { items, title } = dictionary?.services || {};
 
   const [servicePrice, setServicePrice] = useState<PriceService[]>([]);
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [isAnnual] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const [select, setSelect] = useState(currency[1]);
   const [manualSelect, setManualSelect] = useState(false);
 
-  const onToggle = () => setIsAnnual((prev) => !prev);
+  // const onToggle = () => setIsAnnual((prev) => !prev);
 
   const onSelect = (id: number, name: string, url: string) => {
     setSelect({ id, name, url });

@@ -4,7 +4,6 @@ import { useLanguage } from "@/context/LanguageProvider";
 import { TitleSection } from "../ui/typography";
 import BlogCard from "./BlogCard";
 import Image from "next/image";
-import Link from "next/link";
 import { BlogListResponses } from "@/lib/type/blog";
 import { useEffect, useState } from "react";
 

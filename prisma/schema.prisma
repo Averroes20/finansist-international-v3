@@ -1,17 +1,11 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  // directUrl = env("DIRECT_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
@@ -20,8 +14,8 @@ model User {
   email      String   @unique @db.VarChar(100)
   password   String   @db.VarChar(200)
   role       String   @db.VarChar(50)
-  created_at DateTime @default(now()) @db.Timestamp()
-  updated_at DateTime @updatedAt @db.Timestamp()
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  updated_at DateTime @updatedAt @db.Timestamp(6)
 
   @@map("users")
 }
@@ -29,28 +23,28 @@ model User {
 model Blogs {
   id         Int        @id @default(autoincrement())
   title      String     @db.VarChar(255)
-  resume     String     @db.Text
-  article    String     @db.Text
+  resume     String
+  article    String
   author     String     @db.VarChar(100)
   category   String     @db.VarChar(100)
-  cover      String?    @db.Text
+  cover      String?
   slug       String     @unique @db.VarChar(255)
+  created_at DateTime   @default(now()) @db.Timestamp(6)
+  updated_at DateTime   @updatedAt @db.Timestamp(6)
   comments   Comments[]
-  created_at DateTime   @default(now()) @db.Timestamp()
-  updated_at DateTime   @updatedAt @db.Timestamp()
 
   @@map("blogs")
 }
 
 model Comments {
   id         Int      @id @default(autoincrement())
-  blog       Blogs    @relation(fields: [blog_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
   blog_id    Int
   name       String   @db.VarChar(100)
   email      String   @db.VarChar(100)
-  content    String   @db.Text
-  created_at DateTime @default(now()) @db.Timestamp()
-  updated_at DateTime @updatedAt @db.Timestamp()
+  content    String
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  updated_at DateTime @updatedAt @db.Timestamp(6)
+  blog       Blogs    @relation(fields: [blog_id], references: [id], onDelete: Cascade)
 
   @@map("comments")
 }
@@ -58,12 +52,12 @@ model Comments {
 model Portfolio {
   id           Int      @id @default(autoincrement())
   company_name String   @db.VarChar(100)
-  company_logo String?  @db.Text
+  company_logo String?
   software     String?  @db.VarChar(255)
   country      String   @db.VarChar(100)
-  description  String   @db.Text
-  created_at   DateTime @default(now()) @db.Timestamp()
-  updated_at   DateTime @updatedAt @db.Timestamp()
+  description  String
+  created_at   DateTime @default(now()) @db.Timestamp(6)
+  updated_at   DateTime @updatedAt @db.Timestamp(6)
 
   @@map("portfolios")
 }
@@ -71,11 +65,11 @@ model Portfolio {
 model Reviews {
   id         Int      @id @default(autoincrement())
   name       String   @db.VarChar(100)
-  review     String   @db.Text
+  review     String
   company    String   @db.VarChar(100)
   country    String   @db.VarChar(100)
-  created_at DateTime @default(now()) @db.Timestamp()
-  updated_at DateTime @updatedAt @db.Timestamp()
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  updated_at DateTime @updatedAt @db.Timestamp(6)
 
   @@map("reviews")
 }
@@ -84,7 +78,7 @@ model LinkSocialMedia {
   id     Int     @id @default(autoincrement())
   label  String  @db.VarChar(100)
   active Boolean @default(false)
-  url    String  @db.Text
+  url    String
 
   @@map("link_social_media")
 }
@@ -95,7 +89,6 @@ model ServiceFee {
   sort        Int
   fee         Float   @default(0)
   annual_fee  Float   @default(0)
-  
   is_discount Boolean @default(false)
 
   @@map("service_fee")

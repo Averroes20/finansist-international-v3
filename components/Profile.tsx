@@ -3,7 +3,6 @@ import { useSocialMedia } from '@/context/SocialMediaProvider';
 import { lazy, Suspense } from 'react';
 import TextScramble from '@/components/common/ScrambleText';
 import { useLanguage } from '@/context/LanguageProvider';
-import ButtonContact from '@/components/common/ButtonContact';
 import { Droplet, Target, Wallet } from 'lucide-react';
 import Image from 'next/image';
 
@@ -18,7 +17,7 @@ const iconMap = {
 
 const Profile = () => {
   const { data } = useSocialMedia();
-  const { dictionary, language: lang } = useLanguage();
+  const { dictionary} = useLanguage();
   const { description, tagsLine } = dictionary?.whyFinansist || {};
   const linkVideo = data.find((item) => item.id === 1 && item.active);
   return (
