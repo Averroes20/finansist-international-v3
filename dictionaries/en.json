@@ -235,10 +235,11 @@
         "details": {
           "overview": "Our services focus on delivering end-to-end financial management solutions that encompass accurate preparation of financial statements, efficient bookkeeping, and cash flow optimization. We streamline accounting processes with robust general ledger maintenance, reconciliation, and expense tracking. Through custom reporting, variance analysis, and tailored business insights, we enable informed decision-making. Additionally, we ensure seamless accounts payable, receivable, and payroll management, alongside effective budgeting and forecasting to support strategic growth and financial stability.",
           "extendedServices": [
-            "Comprehensive Financial Management",
-            "Streamlined Accounting Processes",
-            "Operational Efficiency and Cash Flow Optimization",
-            "Tailored Reporting and Insights"
+            "Simpler and easier-to-understand financial statements",
+            "Clear explanations of the figures and positions in the financial statements",
+            "Well-organized transaction evidence that is easy to trace",
+            "Reduced risk of recording errors and disorganized reporting",
+            "Time and cost efficiency in financial operations"
           ]
         }
       },
@@ -280,10 +281,11 @@
         "details": {
           "overview": "Our tax services provide comprehensive solutions to meet all your tax compliance and planning needs. We ensure accurate preparation and filing of income tax returns for individuals, corporations, and partnerships, alongside full compliance with VAT/GST, sales tax, and withholding tax regulations. Our strategic tax planning and advisory services are designed to minimize liabilities, maximize savings, and address complex tax issues like international tax and fiscal adjustments. We also offer professional representation with tax authorities and assist with tax audits, ensuring smooth and compliant operations. Customized solutions are tailored to your business needs, offering insights into tax credits, deductions, and strategies for optimizing financial outcomes.",
           "extendedServices": [
-            "Comprehensive Tax Compliance",
-            "Strategic Tax Planning and Advisory",
-            "Representation and Support",
-            "Customized Solutions for Complex Tax Needs"
+            "Timely tax reporting in compliance with regulations",
+            "Each tax report has a clear calculation basis",
+            "Reduced risk of tax errors and corrections",
+            "A more organized and easier-to-understand tax position",
+            "Tax consultation available anytime when needed"
           ]
         }
       },
@@ -360,10 +362,10 @@
         "details": {
           "overview": "Our audit services provide a thorough examination of your financial transparency, fraud risks, abuse of authority, asset valuation, cash flow tracking, risk management, and operational efficiency. We ensure your financial reports are accurate, identify potential discrepancies, and verify your compliance with regulations. By detecting and mitigating financial risks early, we help keep your business secure, well-controlled, and capable of adapting to market challenges with confidence.",
           "extendedServices": [
-            "Comprehensive Audit Services",
-            "Regulatory and Compliance Assurance",
-            "Performance and Operational Audits",
-            "Strategic Business Support"
+            "More accurate and reliable financial statements",
+            "Financial health checklist to detect potential fraud early",
+            "Better compliance with SOPs",
+            "Supported by internationally certified professionals"
           ]
         }
       },
@@ -398,10 +400,11 @@
         "details": {
           "overview": "Our payroll and employee benefits services ensure efficient and compliant management of all aspects of employee compensation and welfare. We handle accurate payroll calculation and processing, generating payslips and payment summaries for transparency. Our services include ensuring full tax compliance, including Reporting of Employee PPh 21 in Indonesia, and managing employee tax deductions to prevent issues with tax authorities. We also manage employee benefits, including health coverage (BPJS Kesehatan) and retirement plans (BPJS Ketenagakerjaan), ensuring full compliance with local regulations. Additionally, we oversee retirement and superannuation plans, providing employees with long-term financial security while ensuring timely and correct contributions. These services are designed to support both employers and employees, ensuring smooth payroll operations and employee satisfaction.",
           "extendedServices": [
-            "Accurate Payroll Processing",
-            "Payroll Tax Compliance and Reporting",
-            "Employee Benefits and Welfare Management",
-            "Retirement and Superannuation Plans"
+            "Employee payroll processed on time with minimal errors",
+            "Payslips that are neat, clear, and easy for employees to understand",
+            "Accurate and accountable PPh 21 tax calculations",
+            "Better organized BPJS administration and employee benefits",
+            "Reduced administrative burden for HR and finance"
           ]
         }
       },
@@ -409,7 +412,7 @@
         "title": "SET UP PMA service",
         "link": "pma",
         "icon": "/animate/setup-pma.lottie",
-        "newService": true,
+        "newService": false,
         "tags": [
           "Personal",
           "Company"
@@ -438,7 +441,12 @@
         ],
         "details": {
           "overview": "Setting up a PT PMA, or Foreign Investment Limited Liability Company, in Indonesia requires thorough understanding of applicable regulations and legal procedures. We are here to assist you through every step of the establishment process smoothly and without obstacles. Our services include guidance from drafting the deed of establishment, obtaining official permits, to securing all essential documents such as Tax Identification Number (NPWP), Business Identification Number (NIB), and approvals from relevant authorities. We also ensure your company complies with land use regulations according to spatial planning. Additionally, we assist in opening bank accounts to support your company’s financial operations. With our experience and extensive network, we guarantee your PT PMA establishment is fast, accurate, and fully compliant with the latest Indonesian regulations.",
-          "extendedServices": []
+          "extendedServices": [
+            "A clear and well-guided PT PMA establishment process from the start",
+            "Your company is fully prepared to operate legally in Indonesia",
+            "Reduced risk of administrative and licensing errors",
+            "Professional support through the entire process, including bank account setup"
+          ]
         }
       },
       {
@@ -471,15 +479,16 @@
           "Industry-specific accounting (e.g., for construction, e-commerce, manufacture, or others)",
           "Project-based accounting",
           "Inventory and cost accounting",
-          "Additional reports customized to your preferences",
-          "Tax Audit Assistance"
+          "Additional reports customized to your preferences"
         ],
         "details": {
           "overview": "Finansist's services go beyond standard financial reporting. We provide tailored solutions to meet the specific needs of your business, including BPJS administration, comprehensive tax services from NPWP registration to tax audit assistance, as well as LKPM reporting and OSS administration. No need to worry if financial reports seem difficult to understand. With Finansist, you will receive financial reports customized to reflect the nature of your business, whether in e commerce, construction, manufacturing, hospitality, or other industries, making them more relevant, easier to read, and more useful for decision making.",
           "extendedServices": [
-            "BPJ, tax, OSS, LKPM administration services",
-            " Reports customized to your business needs and preferences",
-            "Creating Company Standard Operational Procedure"
+            "All key reports and administrative records are organized in one structured system",
+            "Reports are tailored to your business workflow, not just standard templates",
+            "Operational activities are easier to monitor through relevant and meaningful data",
+            "SOPs are designed to match team workflows for more consistent operations",
+            "Custom reports can be prepared whenever your business needs them"
           ]
         }
       },
@@ -512,10 +521,176 @@
         "details": {
           "overview": "Our accounting software and system implementation services are designed to enhance your financial management with modern, efficient solutions. We begin with accounting software setup, ensuring platforms like QuickBooks and Xero are configured to suit your business needs, ensuring accurate financial tracking. We offer comprehensive software training and ongoing support, empowering your team to maximize the software's capabilities and resolve any technical issues promptly. Our services also include cloud-based accounting system implementation, allowing your business to benefit from flexible, real-time access to financial data while maintaining security. Finally, we handle data migration and integration, ensuring a smooth transition from your previous systems to the new software without data loss, while integrating multiple financial tools to streamline your operations. These services help businesses improve their accounting processes, enhance efficiency, and reduce manual errors.",
           "extendedServices": [
-            "Accounting Software Setup",
-            "Software Training and Support",
-            "Cloud-Based Accounting System Implementation",
-            "Data Migration and Integration"
+            "An accounting system that is ready to use and tailored to your business workflow",
+            "Well-organized financial data with real-time access",
+            "Smooth system migration without losing important data"
+          ]
+        }
+      },
+      {
+        "title": "Tax Audit Assistance",
+        "link": "tax-audit-assistance",
+        "icon": "/animate/tax-audit-assistance.json",
+        "newService": false,
+        "tags": [
+          "Personal",
+          "Company"
+        ],
+        "prices": {
+          "label": "Start from",
+          "price": "Determined After Consultation",
+          "desc": "Based on revenue and complexity"
+        },
+        "benefits": [
+          "SP2DK Assistance (Request Data and Explanation Letter)",
+          "Tax Compliance and Tax Position Review (Internal Tax Audit)",
+          "Tax Audit Assistance",
+          "Tax Reconciliation",
+          "Tax Data Clarification",
+          "Representation and Communication with the Tax Office"
+        ],
+        "benefitsDetails": [
+          "SP2DK Assistance (Request Data and Explanation Letter)",
+          "Tax Compliance and Tax Position Review (Internal Tax Audit)",
+          "Tax Audit Assistance",
+          "Tax Reconciliation",
+          "Tax Data Clarification",
+          "Representation and Communication with the Tax Office"
+        ],
+        "details": {
+          "overview": "Our tax audit and tax examination services help companies ensure compliance with applicable tax regulations while minimizing the risk of tax penalties. The services include a thorough review of tax documentation, reconciliation between financial and tax data, and professional assistance throughout the tax examination process conducted by the tax authorities, all carried out in a systematic and transparent manner in accordance with prevailing tax laws. These services are not limited to businesses that have already received a tax audit notice, we also provide early tax check-up services to help companies assess their tax compliance status and identify potential tax risks at an early stage, allowing corrective actions to be taken proactively.",
+          "extendedServices": [
+            "Review and evaluation of company tax documentation",
+            "Reconciliation of financial statements and tax reports",
+            "Identification of potential tax risks and non-compliance issues",
+            "Assistance during tax examinations by tax authorities",
+            "Support in data clarification and preparation of supporting documents",
+            "Recommendations for improving tax compliance",
+            "Tax consultation during the assistance period"
+          ]
+        }
+      },
+      {
+        "title": "Accounting Software Training",
+        "link": "accounting-software-training",
+        "icon": "/animate/accounting-software-training.json",
+        "newService": false,
+        "tags": [
+          "Personal",
+          "Company"
+        ],
+        "prices": {
+          "label": "Start from",
+          "price": "Determined After Consultation",
+          "desc": "Based on revenue and complexity"
+        },
+        "benefits": [
+          "Quickbooks Online",
+          "Accurate",
+          "Jurnal Mekari",
+          "Xero",
+          "MYOB"
+        ],
+        "benefitsDetails": [
+          "Quickbooks Online",
+          "Accurate",
+          "Jurnal Mekari",
+          "Xero",
+          "MYOB"
+        ],
+        "details": {
+          "overview": "Our accounting software training services are designed to help businesses manage transactions, financial reporting, and bookkeeping processes more efficiently. The training content is tailored to the specific needs of each company, ranging from an introduction to core features to hands-on practice in managing complete financial reports. We provide training for various accounting software, including QuickBooks Online, Xero, Jurnal by Mekari, Accurate, MYOB, and others. The use of proper accounting software enhances accuracy, reduces human error, and minimizes the risk of fraud.",
+          "extendedServices": [
+            "Private or team training sessions",
+            "Training materials tailored to the selected software",
+            "Guidance on key features and bookkeeping workflows",
+            "Transaction simulations and financial report preparation",
+            "Training module files included",
+            "Post-training consultation available for a specified period"
+          ]
+        }
+      },
+      {
+        "title": "Company Legal Amendments",
+        "link": "company-legal-amendments",
+        "icon": "/animate/company-legal-amendments.json",
+        "newService": false,
+        "tags": [
+          "Personal",
+          "Company"
+        ],
+        "prices": {
+          "label": "Start from",
+          "price": "-",
+          "desc": "Based on revenue and complexity"
+        },
+        "benefits": [
+          "Amendments to the company deed, including changes to name, address, capital, board structure, and shareholders",
+          "Adjustment of the Articles of Association",
+          "Processing and updating of Bussiness Number and business licenses in Ministry of Investment (OSS)",
+          "Addition or modification of business code",
+          "Submission and approval of amendments through the Ministry of Law and Human Rights",
+          "Updating company data with the tax authority",
+          "Preparation of corporate documents such as",
+          "Minutes of the General Meeting of Shareholders or Shareholders’ Resolutions"
+        ],
+        "benefitsDetails": [
+          "Amendments to the company deed, including changes to name, address, capital, board structure, and shareholders",
+          "Adjustment of the Articles of Association",
+          "Processing and updating of Bussiness Number and business licenses in Ministry of Investment (OSS)",
+          "Addition or modification of business code",
+          "Submission and approval of amendments through the Ministry of Law and Human Rights",
+          "Updating company data with the tax authority",
+          "Preparation of corporate documents such as",
+          "Minutes of the General Meeting of Shareholders or Shareholders’ Resolutions"
+        ],
+        "details": {
+          "overview": "Our corporate legal amendment services help businesses ensure that all updates to company data and legal information are carried out accurately, on time, and in compliance with applicable regulations, allowing companies to avoid administrative errors, processing delays, and compliance risks that may disrupt business operations. We provide end-to-end assistance, from document preparation and submission to approval by the relevant authorities, covering various types of corporate legal changes. Handled by an experienced team with a strong commitment to accuracy and confidentiality, our services enable you to focus on running your business without administrative obstacles.",
+          "extendedServices": [
+            "Legal changes completed on time",
+            "Reduced risk of errors and document rejection",
+            "Business operations continue smoothly",
+            "End-to-end support from preparation to approval"
+          ]
+        }
+      },
+      {
+        "title": "Set Up Local Company Service",
+        "link": "setup-local-company",
+        "icon": "/animate/setup-local-company.json",
+        "newService": false,
+        "tags": [
+          "Personal",
+          "Company"
+        ],
+        "prices": {
+          "label": "Start from",
+          "price": "Determined Later",
+          "desc": "Based on revenue and complexity"
+        },
+        "benefits": [
+          "Deed of Establishment",
+          "Approval from the Ministry of Law and Human Rights of the Republic of Indonesia",
+          "Tax Identification Number (NPWP)",
+          "Business Identification Number (NIB)",
+          "Approval of Business Activities"
+        ],
+        "benefitsDetails": [
+          "Deed of Establishment",
+          "Approval from the Ministry of Law and Human Rights of the Republic of Indonesia",
+          "Tax Identification Number (NPWP)",
+          "Business Identification Number (NIB)",
+          "Business activity approval based on OSS system",
+          "Assistance with company data registration",
+          "Optional bank account setup assistance"
+        ],
+        "details": {
+          "overview": "Establishing a Local Limited Liability Company (PT Lokal) in Indonesia requires accuracy, compliance, and a clear understanding of local regulations. Our Local PT setup service is designed to simplify the entire incorporation process, ensuring your business is legally established from the start without unnecessary delays or administrative risks. We handle the process end to end, from drafting the deed of establishment and securing approval from the Ministry of Law and Human Rights to obtaining NPWP, NIB, and required business licenses through the OSS system. Supported by an experienced team and a structured workflow, we ensure your PT Lokal is established efficiently, securely, and fully compliant, allowing you to focus on building and scaling your business with confidence.",
+          "extendedServices": [
+            "Company established legally from the start",
+            "Faster setup with fewer administrative delays",
+            "Compliance with Indonesian regulations ensured",
+            "Clear guidance and support throughout the entire process"
           ]
         }
       }
@@ -574,6 +749,62 @@
       {
         "question": "Is Finansist only for companies in Indonesia?",
         "answer": "No. We also offer bookkeeping, tax, and CFO service packages for businesses internationally across the globe. Guided by our international standards, we provide 24/7 global services that can follow and adapt to your local time zone wherever you are."
+      },
+      {
+        "question": "Do I need to have complete data before using your services?",
+        "answer": "No. You do not need fully complete data. Finansist can conduct an initial review, identify missing information, and help reorganize available records to support analysis and improvements."
+      },
+      {
+        "question": "Can your services be provided online or offline?",
+        "answer": "Yes. Our services are available both online and offline, depending on your needs, scope of work, and data complexity."
+      },
+      {
+        "question": "If I already have internal staff or another consultant, can I still use Finansist?",
+        "answer": "Yes. Finansist can complement or replace internal roles more efficiently. With a cost comparable to one internal staff member, you gain access to a professional team with international experience and certifications."
+      },
+      {
+        "question": "Can Finansist help with setting up a PT PMA (Foreign-Owned Company)?",
+        "answer": "Yes. Finansist can assist from the planning stage, company deed issuance, NIB (Business Identification Number) registration, up to opening the company bank account."
+      },
+      {
+        "question": "How does Finansist help prevent or detect fraud?",
+        "answer": "Finansist evaluates internal controls, reviews transactions, analyzes unusual patterns, and assesses business processes to identify potential weaknesses and fraud indicators."
+      },
+      {
+        "question": "Is accounting software mandatory for my business?",
+        "answer": "No. Accounting software is not mandatory. For simpler businesses, Finansist can design a structured Excel-based accounting system tailored to transaction flows and reporting needs."
+      },
+      {
+        "question": "Is there a limit to the number of staff who can join accounting software training?",
+        "answer": "No fixed limit. The number of participants can be adjusted based on company needs, training format, and the software used."
+      },
+      {
+        "question": "How far can Finansist assist with payroll processes?",
+        "answer": "Finansist assists with payroll structure design, salary calculations, allowances, deductions, BPJS Employment and Health registration, and related accounting and reporting."
+      },
+      {
+        "question": "Can Finansist help correct past tax errors?",
+        "answer": "Yes. Finansist can review and correct tax errors from previous periods in accordance with applicable regulations and prepare appropriate corrective actions."
+      },
+      {
+        "question": "If I receive a letter from the tax office, can Finansist help?",
+        "answer": "Yes. Finansist can review tax office correspondence, prepare supporting documents, and assist in clarification and communication with tax authorities under client authorization."
+      },
+      {
+        "question": "My business has many transactions but low profit. Do I still have tax obligations?",
+        "answer": "Tax obligations are determined by applicable regulations and business conditions. Not all taxes are based solely on profit, so proper analysis is required."
+      },
+      {
+        "question": "Can accurate financial statements affect the amount of tax payable?",
+        "answer": "Yes. Accurate financial statements provide a proper basis for tax calculations and can help manage tax obligations more efficiently."
+      },
+      {
+        "question": "What are the risks of paying taxes without proper calculation records?",
+        "answer": "Risks include tax corrections, penalties, interest, and a higher likelihood of future tax audits."
+      },
+      {
+        "question": "How can internal tax audits reduce audit risks?",
+        "answer": "Internal tax audits help identify issues early, strengthen systems, and prepare proper documentation, reducing the risk of corrections during official tax audits."
       }
     ]
   }

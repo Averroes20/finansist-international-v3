@@ -28,11 +28,9 @@ const Intro = () => {
               <h1 className="font-libreBaskerville text-4xl md:leading-tight md:text-5xl text-[#002654] motion-translate-x-in-[0%] motion-translate-y-in-[50%] motion-opacity-in-[50%] motion-duration-[1.50s] motion-duration-[2.00s]/translate motion-duration-[1.98s]/opacity motion-ease-spring-bouncier">
                 <span>{title?.part1}</span> <span className="font-bold">{title?.part2}</span> <span>{title?.part3}</span>
               </h1>
-              <h1>
-                <span className="font-santaCatalina font-normal block py-6 text-[#002654] text-4xl md:text-6xl motion-translate-x-in-[0%] motion-translate-y-in-[50%] motion-opacity-in-[0%] motion-duration-[1.04s] motion-delay-[0.50s]/translate motion-delay-[0.50s]/opacity motion-ease-spring-smooth">
-                  {subtitle}
-                </span>
-              </h1>
+              <span className="font-santaCatalina font-normal block py-6 text-[#002654] md:text-center text-4xl md:text-6xl motion-translate-x-in-[0%] motion-translate-y-in-[50%] motion-opacity-in-[0%] motion-duration-[1.04s] motion-delay-[0.50s]/translate motion-delay-[0.50s]/opacity motion-ease-spring-smooth">
+                {subtitle}
+              </span>
               <p className="font-facultyGlyphic font-extrabold text-base md:text-2xl text-[#002654] motion-translate-x-in-[0%] motion-translate-y-in-[50%] motion-opacity-in-[0%] motion-duration-[1.04s] motion-delay-[0.70s]/translate motion-delay-[0.70s]/opacity motion-ease-spring-smooth">
                 {description}
               </p>

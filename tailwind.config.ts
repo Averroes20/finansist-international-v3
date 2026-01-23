@@ -7,7 +7,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         santaCatalina: ['santa-catalina'],
-        facultyGlyphic: ['faculty-glyphic'],
+        facultyGlyphic: ['faculty-glyphic']
       },
       colors: {
         background: 'hsl(var(--background))',

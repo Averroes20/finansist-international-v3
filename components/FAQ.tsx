@@ -19,42 +19,51 @@ const FAQ: React.FC = () => {
         </div>
       </div>
       <div className="bg-[#113870] py-5">
-        <TitleSection className="text-white mx-10 mb-3 md:mx-0 md:mb-7">{title}</TitleSection>
-        <div className="max-w-5xl bg-white rounded-xl mx-10 md:mx-auto p-6">
-          <div className="relative grid md:grid-cols-[1fr_auto_1fr] gap-6">
-            {/* LEFT */}
-            <Accordion type="single" collapsible className="w-full">
-              {left.map((item, i) => (
-                <AccordionItem key={i} value={`left-${i}`}>
-                  <AccordionTrigger className="text-lg text-start font-semibold">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+        <TitleSection className="text-white mx-10 mb-3 md:mx-0 md:mb-7">
+          {title}
+        </TitleSection>
 
-            {/* DIVIDER */}
-            <div className="hidden md:flex justify-center">
-              <div className="w-px bg-gray-300 h-full" />
+        <div className="relative max-w-5xl mx-10 md:mx-auto">
+          {/* Divider */}
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-300" />
+
+          <Accordion type="single" collapsible>
+            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
+              {/* LEFT BOX */}
+              <div className="bg-white md:rounded-xl p-6">
+                {left.map((item, i) => (
+                  <AccordionItem
+                    key={`left-${i}`}
+                    value={`faq-${i}`}
+                  >
+                    <AccordionTrigger className="text-lg text-start font-semibold">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </div>
+
+              {/* RIGHT BOX */}
+              <div className="bg-white md:rounded-xl p-6">
+                {right.map((item, i) => (
+                  <AccordionItem
+                    key={`right-${i}`}
+                    value={`faq-${i + left.length}`}
+                  >
+                    <AccordionTrigger className="text-lg text-start font-semibold">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </div>
             </div>
-
-            {/* RIGHT */}
-            <Accordion type="single" collapsible className="w-full">
-              {right.map((item, i) => (
-                <AccordionItem key={i} value={`right-${i}`}>
-                  <AccordionTrigger className="text-lg text-start font-semibold">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+          </Accordion>
         </div>
       </div>
       <div className='absolute bottom-1 left-0 w-full'>

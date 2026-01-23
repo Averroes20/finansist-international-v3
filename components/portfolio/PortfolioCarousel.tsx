@@ -16,6 +16,8 @@ type PortfolioCarouselProps = {
 const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }) => {
   const plugins = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
   const [api, setApi] = useState<CarouselApi | undefined>();
+  const softwarePlugins = useRef(Autoplay({ delay: 2500, stopOnInteraction: true }));
+  const [softwareApi, setSoftwareApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState<number>(1);
   const { dictionary } = useLanguage();
   const { title } = dictionary?.portfolio || {};
@@ -63,7 +65,7 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
             <CarouselContent>
               {isMobile
                 ? allPortfolios.map((item) => (
-                    <CarouselItem key={item.id} className="w-full">
+                    <CarouselItem key={item.id} className="w-full items-center">
                       <PortfolioCard item={item} />
                     </CarouselItem>
                   ))
@@ -92,12 +94,66 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
           ))}
         </div>
       </AnimatedComponent>
-      <div className='md:mx-5 md:space-x-2 mt-14'>
-        <p className="text-sm md:text-lg font-libreBaskerville text-black text-center mb-4">{softwareTitle}</p>
-        <div className="grid grid-cols-2 md:flex md:flex-row md:items-center min-w-fit md:flex-wrap justify-center">
+      <div className="md:mx-5 md:space-x-2 mt-14">
+        <p className="text-sm md:text-lg font-libreBaskerville text-black text-center mb-4">
+          {softwareTitle}
+        </p>
+
+        {/* MOBILE ONLY */}
+        <div className="md:hidden">
+          <Carousel 
+          setApi={setSoftwareApi}
+          plugins={[softwarePlugins.current]}
+          onMouseEnter={() => softwarePlugins.current?.stop()}
+          onMouseLeave={() => softwarePlugins.current?.play()}
+          className="w-full max-w-xs mx-auto">
+            <CarouselContent>
+              {Array.from({ length: Math.ceil(software.length / 5) }).map((_, slideIdx) => {
+                const start = slideIdx * 5
+                const items = software.slice(start, start + 5)
+
+                return (
+                  <CarouselItem key={slideIdx}>
+                    <div className="grid grid-cols-2 gap-4">
+                      {items.map((item, index) => (
+                        <div
+                          key={item.label}
+                          className={`flex items-center gap-2 p-3
+                            ${index === 4 ? 'col-span-2 justify-center' : ''}
+                          `}
+                        >
+                          <Image
+                            src={item.value}
+                            alt={item.label}
+                            width={40}
+                            height={40}
+                            className="object-contain"
+                          />
+                          <span className="text-sm">{item.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        {/* DESKTOP */}
+        <div className="hidden md:flex md:flex-row md:items-center min-w-fit md:flex-wrap justify-center">
           {software.map((item, index) => (
-            <div key={`${item.label}-${index}`} className="flex flex-row items-center min-w-fit md:mx-5 space-x-2 p-3">
-              <Image src={item.value} alt={item.label} width={1000} height={1000} className="w-[40px] md:w-[50px] border-0 object-contain" />
+            <div
+              key={`${item.label}-${index}`}
+              className="flex flex-row items-center min-w-fit md:mx-5 space-x-2 p-3"
+            >
+              <Image
+                src={item.value}
+                alt={item.label}
+                width={1000}
+                height={1000}
+                className="w-[50px] border-0 object-contain"
+              />
               <span>{item.label}</span>
             </div>
           ))}
@@ -118,7 +174,7 @@ const PortfolioCard: React.FC<{ item: Portfolio }> = memo(({ item }) => (
         height={800}
         className="w-[60px] md:w-[70px] rounded-full shadow-md"
       />
-      <div className="flex gap-1 items-center">
+      <div className="flex gap-1 items-center md:justify-center">
         {item.software
           ? item.software
               .split(',')

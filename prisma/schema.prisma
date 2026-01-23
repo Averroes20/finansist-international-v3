@@ -95,6 +95,7 @@ model ServiceFee {
   sort        Int
   fee         Float   @default(0)
   annual_fee  Float   @default(0)
+  
   is_discount Boolean @default(false)
 
   @@map("service_fee")

@@ -116,15 +116,15 @@ const ServiceModal = memo(({ service, lang }: { service: Service, lang: string }
                 <DialogDescription className="leading-7 text-black text-sm md:text-base prose prose-lg text-justify">
                   {service.details.overview}
                 </DialogDescription>
+                <ul>
+                  {service.details.extendedServices.map((extendedService, index) => (
+                    <li key={`extendedService-${index + 1}`} className="my-1 text-black text-sm md:text-base flex">
+                      <span className="mr-2 text-green-600 font-bold">✔</span>
+                      <span>{extendedService}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul>
-                {service.details.extendedServices.map((extendedService, index) => (
-                  <li key={`extendedService-${index + 1}`} className="my-1 text-black text-sm md:text-base flex">
-                    <span className="mr-2 text-green-600 font-bold">✔</span>
-                    <span>{extendedService}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
             <div className="hidden md:flex justify-center mb-10">
               <ButtonContact
