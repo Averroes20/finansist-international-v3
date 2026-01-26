@@ -42,106 +42,98 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
   const allPortfolios = portfolioChunks.flat()
   const [isMobile, setIsMobile] = useState(false)
 
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
+  const mobileChunks = [];
+  for (let i = 0; i < allPortfolios.length; i += 2) {
+    mobileChunks.push(allPortfolios.slice(i, i + 2));
+  }
+
+  const totalDots = isMobile
+    ? mobileChunks.length
+    : portfolioChunks.length  
+
+  const mobileAutoplay = useRef(
+    Autoplay({
+      delay: 3000,
+      stopOnInteraction: false,
+    })
+  )
 
   return (
     <div>
       <TitleSection className="mb-5">{title}</TitleSection>
       <AnimatedComponent effect="fade-up" once={true} className="flex flex-col">
-        <Carousel
-          className="w-full max-w-5xl mx-auto"
-          opts={{ loop: true }}
-          setApi={setApi}
-          plugins={[plugins.current]}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          aria-label="Portfolio Carousel"
-        >
-            <CarouselContent>
-              {isMobile
-                ? allPortfolios.map((item) => (
-                    <CarouselItem key={item.id} className="w-full items-center">
-                      <PortfolioCard item={item} />
-                    </CarouselItem>
-                  ))
-                : portfolioChunks.map((chunk, chunkIndex) => (
-                    <CarouselItem key={`portfolio-${chunkIndex}`} className="w-full">
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {chunk.map((item) => (
-                          <PortfolioCard key={item.id} item={item} />
-                        ))}
-                      </div>
-                    </CarouselItem>
-                  ))}
-            </CarouselContent>
-          <CarouselPrevious aria-label="Previous Slide" className="hidden md:flex" />
-          <CarouselNext aria-label="Next Slide" className="hidden md:flex" />
-        </Carousel>
-        <div className="w-full flex justify-center space-x-2 mt-4">
-          {Array.from({ length: portfolioChunks.length }).map((_, idx) => (
-            <button
-              key={`dot-${idx + 1}`}
-              onClick={() => api?.scrollTo(idx)}
-              className={`h-2 w-2 rounded-full ${current === idx + 1 ? 'bg-gray-950' : 'bg-gray-400'
-                } transition-colors duration-300 hover:bg-gray-200`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
+        {/* MOBILE ONLY */}
+          <div className="md:hidden">
+            <Carousel
+              opts={{
+                axis: 'y',
+                loop: true,
+                
+              }}
+              setApi={setApi}
+              plugins={[mobileAutoplay.current]}
+              className="w-full h-[620px] overflow-hidden"
+            >
+              <CarouselContent className="h-full">
+                {mobileChunks.map((chunk, idx) => (
+                  <CarouselItem
+                    key={idx}
+                    className="basis-full h-full flex flex-col justify-between"
+                  >
+                    {chunk.map((item) => (
+                      <PortfolioCard key={item.id} item={item} />
+                    ))}
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+          
+          {/* DESKTOP ONLY */}
+          <div className="hidden md:block">
+            <Carousel
+              opts={{ loop: true }}
+              setApi={setApi}
+              plugins={[plugins.current]}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="w-full max-w-5xl mx-auto"
+            >
+              <CarouselContent>
+                {portfolioChunks.map((chunk, idx) => (
+                  <CarouselItem key={idx}>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                      {chunk.map((item) => (
+                        <PortfolioCard key={item.id} item={item} />
+                      ))}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious aria-label="Previous Slide" className="hidden md:flex" />
+              <CarouselNext aria-label="Next Slide" className="hidden md:flex" />
+            </Carousel>
+            <div className="w-full flex justify-center space-x-2 mt-4">
+              {Array.from({ length: portfolioChunks.length }).map((_, idx) => (
+                <button
+                  key={`dot-${idx + 1}`}
+                  onClick={() => api?.scrollTo(idx)}
+                  className={`h-2 w-2 rounded-full ${current === idx + 1 ? 'bg-gray-950' : 'bg-gray-400'
+                    } transition-colors duration-300 hover:bg-gray-200`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
       </AnimatedComponent>
-      <div className="md:mx-5 md:space-x-2 mt-14">
+
+      <div className="md:mx-5 md:space-x-2 -mt-28 md:mt-8">
         <p className="text-sm md:text-lg font-libreBaskerville text-black text-center mb-4">
           {softwareTitle}
         </p>
 
-        {/* MOBILE ONLY */}
-        <div className="md:hidden">
-          <Carousel 
-          setApi={setSoftwareApi}
-          plugins={[softwarePlugins.current]}
-          onMouseEnter={() => softwarePlugins.current?.stop()}
-          onMouseLeave={() => softwarePlugins.current?.play()}
-          className="w-full max-w-xs mx-auto">
-            <CarouselContent>
-              {Array.from({ length: Math.ceil(software.length / 5) }).map((_, slideIdx) => {
-                const start = slideIdx * 5
-                const items = software.slice(start, start + 5)
-
-                return (
-                  <CarouselItem key={slideIdx}>
-                    <div className="grid grid-cols-2 gap-4">
-                      {items.map((item, index) => (
-                        <div
-                          key={item.label}
-                          className={`flex items-center gap-2 p-3
-                            ${index === 4 ? 'col-span-2 justify-center' : ''}
-                          `}
-                        >
-                          <Image
-                            src={item.value}
-                            alt={item.label}
-                            width={40}
-                            height={40}
-                            className="object-contain"
-                          />
-                          <span className="text-sm">{item.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CarouselItem>
-                )
-              })}
-            </CarouselContent>
-          </Carousel>
-        </div>
-
         {/* DESKTOP */}
-        <div className="hidden md:flex md:flex-row md:items-center min-w-fit md:flex-wrap justify-center">
+        <div className="grid grid-cols-2 md:flex md:flex-row md:items-center min-w-fit md:flex-wrap justify-center">
           {software.map((item, index) => (
             <div
               key={`${item.label}-${index}`}

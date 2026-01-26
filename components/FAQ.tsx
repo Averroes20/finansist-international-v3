@@ -7,9 +7,11 @@ import Image from 'next/image';
 const FAQ: React.FC = () => {
   const { dictionary } = useLanguage();
   const { title, questions = [] } = dictionary?.faq ?? {};
-  const mid = Math.ceil(questions.length / 2);
-  const left = questions.slice(0, mid);
-  const right = questions.slice(mid);
+  const chunk = Math.ceil(questions.length / 3);
+
+  const left = questions.slice(0, chunk);
+  const middle = questions.slice(chunk, chunk * 2);
+  const right = questions.slice(chunk * 2);
 
   return (
     <section id="faq" className="scroll-mt-24 relative pt-24 pb-28">
@@ -23,42 +25,47 @@ const FAQ: React.FC = () => {
           {title}
         </TitleSection>
 
-        <div className="relative max-w-5xl mx-10 md:mx-auto">
-          {/* Divider */}
-          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-300" />
+        <div className="relative max-w-7xl mx-10 md:mx-auto">
+          {/* Divider kiri */}
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/3 w-px bg-gray-300 border-2" />
+
+          {/* Divider kanan */}
+          <div className="hidden md:block absolute top-0 bottom-0 left-2/3 w-px bg-gray-300 border-2" />
 
           <Accordion type="single" collapsible>
-            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
-              {/* LEFT BOX */}
+            <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-10">
+              {/* LEFT */}
               <div className="bg-white md:rounded-xl p-6">
                 {left.map((item, i) => (
-                  <AccordionItem
-                    key={`left-${i}`}
-                    value={`faq-${i}`}
-                  >
-                    <AccordionTrigger className="text-lg text-start font-semibold">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-base">
-                      {item.answer}
-                    </AccordionContent>
+                  <AccordionItem key={`left-${i}`} value={`faq-${i}`}>
+                    <AccordionTrigger className="text-lg text-start font-semibold">{item.question}</AccordionTrigger>
+                    <AccordionContent className="text-base">{item.answer}</AccordionContent>
                   </AccordionItem>
                 ))}
               </div>
 
-              {/* RIGHT BOX */}
+              {/* MIDDLE */}
+              <div className="bg-white md:rounded-xl p-6 md:mx-4">
+                {middle.map((item, i) => (
+                  <AccordionItem
+                    key={`middle-${i}`}
+                    value={`faq-${i + left.length}`}
+                  >
+                    <AccordionTrigger className="text-lg text-start font-semibold">{item.question}</AccordionTrigger>
+                    <AccordionContent className="text-base">{item.answer}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </div>
+
+              {/* RIGHT */}
               <div className="bg-white md:rounded-xl p-6">
                 {right.map((item, i) => (
                   <AccordionItem
                     key={`right-${i}`}
-                    value={`faq-${i + left.length}`}
+                    value={`faq-${i + left.length + middle.length}`}
                   >
-                    <AccordionTrigger className="text-lg text-start font-semibold">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-base">
-                      {item.answer}
-                    </AccordionContent>
+                    <AccordionTrigger className="text-lg text-start font-semibold">{item.question}</AccordionTrigger>
+                    <AccordionContent className="text-base">{item.answer}</AccordionContent>
                   </AccordionItem>
                 ))}
               </div>

@@ -40,8 +40,11 @@ const ServicePromotion: React.FC = () => {
           threshold={0.5}
           once={true}
           effect="fade-in-left"
-          className="md:col-span-2 mb-6 md:mb-8"
+          className="flex flex-col justify-center items-center md:col-span-2"
         >
+          <h1 className='md:hidden font-santaCatalina text-center leading-[5.5rem] text-5xl font-bold mb-4'>
+            {title1} <br /> {title2} <br /> {title3}
+          </h1>
           <Image
             src={images.CustomerType}
             alt="Customer Type Promotion"

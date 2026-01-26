@@ -2,7 +2,7 @@
 import ProfitAnimated from '@/components/animation/profit-animated';
 import SoftwareSlider from '@/components/common/SoftwareSlider';
 import { useLanguage } from '@/context/LanguageProvider';
-import { BadgeDollarSign, BookText, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
+import { BadgeDollarSign, BookText, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2, FileChartColumn, GraduationCap, Building2, MapPinCheck } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ import { createElement } from 'react';
 
 const Achievements = dynamic(() => import('@/components/common/AchievementCard'), { ssr: false });
 
-const iconServices = [BookText, BadgeDollarSign, Gem, ShieldCheck, UserCheck2, ShieldQuestion, Lightbulb, LaptopMinimal];
+const iconServices = [BookText, BadgeDollarSign, Gem, ShieldCheck, UserCheck2, ShieldQuestion, Lightbulb, LaptopMinimal, FileChartColumn, GraduationCap, Building2, MapPinCheck];
 
 const Intro = () => {
   const { dictionary } = useLanguage();

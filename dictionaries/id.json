@@ -287,7 +287,50 @@
         }
       },
       {
-        "title": "Paket CFO | Akuntansi, Finance, dan Pajak",
+        "title": "Jasa Audit dan Pemeriksaan Pajak",
+        "link": "tax-audit-assistance",
+        "icon": "/animate/tax-audit-assistance.json",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "Ditentukan setelah konsultasi",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
+          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
+          "Pendampingan Pemeriksaan Pajak",
+          "Rekonsiliasi Pajak",
+          "Klarifikasi Data Pajak",
+          "Perwakilan Komunikasi dengan Kantor Pajak"
+        ],
+        "benefitsDetails": [
+          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
+          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
+          "Pendampingan Pemeriksaan Pajak",
+          "Rekonsiliasi Pajak",
+          "Klarifikasi Data Pajak",
+          "Perwakilan Komunikasi dengan Kantor Pajak"
+        ],
+        "details": {
+          "overview": "Layanan audit dan pemeriksaan pajak kami membantu perusahaan memastikan kepatuhan terhadap peraturan perpajakan yang berlaku sekaligus meminimalkan risiko sanksi pajak. Layanan ini mencakup penelaahan dokumen perpajakan, rekonsiliasi data keuangan dan pajak, serta pendampingan selama proses pemeriksaan oleh otoritas pajak, yang dilakukan secara sistematis dan transparan sesuai ketentuan yang berlaku. Layanan ini tidak hanya ditujukan bagi bisnis yang telah menerima surat pemeriksaan dari kantor pajak, tetapi juga menyediakan early tax check-up untuk membantu perusahaan mengetahui status kepatuhan dan potensi risiko pajak sejak dini, sehingga langkah perbaikan dapat dilakukan lebih awal.",
+          "extendedServices": [
+            "Review dan evaluasi dokumen perpajakan perusahaan",
+            "Rekonsiliasi laporan keuangan dengan laporan pajak",
+            "Identifikasi potensi risiko dan ketidaksesuaian pajak",
+            "Pendampingan selama proses pemeriksaan pajak",
+            "Bantuan klarifikasi dan penyusunan data pendukung pemeriksaan",
+            "Rekomendasi perbaikan dan peningkatan kepatuhan pajak",
+            "Konsultasi pajak selama periode pendampingan"
+          ]
+        }
+      },
+      {
+        "title": "Paket CFO | Finance, Akuntansi, dan Pajak",
         "link": "cfo-package",
         "icon": "/animate/cfo.lottie",
         "newService": true,
@@ -322,6 +365,78 @@
             "Paket manajemen keuangan strategis lengkap membuat anda dapat focus menangi bidang lain seperti operasional dan pemasaran.",
             "Pengawasan aliran dana, aset, persediaan barang, dan perpajakan untuk memastikan perusahaan berjalan sehat, bertumbuh, dan sesuai standar.",
             "Memberikan konsultasi, analisis bisnis bulanan, serta mengidentifikasi peluang penipuan dan perbaikan."
+          ]
+        }
+      },
+      {
+        "title": "Layanan Implementasi Perangkat Lunak Akuntansi",
+        "link": "accounting-software",
+        "icon": "/animate/accounting-software.lottie",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
+          "Implementasi sistem akuntansi berbasis cloud",
+          "Layanan migrasi dan integrasi data",
+          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
+        ],
+        "benefitsDetails": [
+          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
+          "Implementasi sistem akuntansi berbasis cloud",
+          "Layanan migrasi dan integrasi data",
+          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
+        ],
+        "details": {
+          "overview": "Finansist ahli dalam mengatur dan mengonfigurasi perangkat lunak akuntansi seperti QuickBooks, Xero, MYOB, Accurate, Journal, Docyt, dan aplikasi lainnya sesuai kebutuhan bisnis untuk memastikan pelacakan keuangan yang akurat. Layanan kami mencakup pengaturan awal aplikasi, pelatihan tim, dukungan berkelanjutan, dan implementasi sistem berbasis cloud untuk akses data real-time yang aman. Finansist juga menangani kebutuhan migrasi data serta integrasi perangkat lunak guna menyederhanakan operasional dan meningkatkan efisiensi. Layanan ini penting untuk memastikan sistem keuangan Anda berjalan optimal sejak awal. Dengan sistem yang tepat, bisnis dapat mengambil keputusan lebih cepat, akurat, dan berbasis data.",
+          "extendedServices": [
+            "Sistem akuntansi langsung siap pakai sesuai alur bisnis Anda",
+            "Data keuangan tersusun rapi dan bisa diakses real time",
+            "Pindah sistem tanpa ribet dan tanpa kehilangan data penting"
+          ]
+        }
+      },
+      {
+        "title": "Pelatihan Software Akuntansi",
+        "link": "accounting-software-training",
+        "icon": "/animate/accounting-software-training.json",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "Ditentukan setelah konsultasi",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Quickbooks Online",
+          "Accurate",
+          "Jurnal Mekari",
+          "Xero",
+          "MYOB"
+        ],
+        "benefitsDetails": [
+          "Modul pelatihan sesuai kebutuhan bisnis",
+          "Sesi pelatihan terstruktur secara online atau tatap muka",
+          "Sesi tanya jawab dan diskusi kasus",
+          "Simulasi penggunaan sistem berdasarkan transaksi nyata"
+        ],
+        "details": {
+          "overview": "Layanan pelatihan software akuntansi kami dirancang untuk membantu bisnis mengelola transaksi, laporan keuangan, dan proses pembukuan secara lebih efisien. Materi pelatihan disesuaikan dengan kebutuhan perusahaan, mulai dari pengenalan fitur dasar hingga praktik pengelolaan laporan keuangan secara menyeluruh. Kami menyediakan pelatihan untuk berbagai software akuntansi, seperti QuickBooks Online, Xero, Jurnal by Mekari, Accurate, MYOB, dan lainnya. Penggunaan software akuntansi yang tepat membantu meningkatkan keakuratan pencatatan, mengurangi human error, serta meminimalkan risiko fraud.",
+          "extendedServices": [
+            "Materi disesuaikan dengan software dan alur kerja perusahaan",
+            "Pendekatan praktis, mudah dipahami oleh tim non-akuntansi",
+            "Panduan penggunaan fitur dan workflow pembukuan yang tepat",
+            "Konsultasi pasca pelatihan dalam periode tertentu"
           ]
         }
       },
@@ -407,49 +522,7 @@
         }
       },
       {
-        "title": "SET UP PMA service",
-        "link": "pma",
-        "icon": "/animate/setup-pma.lottie",
-        "newService": false,
-        "tags": [
-          "Pribadi",
-          "Perusahaan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "-",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Akta Pendirian Perusahaan",
-          "Persetujuan dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia",
-          "Nomor Pokok Wajib Pajak NPWP ",
-          "User Password Website OSS",
-          "Persetujuan Kesesuaian Kegiatan Penggunaan Lahan dengan Tata Ruang",
-          "Nomor Induk Berusaha NIB",
-          "Pendampingan Pembukaan Rekening Bank"
-        ],
-        "benefitsDetails": [
-          "Akta Pendirian Perusahaan",
-          "Persetujuan dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia",
-          "Nomor Pokok Wajib Pajak NPWP ",
-          "User Password Website OSS",
-          "Persetujuan Kesesuaian Kegiatan Penggunaan Lahan dengan Tata Ruang",
-          "Nomor Induk Berusaha NIB",
-          "Pendampingan Pembukaan Rekening Bank"
-        ],
-        "details": {
-          "overview": "Mendirikan PT PMA atau Perseroan Terbatas Penanaman Modal Asing di Indonesia memerlukan pemahaman mendalam tentang regulasi dan proses hukum yang berlaku. Kami hadir untuk membantu Anda menjalani setiap tahap pendirian PT PMA dengan lancar dan tanpa hambatan.Layanan kami mencakup pendampingan mulai dari penyusunan akta pendirian, pengurusan izin resmi, hingga mendapatkan semua dokumen penting seperti Nomor Pokok Wajib Pajak (NPWP), Nomor Induk Berusaha (NIB), serta persetujuan dari instansi terkait. Kami juga memastikan perusahaan Anda mematuhi ketentuan penggunaan lahan sesuai tata ruang yang berlaku.Selain itu, kami membantu dalam pembukaan rekening bank untuk mendukung kelancaran aktivitas keuangan perusahaan Anda. Dengan pengalaman dan jaringan luas, kami pastikan proses pendirian PT PMA Anda cepat, tepat, dan sesuai dengan peraturan terbaru di Indonesia.",
-          "extendedServices": [
-            "Proses pendirian PT PMA lebih jelas dan terarah sejak awal",
-            "Perusahaan siap beroperasi secara legal di Indonesia",
-            "Risiko kesalahan administrasi dan perizinan dapat ditekan",
-            "Pendampingan profesional sampai rekening bank siap digunakan"
-          ]
-        }
-      },
-      {
-        "title": "Pelaporan Khusus dan Layanan Kustom",
+        "title": "Pelaporan dan Layanan Khusus",
         "link": "specialized-reporting",
         "icon": "/animate/specialized-reporting.lottie",
         "newService": false,
@@ -493,168 +566,6 @@
         }
       },
       {
-        "title": "Layanan Implementasi Perangkat Lunak Akuntansi",
-        "link": "accounting-software",
-        "icon": "/animate/accounting-software.lottie",
-        "newService": false,
-        "tags": [
-          "Pribadi",
-          "Perusahaan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "-",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
-          "Implementasi sistem akuntansi berbasis cloud",
-          "Layanan migrasi dan integrasi data",
-          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
-        ],
-        "benefitsDetails": [
-          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
-          "Implementasi sistem akuntansi berbasis cloud",
-          "Layanan migrasi dan integrasi data",
-          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
-        ],
-        "details": {
-          "overview": "Finansist ahli dalam mengatur dan mengonfigurasi perangkat lunak akuntansi seperti QuickBooks, Xero, MYOB, Accurate, Journal, Docyt, dan aplikasi lainnya sesuai kebutuhan bisnis untuk memastikan pelacakan keuangan yang akurat. Layanan kami mencakup pengaturan awal aplikasi, pelatihan tim, dukungan berkelanjutan, dan implementasi sistem berbasis cloud untuk akses data real-time yang aman. Finansist juga menangani kebutuhan migrasi data serta integrasi perangkat lunak guna menyederhanakan operasional dan meningkatkan efisiensi. Layanan ini penting untuk memastikan sistem keuangan Anda berjalan optimal sejak awal. Dengan sistem yang tepat, bisnis dapat mengambil keputusan lebih cepat, akurat, dan berbasis data.",
-          "extendedServices": [
-            "Sistem akuntansi langsung siap pakai sesuai alur bisnis Anda",
-            "Data keuangan tersusun rapi dan bisa diakses real time",
-            "Pindah sistem tanpa ribet dan tanpa kehilangan data penting"
-          ]
-        }
-      },
-      {
-        "title": "Jasa Audit dan Pemeriksaan Pajak",
-        "link": "tax-audit-assistance",
-        "icon": "/animate/tax-audit-assistance.json",
-        "newService": false,
-        "tags": [
-          "Pribadi",
-          "Perusahaan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "Ditentukan setelah konsultasi",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
-          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
-          "Pendampingan Pemeriksaan Pajak",
-          "Rekonsiliasi Pajak",
-          "Klarifikasi Data Pajak",
-          "Perwakilan Komunikasi dengan Kantor Pajak"
-        ],
-        "benefitsDetails": [
-          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
-          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
-          "Pendampingan Pemeriksaan Pajak",
-          "Rekonsiliasi Pajak",
-          "Klarifikasi Data Pajak",
-          "Perwakilan Komunikasi dengan Kantor Pajak"
-        ],
-        "details": {
-          "overview": "Layanan audit dan pemeriksaan pajak kami membantu perusahaan memastikan kepatuhan terhadap peraturan perpajakan yang berlaku sekaligus meminimalkan risiko sanksi pajak. Layanan ini mencakup penelaahan dokumen perpajakan, rekonsiliasi data keuangan dan pajak, serta pendampingan selama proses pemeriksaan oleh otoritas pajak, yang dilakukan secara sistematis dan transparan sesuai ketentuan yang berlaku. Layanan ini tidak hanya ditujukan bagi bisnis yang telah menerima surat pemeriksaan dari kantor pajak, tetapi juga menyediakan early tax check-up untuk membantu perusahaan mengetahui status kepatuhan dan potensi risiko pajak sejak dini, sehingga langkah perbaikan dapat dilakukan lebih awal.",
-          "extendedServices": [
-            "Review dan evaluasi dokumen perpajakan perusahaan",
-            "Rekonsiliasi laporan keuangan dengan laporan pajak",
-            "Identifikasi potensi risiko dan ketidaksesuaian pajak",
-            "Pendampingan selama proses pemeriksaan pajak",
-            "Bantuan klarifikasi dan penyusunan data pendukung pemeriksaan",
-            "Rekomendasi perbaikan dan peningkatan kepatuhan pajak",
-            "Konsultasi pajak selama periode pendampingan"
-          ]
-        }
-      },
-      {
-        "title": "Pelatihan Software Akuntansi",
-        "link": "accounting-software-training",
-        "icon": "/animate/accounting-software-training.json",
-        "newService": false,
-        "tags": [
-          "Pribadi",
-          "Perusahaan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "Ditentukan setelah konsultasi",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Quickbooks Online",
-          "Accurate",
-          "Jurnal Mekari",
-          "Xero",
-          "MYOB"
-        ],
-        "benefitsDetails": [
-          "Quickbooks Online",
-          "Accurate",
-          "Jurnal Mekari",
-          "Xero",
-          "MYOB"
-        ],
-        "details": {
-          "overview": "Layanan pelatihan software akuntansi kami dirancang untuk membantu bisnis mengelola transaksi, laporan keuangan, dan proses pembukuan secara lebih efisien. Materi pelatihan disesuaikan dengan kebutuhan perusahaan, mulai dari pengenalan fitur dasar hingga praktik pengelolaan laporan keuangan secara menyeluruh. Kami menyediakan pelatihan untuk berbagai software akuntansi, seperti QuickBooks Online, Xero, Jurnal by Mekari, Accurate, MYOB, dan lainnya. Penggunaan software akuntansi yang tepat membantu meningkatkan keakuratan pencatatan, mengurangi human error, serta meminimalkan risiko fraud.",
-          "extendedServices": [
-            "Sesi training privat atau tim",
-            "Materi pelatihan sesuai software yang dipilih",
-            "Panduan penggunaan fitur dan workflow pembukuan",
-            "Simulasi transaksi dan pembuatan laporan keuangan",
-            "File modul pelatihan",
-            "Konsultasi pasca training dalam periode tertentu"
-          ]
-        }
-      },
-      {
-        "title": "Perubahan Legal Perusahaan",
-        "link": "company-legal-amendments",
-        "icon": "/animate/company-legal-amendments.json",
-        "newService": false,
-        "tags": [
-          "Pribadi",
-          "Perusahaan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "-",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi dan pemegang saham",
-          "Penyesuaian Anggaran Dasar",
-          "Pengurusan Nomor Induk Bisnis serta pembaruan perizinan di Kementrian Penanaman Modal (OSS)",
-          "Penambahan atau perubahan Kode Bisnis",
-          "Pemberitahuan dan pengesahan perubahan di Kemenkumham",
-          "Pembaruan data perusahaan di sistem pajak",
-          "Pembuatan dokumen korporasi seperti",
-          "Risalah RUPS atau Keputusan Pemegang Saham"
-        ],
-        "benefitsDetails": [
-          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi dan pemegang saham",
-          "Penyesuaian Anggaran Dasar",
-          "Pengurusan Nomor Induk Bisnis serta pembaruan perizinan di Kementrian Penanaman Modal (OSS)",
-          "Penambahan atau perubahan Kode Bisnis",
-          "Pemberitahuan dan pengesahan perubahan di Kemenkumham",
-          "Pembaruan data perusahaan di sistem pajak",
-          "Pembuatan dokumen korporasi seperti",
-          "Risalah RUPS atau Keputusan Pemegang Saham"
-        ],
-        "details": {
-          "overview": "Layanan perubahan legal perusahaan kami membantu bisnis memastikan setiap pembaruan data dan penyesuaian legalitas dilakukan dengan benar, tepat waktu, dan sesuai ketentuan yang berlaku, sehingga perusahaan terhindar dari kesalahan administratif, keterlambatan proses, dan risiko ketidaksesuaian yang dapat menghambat operasional. Kami memberikan pendampingan menyeluruh mulai dari penyusunan dokumen, pengajuan perubahan, hingga pengesahan ke instansi terkait untuk berbagai kebutuhan perubahan legal perusahaan. Seluruh proses ditangani oleh tim berpengalaman dengan ketelitian dan kerahasiaan yang terjaga, agar Anda dapat menjalankan bisnis tanpa hambatan administratif.",
-          "extendedServices": [
-            "Proses perubahan legal selesai tepat waktu",
-            "Risiko kesalahan dan penolakan dokumen berkurang",
-            "Operasional bisnis tetap berjalan lancar",
-            "Pendampingan dari awal sampai pengesahan"
-          ]
-        }
-      },
-      {
         "title": "Pendirian Perusahaan Lokal",
         "link": "setup-local-company",
         "icon": "/animate/setup-local-company.json",
@@ -687,10 +598,91 @@
         "details": {
           "overview": "Pendirian PT Lokal memerlukan ketelitian, kepatuhan terhadap regulasi, dan pemahaman yang tepat atas ketentuan yang berlaku di Indonesia. Layanan pendirian PT Lokal kami dirancang untuk menyederhanakan seluruh proses pendirian perusahaan, sehingga bisnis Anda dapat berdiri secara legal sejak awal tanpa risiko kesalahan administratif dan keterlambatan. Kami memberikan pendampingan menyeluruh mulai dari penyusunan akta pendirian, pengurusan pengesahan di Kementerian Hukum dan HAM, hingga perolehan NPWP, NIB, dan perizinan usaha melalui sistem OSS. Dengan dukungan tim berpengalaman dan proses kerja yang terstruktur, kami memastikan pendirian PT Lokal berjalan efisien, aman, dan sesuai ketentuan, sehingga Anda dapat fokus membangun dan mengembangkan bisnis dengan lebih percaya diri.",
           "extendedServices": [
-            "Perusahaan berdiri legal sejak awal",
-            "Proses lebih cepat dengan risiko keterlambatan lebih kecil",
-            "Kepatuhan terhadap regulasi Indonesia terjamin",
-            "Pendampingan jelas dari awal hingga selesai"
+            "Struktur perusahaan dan perizinan sesuai regulasi Indonesia",
+            "Proses pendirian lebih terarah dan efisien",
+            "Pendampingan jelas dari awal hingga perusahaan siap beroperasi",
+            "Bantuan pembukaan rekening bank perusahaan",
+            "Bantuan pencarian lokasi kantor atau virtual office sesuai kebutuhan"
+          ]
+        }
+      },
+      {
+        "title": "Pendirian Perusahaan Asing (PT PMA)",
+        "link": "pma",
+        "icon": "/animate/setup-pma.lottie",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Akta Pendirian Perusahaan",
+          "Persetujuan dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia",
+          "Nomor Pokok Wajib Pajak NPWP ",
+          "User Password Website OSS",
+          "Persetujuan Kesesuaian Kegiatan Penggunaan Lahan dengan Tata Ruang",
+          "Nomor Induk Berusaha NIB",
+          "Pendampingan Pembukaan Rekening Bank"
+        ],
+        "benefitsDetails": [
+          "Akta Pendirian Perusahaan",
+          "Persetujuan dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia",
+          "Nomor Pokok Wajib Pajak NPWP ",
+          "User Password Website OSS",
+          "Persetujuan Kesesuaian Kegiatan Penggunaan Lahan dengan Tata Ruang",
+          "Nomor Induk Berusaha NIB",
+          "Pendampingan Pembukaan Rekening Bank"
+        ],
+        "details": {
+          "overview": "Mendirikan PT PMA atau Perseroan Terbatas Penanaman Modal Asing di Indonesia memerlukan pemahaman mendalam tentang regulasi dan proses hukum yang berlaku. Kami hadir untuk membantu Anda menjalani setiap tahap pendirian PT PMA dengan lancar dan tanpa hambatan.Layanan kami mencakup pendampingan mulai dari penyusunan akta pendirian, pengurusan izin resmi, hingga mendapatkan semua dokumen penting seperti Nomor Pokok Wajib Pajak (NPWP), Nomor Induk Berusaha (NIB), serta persetujuan dari instansi terkait. Kami juga memastikan perusahaan Anda mematuhi ketentuan penggunaan lahan sesuai tata ruang yang berlaku.Selain itu, kami membantu dalam pembukaan rekening bank untuk mendukung kelancaran aktivitas keuangan perusahaan Anda. Dengan pengalaman dan jaringan luas, kami pastikan proses pendirian PT PMA Anda cepat, tepat, dan sesuai dengan peraturan terbaru di Indonesia.",
+          "extendedServices": [
+            "Proses pendirian PT PMA lebih jelas dan terarah sejak awal",
+            "Perusahaan siap beroperasi secara legal di Indonesia",
+            "Risiko kesalahan administrasi dan perizinan dapat ditekan",
+            "Pendampingan profesional sampai rekening bank siap digunakan"
+          ]
+        }
+      },
+      {
+        "title": "Perubahan Legal Perusahaan",
+        "link": "company-legal-amendments",
+        "icon": "/animate/company-legal-amendments.json",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi dan pemegang saham",
+          "Penyesuaian Anggaran Dasar",
+          "Pengurusan Nomor Induk Bisnis serta pembaruan perizinan di Kementrian Penanaman Modal (OSS)"
+        ],
+        "benefitsDetails": [
+          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi, dan pemegang saham",
+          "Penyesuaian Anggaran Dasar",
+          "Pengurusan dan pembaruan Nomor Induk Berusaha serta perizinan melalui sistem OSS",
+          "Penambahan atau perubahan Kode Bisnis",
+          "Pemberitahuan dan pengesahan perubahan di Kementerian Hukum dan HAM",
+          "Pembaruan data perusahaan di sistem perpajakan",
+          "Penyusunan dokumen korporasi seperti risalah RUPS atau keputusan pemegang saham"
+        ],
+        "details": {
+          "overview": "Layanan perubahan legal perusahaan kami membantu bisnis memastikan setiap pembaruan data dan penyesuaian legalitas dilakukan dengan benar, tepat waktu, dan sesuai ketentuan yang berlaku, sehingga perusahaan terhindar dari kesalahan administratif, keterlambatan proses, dan risiko ketidaksesuaian yang dapat menghambat operasional. Kami memberikan pendampingan menyeluruh mulai dari penyusunan dokumen, pengajuan perubahan, hingga pengesahan ke instansi terkait untuk berbagai kebutuhan perubahan legal perusahaan. Seluruh proses ditangani oleh tim berpengalaman dengan ketelitian dan kerahasiaan yang terjaga, agar Anda dapat menjalankan bisnis tanpa hambatan administratif.",
+          "extendedServices": [
+            "Proses perubahan legal dilakukan sesuai regulasi yang berlaku",
+            "Risiko kesalahan dan penolakan dokumen lebih terkendali",
+            "Struktur legal perusahaan tetap mendukung kelancaran operasional",
+            "Pendampingan jelas dari awal hingga seluruh perubahan disahkan"
           ]
         }
       }
@@ -739,10 +731,6 @@
         "answer": "Manfaat menggunakan layanan Finansist adalah kemudahan dan keakuratan dalam mengelola keuangan, serta ketenangan karena kepatuhan regulasi dan keamanan data dijaga melalui sistem cloud yang handal. Layanan yang fleksibel dan biaya efisien ini dirancang untuk membantu bisnis dan profesional mengoptimalkan pengelolaan keuangan mereka secara menyeluruh. Finansist hadir 24 jam untuk Anda, di mana pun Anda berada di dunia. Nikmati laporan keuangan yang dapat disesuaikan, layanan meeting online yang praktis, penyimpanan dokumen berbasis cloud yang aman, serta dukungan tim bersertifikasi yang ahli dalam berbagai software akuntansi terkemuka."
       },
       {
-        "question": "Bagaimana cara memulai menggunakan layanan Finansist?",
-        "answer": "Anda dapat mengunjungi situs finansistinternational.com dan menghubungi tim Finansist melalui informasi yang tersedia (Whatsapp / E-mail). Tim Finansist akan membantu Anda dalam langkah-langkah selanjutnya untuk memulai penggunaan layanan. Jika Anda memiliki pertanyaan lain yang tidak tercakup di FAQ ini, jangan ragu untuk menghubungi kami untuk mendapatkan informasi lebih lanjut dan dukungan yang dibutuhkan."
-      },
-      {
         "question": "Bagaimana Finansist bisa menjamin keamanan data pelanggan?",
         "answer": "Keamanan data pelanggan dijamin melalui penggunaan sistem keamanan berbasis cloud yang canggih dan terpercaya. Sistem ini dirancang untuk melindungi data dari akses tidak sah, menjaga kerahasiaan, serta memastikan data tersimpan dengan aman dan dapat diakses secara real-time kapan pun dibutuhkan oleh pelanggan. Selain itu, Finansist menerapkan protokol keamanan yang ketat sesuai standar industri untuk menjaga integritas dan privasi informasi klien."
       },
@@ -759,7 +747,7 @@
         "answer": "Ya. Layanan dapat dilakukan secara online maupun offline, disesuaikan dengan kebutuhan klien, ruang lingkup pekerjaan, dan tingkat kompleksitas data yang ditangani."
       },
       {
-        "question": "Jika sebelumnya saya sudah memiliki staff/ konsultan, apakah saya bisa menggunakan jasa Finansist?",
+        "question": "Jika sebelumnya saya sudah memiliki staff / konsultan, apakah saya bisa menggunakan jasa Finansist?",
         "answer": "Ya. Melalui jasa Finansist, Anda dapat menekan biaya penggajian karyawan secara lebih efisien. Dengan biaya setara satu staf internal, Anda sudah bisa memperoleh layanan dan kinerja dari tim profesional yang berpengalaman dan bersertifikat internasional."
       },
       {
@@ -767,16 +755,12 @@
         "answer": "Finansist dapat membantu dari sisi perencanaan, penerbitan Akta Perusahaan, NIB (Nomor Induk Berusaha), hingga pembuatan rekening perusahaan."
       },
       {
-        "question": "Bagaimana Finansist bisa membantu mencegah/ menemukan fraud dalam bisnis?",
+        "question": "Bagaimana Finansist bisa membantu mencegah / menemukan fraud dalam bisnis?",
         "answer": "Finansist melakukan evaluasi pengendalian internal, penelusuran transaksi, analisis pola yang tidak wajar, serta review proses bisnis untuk mengidentifikasi potensi kelemahan dan indikasi fraud. Hasil evaluasi digunakan sebagai dasar rekomendasi perbaikan sistem dan prosedur."
       },
       {
-        "question": "Apakah perusahaan/ usaha anda wajib menggunakan software akuntansi?",
-        "answer": "Tidak. Perusahaan/ usaha anda tidak wajib menggunakan software akuntansi. Untuk proses bisnis yang masih sederhana, Finansist dapat membantu menyusun sistem akuntansi berbasis Excel yang disesuaikan dengan alur transaksi dan kebutuhan bisnis, sehingga pencatatan tetap rapi, terstruktur, dan dapat digunakan sebagai dasar pelaporan keuangan dan pajak."
-      },
-      {
-        "question": "Apakah ada Batasan peserta atau staff yang dapat di training software akuntansi?",
-        "answer": "Tidak ada batasan baku. Jumlah peserta dapat disesuaikan dengan kebutuhan perusahaan, metode pelatihan, dan software yang digunakan, baik untuk pelatihan individual maupun tim."
+        "question": "Apakah perusahaan / usaha anda wajib menggunakan software akuntansi?",
+        "answer": "Tidak. Perusahaan / usaha anda tidak wajib menggunakan software akuntansi. Untuk proses bisnis yang masih sederhana, Finansist dapat membantu menyusun sistem akuntansi berbasis Excel yang disesuaikan dengan alur transaksi dan kebutuhan bisnis, sehingga pencatatan tetap rapi, terstruktur, dan dapat digunakan sebagai dasar pelaporan keuangan dan pajak."
       },
       {
         "question": "Apakah ada Batasan peserta atau staff yang dapat di training software akuntansi?",
