@@ -5,9 +5,6 @@ import { TitleSection } from '@/components/ui/typography';
 import { useLanguage } from '@/context/LanguageProvider';
 import dynamic from 'next/dynamic';
 import { memo, useCallback, useEffect, useState } from 'react';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { ChevronUp } from 'lucide-react';
-import Image from 'next/image';
 import { getPrice } from '@/lib/action/service-fee';
 import { PriceService } from '@/lib/type/price';
 

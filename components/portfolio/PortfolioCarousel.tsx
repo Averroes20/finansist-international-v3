@@ -16,8 +16,6 @@ type PortfolioCarouselProps = {
 const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }) => {
   const plugins = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
   const [api, setApi] = useState<CarouselApi | undefined>();
-  const softwarePlugins = useRef(Autoplay({ delay: 2500, stopOnInteraction: true }));
-  const [, setSoftwareApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState<number>(1);
   const { dictionary } = useLanguage();
   const { title } = dictionary?.portfolio || {};
@@ -40,16 +38,12 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
 
   
   const allPortfolios = portfolioChunks.flat()
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile,] = useState(false)
 
   const mobileChunks = [];
   for (let i = 0; i < allPortfolios.length; i += 2) {
     mobileChunks.push(allPortfolios.slice(i, i + 2));
   }
-
-  const totalDots = isMobile
-    ? mobileChunks.length
-    : portfolioChunks.length  
 
   const mobileAutoplay = useRef(
     Autoplay({
