@@ -38,7 +38,6 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
 
   
   const allPortfolios = portfolioChunks.flat()
-  const [isMobile,] = useState(false)
 
   const mobileChunks = [];
   for (let i = 0; i < allPortfolios.length; i += 2) {
