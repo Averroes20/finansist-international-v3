@@ -2,7 +2,7 @@
 import ProfitAnimated from '@/components/animation/profit-animated';
 import SoftwareSlider from '@/components/common/SoftwareSlider';
 import { useLanguage } from '@/context/LanguageProvider';
-import { BadgeDollarSign, BookText, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2, FileChartColumn, GraduationCap, Building2, MapPinCheck } from 'lucide-react';
+import { Calculator , CircleDollarSign, UserRoundCheck, ChartNoAxesCombined, MonitorCog, TvMinimalPlay, SearchCheck, BookUser, FilePen, Building, University, ReplaceAll} from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ import { createElement } from 'react';
 
 const Achievements = dynamic(() => import('@/components/common/AchievementCard'), { ssr: false });
 
-const iconServices = [BookText, BadgeDollarSign, Gem, ShieldCheck, UserCheck2, ShieldQuestion, Lightbulb, LaptopMinimal, FileChartColumn, GraduationCap, Building2, MapPinCheck];
+const iconServices = [ Calculator , CircleDollarSign, UserRoundCheck, ChartNoAxesCombined, MonitorCog, TvMinimalPlay, SearchCheck, BookUser, FilePen, Building, University, ReplaceAll];
 
 const Intro = () => {
   const { dictionary } = useLanguage();
@@ -82,7 +82,7 @@ const Intro = () => {
           </div>
         </div>
         <div className="flex flex-col space-y-4  mt-auto">
-          <p className="text-sm md:text-lg font-libreBaskerville text-black opacity-60 text-center">{softwareTitle}</p>
+          <p className="text-md md:text-xl font-libreBaskerville text-black opacity-70 text-center mt-2">{softwareTitle}</p>
           <SoftwareSlider />
         </div>
       </div>

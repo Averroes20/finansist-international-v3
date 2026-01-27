@@ -15,7 +15,8 @@ type PortfolioCarouselProps = {
 
 const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }) => {
   const plugins = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
-  const [api, setApi] = useState<CarouselApi | undefined>();
+  const [mobileApi, setMobileApi] = useState<CarouselApi | undefined>()
+  const [desktopApi, setDesktopApi] = useState<CarouselApi | undefined>()
   const [current, setCurrent] = useState<number>(1);
   const { dictionary } = useLanguage();
   const { title } = dictionary?.portfolio || {};
@@ -24,18 +25,33 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
   const handleMouseEnter = useCallback(() => plugins.current?.stop(), []);
   const handleMouseLeave = useCallback(() => plugins.current?.play(), []);
 
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    if (!api) return;
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
-    const onSelect = () => setCurrent(api.selectedScrollSnap() + 1);
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
 
-    api.on('select', onSelect);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
+
+  useEffect(() => {
+    const activeApi = isMobile ? mobileApi : desktopApi
+    if (!activeApi) return
+
+    const onSelect = () =>
+      setCurrent(activeApi.selectedScrollSnap() + 1)
+
+    onSelect()
+    activeApi.on('select', onSelect)
 
     return () => {
-      api.off('select', onSelect);
-    };
-  }, [api]);
-
+      activeApi.off('select', onSelect)
+    }
+  }, [isMobile, mobileApi, desktopApi])
   
   const allPortfolios = portfolioChunks.flat()
 
@@ -60,10 +76,10 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
             <Carousel
               opts={{
                 axis: 'y',
-                loop: true,
+                loop: false,
                 
               }}
-              setApi={setApi}
+              setApi={setMobileApi}
               plugins={[mobileAutoplay.current]}
               className="w-full h-[620px] overflow-hidden"
             >
@@ -79,6 +95,18 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
                   </CarouselItem>
                 ))}
               </CarouselContent>
+              <div className="w-full flex justify-center space-x-2 mt-4">
+                {Array.from({ length: mobileChunks.length }).map((_, idx) => (
+                  <button
+                    key={`dot-mobile-${idx}`}
+                    onClick={() => mobileApi?.scrollTo(idx)}
+                    className={`h-2 w-2 rounded-full transition-colors ${
+                      current === idx + 1 ? 'bg-gray-950' : 'bg-gray-400'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </Carousel>
           </div>
           
@@ -86,7 +114,7 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
           <div className="hidden md:block">
             <Carousel
               opts={{ loop: true }}
-              setApi={setApi}
+              setApi={setDesktopApi}
               plugins={[plugins.current]}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -110,8 +138,8 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
               {Array.from({ length: portfolioChunks.length }).map((_, idx) => (
                 <button
                   key={`dot-${idx + 1}`}
-                  onClick={() => api?.scrollTo(idx)}
-                  className={`h-2 w-2 rounded-full ${current === idx + 1 ? 'bg-gray-950' : 'bg-gray-400'
+                  onClick={() => desktopApi?.scrollTo(idx)}
+                  className={`h-2 w-2 rounded-full ${current === idx +1 ? 'bg-gray-950' : 'bg-gray-400'
                     } transition-colors duration-300 hover:bg-gray-200`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -121,7 +149,7 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
       </AnimatedComponent>
 
       <div className="md:mx-5 md:space-x-2 -mt-28 md:mt-8">
-        <p className="text-sm md:text-lg font-libreBaskerville text-black text-center mb-4">
+        <p className="text-md md:text-lg font-libreBaskerville text-black text-center mb-4">
           {softwareTitle}
         </p>
 

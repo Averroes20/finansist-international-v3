@@ -15,7 +15,7 @@ import { menuLanguages } from '@/lib/data/navbar';
 import { Language } from '@/lib/type/languange';
 import clsx from 'clsx';
 import { motion, Variants } from 'framer-motion';
-import { BadgeDollarSign, BookText, ChevronUp, Gem, LaptopMinimal, Lightbulb, Menu, ShieldCheck, ShieldQuestion, UserCheck2, X, FileChartColumn, GraduationCap, Building2, MapPinCheck } from 'lucide-react';
+import { ChevronUp, Menu, X, Calculator , CircleDollarSign, UserRoundCheck, ChartNoAxesCombined, MonitorCog, TvMinimalPlay, SearchCheck, BookUser, FilePen, Building, University, ReplaceAll } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -49,7 +49,7 @@ const dropdownVariants: Variants = {
   },
 };
 
-const iconServices = [BookText, BadgeDollarSign, Gem, ShieldCheck, UserCheck2, ShieldQuestion, Lightbulb, LaptopMinimal, FileChartColumn, GraduationCap, Building2, MapPinCheck];
+const iconServices = [ Calculator , CircleDollarSign, UserRoundCheck, ChartNoAxesCombined, MonitorCog, TvMinimalPlay, SearchCheck, BookUser, FilePen, Building, University, ReplaceAll];
 
 const Navbar = () => {
   const router = useRouter();

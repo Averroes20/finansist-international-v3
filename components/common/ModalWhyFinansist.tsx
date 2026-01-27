@@ -26,7 +26,7 @@ const ModalWhyFinansist = () => {
           <ul className="pt-4 space-y-2">
             {points?.map((item, index) => (
               <li key={`${index + 1}-${item.title}`} className="flex">
-                <span className="mr-2 text-lg text-white">✔</span>
+                <span className="mr-2 text-xl text-white">✔</span>
                 <p className="font-libreBaskerville text-white">
                   <b className="text-base">{item.title} </b>
                   <span className="text-sm">{item.description}</span>
@@ -42,13 +42,13 @@ const ModalWhyFinansist = () => {
           <p className="font-libreBaskerville">{description?.text}</p>
           <ul className="list-disc my-5 font-libreBaskerville space-y-2">
             <p className="mb-3">{description?.points?.[0]}:</p>
-            {description?.points?.slice(1, 4).map((item, index) => (
+            {description?.points?.slice(1, 5).map((item, index) => (
               <li key={`${index + 1}-${item}`} className="text-sm ml-3 md:text-base">
                 {item}
               </li>
             ))}
           </ul>
-          <p className="text-base font-libreBaskerville">{description?.points?.[4]}</p>
+          <p className="text-base font-libreBaskerville">{description?.points?.[5]}</p>
           <h2 className="font-santaCatalina text-slate-900 dark:text-white text-right text-[2.25rem] md:text-[3rem] font-bold mt-4">{tagsLine}</h2>
         </div>
         <div className="md:col-span-1 flex justify-center items-center">

@@ -4,6 +4,7 @@ import { useLanguage } from "@/context/LanguageProvider";
 import { TitleSection } from "../ui/typography";
 import BlogCard from "./BlogCard";
 import Image from "next/image";
+import Link from "next/link";
 import { BlogListResponses } from "@/lib/type/blog";
 import { useEffect, useState } from "react";
 
@@ -45,6 +46,11 @@ const BlogList: React.FC<BlogListProps> = ({ blogs }) => {
             />
           </div>
         )}
+      </div>
+      <div className="flex justify-center ">
+        <Link href={'/blog'} prefetch={true} className="mt-10 py-2 px-4 bg-slate-800 hover:bg-slate-950 text-white rounded-md">
+          Read more
+        </Link>
       </div>
     </div>
   )
