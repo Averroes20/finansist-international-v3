@@ -3,12 +3,12 @@ import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtub
 import { images } from '@/constants/images';
 import { useLanguage } from '@/context/LanguageProvider';
 import { useSocialMedia } from '@/context/SocialMediaProvider';
-import { BadgeDollarSign, BookText, Clipboard, ClipboardCheck, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2 } from 'lucide-react';
+import { BadgeDollarSign, BookText, Clipboard, ClipboardCheck, Gem, LaptopMinimal, Lightbulb, ShieldCheck, ShieldQuestion, UserCheck2, FileChartColumn, GraduationCap, Building2, MapPinCheck } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { createElement, useCallback, useState } from 'react';
 
-const iconServices = [BookText, BadgeDollarSign, Gem, ShieldCheck, UserCheck2, ShieldQuestion, Lightbulb, LaptopMinimal];
+const iconServices = [BookText, BadgeDollarSign, Gem, ShieldCheck, UserCheck2, ShieldQuestion, Lightbulb, LaptopMinimal, FileChartColumn, GraduationCap, Building2, MapPinCheck];
 
 const Footer = () => {
   const { dictionary, language } = useLanguage();
