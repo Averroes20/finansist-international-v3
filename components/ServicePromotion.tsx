@@ -42,7 +42,7 @@ const ServicePromotion: React.FC = () => {
           effect="fade-in-left"
           className="flex flex-col justify-center items-center md:col-span-2"
         >
-          <h1 className='md:hidden font-santaCatalina text-center leading-[5.5rem] text-3xl font-bold mb-4'>
+          <h1 className='md:hidden font-santaCatalina text-center leading-[3.5rem] text-3xl font-bold mb-4 -pt-5 md:pt-0'>
             {title1} <br /> {title2} <br /> {title3}
           </h1>
           <Image

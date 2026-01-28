@@ -18,7 +18,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
         <header className="px-8 flex flex-col justify-center items-center min-h-5 md:h-24 relative text-center">
           <h3 className="text-xl font-bold">{service.title}</h3>
           {service.newService && (
-            <span className="absolute -top-1 -right-2 text-sm md:text-base text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>
+            <span className="absolute -top-4 -right-2 text-sm md:text-base text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>
           )}
         </header>
         <span className="w-[60%] h-1 bg-[#3A9DA1]" />
@@ -27,7 +27,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
         </div>
         <section className="w-full">
           <div className="flex justify-center items-center my-2">
-            <span className='inline-flex bg-slate-900 text-white dark:bg-slate-50 dark:text-slate-900 p-1 px-2 rounded-lg mb-0 md:mb-3'>
+            <span className='inline-flex bg-[#3A9DA1] text-white dark:bg-slate-50 dark:text-slate-900 p-1 px-2 rounded-lg mb-0 md:mb-3'>
               {service.tags.map((tag, tagIndex) => (
                 <div key={`tag-${tagIndex + 1}`} className="flex items-center">
                   <span className="text-base font-semibold text-[#3A9DA1}">{tag}</span>
@@ -112,7 +112,7 @@ const ServiceModal = memo(({ service, lang }: { service: Service, lang: string }
             </DialogHeader>
             <div className="mt-4 flex flex-col flex-grow flex-1 mb-10 md:mb-0">
               <div>
-                {service.newService ? <Image src="/images/statistik-cfo.png" alt="statistik-cfo" width={9999} height={9999} className='w-full object-cover mr-4 md:w-1/3 md:float-start' /> : ''}
+                {service.link === 'cfo-package' && (<Image src="/images/statistik-cfo.png" alt="statistik-cfo" width={9999} height={9999} className='w-full object-cover mr-4 md:w-1/3 md:float-start' />)}
                 <DialogDescription className="leading-7 text-black text-sm md:text-base prose prose-lg text-justify">
                   {service.details.overview}
                 </DialogDescription>
