@@ -12,18 +12,13 @@ type Props = {
 };
 
 const CarouselReviews: React.FC<Props> = ({ data }: Props) => {
-  const plugins = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
+  const plugins = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
   const [api, setApi] = useState<CarouselApi | undefined>();
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(data.meta.totalCount);
 
-  const handleMouseEnter = useCallback(() => {
-    plugins.current?.stop();
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    plugins.current?.play();
-  }, []);
+  const handleMouseEnter = useCallback(() => {plugins.current?.stop();}, []);
+  const handleMouseLeave = useCallback(() => {plugins.current?.play();}, []);
 
   useEffect(() => {
     if (!api) return;
