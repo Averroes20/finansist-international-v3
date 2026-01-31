@@ -56,6 +56,7 @@ const Navbar = () => {
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   const [openDropdownMobile, setOpenDropdownMobile] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
+  const closeDropdown = useCallback(() => {setOpenDropdown(false);}, []);
   const [openModal, setOpenModal] = useState(false);
   const { language: lang, changeLanguage } = useLanguage();
   const { dictionary } = useLanguage();
@@ -131,6 +132,7 @@ const Navbar = () => {
                               <Link
                                 href={`#${item.link}`}
                                 key={`${index + 1}-${item.link}`}
+                                onClick={closeDropdown}
                                 className="text-sm md:text-base flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md"
                               >
                                 <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-6 h-6 text-[#3A9DA1]' })}</span>
@@ -259,6 +261,10 @@ const Navbar = () => {
                                 <Link
                                   href={`#${item.link}`}
                                   key={`${index + 1}-${item.link}`}
+                                  onClick={() => {
+                                    setOpenDropdownMobile(false);
+                                    setOpenMenuMobile(false);
+                                  }}
                                   className={`border-b border-gray-200 py-2 pl-4  ${index === service.length - 1 ? 'border-none' : ''
                                     } flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md`}
                                 >
