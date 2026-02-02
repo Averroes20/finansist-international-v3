@@ -76,7 +76,7 @@ const CarouselPortfolio: React.FC<PortfolioCarouselProps> = ({ portfolioChunks }
             <Carousel
               opts={{
                 axis: 'y',
-                loop: false,
+                loop: true,
                 
               }}
               setApi={setMobileApi}
