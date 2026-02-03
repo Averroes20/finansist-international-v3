@@ -285,6 +285,7 @@ const Navbar = () => {
                             <div className="flex flex-col col-span-1 py-3 px-3">
                               {service?.map((item, index) => (
                                 <button
+                                  key={item.link}
                                   type="button"
                                   onClick={() => scrollToService(item.link)}
                                   className="flex items-center gap-4 py-2 px-3 w-full text-left"
