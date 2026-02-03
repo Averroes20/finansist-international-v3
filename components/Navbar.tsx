@@ -88,6 +88,7 @@ const Navbar = () => {
   const toggleMobileMenu = useCallback(() => setOpenMenuMobile((prev) => !prev), []);
   const toggleMobileDropdown = useCallback(() => setOpenDropdownMobile((prev) => !prev), []);
   const navigate = useCallback((url: string) => router.push(url), [router]);
+  const closeDropdown = useCallback(() => {setOpenDropdown(false);}, []);
 
   const scrollToService = (id: string) => {
     const el = document.getElementById(id);
@@ -153,8 +154,10 @@ const Navbar = () => {
                           <div className="flex flex-col col-span-1 space-y-3 py-3 px-4">
                             {service?.map((item, index) => (
                               <button
+                                key={item.link}
                                 type="button"
                                 onClick={() => {
+                                  closeDropdown();
                                   scrollToService(item.link);
                                 }}
                                 className="text-sm md:text-base flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md w-full text-left"
