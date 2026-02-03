@@ -91,27 +91,25 @@ const Navbar = () => {
   const closeDropdown = useCallback(() => {setOpenDropdown(false);}, []);
 
   const scrollToService = (id: string) => {
+  setOpenDropdownMobile(false);
+  setOpenMenuMobile(false);
+
+  setTimeout(() => {
     const el = document.getElementById(id);
     if (!el) return;
 
     const NAVBAR_OFFSET = 120;
+    const y =
+      el.getBoundingClientRect().top +
+      window.pageYOffset -
+      NAVBAR_OFFSET;
 
-    // 1️⃣ Scroll kasar dulu (paksa browser ke area bawah)
-    el.scrollIntoView({ behavior: 'auto', block: 'start' });
-
-    // 2️⃣ Setelah layout settle → precise scroll
-    setTimeout(() => {
-      const y =
-        el.getBoundingClientRect().top +
-        window.pageYOffset -
-        NAVBAR_OFFSET;
-
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth',
-      });
-    }, 80); // ⚠️ penting
-  };
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth',
+    });
+  }, 350); // ⬅️ MOBILE NEEDS THIS
+};
 
 
   return (
@@ -286,20 +284,15 @@ const Navbar = () => {
                           {item.subItems && (
                             <div className="flex flex-col col-span-1 py-3 px-3">
                               {service?.map((item, index) => (
-                                <Link
-                                  href={`#${item.link}`}
-                                  key={`${index + 1}-${item.link}`}
-                                  onClick={() => {
-                                    setOpenDropdownMobile(false);
-                                    setOpenMenuMobile(false);
-                                  }}
-                                  className={`border-b border-gray-200 py-2 pl-4  ${index === service.length - 1 ? 'border-none' : ''
-                                    } flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md`}
+                                <button
+                                  type="button"
+                                  onClick={() => scrollToService(item.link)}
+                                  className="flex items-center gap-4 py-2 px-3 w-full text-left"
                                 >
                                   <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-5 h-5 text-[#3A9DA1]' })}</span>
                                   {item.title}
                                   {item.newService && <span className="text-xs text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>}
-                                </Link>
+                                </button>
                               ))}
                             </div>
                           )}
