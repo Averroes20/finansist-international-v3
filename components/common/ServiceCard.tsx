@@ -15,6 +15,10 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
   return (
     <>
       <div className="flex flex-col items-center flex-grow">
+        <span
+        id={`service-anchor-${service.link}`}
+        className="block h-0 scroll-mt-[140px]"
+      />
         <header className="px-8 flex flex-col justify-center items-center min-h-5 md:h-24 relative text-center">
           <h3 className="text-xl font-bold">{service.title}</h3>
           {service.newService && (

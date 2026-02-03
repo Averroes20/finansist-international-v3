@@ -89,6 +89,30 @@ const Navbar = () => {
   const toggleMobileDropdown = useCallback(() => setOpenDropdownMobile((prev) => !prev), []);
   const navigate = useCallback((url: string) => router.push(url), [router]);
 
+  const scrollToService = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const NAVBAR_OFFSET = 120;
+
+    // 1️⃣ Scroll kasar dulu (paksa browser ke area bawah)
+    el.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    // 2️⃣ Setelah layout settle → precise scroll
+    setTimeout(() => {
+      const y =
+        el.getBoundingClientRect().top +
+        window.pageYOffset -
+        NAVBAR_OFFSET;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      });
+    }, 80); // ⚠️ penting
+  };
+
+
   return (
     <header className="fixed w-full top-0 z-50 bg-white shadow-md py-5 dark:bg-white dark:text-black">
       <link rel="preload" href="/images/logo-large.webp" as="image" type="image/webp" fetchPriority="high" media="(min-width: 1px)" />
@@ -128,15 +152,18 @@ const Navbar = () => {
                         <div className="flex gap-4 justify-around">
                           <div className="flex flex-col col-span-1 space-y-3 py-3 px-4">
                             {service?.map((item, index) => (
-                              <Link
-                                href={`#${item.link}`}
-                                key={`${index + 1}-${item.link}`}
-                                className="text-sm md:text-base flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md"
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  scrollToService(item.link);
+                                }}
+                                className="text-sm md:text-base flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md w-full text-left"
                               >
+
                                 <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-6 h-6 text-[#3A9DA1]' })}</span>
                                 {item.title}
                                 {item.newService && <span className="text-base text-[#333333] font-bold px-2 py-1 bg-[#FFD700] rounded-lg">New</span>}
-                              </Link>
+                              </button>
                             ))}
                           </div>
                         </div>
