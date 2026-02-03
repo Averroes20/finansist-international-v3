@@ -3,13 +3,11 @@ import { formatCurrency } from '@/utils/currency';
 import { Minus } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { Button } from '../ui/button';
 import { DialogDescription, DialogHeader, DialogTitle } from '../ui/dialog';
 import ButtonContact from './ButtonContact';
 import Modal from './Modal';
-import { useInView } from 'react-intersection-observer';
-
 
 const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
 
@@ -24,7 +22,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
           )}
         </header>
         <span className="w-[60%] h-1 bg-[#3A9DA1]" />
-        <div className="w-72 h-40 flex justify-center items-center">
+        <div className="w-72 h-40 mx-auto p-4 flex justify-center">
           <Gif src={service.icon} />
         </div>
         <section className="w-full">
@@ -61,7 +59,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
                 {isAnnual ? formatCurrency(annual, code, code === 'IDR' ? 'id-ID' : 'en-US') : formatCurrency(monthly, code, code === 'IDR' ? 'id-ID' : 'en-US')}
                 <span className="text-xl md:text-2xl lg:text-3xl relative">
                   /{isAnnual ? 'year' : 'month'}
-                  {isDiscount ? <Image src="/images/discount.png" alt="discount" width={50} height={50} className="absolute -top-6 left-14 md:-top-8 md:left-20 w-10 md:w-14" loading="lazy" decoding="async"></Image> : null}
+                  {isDiscount ? <Image src="/images/discount.png" alt="discount" width={50} height={50} className="absolute -top-6 left-14 md:-top-8 md:left-20 w-10 md:w-14"></Image> : null}
                 </span>{' '}
               </span>
             )}
@@ -74,11 +72,8 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
 };
 
 const ServiceModal = memo(({ service, lang }: { service: Service, lang: string }) => {
-  const [open, setOpen] = useState(false);
   return (
     <Modal
-    open={open}
-    onOpenChange={setOpen}
       trigger={
         <Button className="bg-slate-800 hover:bg-slate-950 text-sm md:text-base text-white font-bold py-3 px-5 rounded-lg mt-5 shadow-md self-center transform transition-transform duration-300 ease-out hover:scale-110 dark:bg-slate-50 dark:hover:bg-slate-100 dark:text-slate-900">
           More Details <span className="ml-2">&#8594;</span>
@@ -117,7 +112,7 @@ const ServiceModal = memo(({ service, lang }: { service: Service, lang: string }
             </DialogHeader>
             <div className="mt-4 flex flex-col flex-grow flex-1 mb-10 md:mb-0">
               <div>
-                {open && service.link === 'cfo-package' && (<Image src="/images/statistik-cfo.png" alt="statistik-cfo" width={9999} height={9999} className='w-full object-cover mr-4 md:w-1/3 md:float-start' />)}
+                {service.link === 'cfo-package' && (<Image src="/images/statistik-cfo.png" alt="statistik-cfo" width={9999} height={9999} className='w-full object-cover mr-4 md:w-1/3 md:float-start' />)}
                 <DialogDescription className="leading-7 text-black text-sm md:text-base prose prose-lg text-justify">
                   {service.details.overview}
                 </DialogDescription>

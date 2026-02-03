@@ -66,7 +66,7 @@ const Services = () => {
             <div
               key={`${service.link}-${index + 1}`}
               id={service.link}
-              className="flex flex-col scroll-mt-35 scroll-mt-28"
+              className="flex flex-col scroll-mt-28"
             >
               <ServiceCard
                 service={service}
