@@ -90,6 +90,26 @@ const Navbar = () => {
   const toggleMobileDropdown = useCallback(() => setOpenDropdownMobile((prev) => !prev), []);
   const navigate = useCallback((url: string) => router.push(url), [router]);
 
+  const scrollToService = (id: string) => {
+    setOpenDropdown(false);
+
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const yOffset = -120; // tinggi navbar
+      const y =
+        el.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      });
+    }, 100); // TUNGGU layout
+  };
+
   return (
     <header className="fixed w-full top-0 z-50 bg-white shadow-md py-5 dark:bg-white dark:text-black">
       <link rel="preload" href="/images/logo-large.webp" as="image" type="image/webp" fetchPriority="high" media="(min-width: 1px)" />
@@ -130,9 +150,11 @@ const Navbar = () => {
                           <div className="flex flex-col col-span-1 space-y-3 py-3 px-4">
                             {service?.map((item, index) => (
                               <Link
-                                href={`#${item.link}`}
-                                key={`${index + 1}-${item.link}`}
-                                onClick={closeDropdown}
+                                href="#"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  scrollToService(item.link);
+                                }}
                                 className="text-sm md:text-base flex items-center gap-4 hover:bg-[#F0F0F0] py-2 px-3 rounded-md"
                               >
                                 <span>{iconServices[index] && createElement(iconServices[index], { className: 'w-6 h-6 text-[#3A9DA1]' })}</span>
