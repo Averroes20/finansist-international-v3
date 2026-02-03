@@ -56,7 +56,6 @@ const Navbar = () => {
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   const [openDropdownMobile, setOpenDropdownMobile] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
-  const closeDropdown = useCallback(() => {setOpenDropdown(false);}, []);
   const [openModal, setOpenModal] = useState(false);
   const { language: lang, changeLanguage } = useLanguage();
   const { dictionary } = useLanguage();
