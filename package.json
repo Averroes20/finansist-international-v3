@@ -29,6 +29,7 @@
     "@radix-ui/react-toast": "^1.2.2",
     "@radix-ui/react-tooltip": "^1.1.6",
     "@react-google-maps/api": "^2.20.5",
+    "@supabase/supabase-js": "^2.94.0",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",

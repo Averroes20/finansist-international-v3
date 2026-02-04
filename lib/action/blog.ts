@@ -2,15 +2,11 @@
 
 import { prismaClient } from '@/lib/database/connection';
 import { BlogListResponses, BlogWithComments } from '@/lib/type/blog';
-import { deleteFile } from '@/utils/delete-file';
-import { dirFiles, saveFile } from '@/utils/save-file';
+import { deleteImage } from '@/utils/deleteImages';
+import { uploadImage } from '@/utils/savebucket';
 import { slugify } from '@/utils/slugify';
 import { Prisma } from '@prisma/client';
-import fs from 'fs';
 import { revalidatePath } from 'next/cache';
-import path from 'path';
-
-const UPLOAD_DIR = dirFiles('blogs');
 
 interface FetchBlogsParams {
   page?: number;
@@ -195,7 +191,9 @@ export async function createBlog(formData: FormData) {
   }
 
   const coverFile = formData.get('cover') as File | null;
-  const coverPath = coverFile ? await saveFile(coverFile, 'blogs') : '';
+  const coverPath = coverFile
+  ? await uploadImage(coverFile, 'blogs')
+  : '';
 
   try {
     const newBlog = await prismaClient.blogs.create({
@@ -222,18 +220,30 @@ export async function updateBlog(formData: FormData, blogId: number) {
   const existingBlog = await prismaClient.blogs.findUnique({ where: { id: blogId } });
   if (!existingBlog) throw new Error('Blog not found');
 
-  const existingSlug = await prismaClient.blogs.findUnique({ where: { slug } });
-  if (existingSlug) {
+  const existingSlug = await prismaClient.blogs.findUnique({
+    where: { slug },
+  });
+
+  if (existingSlug && existingSlug.id !== blogId) {
     throw new Error('A blog with this title already exists');
   }
 
-  let coverPath = existingBlog.cover;
-  if (coverFile) {
-    const oldFilePath = path.join(UPLOAD_DIR, path.basename(existingBlog.cover as string));
-    if (existingBlog.cover && fs.existsSync(oldFilePath)) {
-      fs.unlinkSync(oldFilePath);
+  let newCover = existingBlog.cover;
+
+  if (coverFile instanceof File && coverFile.size > 0) {
+    try {
+      newCover = await uploadImage(coverFile, 'blogs');
+    } catch{
+      throw new Error('Image upload failed');
     }
-    coverPath = await saveFile(coverFile, 'blogs');
+
+    if (existingBlog.cover) {
+      await deleteImage(existingBlog.cover);
+    }
+  }
+  
+  if (existingBlog.cover && existingBlog.cover !== newCover) {
+    await deleteImage(existingBlog.cover);
   }
 
   try {
@@ -246,7 +256,7 @@ export async function updateBlog(formData: FormData, blogId: number) {
         author: author ?? undefined,
         category: category ?? undefined,
         slug: slug ?? undefined,
-        cover: coverPath ?? undefined,
+        cover: newCover ?? undefined,
       },
     });
     revalidatePath('/admin/blog');
@@ -270,10 +280,8 @@ export async function deleteBlog(blogId: number) {
   const deletedBlog = await prismaClient.blogs.delete({
     where: { id: blogId },
   });
-
   if (deletedBlog.cover) {
-    const filePath = path.join(UPLOAD_DIR, path.basename(deletedBlog.cover));
-    deleteFile(filePath);
+    await deleteImage(deletedBlog.cover);
   }
   revalidatePath('/admin/blog');
   revalidatePath('/');

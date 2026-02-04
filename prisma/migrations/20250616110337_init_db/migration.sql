@@ -43,7 +43,7 @@ CREATE TABLE "comments" (
 -- CreateTable
 CREATE TABLE "portfolios" (
     "id" SERIAL NOT NULL,
-    "company_name" VARCHAR(100) NOT NULL,
+    "companyName" VARCHAR(100) NOT NULL,
     "company_logo" TEXT,
     "software" VARCHAR(255),
     "country" VARCHAR(100) NOT NULL,

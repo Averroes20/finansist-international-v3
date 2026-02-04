@@ -8,9 +8,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.facebook.com',
+        hostname: 'fqwledoycwqkufomdoph.supabase.co',
+        pathname: '/storage/v1/object/public/**',
         port: '',
-        pathname: '/tr',
       },
     ],
   },
