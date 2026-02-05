@@ -1,5 +1,5 @@
 'use client';
-import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtube } from '@/components/icons/social-media';
+import { Email, Whatsapp} from '@/components/icons/social-media';
 import { images } from '@/constants/images';
 import { isSocialKey, SOCIAL_ICONS } from '@/constants/socialIcons';
 import { useLanguage } from '@/context/LanguageProvider';
@@ -16,10 +16,6 @@ const Footer = () => {
   const { items: service, title } = dictionary?.services || {};
   const { data, loading } = useSocialMedia();
   const [copied, setCopied] = useState<{ email: boolean; phone: boolean }>({ email: false, phone: false });
-
-  const activeSocials = data?.filter(
-    (item) => item.active && item.url
-  );
 
   const handleCopy = useCallback(async (text: string, type: 'email' | 'phone') => {
     try {
