@@ -1,6 +1,7 @@
 'use client';
 import { Email, Facebook, Instagram, Linkedin, TikTok, Twitter, Whatsapp, Youtube } from '@/components/icons/social-media';
 import { images } from '@/constants/images';
+import { isSocialKey, SOCIAL_ICONS } from '@/constants/socialIcons';
 import { useLanguage } from '@/context/LanguageProvider';
 import { useSocialMedia } from '@/context/SocialMediaProvider';
 import { Clipboard, ClipboardCheck, Calculator , CircleDollarSign, UserRoundCheck, ChartNoAxesCombined, MonitorCog, TvMinimalPlay, SearchCheck, BookUser, FilePen, Building, University, ReplaceAll } from 'lucide-react';
@@ -15,6 +16,10 @@ const Footer = () => {
   const { items: service, title } = dictionary?.services || {};
   const { data, loading } = useSocialMedia();
   const [copied, setCopied] = useState<{ email: boolean; phone: boolean }>({ email: false, phone: false });
+
+  const activeSocials = data?.filter(
+    (item) => item.active && item.url
+  );
 
   const handleCopy = useCallback(async (text: string, type: 'email' | 'phone') => {
     try {
@@ -81,47 +86,26 @@ const Footer = () => {
                   {copied.phone ? <ClipboardCheck size={20} /> : <Clipboard size={20} />}
                 </button>
               </p>
-              {data && (
-                <div className="flex gap-2 items-center justify-center mt-3">
-                  {data.map(
-                    ({ id, url, active }) =>
-                      url && (
-                        <Link key={id} href={url} target="_blank" aria-label={`Social Media ${id}`} className="p-[5px] rounded-lg">
-                          {id === 3 && active && (
-                            <div className="p-[5px] rounded-lg bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]">
-                              <Instagram className="text-white" />
-                            </div>
-                          )}
-                          {id === 6 && active && (
-                            <div className="p-[5px] rounded-lg bg-black">
-                              <TikTok className="text-white" />
-                            </div>
-                          )}
-                          {id === 4 && active && (
-                            <div className="p-[5px] rounded-lg bg-[#0e76a8]">
-                              <Linkedin className="text-white" />
-                            </div>
-                          )}
-                          {id === 7 && active && (
-                            <div className="p-[5px] rounded-lg bg-[#3b5998]">
-                              <Facebook className="text-white" />
-                            </div>
-                          )}
-                          {id === 5 && active && (
-                            <div className="p-[5px] rounded-lg bg-[#c4302b]">
-                              <Youtube className="text-white" />
-                            </div>
-                          )}
-                          {id === 2 && active && (
-                            <div className="p-[5px] rounded-lg bg-white">
-                              <Twitter className="text-black" />
-                            </div>
-                          )}
-                        </Link>
-                      )
-                  )}
+              <div className="flex gap-3 items-center justify-center mt-3 flex-wrap">
+                {data
+                  .filter(item => item.active)
+                  .map(item => {
+
+                    const key = item.label.toLowerCase();
+
+                    if (!isSocialKey(key)) return null;
+
+                    const { icon: Icon, className } = SOCIAL_ICONS[key];
+
+                    return (
+                      <Link key={item.id} href={item.url}>
+                        <div className={`p-[5px] rounded-lg ${className}`}>
+                          <Icon className="text-white" />
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
-              )}
               <div className={data && data.find((item) => item.id === 10)?.active ? '' : 'hidden'}>
                 <iframe height="250"
                   className='w-full rounded-md shadow-md'

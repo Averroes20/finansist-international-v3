@@ -87,7 +87,7 @@ const PricePage: React.FC = () => {
               <TableHead className="">Service Name</TableHead>
               <TableHead className="">Code</TableHead>
               <TableHead className="">Monthly</TableHead>
-              <TableHead className="">Annual</TableHead>
+              {/* <TableHead className="">Annual</TableHead> */}
               <TableHead className="">Discount</TableHead>
             </TableRow>
           </TableHeader>
@@ -102,9 +102,9 @@ const PricePage: React.FC = () => {
                 <TableCell className="">
                   {formatCurrency(data[index]?.fee, select.name, select.name === 'IDR' ? 'id-ID' : 'en-US')}
                 </TableCell>
-                <TableCell className="">
+                {/* <TableCell className="">
                   {formatCurrency(data[index]?.annual_fee, select.name, select.name === 'IDR' ? 'id-ID' : 'en-US')}
-                </TableCell>
+                </TableCell> */}
                 <TableCell className="">
                   {data[index]?.is_discount ? (
                     <span className="bg-green-600 text-white px-3 py-2 rounded-full">Active</span>

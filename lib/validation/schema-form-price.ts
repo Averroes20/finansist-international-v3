@@ -4,7 +4,7 @@ const PriceServiceSchema = z.object({
   id: z.number(),
   serviceName: z.string().min(1, { message: 'Service name must be at least 1 character' }),
   code: z.string().min(1, { message: 'Code must be at least 1 character' }),
-  fee: z.number(),
+  fee: z.coerce.number(),
   annual_fee: z.number(),
   is_discount: z.boolean(),
 });

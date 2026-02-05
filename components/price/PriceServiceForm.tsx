@@ -42,9 +42,9 @@ const PriceServiceForm: React.FC<Props> = ({ data, onSubmit, title, description,
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
           <TextInput<TypePriceService> name="serviceName" disabled placeholder="Enter service name.." label="Service Name" isRequired />
           <TextInput<TypePriceService> name="fee" placeholder="Enter fee service.." label="Fee Service" isRequired />
-          <TextInput<TypePriceService> name="annual_fee" placeholder="Enter fee service.." label="Annual Fee Service" isRequired />
+          {/* <TextInput<TypePriceService> name="annual_fee" placeholder="Enter fee service.." label="Annual Fee Service" isRequired /> */}
           <ButtonSwitch<TypePriceService> name="is_discount" label="Active Icon Discount" isRequired />
-          <TextInput<TypePriceService> name="code" disabled placeholder="Enter code price.." label="Code" isRequired />
+          {/* <TextInput<TypePriceService> name="code" disabled placeholder="Enter code price.." label="Code" isRequired /> */}
           <div className="col-span-2 flex justify-center">
             <Button type="submit" className="px-28">
               Submit
