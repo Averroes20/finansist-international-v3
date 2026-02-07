@@ -79,6 +79,7 @@ model LinkSocialMedia {
   label  String  @db.VarChar(100)
   active Boolean @default(false)
   url    String
+  key    String
 
   @@map("link_social_media")
 }

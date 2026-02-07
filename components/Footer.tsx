@@ -1,5 +1,5 @@
 'use client';
-import { Email, Whatsapp} from '@/components/icons/social-media';
+import { Email, Whatsapp } from '@/components/icons/social-media';
 import { images } from '@/constants/images';
 import { isSocialKey, SOCIAL_ICONS } from '@/constants/socialIcons';
 import { useLanguage } from '@/context/LanguageProvider';
@@ -30,6 +30,16 @@ const Footer = () => {
   if (loading || !data) {
     return <div>Loading ...</div>;
   }
+
+  const SOCIAL_STYLES: Record<string, string> = {
+    instagram: "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]",
+    linkedin: "bg-[#0e76a8]",
+    facebook: "bg-[#3b5998]",
+    youtube: "bg-[#c4302b]",
+    twitter: "bg-white",
+    tiktok: "bg-black",
+  };
+
 
   return (
     <footer className="relative pb-10 pt-5">
@@ -91,17 +101,17 @@ const Footer = () => {
 
                     if (!isSocialKey(key)) return null;
 
-                    const { icon: Icon, className } = SOCIAL_ICONS[key];
+                    const { icon: Icon } = SOCIAL_ICONS[key];
 
                     return (
                       <Link key={item.id} href={item.url}>
-                        <div className={`p-[5px] rounded-lg ${className}`}>
+                        <div className={`p-[6px] rounded-lg ${SOCIAL_STYLES[key]}`}>
                           <Icon className="text-white" />
                         </div>
                       </Link>
                     );
-                  })}
-                </div>
+                })}
+              </div>
               <div className={data && data.find((item) => item.id === 10)?.active ? '' : 'hidden'}>
                 <iframe height="250"
                   className='w-full rounded-md shadow-md'

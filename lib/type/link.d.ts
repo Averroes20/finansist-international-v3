@@ -3,4 +3,5 @@ export interface Link {
   label: string;
   url: string;
   active: boolean;
+  key: string;
 }
