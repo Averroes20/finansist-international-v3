@@ -211,7 +211,7 @@ const Navbar = () => {
           </Button>
           <span className="hidden md:flex text-3xl mx-5 font-light text-gray-300">|</span>
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
-            <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none shadow-md bg-transparent">
+            <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none shadow-md bg-transparent md:mt-0 -mt-4 md:mr-0 mr-2">
               <SelectValue>
                 <div className="flex items-center gap-2">
                   <Image
