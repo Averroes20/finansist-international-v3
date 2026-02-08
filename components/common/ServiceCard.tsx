@@ -12,7 +12,7 @@ import { useLanguage } from '@/context/LanguageProvider';
 
 const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
 const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscount }: { service: Service, monthly: number, annual: number, isAnnual: boolean, code: string, lang: string, isDiscount: boolean }) => {
-  const { dictionary, language } = useLanguage();
+  const { dictionary } = useLanguage();
   const { month } = dictionary?.services || {};
   return (
     <>

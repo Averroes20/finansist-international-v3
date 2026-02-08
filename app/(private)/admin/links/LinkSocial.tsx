@@ -10,7 +10,6 @@ import { useCallback, useEffect, useState } from 'react';
 
 const PageLinkSocial: React.FC = () => {
   const [data, setData] = useState<Link[]>([]);
-  const isGoogleMaps = data.find(item => item.label.toLowerCase() === 'maps')?.key === 'maps';
 
   const fetchLink = useCallback(async () => {
     const res = await getLinks();
