@@ -207,7 +207,7 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Penyusunan laporan keuangan (contoh: neraca, laporan laba rugi, laporan arus kas)",
+          "Penyusunan laporan keuangan (seperti: neraca, laporan laba rugi, laporan arus kas)",
           "Pembuatan anggaran dan proyeksi keuangan",
           "Pengawasan buku besar umum",
           "Analisis dan pelaporan keuangan",
@@ -215,7 +215,7 @@
           "Analisis varians (ROI, BEP, dll.)"
         ],
         "benefitsDetails": [
-          "Penyusunan laporan keuangan (contoh: neraca, laporan laba rugi, laporan arus kas)",
+          "Penyusunan laporan keuangan (seperti: neraca, laporan laba rugi, laporan arus kas)",
           "Pembuatan anggaran dan proyeksi keuangan",
           "Pengawasan buku besar umum",
           "Analisis dan pelaporan keuangan",
@@ -345,13 +345,13 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Dasbor keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
+          "Laporan keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
           "Perencanaan dan analisis keuangan.",
           "Penyusunan anggaran dan proyeksi keuangan.",
           "Manajemen arus kas."
         ],
         "benefitsDetails": [
-          "Dasbor keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
+          "Laporan keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
           "Perencanaan dan analisis keuangan.",
           "Penyusunan anggaran dan proyeksi keuangan.",
           "Manajemen arus kas.",
@@ -454,7 +454,7 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Audit internal dan eksternal",
+          "Audit internal atau eksternal",
           "Audit laporan keuangan",
           "Audit forensik",
           "Audit kepatuhan",
@@ -463,7 +463,7 @@
           "Uji tuntas untuk merger dan akuisisi"
         ],
         "benefitsDetails": [
-          "Audit internal dan eksternal",
+          "Audit internal atau eksternal",
           "Audit laporan keuangan",
           "Audit forensik",
           "Audit kepatuhan",

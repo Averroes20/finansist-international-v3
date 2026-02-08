@@ -211,16 +211,18 @@ const Navbar = () => {
           </Button>
           <span className="hidden md:flex text-3xl mx-5 font-light text-gray-300">|</span>
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
-            <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none shadow-md bg-transparent md:mt-0 -mt-4 md:mr-0 mr-2">
+            <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent md:mt-0 mt-4 md:mr-0 mr-2">
               <SelectValue>
                 <div className="flex items-center gap-2">
+                  <div className="p-1">
                   <Image
                     src={menuLanguages.find((item) => item.value === lang)?.icon ?? '/default-icon.png'}
                     alt={lang}
                     width={100}
                     height={100}
-                    className="w-full h-[25px]"
+                    className="w-full h-[25px] drop-shadow-md"
                   />
+                  </div>
                   <span className="text-base hidden md:block">{lang === 'id' ? 'Bahasa' : 'English'}</span>
                 </div>
               </SelectValue>
@@ -231,7 +233,7 @@ const Navbar = () => {
                 .map((item, index) => (
                   <SelectItem key={`${index + 1}-${item.value}`} value={item.value} className="px-2">
                     <div className="flex items-center gap-2">
-                      <Image src={item.icon} alt={item.value} width={24} height={24} />
+                      <Image src={item.icon} alt={item.value} width={24} height={24} className="drop-shadow-md" />
                       <span className="text-base">{item.value === 'id' ? 'Bahasa' : 'English'}</span>
                     </div>
                   </SelectItem>
@@ -240,7 +242,7 @@ const Navbar = () => {
           </Select>
 
           {/* Mobile menu */}
-          <motion.nav aria-hidden="true" initial={false} animate={openMenuMobile ? 'open' : 'closed'} className="md:hidden">
+          <motion.nav aria-hidden="true" initial={false} animate={openMenuMobile ? 'open' : 'closed'} className="md:hidden md:mt-0 mt-4 ">
             <motion.button
               className="lg:hidden rounded-md text-gray-700 hover:bg-gray-200"
               onClick={toggleMobileMenu}
