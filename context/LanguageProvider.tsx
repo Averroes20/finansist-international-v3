@@ -5,7 +5,7 @@ import { createContext, memo, useCallback, useContext, useEffect, useMemo, useSt
 
 export const LanguageContext = createContext<LanguageContextType | null>(null);
 
-const defaultLanguage: Language = 'en';
+const defaultLanguage: Language = 'id';
 
 interface LanguageProviderProps {
   children: React.ReactNode;
@@ -44,12 +44,18 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   useEffect(() => {
     const initializeLanguage = async () => {
       try {
-        const savedLanguage = localStorage.getItem('lang') as Language;
-        const initialLanguage = savedLanguage || defaultLanguage;
+        const savedLanguage = localStorage.getItem('lang');
+
+        const initialLanguage: Language =
+          savedLanguage === 'id' || savedLanguage === 'en'
+            ? savedLanguage
+            : 'id';
 
         const initialDictionary = await loadDictionary(initialLanguage);
+
         setDictionary(initialDictionary);
         setLanguage(initialLanguage);
+
       } catch (error) {
         console.error('Error initializing language:', error);
       } finally {
@@ -58,7 +64,7 @@ const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
     };
 
     initializeLanguage();
-  }, [loadDictionary]);
+  }, []);
 
   const valueContext = useMemo(() => {
     return {

@@ -190,6 +190,7 @@
   },
   "services": {
     "title": "Our Services & Pricing",
+    "month": "Month",
     "items": [
       {
         "title": "Accounting & Bookkeeping",

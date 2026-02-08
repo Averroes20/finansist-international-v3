@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 const PageLinkSocial: React.FC = () => {
   const [data, setData] = useState<Link[]>([]);
+  const isGoogleMaps = data.find(item => item.label.toLowerCase() === 'maps')?.key === 'maps';
 
   const fetchLink = useCallback(async () => {
     const res = await getLinks();
@@ -58,7 +59,7 @@ const PageLinkSocial: React.FC = () => {
                 </TableCell>
                 <TableCell>
                   <SocialMediaForm
-                    data={link}
+                    data={link} 
                     onSubmit={handleEdit}
                     title="Edit Social Media"
                     description="Edit social media details"

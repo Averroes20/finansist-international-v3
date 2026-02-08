@@ -8,10 +8,12 @@ import { Button } from '../ui/button';
 import { DialogDescription, DialogHeader, DialogTitle } from '../ui/dialog';
 import ButtonContact from './ButtonContact';
 import Modal from './Modal';
+import { useLanguage } from '@/context/LanguageProvider';
 
 const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
-
 const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscount }: { service: Service, monthly: number, annual: number, isAnnual: boolean, code: string, lang: string, isDiscount: boolean }) => {
+  const { dictionary, language } = useLanguage();
+  const { month } = dictionary?.services || {};
   return (
     <>
       <div className="flex flex-col items-center flex-grow">
@@ -62,7 +64,7 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
               <span className="text-2xl lg:text-3xl font-bold text-center">
                 {isAnnual ? formatCurrency(annual, code, code === 'IDR' ? 'id-ID' : 'en-US') : formatCurrency(monthly, code, code === 'IDR' ? 'id-ID' : 'en-US')}
                 <span className="text-xl md:text-2xl lg:text-3xl relative">
-                  /{isAnnual ? 'year' : 'month'}
+                  /{isAnnual ? 'year' : month}
                   {isDiscount ? <Image src="/images/discount.png" alt="discount" width={50} height={50} className="absolute -top-6 left-14 md:-top-8 md:left-20 w-10 md:w-14"></Image> : null}
                 </span>{' '}
               </span>

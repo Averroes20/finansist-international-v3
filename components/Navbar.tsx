@@ -211,7 +211,7 @@ const Navbar = () => {
           </Button>
           <span className="hidden md:flex text-3xl mx-5 font-light text-gray-300">|</span>
           <Select onValueChange={handleLanguageChange} defaultValue={lang}>
-            <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none bg-transparent">
+            <SelectTrigger className="focus:ring-transparent focus:ring-offset-transparent focus:outline-none gap-3 border-none shadow-md bg-transparent">
               <SelectValue>
                 <div className="flex items-center gap-2">
                   <Image
@@ -221,7 +221,7 @@ const Navbar = () => {
                     height={100}
                     className="w-full h-[25px]"
                   />
-                  <span className="text-base hidden md:block">{lang === 'en' ? 'English' : 'Bahasa'}</span>
+                  <span className="text-base hidden md:block">{lang === 'id' ? 'Bahasa' : 'English'}</span>
                 </div>
               </SelectValue>
             </SelectTrigger>
@@ -232,7 +232,7 @@ const Navbar = () => {
                   <SelectItem key={`${index + 1}-${item.value}`} value={item.value} className="px-2">
                     <div className="flex items-center gap-2">
                       <Image src={item.icon} alt={item.value} width={24} height={24} />
-                      <span className="text-base">{item.value === 'en' ? 'English' : 'Bahasa'}</span>
+                      <span className="text-base">{item.value === 'id' ? 'Bahasa' : 'English'}</span>
                     </div>
                   </SelectItem>
                 ))}

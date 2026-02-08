@@ -66,6 +66,7 @@ export interface Dictionary {
   };
   services: {
     title: string;
+    month: string;
     items: Array<{
       title: string;
       newService: boolean;
