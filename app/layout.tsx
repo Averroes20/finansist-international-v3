@@ -3,6 +3,7 @@ import { LanguageProviders } from '@/context/LanguageProvider';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import Script from 'next/script';
+import { GoogleTagManager } from '@next/third-parties/google'
 import './globals.css';
 
 const inter = Inter({
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth">
       <link rel="icon" href="/favicon.ico" />
       <link rel="canonical" href={DOMAIN_WEB} />
+      <GoogleTagManager gtmId="GTM-WJ9R9CTB" />
       <body className={`${inter.className} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}>
         <LanguageProviders>{children}</LanguageProviders>
         <Script id="facebook-pixel" strategy="afterInteractive">
