@@ -102,7 +102,7 @@ const ServiceCard = ({
                   alt="discount"
                   width={50}
                   height={50}
-                  className="absolute -top-2 left-16 md:-left-8 md:-top-6 w-10 md:w-14"
+                  className="absolute -top-2 right-16 md:-right-5 md:-top-6 w-10 md:w-14"
                 />
               )}
             </div>
