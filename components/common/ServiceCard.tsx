@@ -8,30 +8,23 @@ import { Button } from '../ui/button';
 import { DialogDescription, DialogHeader, DialogTitle } from '../ui/dialog';
 import ButtonContact from './ButtonContact';
 import Modal from './Modal';
-import { useLanguage } from '@/context/LanguageProvider';
 
 const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
 const ServiceCard = ({
   service,
   monthly,
-  annual,
-  isAnnual,
   code,
   lang,
-  isDiscount,
   paymentType
 }: {
   service: Service;
   monthly: number;
-  annual: number;
   isAnnual: boolean;
   code: string;
   lang: string;
   isDiscount: boolean;
   paymentType?: 'MONTHLY' | 'ONE_TIME' | 'CUSTOM';
 }) => {
-  const { dictionary } = useLanguage();
-  const { month } = dictionary?.services || {};
   const renderPrice = () => {
     switch (paymentType) {
       case 'MONTHLY':

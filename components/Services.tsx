@@ -71,7 +71,6 @@ const Services = () => {
               <ServiceCard
                 service={service}
                 monthly={servicePrice[index]?.fee}
-                annual={servicePrice[index]?.annual_fee}
                 isAnnual={isAnnual}
                 isDiscount={servicePrice[index]?.is_discount}
                 paymentType={servicePrice[index]?.payment_type}
