@@ -29,7 +29,8 @@ export async function updatePrice(data: TypePriceService) {
       data: {
         fee: Number(data.fee),
         annual_fee: Number(data.annual_fee),
-        is_discount: data.is_discount
+        is_discount: data.is_discount,
+        payment_type: data.payment_type,
       }
     })
     revalidatePath('/admin/price');

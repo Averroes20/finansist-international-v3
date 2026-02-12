@@ -90,6 +90,7 @@ model ServiceFee {
   sort        Int
   fee         Float   @default(0)
   annual_fee  Float   @default(0)
+  payment_type PaymentType @default(MONTHLY)
   is_discount Boolean @default(false)
 
   @@map("service_fee")
@@ -101,4 +102,10 @@ model PasswordResetToken {
   token     String   @unique
   expiresAt DateTime
   createdAt DateTime @default(now())
+}
+
+enum PaymentType {
+  MONTHLY
+  ONE_TIME
+  CUSTOM
 }

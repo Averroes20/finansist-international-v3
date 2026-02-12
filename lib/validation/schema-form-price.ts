@@ -7,6 +7,7 @@ const PriceServiceSchema = z.object({
   fee: z.coerce.number(),
   annual_fee: z.number(),
   is_discount: z.boolean(),
+  payment_type: z.enum(['MONTHLY', 'ONE_TIME', 'CUSTOM']),
 });
 
 export type TypePriceService = z.infer<typeof PriceServiceSchema>;

@@ -15,4 +15,6 @@ export interface Service {
     overview: string;
     extendedServices: string[];
   };
+
+  payment_type?: 'MONTHLY' | 'ONE_TIME' | 'CUSTOM';
 }

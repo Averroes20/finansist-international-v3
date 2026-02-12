@@ -74,6 +74,7 @@ const Services = () => {
                 annual={servicePrice[index]?.annual_fee}
                 isAnnual={isAnnual}
                 isDiscount={servicePrice[index]?.is_discount}
+                paymentType={servicePrice[index]?.payment_type}
                 code="IDR"
                 lang={language}
               />

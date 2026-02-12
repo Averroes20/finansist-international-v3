@@ -11,9 +11,49 @@ import Modal from './Modal';
 import { useLanguage } from '@/context/LanguageProvider';
 
 const Gif = dynamic(() => import('../animation/gif'), { ssr: false });
-const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscount }: { service: Service, monthly: number, annual: number, isAnnual: boolean, code: string, lang: string, isDiscount: boolean }) => {
+const ServiceCard = ({
+  service,
+  monthly,
+  annual,
+  isAnnual,
+  code,
+  lang,
+  isDiscount,
+  paymentType
+}: {
+  service: Service;
+  monthly: number;
+  annual: number;
+  isAnnual: boolean;
+  code: string;
+  lang: string;
+  isDiscount: boolean;
+  paymentType?: 'MONTHLY' | 'ONE_TIME' | 'CUSTOM';
+}) => {
   const { dictionary } = useLanguage();
   const { month } = dictionary?.services || {};
+  const renderPrice = () => {
+    switch (paymentType) {
+      case 'MONTHLY':
+        return (
+          <>
+            {formatCurrency(monthly, code)}/{lang === 'en' ? 'Month' : 'Bulan'}
+          </>
+        );
+
+      case 'ONE_TIME':
+        return formatCurrency(monthly, code);
+
+      case 'CUSTOM':
+        return lang === 'en'
+          ? <span className="text-xl md:text-2xl font-bold text-center">Determined after consultation</span>
+          : <span className="text-xl md:text-2xl font-bold text-center">Ditentukan setelah konsultasi</span>;
+
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <div className="flex flex-col items-center flex-grow">
@@ -59,16 +99,9 @@ const ServiceCard = ({ service, monthly, annual, isAnnual, code, lang, isDiscoun
       <div className="font-dosis flex flex-col gap-y-2 pt-6">
         <>
           <p className="font-semibold">{service.prices.label} : </p>
-          {monthly == 0 && annual == 0 ? <span className="text-xl md:text-2xl font-bold text-center">{lang === 'en' ? 'Determined after consultation' : 'Ditentukan setelah konsultasi'}</span>
-            : (
-              <span className="text-2xl lg:text-3xl font-bold text-center">
-                {isAnnual ? formatCurrency(annual, code, code === 'IDR' ? 'id-ID' : 'en-US') : formatCurrency(monthly, code, code === 'IDR' ? 'id-ID' : 'en-US')}
-                <span className="text-xl md:text-2xl lg:text-3xl relative">
-                  /{isAnnual ? 'year' : month}
-                  {isDiscount ? <Image src="/images/discount.png" alt="discount" width={50} height={50} className="absolute -top-6 left-14 md:-top-8 md:left-20 w-10 md:w-14"></Image> : null}
-                </span>{' '}
-              </span>
-            )}
+          <span className="text-2xl lg:text-3xl font-bold text-center">
+            {renderPrice()}
+          </span>
           <p className="font-medium text-base text-center md:text-start">{service.prices.desc}</p>
         </>
       </div>

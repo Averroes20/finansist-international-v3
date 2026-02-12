@@ -41,6 +41,7 @@ const PricePage: React.FC = () => {
         fee: Number(data.fee),
         annual_fee: Number(data.annual_fee),
         is_discount: Boolean(data.is_discount),
+        payment_type: data.payment_type,
       });
       alert('Price updated successfully');
       fetchPrice();
@@ -87,50 +88,50 @@ const PricePage: React.FC = () => {
               <TableHead className="">Service Name</TableHead>
               <TableHead className="">Code</TableHead>
               <TableHead className="">Monthly</TableHead>
-              {/* <TableHead className="">Annual</TableHead> */}
+              <TableHead className="">Payment Type</TableHead>
               <TableHead className="">Discount</TableHead>
             </TableRow>
           </TableHeader>
-          {items?.map((item, index) => (
-            <TableBody key={data[index]?.id} className="text-base">
-              <TableRow>
-                <TableCell className="w-[50px] ">{index + 1}</TableCell>
-                <TableCell className="">{item.title}</TableCell>
-                <TableCell className="">
-                  {data[index]?.code}
-                </TableCell>
-                <TableCell className="">
-                  {formatCurrency(data[index]?.fee, select.name, select.name === 'IDR' ? 'id-ID' : 'en-US')}
-                </TableCell>
-                {/* <TableCell className="">
-                  {formatCurrency(data[index]?.annual_fee, select.name, select.name === 'IDR' ? 'id-ID' : 'en-US')}
-                </TableCell> */}
-                <TableCell className="">
-                  {data[index]?.is_discount ? (
-                    <span className="bg-green-600 text-white px-3 py-2 rounded-full">Active</span>
-                  ) : (
-                    <span className="bg-red-600 text-white px-3 py-2 rounded-full">Inactive</span>
-                  )}
-                </TableCell>
-                <TableCell>
-                  <PriceServiceForm
-                    data={{
-                      code: data[index]?.code,
-                      fee: data[index]?.fee,
-                      annual_fee: data[index]?.annual_fee,
-                      id: data[index]?.id,
-                      serviceName: item.title,
-                      is_discount: data[index]?.is_discount
-                    }}
-                    onSubmit={handleEdit}
-                    title="Edit Social Media"
-                    description="Edit social media details"
-                    trigger={<PenBox className="cursor-pointer" size={20} />}
-                  />
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          ))}
+          {items?.map((item, index) => {
+            return (
+              <TableBody key={data[index]?.id} className="text-base">
+                <TableRow>
+                  <TableCell className="w-[50px] ">{index + 1}</TableCell>
+                  <TableCell className="">{item.title}</TableCell>
+                  <TableCell className="">
+                    {data[index]?.code}
+                  </TableCell>
+                  <TableCell className="">
+                    {formatCurrency(data[index]?.fee, select.name, select.name === 'IDR' ? 'id-ID' : 'en-US')}
+                  </TableCell>
+                  <TableCell className="">{data[index]?.payment_type}</TableCell>
+                  <TableCell className="">
+                    {data[index]?.is_discount ? (
+                      <span className="bg-green-600 text-white px-3 py-2 rounded-full">Active</span>
+                    ) : (
+                      <span className="bg-red-600 text-white px-3 py-2 rounded-full">Inactive</span>
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    <PriceServiceForm
+                      data={{
+                        code: data[index]?.code,
+                        fee: data[index]?.fee,
+                        annual_fee: data[index]?.annual_fee,
+                        id: data[index]?.id,
+                        serviceName: item.title,
+                        is_discount: data[index]?.is_discount,
+                        payment_type: data[index]?.payment_type,
+                      }}
+                      onSubmit={handleEdit}
+                      title="Edit Social Media"
+                      description="Edit social media details"
+                      trigger={<PenBox className="cursor-pointer" size={20} />} />
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            );
+          })}
         </Table>
       </div>
     </>

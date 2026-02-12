@@ -5,4 +5,5 @@ export interface PriceService {
   fee: number;
   annual_fee: number;
   is_discount: boolean;
+  payment_type: 'MONTHLY' | 'ONE_TIME' | 'CUSTOM';
 }
