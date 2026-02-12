@@ -15,11 +15,12 @@ const ServiceCard = ({
   monthly,
   code,
   lang,
+  isDiscount,
   paymentType
 }: {
   service: Service;
   monthly: number;
-  isAnnual: boolean;
+  // isAnnual: boolean;
   code: string;
   lang: string;
   isDiscount: boolean;
@@ -93,7 +94,18 @@ const ServiceCard = ({
         <>
           <p className="font-semibold">{service.prices.label} : </p>
           <span className="text-2xl lg:text-3xl font-bold text-center">
-            {renderPrice()}
+            <div className="relative text-2xl lg:text-3xl font-bold text-center">
+              {renderPrice()}
+              {isDiscount && (
+                <Image
+                  src="/images/discount.png"
+                  alt="discount"
+                  width={50}
+                  height={50}
+                  className="absolute -top-2 left-16 md:-left-8 md:-top-6 w-10 md:w-14"
+                />
+              )}
+            </div>
           </span>
           <p className="font-medium text-base text-center md:text-start">{service.prices.desc}</p>
         </>

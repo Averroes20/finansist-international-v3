@@ -20,7 +20,7 @@ const Services = () => {
   const { items, title } = dictionary?.services || {};
 
   const [servicePrice, setServicePrice] = useState<PriceService[]>([]);
-  const [isAnnual] = useState(false);
+  // const [isAnnual] = useState(false);
   // const [openDropdown, setOpenDropdown] = useState(false);
   // const [select, setSelect] = useState(currency[1]);
   // const [manualSelect, setManualSelect] = useState(false);
@@ -71,7 +71,7 @@ const Services = () => {
               <ServiceCard
                 service={service}
                 monthly={servicePrice[index]?.fee}
-                isAnnual={isAnnual}
+                // isAnnual={isAnnual}
                 isDiscount={servicePrice[index]?.is_discount}
                 paymentType={servicePrice[index]?.payment_type}
                 code="IDR"
