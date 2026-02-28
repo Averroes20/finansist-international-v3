@@ -2,6 +2,25 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/all-posts',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/uncategorized/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        destination: '/#blog',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     domains: [],

@@ -11,7 +11,11 @@ const inter = Inter({
   display: 'swap',
   preload: true,
 });
-
+export const metadata = {
+  alternates: {
+    canonical: 'https://finansistinternational.com',
+  },
+}
 export default function RootLayout({
   children,
 }: Readonly<{
