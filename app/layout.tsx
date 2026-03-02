@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata = {
   title: 'Finansist International | Konsultan Akuntan dan Perpajakan Terpercaya',
   description: 'Layanan konsultan akuntan dan perpajakan di berbagai sektor bisnis dengan dukungan tim ahli yang berpengalaman sesuai kebutuhan spesifik di setiap industri dan telah bersertifikasi international.',
-  keywords: ['Konsultan Pajak Indonesia', 'Konsultan Akuntan Indonesia', 'Konsultan Pajak Jakarta', 'Konsultan Akuntan Jakarta', 'Konsultan Bisnis Indonesia', 'Konsultan Akuntan Perusahaan', 'Konsultan Pajak Perusahaan',
+  keywords: ['Konsultan Pajak Indonesia', 'Konsultan Akuntan Indonesia', 'Konsultan Pajak Bandung', 'Konsultan Akuntan Bandung', 'Konsultan Bisnis Indonesia', 'Konsultan Akuntan Perusahaan', 'Konsultan Pajak Perusahaan',
   'Finansist International', 'Finansist', 'Konsul Pajak', 'Konsul Akuntansi'],
   alternates: {
     canonical: 'https://finansistinternational.com',
