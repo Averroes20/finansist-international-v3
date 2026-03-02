@@ -1,4 +1,4 @@
-import { DOMAIN_WEB, PIXEL_ID } from '@/constants/env';
+import { PIXEL_ID } from '@/constants/env';
 import { LanguageProviders } from '@/context/LanguageProvider';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
