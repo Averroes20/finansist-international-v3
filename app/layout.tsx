@@ -18,6 +18,10 @@ export const metadata = {
   verification: {
     google: "rgLDNSdeUKDSsl15iB0-PYAAh4Uxp9dLdph6p6obSuA",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 export default function RootLayout({
   children,
@@ -27,7 +31,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <link rel="icon" href="/favicon.ico" />
-      <link rel="canonical" href={DOMAIN_WEB} />
       <GoogleTagManager gtmId="GTM-WJ9R9CTB" />
       <body className={`${inter.className} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}>
         <LanguageProviders>{children}</LanguageProviders>
