@@ -16,7 +16,7 @@ export const metadata = {
     canonical: 'https://finansistinternational.com',
   },
   verification: {
-    google: "rgLDNSdeUKDSsl15iB0-PYAAh4Uxp9dLdph6p6obSuA",
+    google: "EvsUmkrsSW7glOh6-k1CyZFkLIZx9C3OUnyCjp-SNCk",
   },
   robots: {
     index: true,
