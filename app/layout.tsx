@@ -12,11 +12,15 @@ const inter = Inter({
   preload: true,
 });
 export const metadata = {
+  title: 'Finansist International | Konsultan Akuntan dan Perpajakan Terpercaya',
+  description: 'Layanan konsultan akuntan dan perpajakan di berbagai sektor bisnis dengan dukungan tim ahli yang berpengalaman sesuai kebutuhan spesifik di setiap industri dan telah bersertifikasi international.',
+  keywords: ['Konsultan Pajak Indonesia', 'Konsultan Akuntan Indonesia', 'Konsultan Pajak Bandung', 'Konsultan Akuntan Bandung', 'Konsultan Bisnis Indonesia', 'Konsultan Akuntan Perusahaan', 'Konsultan Pajak Perusahaan',
+  'Finansist International', 'Finansist', 'Konsul Pajak', 'Konsul Akuntansi'],
   alternates: {
     canonical: 'https://finansistinternational.com',
   },
   verification: {
-    google: "EvsUmkrsSW7glOh6-k1CyZFkLIZx9C3OUnyCjp-SNCk",
+    google: "rgLDNSdeUKDSsl15iB0-PYAAh4Uxp9dLdph6p6obSuA",
   },
   robots: {
     index: true,
@@ -28,10 +32,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FinancialService',
+    'name': 'Finansist International',
+    'image': 'https://finansistinternational.com/images/logo-large.webp',
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'Jl. Mars Bar. VI No.5, Manjahlega, Kec. Rancasari',
+      'addressLocality': 'Kota Bandung',
+      'addressRegion': 'Jawa Barat',
+      'postalCode': '40295',
+      'addressCountry': 'ID'
+    },
+    'geo': {
+      '@type': 'GeoCoordinates',
+      'latitude': -6.946750,
+      'longitude': 107.664111
+    },
+    'url': 'https://finansistinternational.com',
+    'telephone': '+628121114994',
+    'openingHours': 'Mo-Fr 08:00-18:00',
+    'priceRange': '$$'
+  };
   return (
     <html lang="en" className="!scroll-smooth">
+    <head>
       <link rel="icon" href="/favicon.ico" />
       <GoogleTagManager gtmId="GTM-WJ9R9CTB" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </head>
       <body className={`${inter.className} antialiased bg-white transition-colors duration-500 ease-in-out dark:text-white dark:bg-[#020e16]`}>
         <LanguageProviders>{children}</LanguageProviders>
         <Script id="facebook-pixel" strategy="afterInteractive">
@@ -55,7 +88,6 @@ export default function RootLayout({
               const lang = window.localStorage.getItem('lang');
               document.documentElement.lang = lang || 'en';
             }
-
             window.addEventListener('storage', (event) => {
               if (event.key === 'lang') {
                 setLanguage();
