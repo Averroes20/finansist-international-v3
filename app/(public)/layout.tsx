@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     template: '%s | Finansist International',
   },
   description:
-    'Finansist International provides expert IT solutions to help businesses increase productivity and profitability by streamlining IT operations.',
+    'Finansist Internasional is a trusted tax consultant and accounting firm providing Annual Tax Return (SPT Tahunan), bookkeeping (Pembukuan), financial statements (Laporan Keuangan), payroll services (Penggajian), tax audit assistance (Pemeriksaan Pajak/SP2DK), financial data migration (Migrasi Data Keuangan), accounting software training (Pelatihan Software Akuntansi), and company registration (Pendirian Perusahaan) for individuals and businesses in Indonesia.',
   openGraph: {
     title: 'Finansist International',
     description:
-      'Finansist International provides expert IT solutions to help businesses increase productivity and profitability by streamlining IT operations.',
+      'Finansist Internasional is a trusted tax consultant and accounting firm providing Annual Tax Return (SPT Tahunan), bookkeeping (Pembukuan), financial statements (Laporan Keuangan), payroll services (Penggajian), tax audit assistance (Pemeriksaan Pajak/SP2DK), financial data migration (Migrasi Data Keuangan), accounting software training (Pelatihan Software Akuntansi), and company registration (Pendirian Perusahaan) for individuals and businesses in Indonesia.',
     type: 'website',
     locale: 'id_ID',
     url: DOMAIN_WEB,
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     site: '@FinansistIntl',
     title: 'Finansist International',
     description:
-      'Finansist International provides expert IT solutions to help businesses increase productivity and profitability by streamlining IT operations.',
+      'Finansist Internasional is a trusted tax consultant and accounting firm providing Annual Tax Return (SPT Tahunan), bookkeeping (Pembukuan), financial statements (Laporan Keuangan), payroll services (Penggajian), tax audit assistance (Pemeriksaan Pajak/SP2DK), financial data migration (Migrasi Data Keuangan), accounting software training (Pelatihan Software Akuntansi), and company registration (Pendirian Perusahaan) for individuals and businesses in Indonesia.',
     images: [
       {
         url: `${DOMAIN_WEB}/opengraph-image.png`,
