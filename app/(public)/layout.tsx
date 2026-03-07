@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN_WEB),
 
   icons: {
-    icon: "/icons/finansist-international-og-01.png",
-    shortcut: "/icons/finansist-international-og-01.png",
-    apple: "/icons/finansist-international-og-01.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   title: {
     default: 'Finansist International',
