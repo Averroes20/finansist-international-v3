@@ -216,26 +216,25 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
-          "Amendments to the company deed, including changes to name, address, capital, board structure, and shareholders",
-          "Adjustment of the Articles of Association",
-          "Processing and updating of Bussiness Number and business licenses in Ministry of Investment (OSS)"
+          "Individual (Doctors, Husband and Wife, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
+          "Recapitulation of withholding tax slips from employer(s)"
         ],
         "benefitsDetails": [
-          "Amendments to the company deed, including changes to name, address, capital structure, board of directors, and shareholders",
-          "Updates to the Articles of Association",
-          "Processing and updating of the Business Identification Number (NIB) and related licenses through the OSS system",
-          "Addition or amendment of business classification codes",
-          "Notification and approval of amendments with the Ministry of Law and Human Rights",
-          "Updates to company data within the tax administration system",
-          "Preparation of corporate documents, such as General Meeting of Shareholders (GMS) minutes or shareholders’ resolutions"
+          "Individual (Doctors, Husband and Wife, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
+          "Recapitulation of withholding tax slips from employer(s)",
+          "Recapitulation of income from business or professional activities",
+          "Reasonableness analysis of reported tax figures",
+          "Comparison with previous year’s tax return",
+          "Preparation of Annual Income Tax calculation",
+          "Filing of Annual Tax Return via Coretax system"
         ],
         "details": {
-          "overview": "Finansist help businesses ensure that all updates to company data and legal information are carried out accurately, on time, and in compliance with applicable regulations, allowing companies to avoid administrative errors, processing delays, and compliance risks that may disrupt business operations. We provide end-to-end assistance, from document preparation and submission to approval by the relevant authorities, covering various types of corporate legal changes. Handled by an experienced team with a strong commitment to accuracy and confidentiality, our services enable you to focus on running your business without administrative obstacles.",
+          "overview": "Filing an Individual Annual Tax Return is not simply about submitting numbers. Finassist helps ensure that your income data, withholding slips, and changes in assets and liabilities are properly compiled and reported in accordance with applicable tax regulations. In addition to preparing and filing your return, we also conduct a reasonableness analysis of the reported figures and compare them with your previous year’s tax return. This approach helps ensure that your tax reporting is not only accurate, but also consistent and better prepared in case of any clarification from the tax authority.",
           "extendedServices": [
-            "Legal changes are processed in compliance with applicable regulations",
-            "Reduced risk of errors and document rejection",
-            "Legal structure remains aligned with operational requirements",
-            "Clear and structured support from initiation through final approval"
+            "Clear explanation of the figures and information reported in your tax return",
+            "Reasonableness analysis and comparison with the previous year’s tax return",
+            "Assisted by experienced and certified tax professionals",
+            "Reduced risk of reporting errors"
           ]
         }
       },
