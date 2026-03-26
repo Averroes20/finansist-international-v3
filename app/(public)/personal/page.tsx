@@ -1,58 +1,59 @@
+export const dynamic = 'force-dynamic'
 import IntroPersonal from '@/components/IntroPersonal';
-import dynamic from 'next/dynamic';
+import nextDynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
-const Profile = dynamic(() => import('@/components/Profile'), {
+const Profile = nextDynamic(() => import('@/components/Profile'), {
   ssr: true,
   loading: () => <p>Loading Portfolio...</p>,
 });
 
-const AboutUs = dynamic(() => import('@/components/AboutUs'), {
+const AboutUs = nextDynamic(() => import('@/components/AboutUs'), {
   ssr: true,
   loading: () => <p>Loading Portfolio...</p>,
 });
 
-const Portfolio = dynamic(() => import('@/components/Portfolio'), {
+const Portfolio = nextDynamic(() => import('@/components/Portfolio'), {
   ssr: true,
   loading: () => <p>Loading Portfolio...</p>,
 });
 
-const Reviews = dynamic(() => import('@/components/Review'), {
+const Reviews = nextDynamic(() => import('@/components/Review'), {
   ssr: true,
   loading: () => <p>Loading Review...</p>,
 });
 
-const Services = dynamic(() => import('@/components/Services'), {
+const Services = nextDynamic(() => import('@/components/Services'), {
   ssr: false,
   loading: () => <p>Loading Services...</p>,
 });
 
-const ValueCompany = dynamic(() => import('@/components/ValueCompany'), {
+const ValueCompany = nextDynamic(() => import('@/components/ValueCompany'), {
   ssr: true,
   loading: () => <p>Loading...</p>,
 });
 
-const ServicePromotion = dynamic(() => import('@/components/ServicePromotion'), {
+const ServicePromotion = nextDynamic(() => import('@/components/ServicePromotion'), {
   ssr: true,
   loading: () => <p>Loading ...</p>,
 });
 
-const Blogs = dynamic(() => import('@/components/Blogs'), {
+const Blogs = nextDynamic(() => import('@/components/Blogs'), {
   ssr: true,
   loading: () => <p>Loading Blogs...</p>,
 });
 
-const Careers = dynamic(() => import('@/components/Careers'), {
+const Careers = nextDynamic(() => import('@/components/Careers'), {
   ssr: true,
   loading: () => <p>Loading Careers...</p>,
 });
 
-const FAQ = dynamic(() => import('@/components/FAQ'), {
+const FAQ = nextDynamic(() => import('@/components/FAQ'), {
   ssr: true,
   loading: () => <p>Loading FAQ...</p>,
 });
 
-const ButtonContact = dynamic(() => import('@/components/common/ButtonContact'));
+const ButtonContact = nextDynamic(() => import('@/components/common/ButtonContact'));
 
 const RootPage = () => {
   return (
