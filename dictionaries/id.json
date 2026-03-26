@@ -28,11 +28,21 @@
     "title": {
       "part1": "Asisten",
       "part2": "Keuangan Anda",
-      "part3": "Diperkuat dengan"
+      "part3": "Diperkuat dengan",
+      "part4": "Lapor Pajak Pribadi",
+      "part5": "dengan Perencanaan & ",
+      "part6": "Analisis Profesional",
+      "part7": "Lapor Pajak",
+      "part8": "Perusahaan dengan Perencanaan",
+      "part9": " & Analisis Profesional"
     },
     "subtitle": "Profesional Bersertifikat",
+    "subtitle2": "Setiap angka diperiksa untuk memastikan kewajaran, konsistensi dan efisiensi",
+    "subtitle3": "Setiap angka diperiksa untuk memastikan kewajaran, konsistensi dan efisiensi",
     "certifiedOf": "Bersertifikat",
     "description": "Ucapkan selamat tinggal pada kerepotan dan mahalnya memiliki tim keuangan internal. Biarkan kami menanganinya dengan mudah dan hasil yang lebih, sehingga Anda dapat fokus pada pertumbuhan usaha!",
+    "description2": "Laporkan SPT Tahunan Anda tanpa ribet. Kami membantu mulai dari penyusunan hingga pelaporan, dilengkapi analisis kewajaran dan perbandingan laporan tahun sebelumnya untuk memastikan pelaporan yang lebih aman dan konsisten. Dengan dukungan pengalaman lebih dari 10 tahun, pelaporan menjadi lebih terarah, hemat dan aman.",
+    "description3": "Laporkan SPT Tahunan Anda tanpa ribet. Kami membantu mulai dari penyusunan hingga pelaporan, dilengkapi analisis kewajaran dan perbandingan laporan tahun sebelumnya untuk memastikan pelaporan yang lebih aman dan konsisten. Dengan dukungan pengalaman lebih dari 10 tahun, pelaporan menjadi lebih terarah, hemat dan aman.",
     "softwareTitle": "Ahli dan tersertifikasi dalam banyak sistem keuangan.",
     "tagsLine": [
       "Audit",
@@ -137,10 +147,19 @@
   },
   "valueCompany": {
     "title": {
-      "part1": "Menjadi solusi yang sempurna",
-      "part2": "Melawan kerepotan memiliki karyawan"
+      "part1": "Bersama dengan Finansist",
+      "part2": "Menghindari kerepotan memiliki karyawan internal"
     },
     "items": [
+      {
+        "title": "Terbebas dari drama pergantian karyawan",
+        "description": "Pergantian karyawan dapat memperlambat produktivitas dan kontinuitas pekerjaan. Berpartner dengan Finansist meningkatkan kestabilan usaha Anda, tidak keluar biaya dan waktu merekrut banyak orang, proses kerja menjadi lebih konsisten dan terjaga.",
+        "urlImage": "/images/flexibilitas2.png",
+        "contentModal": {
+          "description1": "Tingginya turnover karyawan dapat mengganggu stabilitas operasional dan menyebabkan hilangnya knowledge dalam tim. Proses rekrutmen dan training yang berulang juga memakan waktu serta biaya tambahan.",
+          "description2": "Dengan dukungan tim profesional yang stabil dan berpengalaman, Anda tidak perlu khawatir terhadap pergantian karyawan. Pekerjaan tetap berjalan konsisten tanpa terganggu perubahan personel."
+        }
+      },
       {
         "title": "Efisiensi Biaya",
         "description": "Mempekerjakan banyak karyawan berarti menanggung berbagai biaya tambahan seperti gaji, tunjangan, asuransi, pelatihan, dan fasilitas kerja. Beban biaya ini bisa mengurangi efisiensi keuangan, terutama bagi bisnis yang ingin tetap bertumbuh dan hemat biaya.",
@@ -157,15 +176,6 @@
         "contentModal": {
           "description1": "Jika perusahaan membutuhkan keahlian khusus dalam bidang keuangan yang sangat spesifik (merger dan akuisisi, mendeteksi penipuan internal perusahaan, perpajakan internasional, analisis laporan keuangan tingkat tinggi), tim internal mungkin tidak memiliki keahlian mendalam yang diperlukan.",
           "description2": "Finansist memiliki keahlian luas di berbagai bidang serta bersertifikasi internasional."
-        }
-      },
-      {
-        "title": "Fleksibilitas yang Tinggi",
-        "description": "Tim in-house biasanya terbatas oleh jumlah anggota, sehingga kesulitan menangani banyak proyek secara bersamaan. Finansist dapat dikerahkan lebih cepat dan fleksibel sesuai kebutuhan proyek Anda.",
-        "urlImage": "/images/flexibilitas.png",
-        "contentModal": {
-          "description1": "Tim in-house biasanya terbatas oleh jumlah anggota tim yang dimiliki, yang berarti mereka mungkin tidak dapat menangani banyak proyek atau isu yang membutuhkan perhatian langsung pada waktu yang sama.",
-          "description2": "Finansist dapat dikerahkan lebih cepat untuk menangani proyek tertentu sesuai dengan kebutuhan."
         }
       },
       {
@@ -192,6 +202,87 @@
     "title": "Layanan Kami & Harga",
     "month": "Bulan",
     "items": [
+      {
+        "title": "Laporan dan Perencanaan Pajak untuk Pribadi",
+        "link": "company-legal-amendments",
+        "icon": "/animate/company-legal-amendments.json",
+        "newService": false,
+        "tags": [
+          "Tahunan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi dan pemegang saham",
+          "Penyesuaian Anggaran Dasar",
+          "Pengurusan Nomor Induk Bisnis serta pembaruan perizinan di Kementrian Penanaman Modal (OSS)"
+        ],
+        "benefitsDetails": [
+          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi, dan pemegang saham",
+          "Penyesuaian Anggaran Dasar",
+          "Pengurusan dan pembaruan Nomor Induk Berusaha serta perizinan melalui sistem OSS",
+          "Penambahan atau perubahan Kode Bisnis",
+          "Pemberitahuan dan pengesahan perubahan di Kementerian Hukum dan HAM",
+          "Pembaruan data perusahaan di sistem perpajakan",
+          "Penyusunan dokumen korporasi seperti risalah RUPS atau keputusan pemegang saham"
+        ],
+        "details": {
+          "overview": "Finansist membantu bisnis memastikan setiap pembaruan data dan penyesuaian legalitas dilakukan dengan benar, tepat waktu, dan sesuai ketentuan yang berlaku, sehingga perusahaan terhindar dari kesalahan administratif, keterlambatan proses, dan risiko ketidaksesuaian yang dapat menghambat operasional. Kami memberikan pendampingan menyeluruh mulai dari penyusunan dokumen, pengajuan perubahan, hingga pengesahan ke instansi terkait untuk berbagai kebutuhan perubahan legal perusahaan. Seluruh proses ditangani oleh tim berpengalaman dengan ketelitian dan kerahasiaan yang terjaga, agar Anda dapat menjalankan bisnis tanpa hambatan administratif.",
+          "extendedServices": [
+            "Proses perubahan legal dilakukan sesuai regulasi yang berlaku",
+            "Risiko kesalahan dan penolakan dokumen lebih terkendali",
+            "Struktur legal perusahaan tetap mendukung kelancaran operasional",
+            "Pendampingan jelas dari awal hingga seluruh perubahan disahkan"
+          ]
+        }
+      },
+      {
+        "title": "Laporan dan Perencanaan Pajak untuk Perusahaan",
+        "link": "tax-reporting-planning",
+        "icon": "/animate/tax-reporting.lottie",
+        "newService": false,
+        "tags": [
+          "Bulanan",
+          "Tahunan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "-",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
+          "Perencanaan dan strategi pajak",
+          "Pelaporan dan pengajuan pajak penjualan",
+          "Kepatuhan dan pelaporan PPN/GST",
+          "Pelaporan dan pengajuan pajak pemotongan"
+        ],
+        "benefitsDetails": [
+          "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
+          "Perencanaan dan strategi pajak",
+          "Pelaporan dan pengajuan pajak penjualan",
+          "Kepatuhan dan pelaporan PPN/GST",
+          "Pelaporan dan pengajuan pajak pemotongan",
+          "Pajak nasional Indonesia dan perwakilan otoritas pajak daerah",
+          "Layanan konsultasi pajak",
+          "Dukungan dalam audit pajak",
+          "Bantuan terkait PPN, pajak internasional, dan penyesuaian fiskal",
+          "Perhitungan pajak penghasilan yang akurat"
+        ],
+        "details": {
+          "overview": "Finansist memberikan solusi menyeluruh untuk memenuhi semua kebutuhan kepatuhan dan perencanaan pajak Anda. Kami memastikan persiapan dan pengajuan laporan pajak penghasilan yang akurat untuk individu, korporasi, dan kemitraan, serta kepatuhan penuh terhadap regulasi PPN/GST, pajak penjualan, dan pajak pemotongan. Layanan perencanaan strategis dan konsultasi pajak kami dirancang untuk meminimalkan kewajiban, memaksimalkan penghematan, dan menangani masalah pajak yang kompleks seperti pajak internasional dan penyesuaian fiskal. Kami juga menawarkan perwakilan profesional dengan otoritas pajak serta bantuan dalam audit pajak, memastikan operasi berjalan lancar dan sesuai aturan. Solusi khusus disesuaikan dengan kebutuhan bisnis Anda, menawarkan wawasan tentang kredit pajak, pengurangan, dan strategi untuk mengoptimalkan hasil keuangan.",
+          "extendedServices": [
+            "Pelaporan pajak tepat waktu dan sesuai ketentuan",
+            "Setiap laporan pajak memiliki dasar perhitungan yang jelas",
+            "Risiko kesalahan dan koreksi pajak dapat ditekan",
+            "Posisi pajak lebih tertata dan mudah dipahami",
+            "Konsultasi pajak kapan saja saat dibutuhkan"
+          ]
+        }
+      },
       {
         "title": "Akuntansi & Pembukuan",
         "link": "accounting-and-bookkeeping",
@@ -244,93 +335,6 @@
         }
       },
       {
-        "title": "Laporan Pajak dan Perencanaan",
-        "link": "tax-reporting-planning",
-        "icon": "/animate/tax-reporting.lottie",
-        "newService": false,
-        "tags": [
-          "Bulanan",
-          "Tahunan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "-",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
-          "Perencanaan dan strategi pajak",
-          "Pelaporan dan pengajuan pajak penjualan",
-          "Kepatuhan dan pelaporan PPN/GST",
-          "Pelaporan dan pengajuan pajak pemotongan"
-        ],
-        "benefitsDetails": [
-          "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
-          "Perencanaan dan strategi pajak",
-          "Pelaporan dan pengajuan pajak penjualan",
-          "Kepatuhan dan pelaporan PPN/GST",
-          "Pelaporan dan pengajuan pajak pemotongan",
-          "Pajak nasional Indonesia dan perwakilan otoritas pajak daerah",
-          "Layanan konsultasi pajak",
-          "Dukungan dalam audit pajak",
-          "Bantuan terkait PPN, pajak internasional, dan penyesuaian fiskal",
-          "Perhitungan pajak penghasilan yang akurat"
-        ],
-        "details": {
-          "overview": "Finansist memberikan solusi menyeluruh untuk memenuhi semua kebutuhan kepatuhan dan perencanaan pajak Anda. Kami memastikan persiapan dan pengajuan laporan pajak penghasilan yang akurat untuk individu, korporasi, dan kemitraan, serta kepatuhan penuh terhadap regulasi PPN/GST, pajak penjualan, dan pajak pemotongan. Layanan perencanaan strategis dan konsultasi pajak kami dirancang untuk meminimalkan kewajiban, memaksimalkan penghematan, dan menangani masalah pajak yang kompleks seperti pajak internasional dan penyesuaian fiskal. Kami juga menawarkan perwakilan profesional dengan otoritas pajak serta bantuan dalam audit pajak, memastikan operasi berjalan lancar dan sesuai aturan. Solusi khusus disesuaikan dengan kebutuhan bisnis Anda, menawarkan wawasan tentang kredit pajak, pengurangan, dan strategi untuk mengoptimalkan hasil keuangan.",
-          "extendedServices": [
-            "Pelaporan pajak tepat waktu dan sesuai ketentuan",
-            "Setiap laporan pajak memiliki dasar perhitungan yang jelas",
-            "Risiko kesalahan dan koreksi pajak dapat ditekan",
-            "Posisi pajak lebih tertata dan mudah dipahami",
-            "Konsultasi pajak kapan saja saat dibutuhkan"
-          ]
-        }
-      },
-      {
-        "title": "Jasa Audit dan Pemeriksaan Pajak",
-        "link": "tax-audit-assistance",
-        "icon": "/animate/tax-audit-assistance.json",
-        "newService": false,
-        "tags": [
-          "Pribadi",
-          "Perusahaan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "Ditentukan setelah konsultasi",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
-          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
-          "Pendampingan Pemeriksaan Pajak",
-          "Rekonsiliasi Pajak",
-          "Klarifikasi Data Pajak",
-          "Perwakilan Komunikasi dengan Kantor Pajak"
-        ],
-        "benefitsDetails": [
-          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
-          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
-          "Pendampingan Pemeriksaan Pajak",
-          "Rekonsiliasi Pajak",
-          "Klarifikasi Data Pajak",
-          "Perwakilan Komunikasi dengan Kantor Pajak"
-        ],
-        "details": {
-          "overview": "Finansist membantu perusahaan memastikan kepatuhan terhadap peraturan perpajakan yang berlaku sekaligus meminimalkan risiko sanksi pajak. Layanan ini mencakup penelaahan dokumen perpajakan, rekonsiliasi data keuangan dan pajak, serta pendampingan selama proses pemeriksaan oleh otoritas pajak, yang dilakukan secara sistematis dan transparan sesuai ketentuan yang berlaku. Layanan ini tidak hanya ditujukan bagi bisnis yang telah menerima surat pemeriksaan dari kantor pajak, tetapi juga menyediakan early tax check-up untuk membantu perusahaan mengetahui status kepatuhan dan potensi risiko pajak sejak dini, sehingga langkah perbaikan dapat dilakukan lebih awal.",
-          "extendedServices": [
-            "Review dan evaluasi dokumen perpajakan perusahaan",
-            "Rekonsiliasi laporan keuangan dengan laporan pajak",
-            "Identifikasi potensi risiko dan ketidaksesuaian pajak",
-            "Pendampingan selama proses pemeriksaan pajak",
-            "Bantuan klarifikasi dan penyusunan data pendukung pemeriksaan",
-            "Rekomendasi perbaikan dan peningkatan kepatuhan pajak",
-            "Konsultasi pajak selama periode pendampingan"
-          ]
-        }
-      },
-      {
         "title": "Paket CFO | Finance, Akuntansi, dan Pajak",
         "link": "cfo-package",
         "icon": "/animate/cfo.lottie",
@@ -370,9 +374,9 @@
         }
       },
       {
-        "title": "Layanan Implementasi Perangkat Lunak Akuntansi",
-        "link": "accounting-software",
-        "icon": "/animate/accounting-software.lottie",
+        "title": "Administrasi Pajak, BPJS & Pelaporan LKPM",
+        "link": "specialized-reporting",
+        "icon": "/animate/specialized-reporting.lottie",
         "newService": false,
         "tags": [
           "Pribadi",
@@ -384,30 +388,37 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
-          "Implementasi sistem akuntansi berbasis cloud",
-          "Layanan migrasi dan integrasi data",
-          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
+          "Laporan Investasi (LKPM)",
+          "Pendaftaran NPWP, EFIN, SERTIFIKAT ELEKTRONIK, AKUN CORETAX, NPWPD, dll",
+          "Manajemen Kepesertaan BPJS Kesehatan dan Ketenagakerjaan",
+          "Pembuatan Standar Operasional Prosedur (SOP) Perusahaan"
         ],
         "benefitsDetails": [
-          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
-          "Implementasi sistem akuntansi berbasis cloud",
-          "Layanan migrasi dan integrasi data",
-          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
+          "Laporan Investasi (LKPM)",
+          "Pendaftaran NPWP, EFIN, SERTIFIKAT ELEKTRONIK, AKUN CORETAX, NPWPD, dll",
+          "Manajemen Kepesertaan BPJS Kesehatan dan Ketenagakerjaan",
+          "Pembuatan Standar Operasional Prosedur (SOP) Perusahaan",
+          "Pelaporan penjualan kostum e-commerce",
+          "Akuntansi khusus industri (misalnya, untuk konstruksi, e-commerce, manufaktur, atau lainnya)",
+          "Akuntansi berbasis proyek",
+          "Laporan persediaan, arus kas, dan lainnya yang mampu menggambarkan operasional perusahaan ",
+          "Pembuatan laporan lainnya sesuai keinginan anda"
         ],
         "details": {
-          "overview": "Finansist ahli dalam mengatur dan mengonfigurasi perangkat lunak akuntansi seperti QuickBooks, Xero, MYOB, Accurate, Journal, Docyt, dan aplikasi lainnya sesuai kebutuhan bisnis untuk memastikan pelacakan keuangan yang akurat. Layanan kami mencakup pengaturan awal aplikasi, pelatihan tim, dukungan berkelanjutan, dan implementasi sistem berbasis cloud untuk akses data real-time yang aman. Finansist juga menangani kebutuhan migrasi data serta integrasi perangkat lunak guna menyederhanakan operasional dan meningkatkan efisiensi. Layanan ini penting untuk memastikan sistem keuangan Anda berjalan optimal sejak awal. Dengan sistem yang tepat, bisnis dapat mengambil keputusan lebih cepat, akurat, dan berbasis data.",
+          "overview": "Finansist tidak memberikan layanan yang hanya terbatas pada pelaporan keuangan standar. Kami juga menyediakan solusi yang disesuaikan dengan kebutuhan spesifik bisnis Anda, mulai dari pengurusan administrasi BPJS, layanan perpajakan lengkap dari pendaftaran NPWP hingga pendampingan pemeriksaan pajak, hingga pelaporan LKPM dan administrasi OSS. Tidak perlu khawatir jika laporan keuangan terasa sulit dipahami. Bersama Finansist, Anda dapat memiliki laporan keuangan yang disusun khusus sesuai karakteristik bisnis Anda, baik di bidang e-commerce, konstruksi, manufaktur, hospitality, dan lainnya, sehingga lebih relevan, mudah dibaca, dan mendukung pengambilan keputusan.",
           "extendedServices": [
-            "Sistem akuntansi langsung siap pakai sesuai alur bisnis Anda",
-            "Data keuangan tersusun rapi dan bisa diakses real time",
-            "Pindah sistem tanpa ribet dan tanpa kehilangan data penting"
+            "Semua laporan dan administrasi penting terkumpul dalam satu sistem yang rapi",
+            "Laporan dibuat mengikuti cara kerja bisnis Anda, bukan sekadar format standar",
+            "Aktivitas operasional lebih mudah dipantau dari angka dan data yang relevan",
+            "SOP disusun sesuai alur kerja tim agar operasional lebih konsisten",
+            "Kebutuhan laporan khusus dapat disiapkan kapan pun diperlukan"
           ]
         }
       },
       {
-        "title": "Pelatihan Software Akuntansi",
-        "link": "accounting-software-training",
-        "icon": "/animate/accounting-software-training.json",
+        "title": "Audit dan Pemeriksaan Pajak",
+        "link": "tax-audit-assistance",
+        "icon": "/animate/tax-audit-assistance.json",
         "newService": false,
         "tags": [
           "Pribadi",
@@ -419,24 +430,31 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Modul pelatihan sesuai kebutuhan bisnis",
-          "Sesi pelatihan terstruktur secara online atau tatap muka",
-          "Sesi tanya jawab dan diskusi kasus",
-          "Simulasi penggunaan sistem berdasarkan transaksi nyata"
+          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
+          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
+          "Pendampingan Pemeriksaan Pajak",
+          "Rekonsiliasi Pajak",
+          "Klarifikasi Data Pajak",
+          "Perwakilan Komunikasi dengan Kantor Pajak"
         ],
         "benefitsDetails": [
-          "Modul pelatihan sesuai kebutuhan bisnis",
-          "Sesi pelatihan terstruktur secara online atau tatap muka",
-          "Sesi tanya jawab dan diskusi kasus",
-          "Simulasi penggunaan sistem berdasarkan transaksi nyata"
+          "Pendampingan SP2DK (Surat Permintaan Penjelasan Data dan Keterangan)",
+          "Review Kepatuhan Pajak dan Kondisi Pajak (Audit Internal Pajak)",
+          "Pendampingan Pemeriksaan Pajak",
+          "Rekonsiliasi Pajak",
+          "Klarifikasi Data Pajak",
+          "Perwakilan Komunikasi dengan Kantor Pajak"
         ],
         "details": {
-          "overview": "Finansist merancang pelatihan untuk membantu bisnis mengelola transaksi, laporan keuangan, dan proses pembukuan secara lebih efisien. Materi pelatihan disesuaikan dengan kebutuhan perusahaan, mulai dari pengenalan fitur dasar hingga praktik pengelolaan laporan keuangan secara menyeluruh. Kami menyediakan pelatihan untuk berbagai software akuntansi, seperti QuickBooks Online, Xero, Jurnal by Mekari, Accurate, MYOB, dan lainnya. Penggunaan software akuntansi yang tepat membantu meningkatkan keakuratan pencatatan, mengurangi human error, serta meminimalkan risiko fraud.",
+          "overview": "Finansist membantu perusahaan memastikan kepatuhan terhadap peraturan perpajakan yang berlaku sekaligus meminimalkan risiko sanksi pajak. Layanan ini mencakup penelaahan dokumen perpajakan, rekonsiliasi data keuangan dan pajak, serta pendampingan selama proses pemeriksaan oleh otoritas pajak, yang dilakukan secara sistematis dan transparan sesuai ketentuan yang berlaku. Layanan ini tidak hanya ditujukan bagi bisnis yang telah menerima surat pemeriksaan dari kantor pajak, tetapi juga menyediakan early tax check-up untuk membantu perusahaan mengetahui status kepatuhan dan potensi risiko pajak sejak dini, sehingga langkah perbaikan dapat dilakukan lebih awal.",
           "extendedServices": [
-            "Materi disesuaikan dengan software dan alur kerja perusahaan",
-            "Pendekatan praktis, mudah dipahami oleh tim non-akuntansi",
-            "Panduan penggunaan fitur dan workflow pembukuan yang tepat",
-            "Konsultasi pasca pelatihan dalam periode tertentu"
+            "Review dan evaluasi dokumen perpajakan perusahaan",
+            "Rekonsiliasi laporan keuangan dengan laporan pajak",
+            "Identifikasi potensi risiko dan ketidaksesuaian pajak",
+            "Pendampingan selama proses pemeriksaan pajak",
+            "Bantuan klarifikasi dan penyusunan data pendukung pemeriksaan",
+            "Rekomendasi perbaikan dan peningkatan kepatuhan pajak",
+            "Konsultasi pajak selama periode pendampingan"
           ]
         }
       },
@@ -516,48 +534,6 @@
             "Perhitungan PPh 21 yang akurat dan bisa dipertanggungjawabkan",
             "Administrasi BPJS dan manfaat karyawan lebih tertata",
             "Beban administrasi HR dan keuangan jadi lebih ringan"
-          ]
-        }
-      },
-      {
-        "title": "Pelaporan dan Layanan Khusus",
-        "link": "specialized-reporting",
-        "icon": "/animate/specialized-reporting.lottie",
-        "newService": false,
-        "tags": [
-          "Pribadi",
-          "Perusahaan"
-        ],
-        "prices": {
-          "label": "Mulai dari",
-          "price": "-",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
-        },
-        "benefits": [
-          "Laporan Investasi (LKPM)",
-          "Pendaftaran NPWP, EFIN, SERTIFIKAT ELEKTRONIK, AKUN CORETAX, NPWPD, dll",
-          "Manajemen Kepesertaan BPJS Kesehatan dan Ketenagakerjaan",
-          "Pembuatan Standar Operasional Prosedur (SOP) Perusahaan"
-        ],
-        "benefitsDetails": [
-          "Laporan Investasi (LKPM)",
-          "Pendaftaran NPWP, EFIN, SERTIFIKAT ELEKTRONIK, AKUN CORETAX, NPWPD, dll",
-          "Manajemen Kepesertaan BPJS Kesehatan dan Ketenagakerjaan",
-          "Pembuatan Standar Operasional Prosedur (SOP) Perusahaan",
-          "Pelaporan penjualan kostum e-commerce",
-          "Akuntansi khusus industri (misalnya, untuk konstruksi, e-commerce, manufaktur, atau lainnya)",
-          "Akuntansi berbasis proyek",
-          "Laporan persediaan, arus kas, dan lainnya yang mampu menggambarkan operasional perusahaan ",
-          "Pembuatan laporan lainnya sesuai keinginan anda"
-        ],
-        "details": {
-          "overview": "Finansist tidak memberikan layanan yang hanya terbatas pada pelaporan keuangan standar. Kami juga menyediakan solusi yang disesuaikan dengan kebutuhan spesifik bisnis Anda, mulai dari pengurusan administrasi BPJS, layanan perpajakan lengkap dari pendaftaran NPWP hingga pendampingan pemeriksaan pajak, hingga pelaporan LKPM dan administrasi OSS. Tidak perlu khawatir jika laporan keuangan terasa sulit dipahami. Bersama Finansist, Anda dapat memiliki laporan keuangan yang disusun khusus sesuai karakteristik bisnis Anda, baik di bidang e-commerce, konstruksi, manufaktur, hospitality, dan lainnya, sehingga lebih relevan, mudah dibaca, dan mendukung pengambilan keputusan.",
-          "extendedServices": [
-            "Semua laporan dan administrasi penting terkumpul dalam satu sistem yang rapi",
-            "Laporan dibuat mengikuti cara kerja bisnis Anda, bukan sekadar format standar",
-            "Aktivitas operasional lebih mudah dipantau dari angka dan data yang relevan",
-            "SOP disusun sesuai alur kerja tim agar operasional lebih konsisten",
-            "Kebutuhan laporan khusus dapat disiapkan kapan pun diperlukan"
           ]
         }
       },
@@ -643,9 +619,45 @@
         }
       },
       {
-        "title": "Perubahan Legal Perusahaan",
-        "link": "company-legal-amendments",
-        "icon": "/animate/company-legal-amendments.json",
+        "title": "Pelatihan Software Akuntansi",
+        "link": "accounting-software-training",
+        "icon": "/animate/accounting-software-training.json",
+        "newService": false,
+        "tags": [
+          "Pribadi",
+          "Perusahaan"
+        ],
+        "prices": {
+          "label": "Mulai dari",
+          "price": "Ditentukan setelah konsultasi",
+          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+        },
+        "benefits": [
+          "Modul pelatihan sesuai kebutuhan bisnis",
+          "Sesi pelatihan terstruktur secara online atau tatap muka",
+          "Sesi tanya jawab dan diskusi kasus",
+          "Simulasi penggunaan sistem berdasarkan transaksi nyata"
+        ],
+        "benefitsDetails": [
+          "Modul pelatihan sesuai kebutuhan bisnis",
+          "Sesi pelatihan terstruktur secara online atau tatap muka",
+          "Sesi tanya jawab dan diskusi kasus",
+          "Simulasi penggunaan sistem berdasarkan transaksi nyata"
+        ],
+        "details": {
+          "overview": "Finansist merancang pelatihan untuk membantu bisnis mengelola transaksi, laporan keuangan, dan proses pembukuan secara lebih efisien. Materi pelatihan disesuaikan dengan kebutuhan perusahaan, mulai dari pengenalan fitur dasar hingga praktik pengelolaan laporan keuangan secara menyeluruh. Kami menyediakan pelatihan untuk berbagai software akuntansi, seperti QuickBooks Online, Xero, Jurnal by Mekari, Accurate, MYOB, dan lainnya. Penggunaan software akuntansi yang tepat membantu meningkatkan keakuratan pencatatan, mengurangi human error, serta meminimalkan risiko fraud.",
+          "extendedServices": [
+            "Materi disesuaikan dengan software dan alur kerja perusahaan",
+            "Pendekatan praktis, mudah dipahami oleh tim non-akuntansi",
+            "Panduan penggunaan fitur dan workflow pembukuan yang tepat",
+            "Konsultasi pasca pelatihan dalam periode tertentu"
+          ]
+        }
+      },
+      {
+        "title": "Implementasi Perangkat Lunak Akuntansi",
+        "link": "accounting-software",
+        "icon": "/animate/accounting-software.lottie",
         "newService": false,
         "tags": [
           "Pribadi",
@@ -657,26 +669,23 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi dan pemegang saham",
-          "Penyesuaian Anggaran Dasar",
-          "Pengurusan Nomor Induk Bisnis serta pembaruan perizinan di Kementrian Penanaman Modal (OSS)"
+          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
+          "Implementasi sistem akuntansi berbasis cloud",
+          "Layanan migrasi dan integrasi data",
+          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
         ],
         "benefitsDetails": [
-          "Perubahan akta perusahaan seperti nama, alamat, modal, susunan direksi, dan pemegang saham",
-          "Penyesuaian Anggaran Dasar",
-          "Pengurusan dan pembaruan Nomor Induk Berusaha serta perizinan melalui sistem OSS",
-          "Penambahan atau perubahan Kode Bisnis",
-          "Pemberitahuan dan pengesahan perubahan di Kementerian Hukum dan HAM",
-          "Pembaruan data perusahaan di sistem perpajakan",
-          "Penyusunan dokumen korporasi seperti risalah RUPS atau keputusan pemegang saham"
+          "Pengaturan perangkat lunak akuntansi (misalnya, QuickBooks, Xero, Accurate, dll.)",
+          "Implementasi sistem akuntansi berbasis cloud",
+          "Layanan migrasi dan integrasi data",
+          "Pemeriksaan validitas perangkat lunak yang saat ini digunakan"
         ],
         "details": {
-          "overview": "Finansist membantu bisnis memastikan setiap pembaruan data dan penyesuaian legalitas dilakukan dengan benar, tepat waktu, dan sesuai ketentuan yang berlaku, sehingga perusahaan terhindar dari kesalahan administratif, keterlambatan proses, dan risiko ketidaksesuaian yang dapat menghambat operasional. Kami memberikan pendampingan menyeluruh mulai dari penyusunan dokumen, pengajuan perubahan, hingga pengesahan ke instansi terkait untuk berbagai kebutuhan perubahan legal perusahaan. Seluruh proses ditangani oleh tim berpengalaman dengan ketelitian dan kerahasiaan yang terjaga, agar Anda dapat menjalankan bisnis tanpa hambatan administratif.",
+          "overview": "Finansist ahli dalam mengatur dan mengonfigurasi perangkat lunak akuntansi seperti QuickBooks, Xero, MYOB, Accurate, Journal, Docyt, dan aplikasi lainnya sesuai kebutuhan bisnis untuk memastikan pelacakan keuangan yang akurat. Layanan kami mencakup pengaturan awal aplikasi, pelatihan tim, dukungan berkelanjutan, dan implementasi sistem berbasis cloud untuk akses data real-time yang aman. Finansist juga menangani kebutuhan migrasi data serta integrasi perangkat lunak guna menyederhanakan operasional dan meningkatkan efisiensi. Layanan ini penting untuk memastikan sistem keuangan Anda berjalan optimal sejak awal. Dengan sistem yang tepat, bisnis dapat mengambil keputusan lebih cepat, akurat, dan berbasis data.",
           "extendedServices": [
-            "Proses perubahan legal dilakukan sesuai regulasi yang berlaku",
-            "Risiko kesalahan dan penolakan dokumen lebih terkendali",
-            "Struktur legal perusahaan tetap mendukung kelancaran operasional",
-            "Pendampingan jelas dari awal hingga seluruh perubahan disahkan"
+            "Sistem akuntansi langsung siap pakai sesuai alur bisnis Anda",
+            "Data keuangan tersusun rapi dan bisa diakses real time",
+            "Pindah sistem tanpa ribet dan tanpa kehilangan data penting"
           ]
         }
       }
