@@ -148,11 +148,11 @@
   "valueCompany": {
     "title": {
       "part1": "Bersama dengan Finansist",
-      "part2": "Menghindari kerepotan memiliki karyawan internal"
+      "part2": "Terlepas dari kerepotan memiliki karyawan internal"
     },
     "items": [
       {
-        "title": "Terbebas dari drama pergantian karyawan",
+        "title": "Terbebas dari Drama Pergantian Karyawan",
         "description": "Pergantian karyawan dapat memperlambat produktivitas dan kontinuitas pekerjaan. Berpartner dengan Finansist meningkatkan kestabilan usaha Anda, tidak keluar biaya dan waktu merekrut banyak orang, proses kerja menjadi lebih konsisten dan terjaga.",
         "urlImage": "/images/flexibilitas2.png",
         "contentModal": {
@@ -216,12 +216,12 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Pribadi (Dokter, Suami – Istri, Freelance, warga negara asing, dan semua yang memiliki NPWP)",
+          "Pelaporan pajak pribadi untuk semua golongan (Dokter, Suami – Istri, Freelance, warga negara asing, dan semua yang memiliki NPWP)",
           "Rekapitulasi bukti potong PPh dari pemberi kerja",
           "Rekapitulasi penghasilan dari usaha atau pekerjaan bebas"
         ],
         "benefitsDetails": [
-          "Pribadi (Dokter, Suami – Istri, Freelance, warga negara asing, dan semua yang memiliki NPWP)",
+          "Pelaporan pajak pribadi untuk semua golongan (Dokter, Suami – Istri, Freelance, warga negara asing, dan semua yang memiliki NPWP)",
           "Rekapitulasi bukti potong PPh dari pemberi kerja",
           "Rekapitulasi penghasilan dari usaha atau pekerjaan bebas",
           "Analisis kewajaran angka pelaporan SPT",
@@ -230,7 +230,7 @@
           "Pelaporan SPT Tahunan melalui sistem Coretax"
         ],
         "details": {
-          "overview": "Pelaporan SPT Tahunan Orang Pribadi tidak hanya sekadar mengisi dan mengirimkan data. Finansist membantu memastikan seluruh informasi penghasilan, bukti potong, serta perubahan harta dan hutang tersusun dengan benar dan sesuai dengan ketentuan perpajakan yang berlaku. Kami juga melakukan analisis kewajaran angka pelaporan serta perbandingan dengan SPT tahun sebelumnya untuk mengidentifikasi perbedaan yang signifikan. Pendekatan ini membantu memastikan laporan SPT Anda tidak hanya benar secara administrasi, tetapi juga konsisten dan lebih siap apabila terjadi klarifikasi dari otoritas pajak.",
+          "overview": "Finansist tidak hanya sekedar mengisi dan mengirimkan data, kami membantu memastikan seluruh informasi penghasilan, bukti potong, serta perubahan harta dan hutang tersusun dengan benar dan sesuai dengan ketentuan perpajakan yang berlaku. Kami juga melakukan analisis kewajaran angka pelaporan serta perbandingan dengan SPT tahun sebelumnya untuk mengidentifikasi perbedaan yang signifikan. Pendekatan ini membantu memastikan laporan SPT Anda tidak hanya benar secara administrasi, tetapi juga konsisten dan lebih siap apabila terjadi klarifikasi dari otoritas pajak.",
           "extendedServices": [
             "Penjelasan yang jelas mengenai data dan angka yang dilaporkan dalam SPT",
             "Analisis kewajaran pelaporan dan perbandingan dengan SPT tahun sebelumnya",
@@ -254,11 +254,13 @@
           "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
         },
         "benefits": [
-          "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
+          "Perhitungan, pelaporan dan pengisian pajak penghasilan yang akurat",
           "Perencanaan dan strategi pajak",
-          "Pelaporan dan pengajuan pajak penjualan",
+          "Pemeriksaan terkait PPN, pajak internasional, dan penyesuaian fiskal",
+          "Pelaporan dan pengajuan pajak penjualan, pemotongan",
           "Kepatuhan dan pelaporan PPN/GST",
-          "Pelaporan dan pengajuan pajak pemotongan"
+          "Layanan konsultasi pajak",
+          "Dukungan dalam audit pajak"
         ],
         "benefitsDetails": [
           "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
@@ -273,7 +275,7 @@
           "Perhitungan pajak penghasilan yang akurat"
         ],
         "details": {
-          "overview": "Finansist memberikan solusi menyeluruh untuk memenuhi semua kebutuhan kepatuhan dan perencanaan pajak Anda. Kami memastikan persiapan dan pengajuan laporan pajak penghasilan yang akurat untuk individu, korporasi, dan kemitraan, serta kepatuhan penuh terhadap regulasi PPN/GST, pajak penjualan, dan pajak pemotongan. Layanan perencanaan strategis dan konsultasi pajak kami dirancang untuk meminimalkan kewajiban, memaksimalkan penghematan, dan menangani masalah pajak yang kompleks seperti pajak internasional dan penyesuaian fiskal. Kami juga menawarkan perwakilan profesional dengan otoritas pajak serta bantuan dalam audit pajak, memastikan operasi berjalan lancar dan sesuai aturan. Solusi khusus disesuaikan dengan kebutuhan bisnis Anda, menawarkan wawasan tentang kredit pajak, pengurangan, dan strategi untuk mengoptimalkan hasil keuangan.",
+          "overview": "Finansist memberikan solusi menyeluruh untuk memenuhi semua kebutuhan kepatuhan dan perencanaan pajak Anda. Kami memastikan persiapan dan pengajuan laporan pajak penghasilan yang akurat serta kepatuhan penuh terhadap regulasi PPN/GST, pajak penjualan, dan pajak pemotongan. Layanan perencanaan strategis dan konsultasi pajak kami dirancang untuk meminimalkan kewajiban, memaksimalkan penghematan, dan menangani masalah pajak yang kompleks seperti pajak internasional dan penyesuaian fiskal. Kami juga menawarkan perwakilan profesional dengan otoritas pajak serta bantuan dalam audit pajak, memastikan operasi berjalan lancar dan sesuai aturan. Solusi khusus disesuaikan dengan kebutuhan bisnis Anda, menawarkan wawasan tentang kredit pajak, pengurangan, dan strategi untuk mengoptimalkan hasil keuangan.",
           "extendedServices": [
             "Pelaporan pajak tepat waktu dan sesuai ketentuan",
             "Setiap laporan pajak memiliki dasar perhitungan yang jelas",
@@ -352,7 +354,8 @@
           "Laporan keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
           "Perencanaan dan analisis keuangan.",
           "Penyusunan anggaran dan proyeksi keuangan.",
-          "Manajemen arus kas."
+          "Manajemen arus kas.",
+          "Pelaporan keuangan dan pemantauan kinerja."
         ],
         "benefitsDetails": [
           "Laporan keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
@@ -556,7 +559,8 @@
           "Pengesahan Kemenkumham RI",
           "NPWP Perusahaan",
           "Nomor Induk Berusaha (NIB)",
-          "Perizinan Usaha melalui Website Kementrian Penanaman Modal (OSS)"
+          "Perizinan Usaha melalui Website Kementrian Penanaman Modal (OSS)",
+          "Registrasi data perusahaan"
         ],
         "benefitsDetails": [
           "Akta Pendirian PT Lokal",

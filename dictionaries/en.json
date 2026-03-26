@@ -216,11 +216,12 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
-          "Individual (Doctors, Husband and Wife, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
-          "Recapitulation of withholding tax slips from employer(s)"
+          "Personal tax reporting for all categories (Doctors, married couple, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
+          "Recapitulation of withholding tax slips from employer(s)",
+          "Recapitulation of income from business or professional activities"
         ],
         "benefitsDetails": [
-          "Individual (Doctors, Husband and Wife, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
+          "Personal tax reporting for all categories (Doctors, married couple, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
           "Recapitulation of withholding tax slips from employer(s)",
           "Recapitulation of income from business or professional activities",
           "Reasonableness analysis of reported tax figures",
@@ -229,7 +230,7 @@
           "Filing of Annual Tax Return via Coretax system"
         ],
         "details": {
-          "overview": "Filing an Individual Annual Tax Return is not simply about submitting numbers. Finassist helps ensure that your income data, withholding slips, and changes in assets and liabilities are properly compiled and reported in accordance with applicable tax regulations. In addition to preparing and filing your return, we also conduct a reasonableness analysis of the reported figures and compare them with your previous year’s tax return. This approach helps ensure that your tax reporting is not only accurate, but also consistent and better prepared in case of any clarification from the tax authority.",
+          "overview": "Finansist doesn't just fill in and send data, we help ensure that your income data, withholding slips, and changes in assets and liabilities are properly compiled and reported in accordance with applicable tax regulations. In addition to preparing and filing your return, we also conduct a reasonableness analysis of the reported figures and compare them with your previous year’s tax return. This approach helps ensure that your tax reporting is not only accurate, but also consistent and better prepared in case of any clarification from the tax authority.",
           "extendedServices": [
             "Clear explanation of the figures and information reported in your tax return",
             "Reasonableness analysis and comparison with the previous year’s tax return",
@@ -245,7 +246,7 @@
         "newService": false,
         "tags": [
           "Monthly",
-          "Annually"
+          "Annual"
         ],
         "prices": {
           "label": "Start from",
@@ -253,16 +254,16 @@
           "desc": "Based on revenue and complexity"
         },
         "benefits": [
-          "Income tax preparation and filing (corporate, individual, and partnership)",
+          "Accounting software setup (e.g., QuickBooks, Xero, Accurate, etc.)",
           "Tax planning and strategy",
-          "Sales tax reporting and filing",
-          "VAT/GST compliance and filing",
-          "Withholding tax reporting and filling",
-          "Indonesian national taxes and local tax authority representation",
-          "Tax advisory service"
+          "VAT audits, international tax, and fiscal adjustments",
+          "Sales tax reporting and filing, withholdings",
+          "VAT/GST compliance and reporting",
+          "Tax consulting services",
+          "Tax audit support"
         ],
         "benefitsDetails": [
-          "Income tax preparation and filing (corporate, individual, and partnership)",
+          "Income tax preparation and filing",
           "Tax planning and strategy",
           "Sales tax reporting and filing",
           "VAT/GST compliance and filing",
@@ -274,7 +275,7 @@
           "Accurate income tax calculations"
         ],
         "details": {
-          "overview": "Finansist provide comprehensive solutions to meet all your tax compliance and planning needs. We ensure accurate preparation and filing of income tax returns for individuals, corporations, and partnerships, alongside full compliance with VAT/GST, sales tax, and withholding tax regulations. Our strategic tax planning and advisory services are designed to minimize liabilities, maximize savings, and address complex tax issues like international tax and fiscal adjustments. We also offer professional representation with tax authorities and assist with tax audits, ensuring smooth and compliant operations. Customized solutions are tailored to your business needs, offering insights into tax credits, deductions, and strategies for optimizing financial outcomes.",
+          "overview": "Finansist provide comprehensive solutions to meet all your tax compliance and planning needs. We ensure accurate preparation and filing of income tax returns with full compliance with VAT/GST, sales tax, and withholding tax regulations. Our strategic tax planning and advisory services are designed to minimize liabilities, maximize savings, and address complex tax issues like international tax and fiscal adjustments. We also offer professional representation with tax authorities and assist with tax audits, ensuring smooth and compliant operations. Customized solutions are tailored to your business needs, offering insights into tax credits, deductions, and strategies for optimizing financial outcomes.",
           "extendedServices": [
             "Timely tax reporting in compliance with regulations",
             "Each tax report has a clear calculation basis",
@@ -354,7 +355,8 @@
           "Financial report including overview profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators.",
           "Financial planning and analysis.",
           "Budgeting and forecasting.",
-          "Cash flow management."
+          "Cash flow management.",
+          "Financial reporting and performance monitoring."
         ],
         "benefitsDetails": [
           "Financial report including overview profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators.",
@@ -560,7 +562,8 @@
           "Approval from the Ministry of Law and Human Rights of the Republic of Indonesia",
           "Tax Identification Number (NPWP)",
           "Business Identification Number (NIB)",
-          "Approval of Business Activities"
+          "Business activity approval based on OSS system",
+          "Assistance with company data registration"
         ],
         "benefitsDetails": [
           "Deed of Establishment",
