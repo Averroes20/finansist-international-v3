@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
+  provider  = "mysql"
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
@@ -14,8 +14,8 @@ model User {
   email      String   @unique @db.VarChar(100)
   password   String   @db.VarChar(200)
   role       String   @db.VarChar(50)
-  created_at DateTime @default(now()) @db.Timestamp(6)
-  updated_at DateTime @updatedAt @db.Timestamp(6)
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  updated_at DateTime @updatedAt @db.Timestamp(0)
 
   @@map("users")
 }
@@ -23,14 +23,14 @@ model User {
 model Blogs {
   id         Int        @id @default(autoincrement())
   title      String     @db.VarChar(255)
-  resume     String
-  article    String
+  resume     String     @db.Text
+  article    String     @db.Text
   author     String     @db.VarChar(100)
   category   String     @db.VarChar(100)
-  cover      String?
+  cover      String?    @db.Text
   slug       String     @unique @db.VarChar(255)
-  created_at DateTime   @default(now()) @db.Timestamp(6)
-  updated_at DateTime   @updatedAt @db.Timestamp(6)
+  created_at DateTime   @default(now()) @db.Timestamp(0)
+  updated_at DateTime   @updatedAt @db.Timestamp(0)
   comments   Comments[]
 
   @@map("blogs")
@@ -41,23 +41,24 @@ model Comments {
   blog_id    Int
   name       String   @db.VarChar(100)
   email      String   @db.VarChar(100)
-  content    String
-  created_at DateTime @default(now()) @db.Timestamp(6)
-  updated_at DateTime @updatedAt @db.Timestamp(6)
+  content    String   @db.Text
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  updated_at DateTime @updatedAt @db.Timestamp(0)
   blog       Blogs    @relation(fields: [blog_id], references: [id], onDelete: Cascade)
 
+  @@index([blog_id], map: "comments_blog_id_fkey")
   @@map("comments")
 }
 
 model Portfolio {
   id           Int      @id @default(autoincrement())
-  companyName String   @db.VarChar(100)
-  company_logo String?
+  companyName  String   @db.VarChar(100)
+  company_logo String?  @db.Text
   software     String?  @db.VarChar(255)
   country      String   @db.VarChar(100)
-  description  String
-  created_at   DateTime @default(now()) @db.Timestamp(6)
-  updated_at   DateTime @updatedAt @db.Timestamp(6)
+  description  String   @db.Text
+  created_at   DateTime @default(now()) @db.Timestamp(0)
+  updated_at   DateTime @updatedAt @db.Timestamp(0)
 
   @@map("portfolios")
 }
@@ -65,11 +66,11 @@ model Portfolio {
 model Reviews {
   id         Int      @id @default(autoincrement())
   name       String   @db.VarChar(100)
-  review     String
+  review     String   @db.Text
   company    String   @db.VarChar(100)
   country    String   @db.VarChar(100)
-  created_at DateTime @default(now()) @db.Timestamp(6)
-  updated_at DateTime @updatedAt @db.Timestamp(6)
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  updated_at DateTime @updatedAt @db.Timestamp(0)
 
   @@map("reviews")
 }
@@ -78,34 +79,26 @@ model LinkSocialMedia {
   id     Int     @id @default(autoincrement())
   label  String  @db.VarChar(100)
   active Boolean @default(false)
-  url    String
-  key    String
+  url    String  @db.Text
+  key    String  @db.Text
 
   @@map("link_social_media")
 }
 
 model ServiceFee {
-  id          Int     @id @default(autoincrement())
-  code        String  @db.VarChar(100)
-  sort        Int
-  fee         Float   @default(0)
-  annual_fee  Float   @default(0)
-  payment_type PaymentType @default(MONTHLY)
-  is_discount Boolean @default(false)
+  id           Int                      @id @default(autoincrement())
+  code         String                   @db.VarChar(100)
+  sort         Int
+  fee          Float                    @default(0)
+  annual_fee   Float                    @default(0)
+  is_discount  Boolean                  @default(false)
+  payment_type service_fee_payment_type
 
   @@map("service_fee")
 }
 
-model PasswordResetToken {
-  id        String   @id @default(cuid())
-  email     String
-  token     String   @unique
-  expiresAt DateTime
-  createdAt DateTime @default(now())
-}
-
-enum PaymentType {
-  MONTHLY
+enum service_fee_payment_type {
   ONE_TIME
+  MONTHLY
   CUSTOM
 }
