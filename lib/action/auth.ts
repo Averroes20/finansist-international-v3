@@ -62,8 +62,7 @@ export async function getUser({ username, page = 1, limit }: FetchUsersParams) {
 
     if (username) {
       whereClause.name = {
-        contains: username,
-        mode: 'insensitive',
+        contains: username
       };
     }
 
