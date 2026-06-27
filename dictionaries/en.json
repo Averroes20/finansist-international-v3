@@ -345,7 +345,7 @@
       {
         "title": "COMPLETED FINANCE SUPPORT",
         "link": "cfo-package",
-        "icon": "/animate/cfo.lottie",
+        "icon": "/animate/DigitalFinanceAnimation.json",
         "newService": true,
         "tags": [
           "Company"

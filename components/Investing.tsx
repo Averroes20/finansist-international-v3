@@ -120,7 +120,7 @@ const Investing = () => {
 
         {/* Content */}
         <div className="relative z-10 ml-5 pr-5 md:pr-8 lg:px-10">
-          <TitleSection className="text-center lg:text-start sm:text-3xl md:text-5xl lg:text-6xl font-black mt-2 md:mb-8 lg:mb-10 leading-tight">
+          <TitleSection className="text-center lg:text-start sm:text-3xl md:text-5xl lg:text-6xl font-black md:mb-8 lg:mb-10 leading-tight">
             {title}
           </TitleSection>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mx-auto">
