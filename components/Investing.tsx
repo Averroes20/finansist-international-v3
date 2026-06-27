@@ -4,12 +4,9 @@ import { images } from '@/constants/images';
 import { useLanguage } from '@/context/LanguageProvider';
 import Image from 'next/image';
 import AnimatedComponent from '@/components/animation/animation-component';
-import { Clipboard, ClipboardCheck, Calculator , CircleDollarSign, UserRoundCheck, ChartNoAxesCombined, MonitorCog, TvMinimalPlay, SearchCheck, BookUser, FilePen, Building, University, ReplaceAll } from 'lucide-react';
-import { useEffect, useMemo, useRef, useState, createElement, useCallback } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-
-const iconServices = [Calculator , CircleDollarSign, UserRoundCheck, ChartNoAxesCombined, MonitorCog, TvMinimalPlay, SearchCheck, BookUser, FilePen, Building, University, ReplaceAll];
 
 const Investing = () => {
   const sectionRef = useRef<HTMLElement>(null);
