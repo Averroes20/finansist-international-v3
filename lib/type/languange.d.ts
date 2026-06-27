@@ -43,6 +43,9 @@ export interface Dictionary {
   about: {
     [key: string]: string;
   };
+  investing: {
+    [key: string]: string;
+  };
   financialSupport: {
     title: string;
     subtitle: string;
@@ -79,6 +82,7 @@ export interface Dictionary {
     month: string;
     items: Array<{
       title: string;
+      subtitle: string;
       newService: boolean;
       link: string;
       icon: string;

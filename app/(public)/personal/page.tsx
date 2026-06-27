@@ -12,6 +12,11 @@ const AboutUs = dynamic(() => import('@/components/AboutUs'), {
   loading: () => <p>Loading Portfolio...</p>,
 });
 
+const Investing = dynamic(() => import('@/components/Investing'), {
+  ssr: true,
+  loading: () => <p>Loading Investing...</p>,
+});
+
 const Portfolio = dynamic(() => import('@/components/Portfolio'), {
   ssr: true,
   loading: () => <p>Loading Portfolio...</p>,
@@ -61,6 +66,7 @@ const RootPage = () => {
         <IntroPersonal />
         <Profile />
         <AboutUs />
+        <Investing />
       </Suspense>
 
       <Suspense fallback={<p>Loading ...</p>}>

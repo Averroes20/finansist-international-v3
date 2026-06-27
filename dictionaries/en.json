@@ -71,6 +71,11 @@
     "title": "WE SERVE CLIENTS FROM ALL OVER THE WORLD",
     "aboutCEO": "With over a decade of experience, Finansist has evolved from a local accounting firm to a globally recognized. Serving clients across the world, specializing in international regulations. We leverage cutting-edge technology to deliver seamless bookkeeping and tax preparation services no matter where you are. Based in Indonesia, our strategic location allows us to offer cost-effective solutions that consistently exceed expectations, providing exceptional value compared to other consultant."
   },
+  "investing": {
+    "title": "YOUR GATEWAY TO INVESTING IN INDONESIA",
+    "subtitle": "We handle from Legal Entry to Full Operational Compliance so you can invest with confidence.",
+    "description": "Foreign investors and multinational companies choose Finansist International because navigating Indonesia’s regulatory landscape demands a strategic partner with proven local authority."
+  },
   "whyFinansist": {
     "tagsLine": {
       "part0": "We Make You Focus On Developing Your Business",
@@ -338,47 +343,47 @@
         }
       },
       {
-        "title": "CFO Package | Finance, Accounting, and Tax Support (FAT)",
+        "title": "COMPLETED FINANCE SUPPORT",
         "link": "cfo-package",
         "icon": "/animate/cfo.lottie",
         "newService": true,
         "tags": [
-          "Personal",
           "Company"
         ],
         "prices": {
           "label": "Start from",
-          "price": "6.000.000",
-          "desc": "Based on revenue and complexity"
+          "price": "-",
+          "desc": "Based on operational complexity, workflow structure, transaction volume, and system requirements"
         },
         "benefits": [
-          "Financial report including overview profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators.",
-          "Financial planning and analysis.",
-          "Budgeting and forecasting.",
-          "Cash flow management.",
-          "Financial reporting and performance monitoring."
+          "Cash Flow and Budget Monitoring",
+          "Financial Dashboard and KPI Reporting",
+          "AR/AP and Payment Schedule Monitoring",
+          "Approval Workflow and Documentation Support",
+          "Custom Management Reporting",
+          "Remote Finance Coordination Support",
+          "And more"
         ],
         "benefitsDetails": [
-          "Financial report including overview profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators.",
-          "Financial planning and analysis.",
-          "Budgeting and forecasting.",
-          "Cash flow management.",
-          "Financial reporting and performance monitoring.",
-          "Advising on funding, investments, and cost efficiency.",
-          "Ensuring regulatory compliance.",
-          "Guiding financial strategy aligned with business goals."
+          "Cash flow and budget monitoring",
+          "Accounts receivable and payable monitoring",
+          "Payment scheduling and workflow support",
+          "Custom management reporting and dashboard support",
+          "KPI and financial performance monitoring",
+          "Approval workflow and financial document coordination",
+          "Support for workflow applications and digital operational systems",
+          "Periodic financial review discussions",
+          "Remote finance coordination support across operational PICs"
         ],
         "details": {
-          "overview": "Finansist provide the strategic financial expertise your business needs without the cost of a full-time executive. Finansist provide a comprehensive financial dashboard that gives you a real-time overview of your business performance. The overview includes key metrics such as profit and loss summaries, cash balances, accounts receivable and payable, number of employees, and other essential financial indicators. With this clear and customized output, you can monitor your business health at a glance and make faster, data-driven decisions. From cash flow and budgeting to financial forecasting and decision support, we help you build a stronger financial foundation and drive smarter growth.",
+          "overview": "Our Integrated Finance Support service is designed for companies that require more integrated finance coordination, operational monitoring, and structured management reporting through digital workflows and active cross-functional communication. This service is suitable for businesses with more complex operations, multiple divisions, or higher reporting and coordination requirements. We assist clients with cash flow monitoring, budgeting, reporting, payroll, accounts receivable/payable monitoring, and finance workflow coordination to help financial administration and reporting processes run more efficiently and systematically. Through dashboards, management reporting, and digital workflow support, businesses can improve operational visibility and strengthen remote financial coordination. This service remains focused on financial administrative support and coordination. Successful implementation depends heavily on the client’s internal operational discipline, timely data submission, approval responsiveness, and ongoing communication between all involved parties.",
           "extendedServices": [
-            "A complete strategic financial management package that lets you focus on other areas such as operations and marketing.",
-            "Monitoring cash flow, assets, inventory, and taxation to ensure your business runs healthily, grows sustainably, and stays compliant with standards.",
-            "Our services include consultations, monthly business analysis, and identifying opportunities for fraud prevention and improvement."
-          ]
+            ]
         }
       },
       {
         "title": "Tax Registration, BPJS & Investment (LKPM) Report",
+        "subtitle": "Tax ID Registration",
         "link": "specialized-reporting",
         "icon": "/animate/specialized-reporting.lottie",
         "newService": false,
@@ -465,6 +470,7 @@
       },
       {
         "title": "Audit, Assurance, and Risk Management Services",
+        "subtitle": "Compliance Support",
         "link": "audit-services",
         "icon": "/animate/audit.lottie",
         "newService": false,
@@ -544,49 +550,47 @@
         }
       },
       {
-        "title": "Set Up Local Company Service",
-        "link": "setup-local-company",
-        "icon": "/animate/setup-local-company.json",
+        "title": "STAY PERMIT INVESTOR VISA / ITAS",
+        "subtitle": "Investor Visa Assistance",
+        "link": "permit-investor-visa",
+        "icon": "/animate/investor.json",
         "newService": false,
         "tags": [
-          "Personal",
-          "Company"
+          "Personal"
         ],
         "prices": {
           "label": "Start from",
-          "price": "Determined Later",
-          "desc": "Based on revenue and complexity"
+          "price": "-",
+          "desc": "Based on application type and document requirements"
         },
         "benefits": [
-          "Deed of Establishment",
-          "Approval from the Ministry of Law and Human Rights of the Republic of Indonesia",
-          "Tax Identification Number (NPWP)",
-          "Business Identification Number (NIB)",
-          "Business activity approval based on OSS system",
-          "Assistance with company data registration"
+          "Eligibility Check",
+          "Investor KITAS / ITAS Application",
+          "Limited Stay Visa (ITAS) Processing",
+          "Immigration Registration Assistance",
+          "Reporting and Document Compliance",
+          "Multiple Re-entry Permit Assistance",
+          "And others"
         ],
         "benefitsDetails": [
-          "Deed of Establishment",
-          "Approval from the Ministry of Law and Human Rights of the Republic of Indonesia",
-          "Tax Identification Number (NPWP)",
-          "Business Identification Number (NIB)",
-          "Business activity approval based on OSS system",
-          "Assistance with company data registration",
-          "Optional bank account setup assistance"
+          "Eligibility assessment for Investor VISA / ITAS application",
+          "Investor VISA / ITAS application assistance",
+          "Document preparation and review",
+          "Immigration registration process",
+          "Assistance with VITAS and ITAS issuance",
+          "Reporting and compliance support",
+          "Guidance throughout the immigration process",
+          "Consultation related to investor stay permit requirements"
         ],
         "details": {
-          "overview": "Finansist assist the whole process of establishing a Local Limited Liability Company (PT Lokal) in Indonesia that requires accuracy, compliance, and a clear understanding of local regulations. Our Local PT setup service is designed to simplify the entire incorporation process, ensuring your business is legally established from the start without unnecessary delays or administrative risks. We handle the process end to end, from drafting the deed of establishment and securing approval from the Ministry of Law and Human Rights to obtaining NPWP, NIB, and required business licenses through the OSS system. Supported by an experienced team and a structured workflow, we ensure your PT Lokal is established efficiently, securely, and fully compliant, allowing you to focus on building and scaling your business with confidence.",
+          "overview": "Our Investor VISA and ITAS services are designed to help foreign investors obtain the appropriate stay permit in Indonesia through a structured, compliant, and efficient process. We assist clients in navigating immigration requirements while minimizing administrative complications, processing delays, and documentation errors. We provide end-to-end assistance, from document preparation and application submission to coordination with the relevant immigration authorities. Supported by an experienced team and up-to-date regulatory understanding, we ensure the Investor VISA and ITAS process is handled accurately and professionally, allowing you to focus on your investment and business activities in Indonesia with greater confidence.",
           "extendedServices": [
-            "Company structure and licensing in compliance with Indonesian regulations",
-            "A more structured and efficient establishment process",
-            "Clear guidance from initiation until the company is ready to operate",
-            "Assistance with opening a corporate bank account",
-            "Support in identifying office locations or virtual office solutions based on business needs"
-          ]
+            ]
         }
       },
       {
         "title": "Set Up Foreign Investment Company (PT PMA)",
+        "subtitle": "PT PMA Establishment",
         "link": "pma",
         "icon": "/animate/setup-pma.lottie",
         "newService": true,

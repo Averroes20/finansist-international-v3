@@ -131,7 +131,7 @@ const Navbar = () => {
             aria-hidden="true"
           />
         </div>
-        {/* Manu */}
+        {/* Menu */}
         <div className="hidden w-full md:flex md:flex-row md:w-auto md:space-x-7" id="navbar-multi-level">
           <NavigationMenu className="hidden md:block md:w-auto lg:flex" id="navbar-default">
             <NavigationMenuList className="flex gap-x-5">

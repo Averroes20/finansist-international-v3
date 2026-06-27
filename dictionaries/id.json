@@ -71,6 +71,11 @@
     "title": "KAMI MELAYANI KLIEN DARI SELURUH DUNIA",
     "aboutCEO": "Dengan pengalaman lebih dari satu dekade, Finansist telah berevolusi dari konsultan keuangan lokal menjadi penyedia layanan yang berkembang secara global. Melayani pengusaha dari seluruh dunia, dengan spesialisasi pada peraturan internasional. Kami memanfaatkan teknologi mutakhir untuk memberikan layanan pembukuan dan perpajakan tanpa hambatan di mana pun Anda berada. Berbasis di Indonesia, lokasi yang strategis memungkinkan kami untuk menawarkan solusi hemat biaya yang secara konsisten melebihi ekspektasi, memberikan nilai yang luar biasa dibandingkan dengan konsultan lainnya."
   },
+  "investing": {
+    "title": "Mitra Terpercaya untuk Memulai Investasi di Indonesia",
+    "subtitle": "Kami menemani dari proses pendaftaran legal hingga kepatuhan pelaporan sehingga Anda dapat berinvestasi dengan percaya diri.",
+    "description": "Investor asing dan perusahaan multinasional memilih Finansist International karena menavigasi lanskap peraturan di Indonesia memerlukan mitra strategis dengan otoritas lokal yang terbukti."
+  },
   "whyFinansist": {
     "tagsLine": {
       "part0": "Kami Membuat Anda Dapat Fokus Mengembangkan Bisnis",
@@ -337,7 +342,7 @@
         }
       },
       {
-        "title": "Paket CFO | Finance, Akuntansi, dan Pajak",
+        "title": "COMPLETED FINANCE SUPPORT",
         "link": "cfo-package",
         "icon": "/animate/cfo.lottie",
         "newService": true,
@@ -348,36 +353,37 @@
         "prices": {
           "label": "Mulai dari",
           "price": "-",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+          "desc": "Berdasarkan kompleksitas operasional, workflow, jumlah transaksi, dan kebutuhan sistem"
         },
         "benefits": [
-          "Laporan keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
-          "Perencanaan dan analisis keuangan.",
-          "Penyusunan anggaran dan proyeksi keuangan.",
-          "Manajemen arus kas.",
-          "Pelaporan keuangan dan pemantauan kinerja."
+          "Monitoring Cash Flow dan Budget",
+          "Financial Dashboard dan KPI Reporting",
+          "Monitoring AR/AP dan Payment Schedule",
+          "Support Approval Workflow dan Dokumentasi",
+          "Custom Management Reporting",
+          "Support Koordinasi Finance Secara Remote",
+          "Dan lainnya"
         ],
         "benefitsDetails": [
-          "Laporan keuangan mencakup ringkasan laba rugi, saldo kas, piutang dan utang usaha, jumlah karyawan, serta indikator keuangan penting lainnya.",
-          "Perencanaan dan analisis keuangan.",
-          "Penyusunan anggaran dan proyeksi keuangan.",
-          "Manajemen arus kas.",
-          "Pelaporan keuangan dan pemantauan kinerja.",
-          "Konsultasi pendanaan, investasi, dan efisiensi biaya.",
-          "Memastikan kepatuhan terhadap peraturan yang berlaku.",
-          "Mengarahkan strategi keuangan yang selaras dengan tujuan bisnis."
+          "Monitoring cash flow dan budget perusahaan",
+          "Monitoring account receivable dan payable",
+          "Payment scheduling dan workflow support",
+          "Custom management reporting dan dashboard",
+          "KPI dan financial performance monitoring",
+          "Koordinasi dokumen dan approval workflow",
+          "Support penggunaan workflow digital dan aplikasi operasional",
+          "Periodic financial review discussion",
+          "Support koordinasi finance lintas PIC dan operasional"
         ],
         "details": {
-          "overview": "Finansist memberikan keahlian keuangan strategis dan terintregasi yang dibutuhkan bisnis Anda tanpa biaya merekrut eksekutif. Kami menyediakan manajemen keuangan yang komprehensif untuk memberikan gambaran kinerja bisnis Anda secara real-time. Gambaran ini mencakup ringkasan laba rugi, saldo kas, piutang, utang, jumlah karyawan, serta indikator keuangan penting lainnya. Dengan hasil yang valid, menyeluruh, dan dapat disesuaikan, Anda dapat memantau kondisi keuangan bisnis secara cepat dan mengambil keputusan berbasis data dengan tepat.",
+          "overview": "Layanan Integrated Finance Support dirancang untuk membantu perusahaan yang membutuhkan koordinasi finance dan reporting yang lebih terintegrasi melalui workflow digital, monitoring operasional, dan support komunikasi antar PIC secara lebih aktif. Layanan ini cocok untuk bisnis dengan operasional yang lebih kompleks, multi-divisi, atau membutuhkan visibilitas keuangan yang lebih rutin dan terstruktur. Kami membantu klien dalam monitoring cash flow, budgeting, reporting, payroll, account receivable/payable, hingga koordinasi workflow finance agar proses administrasi dan pelaporan berjalan lebih tertata. Dengan dukungan dashboard, management reporting, dan workflow digital, perusahaan dapat meningkatkan keteraturan operasional dan mempercepat proses monitoring keuangan secara remote. Layanan ini tetap bersifat support dan koordinasi administratif keuangan. Keberhasilan implementasi sangat bergantung pada kedisiplinan internal perusahaan, ketepatan pemberian data, serta kelancaran komunikasi dan approval dari pihak Klien.",
           "extendedServices": [
-            "Paket manajemen keuangan strategis lengkap membuat anda dapat focus menangi bidang lain seperti operasional dan pemasaran.",
-            "Pengawasan aliran dana, aset, persediaan barang, dan perpajakan untuk memastikan perusahaan berjalan sehat, bertumbuh, dan sesuai standar.",
-            "Memberikan konsultasi, analisis bisnis bulanan, serta mengidentifikasi peluang penipuan dan perbaikan."
-          ]
+            ]
         }
       },
       {
         "title": "Administrasi Pajak, BPJS & Pelaporan LKPM",
+        "subtitle": "Pendaftaran NPWP",
         "link": "specialized-reporting",
         "icon": "/animate/specialized-reporting.lottie",
         "newService": false,
@@ -463,6 +469,7 @@
       },
       {
         "title": "Audit, Assurance, dan Layanan Manajemen Resiko",
+        "subtitle": "Dukungan Kepatuhan Administrasi",
         "link": "audit-services",
         "icon": "/animate/audit.lottie",
         "newService": false,
@@ -541,49 +548,48 @@
         }
       },
       {
-        "title": "Pendirian Perusahaan Lokal",
-        "link": "setup-local-company",
-        "icon": "/animate/setup-local-company.json",
+        "title": "IZIN TINGGAL INVESTOR VISA / ITAS",
+        "subtitle": "Asistensi Investor Visa",
+        "link": "permit-investor-visa",
+        "icon": "/animate/investor.json",
         "newService": false,
         "tags": [
-          "Pribadi",
-          "Perusahaan"
+          "Pribadi"
         ],
         "prices": {
           "label": "Mulai dari",
-          "price": "Ditentukan setelah konsultasi",
-          "desc": "Berdasarkan pendapatan dan tingkat kompleksitas"
+          "price": "-",
+          "desc": "Berdasarkan jenis pengajuan dan kebutuhan dokumen"
         },
         "benefits": [
-          "Akta Pendirian Perusahaan",
-          "Pengesahan Kemenkumham RI",
-          "NPWP Perusahaan",
-          "Nomor Induk Berusaha (NIB)",
-          "Perizinan Usaha melalui Website Kementrian Penanaman Modal (OSS)",
-          "Registrasi data perusahaan"
+          "Pemeriksaan Kelayakan (Eligibility Check)",
+          "Pengurusan Investor KITAS / ITAS",
+          "Proses Limited Stay ITAS",
+          "Pendampingan Registrasi Imigrasi",
+          "Pelaporan dan Kepatuhan Dokumen",
+          "Pendampingan Multiple Re-entry Permit",
+          "Dan lainnya"
         ],
         "benefitsDetails": [
-          "Akta Pendirian PT Lokal",
-          "Pengesahan dari Kementerian Hukum dan HAM Republik Indonesia",
-          "Nomor Pokok Wajib Pajak (NPWP) Perusahaan",
-          "Nomor Induk Berusaha (NIB)",
-          "Perizinan usaha sesuai bidang kegiatan melalui sistem OSS",
-          "Registrasi data perusahaan",
-          "Pendampingan pengurusan dokumen hingga selesai"
+          "Pemeriksaan kelayakan pengajuan Investor VISA / ITAS",
+          "Pendampingan pengajuan Investor VISA / ITAS",
+          "Persiapan dan penelaahan dokumen",
+          "Proses registrasi keimigrasian",
+          "Pendampingan penerbitan VISA dan ITAS",
+          "Bantuan pelaporan dan kepatuhan dokumen",
+          "Panduan selama proses keimigrasian berlangsung",
+          "Konsultasi terkait persyaratan izin tinggal investor"
         ],
         "details": {
-          "overview": "Finansist mendampingi proses pendirian PT Lokal yang memerlukan ketelitian, kepatuhan terhadap regulasi, dan pemahaman yang tepat atas ketentuan yang berlaku di Indonesia. Layanan pendirian PT Lokal kami dirancang untuk menyederhanakan seluruh proses pendirian perusahaan, sehingga bisnis Anda dapat berdiri secara legal sejak awal tanpa risiko kesalahan administratif dan keterlambatan. Kami memberikan pendampingan menyeluruh mulai dari penyusunan akta pendirian, pengurusan pengesahan di Kementerian Hukum dan HAM, hingga perolehan NPWP, NIB, dan perizinan usaha melalui sistem OSS. Dengan dukungan tim berpengalaman dan proses kerja yang terstruktur, kami memastikan pendirian PT Lokal berjalan efisien, aman, dan sesuai ketentuan, sehingga Anda dapat fokus membangun dan mengembangkan bisnis dengan lebih percaya diri.",
+          "overview": "Layanan Investor VISA dan ITAS kami dirancang untuk membantu investor asing memperoleh izin tinggal yang sesuai di Indonesia melalui proses yang terstruktur, efisien, dan sesuai ketentuan yang berlaku. Kami membantu klien memahami persyaratan keimigrasian sekaligus meminimalkan kendala administratif, keterlambatan proses, dan risiko kesalahan dokumen. Kami memberikan pendampingan menyeluruh mulai dari persiapan dokumen, proses pengajuan, hingga koordinasi dengan instansi imigrasi terkait. Dengan dukungan tim yang berpengalaman dan pemahaman regulasi yang selalu diperbarui, kami memastikan proses Investor VISA dan ITAS berjalan secara akurat dan profesional, sehingga Anda dapat fokus menjalankan aktivitas investasi dan bisnis di Indonesia dengan lebih tenang dan percaya diri.",
           "extendedServices": [
-            "Struktur perusahaan dan perizinan sesuai regulasi Indonesia",
-            "Proses pendirian lebih terarah dan efisien",
-            "Pendampingan jelas dari awal hingga perusahaan siap beroperasi",
-            "Bantuan pembukaan rekening bank perusahaan",
-            "Bantuan pencarian lokasi kantor atau virtual office sesuai kebutuhan"
+            
           ]
         }
       },
       {
         "title": "Pendirian Perusahaan Asing (PT PMA)",
+        "subtitle": "Pendirian PT PMA",
         "link": "pma",
         "icon": "/animate/setup-pma.lottie",
         "newService": true,
