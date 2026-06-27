@@ -20,8 +20,7 @@ export async function getReviews({ page = 1, limit, companyName }: FetchReviewsP
 
     if (companyName) {
       whereClause.company = {
-        contains: companyName,
-        mode: 'insensitive',
+        contains: companyName
       };
     }
 

@@ -18,7 +18,6 @@ const buildWhereClause = ({ companyName }: FetchPortfolioParams): Prisma.Portfol
   if (companyName) {
     whereClause.companyName = {
       contains: companyName,
-      mode: 'insensitive',
     };
   }
 

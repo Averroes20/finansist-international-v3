@@ -22,15 +22,15 @@ const buildWhereClause = ({ title, category, year, month, author }: FetchBlogsPa
   const whereClause: Prisma.BlogsWhereInput = {};
 
   if (title) {
-    whereClause.title = { contains: title, mode: 'insensitive' };
+    whereClause.title = { contains: title};
   }
 
   if (category) {
-    whereClause.category = { contains: category, mode: 'insensitive' };
+    whereClause.category = { contains: category};
   }
 
   if (author) {
-    whereClause.author = { contains: author, mode: 'insensitive' };
+    whereClause.author = { contains: author};
   }
 
   if (year) {
