@@ -343,7 +343,7 @@
         }
       },
       {
-        "title": "COMPLETED FINANCE SUPPORT",
+        "title": "Complete Finance Support",
         "link": "cfo-package",
         "icon": "/animate/DigitalFinanceAnimation.json",
         "newService": true,
@@ -550,7 +550,7 @@
         }
       },
       {
-        "title": "STAY PERMIT INVESTOR VISA / ITAS",
+        "title": "Stay Permit Investor VISA / ITAS",
         "subtitle": "Investor Visa Assistance",
         "link": "permit-investor-visa",
         "icon": "/animate/investor.json",

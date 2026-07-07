@@ -342,7 +342,7 @@
         }
       },
       {
-        "title": "COMPLETED FINANCE SUPPORT",
+        "title": "Paket Keuangan Lengkap",
         "link": "cfo-package",
         "icon": "/animate/DigitalFinanceAnimation.json",
         "newService": true,
@@ -548,7 +548,7 @@
         }
       },
       {
-        "title": "IZIN TINGGAL INVESTOR VISA / ITAS",
+        "title": "Izin Tinggal Investor VISA / ITAS",
         "subtitle": "Asistensi Investor Visa",
         "link": "permit-investor-visa",
         "icon": "/animate/investor.json",
