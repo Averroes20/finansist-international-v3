@@ -208,7 +208,7 @@
     "month": "Month",
     "items": [
       {
-        "title": "Tax Report and Planning for Personal",
+        "title": "Tax Report with Tax Planning for Personal",
         "link": "company-legal-amendments",
         "icon": "/animate/company-legal-amendments.json",
         "newService": false,
@@ -223,7 +223,11 @@
         "benefits": [
           "Personal tax reporting for all categories (Doctors, married couple, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
           "Recapitulation of withholding tax slips from employer(s)",
-          "Recapitulation of income from business or professional activities"
+          "Recapitulation of income from business or professional activities",
+          "Reasonableness analysis of reported tax figures",
+          "Comparison with previous year’s tax return",
+          "Preparation of Annual Income Tax calculation",
+          "Filing of Annual Tax Return via Coretax system"
         ],
         "benefitsDetails": [
           "Personal tax reporting for all categories (Doctors, married couple, Freelancers, foreign citizens, and all those who have a Taxpayer Identification Number or NPWP)",
@@ -245,7 +249,7 @@
         }
       },
       {
-        "title": "Tax Report and Planning for Company",
+        "title": "Tax Report with Tax Planning for Personal",
         "link": "tax-reporting-planning",
         "icon": "/animate/tax-reporting.lottie",
         "newService": false,
@@ -265,7 +269,12 @@
           "Sales tax reporting and filing, withholdings",
           "VAT/GST compliance and reporting",
           "Tax consulting services",
-          "Tax audit support"
+          "Tax audit support",
+          "Indonesian national taxes and local tax authority representation",
+          "Tax advisory service",
+          "Support with tax audit",
+          "Assistance with VAT, international tax, and fiscal adjustmen",
+          "Accurate income tax calculations"
         ],
         "benefitsDetails": [
           "Income tax preparation and filing",
@@ -311,7 +320,16 @@
           "Financial analysis and reporting",
           "Fixed asset management",
           "Variance analysis (ROI, BEP, etc.)",
-          "Chart of accounts setup and maintenance"
+          "Chart of accounts setup and maintenance",
+          "Custom reporting for business insights",
+          "Recording daily financial transactions",
+          "Bank, credit card, and loan reconciliation",
+          "Maintaining general ledger",
+          "Accounts payable and receivable management",
+          "Payroll allocation",
+          "Expense tracking and categorization",
+          "Preparing trial balances",
+          "Cash flow management"
         ],
         "benefitsDetails": [
           "Preparation of financial statements (e.g., balance sheet, income statement, cash flow statement)",
@@ -362,7 +380,9 @@
           "Approval Workflow and Documentation Support",
           "Custom Management Reporting",
           "Remote Finance Coordination Support",
-          "And more"
+          "KPI and financial performance monitoring",
+          "Support for workflow applications and digital operational systems",
+          "Periodic financial review discussions"
         ],
         "benefitsDetails": [
           "Cash flow and budget monitoring",
@@ -401,7 +421,11 @@
           "Registration NPWP, EFIN, Electronic Sertificate, Coretax Account, NPWPD, etc",
           "BPJS Healthcare and Employment Enrollment & Deregistration",
           "Creating Company Standard Operational Procedure",
-          "E-commerce costume sales reporting"
+          "E-commerce costume sales reporting",
+          "Industry-specific accounting (e.g., for construction, e-commerce, manufacture, or others)",
+          "Project-based accounting",
+          "Inventory and cost accounting",
+          "Additional reports customized to your preferences"
         ],
         "benefitsDetails": [
           "Investment Report (LKPM)",
@@ -528,7 +552,8 @@
           "Compliance and Calculation of Employee Withholding Tax Article 21",
           "Generating payslips and payment summaries",
           "Employee benefits administration/ or BPJS Kesehatan (Indonesia) and other additional",
-          "Handling employee tax deductions"
+          "Handling employee tax deductions",
+          "Managing retirement plans and superannuation/ or BPJS Ketenagakerjaan (Indonesia)"
         ],
         "benefitsDetails": [
           "Payroll Calculation and processing",
@@ -570,7 +595,8 @@
           "Immigration Registration Assistance",
           "Reporting and Document Compliance",
           "Multiple Re-entry Permit Assistance",
-          "And others"
+          "Guidance throughout the immigration process",
+          "Consultation related to investor stay permit requirements"
         ],
         "benefitsDetails": [
           "Eligibility assessment for Investor VISA / ITAS application",
@@ -609,7 +635,8 @@
           "Tax Identification Number (NPWP)",
           "Username and Password for PT PMA application access",
           "Approval of Conformity of Land Use Activities with Spatial Planning",
-          "Business Identification Number (NIB)"
+          "Business Identification Number (NIB)",
+          "Set Up Bank Account"
         ],
         "benefitsDetails": [
           "Deed of Establishment",

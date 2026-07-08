@@ -208,7 +208,7 @@
     "month": "Bulan",
     "items": [
       {
-        "title": "Laporan dan Perencanaan Pajak untuk Pribadi",
+        "title": "Laporan Pajak beserta Perencanaan Pajak untuk Pribadi",
         "link": "company-legal-amendments",
         "icon": "/animate/company-legal-amendments.json",
         "newService": false,
@@ -223,7 +223,11 @@
         "benefits": [
           "Pelaporan pajak pribadi untuk semua golongan (Dokter, Suami – Istri, Freelance, warga negara asing, dan semua yang memiliki NPWP)",
           "Rekapitulasi bukti potong PPh dari pemberi kerja",
-          "Rekapitulasi penghasilan dari usaha atau pekerjaan bebas"
+          "Rekapitulasi penghasilan dari usaha atau pekerjaan bebas",
+          "Analisis kewajaran angka pelaporan SPT",
+          "Perbandingan dengan SPT Tahun sebelumnya",
+          "Penyusunan perhitungan Pajak Penghasilan Tahunan",
+          "Pelaporan SPT Tahunan melalui sistem Coretax"
         ],
         "benefitsDetails": [
           "Pelaporan pajak pribadi untuk semua golongan (Dokter, Suami – Istri, Freelance, warga negara asing, dan semua yang memiliki NPWP)",
@@ -245,7 +249,7 @@
         }
       },
       {
-        "title": "Laporan dan Perencanaan Pajak untuk Perusahaan",
+        "title": "Laporan Pajak beserta Perencanaan Pajak untuk Perusahaan",
         "link": "tax-reporting-planning",
         "icon": "/animate/tax-reporting.lottie",
         "newService": false,
@@ -265,7 +269,9 @@
           "Pelaporan dan pengajuan pajak penjualan, pemotongan",
           "Kepatuhan dan pelaporan PPN/GST",
           "Layanan konsultasi pajak",
-          "Dukungan dalam audit pajak"
+          "Dukungan dalam audit pajak",
+          "Bantuan terkait PPN, pajak internasional, dan penyesuaian fiskal",
+          "Perhitungan pajak penghasilan yang akurat"
         ],
         "benefitsDetails": [
           "Persiapan dan pelaporan pajak penghasilan (korporasi, individu, dan kemitraan)",
@@ -310,7 +316,17 @@
           "Pengawasan buku besar umum",
           "Analisis dan pelaporan keuangan",
           "Manajemen aset tetap",
-          "Analisis varians (ROI, BEP, dll.)"
+          "Analisis varians (ROI, BEP, dll.)",
+          "Penyusunan dan pemeliharaan bagan akun",
+          "Pelaporan khusus untuk wawasan bisnis",
+          "Pencatatan transaksi keuangan harian",
+          "Rekonsiliasi bank, kartu kredit, dan pinjaman",
+          "Pemeliharaan buku besar umum",
+          "Manajemen utang dan piutang",
+          "Alokasi penggajian",
+          "Pelacakan dan pengkategorian pengeluaran",
+          "Persiapan neraca saldo",
+          "Manajemen arus kas"
         ],
         "benefitsDetails": [
           "Penyusunan laporan keuangan (seperti: neraca, laporan laba rugi, laporan arus kas)",
@@ -362,7 +378,10 @@
           "Support Approval Workflow dan Dokumentasi",
           "Custom Management Reporting",
           "Support Koordinasi Finance Secara Remote",
-          "Dan lainnya"
+          "Koordinasi dokumen dan approval workflow",
+          "Support penggunaan workflow digital dan aplikasi operasional",
+          "Periodic financial review discussion",
+          "Support koordinasi finance lintas PIC dan operasional"
         ],
         "benefitsDetails": [
           "Monitoring cash flow dan budget perusahaan",
@@ -400,7 +419,12 @@
           "Laporan Investasi (LKPM)",
           "Pendaftaran NPWP, EFIN, SERTIFIKAT ELEKTRONIK, AKUN CORETAX, NPWPD, dll",
           "Manajemen Kepesertaan BPJS Kesehatan dan Ketenagakerjaan",
-          "Pembuatan Standar Operasional Prosedur (SOP) Perusahaan"
+          "Pembuatan Standar Operasional Prosedur (SOP) Perusahaan",
+          "Pelaporan penjualan kostum e-commerce",
+          "Akuntansi khusus industri (misalnya, untuk konstruksi, e-commerce, manufaktur, atau lainnya)",
+          "Akuntansi berbasis proyek",
+          "Laporan persediaan, arus kas, dan lainnya yang mampu menggambarkan operasional perusahaan ",
+          "Pembuatan laporan lainnya sesuai keinginan anda"
         ],
         "benefitsDetails": [
           "Laporan Investasi (LKPM)",
@@ -526,7 +550,9 @@
           "Perhitungan dan pemrosesan penggajian",
           "Kepatuhan dan Perhitungan PPh 21 Karyawan",
           "Pembuatan slip gaji dan ringkasan pembayaran",
-          "Administrasi manfaat karyawan/ atau BPJS Kesehatan (Indonesia) dan manfaat tambahan lainnya"
+          "Administrasi manfaat karyawan/ atau BPJS Kesehatan (Indonesia) dan manfaat tambahan lainnya",
+          "Penanganan pemotongan pajak karyawan",
+          "Pengelolaan program pensiun dan superannuation/ atau BPJS Ketenagakerjaan (Indonesia)"
         ],
         "benefitsDetails": [
           "Perhitungan dan pemrosesan penggajian",
@@ -568,7 +594,14 @@
           "Pendampingan Registrasi Imigrasi",
           "Pelaporan dan Kepatuhan Dokumen",
           "Pendampingan Multiple Re-entry Permit",
-          "Dan lainnya"
+          "Pemeriksaan kelayakan pengajuan Investor VISA / ITAS",
+          "Pendampingan pengajuan Investor VISA / ITAS",
+          "Persiapan dan penelaahan dokumen",
+          "Proses registrasi keimigrasian",
+          "Pendampingan penerbitan VISA dan ITAS",
+          "Bantuan pelaporan dan kepatuhan dokumen",
+          "Panduan selama proses keimigrasian berlangsung",
+          "Konsultasi terkait persyaratan izin tinggal investor"
         ],
         "benefitsDetails": [
           "Pemeriksaan kelayakan pengajuan Investor VISA / ITAS",
@@ -607,7 +640,9 @@
           "Persetujuan dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia",
           "Nomor Pokok Wajib Pajak NPWP ",
           "User Password Website OSS",
-          "Persetujuan Kesesuaian Kegiatan Penggunaan Lahan dengan Tata Ruang"
+          "Persetujuan Kesesuaian Kegiatan Penggunaan Lahan dengan Tata Ruang",
+          "Nomor Induk Berusaha NIB",
+          "Pendampingan Pembukaan Rekening Bank"
         ],
         "benefitsDetails": [
           "Akta Pendirian Perusahaan",

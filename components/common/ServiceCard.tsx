@@ -83,10 +83,6 @@ const ServiceCard = ({
                 <span className="text-base">{benefit}</span>
               </li>
             ))}
-            <li className="flex items-start border-b">
-              <span className="mr-2 text-green-600 font-bold">✔</span>
-              <span className="text-base">etc...</span>
-            </li>
           </ul>
         </section>
       </div>
